@@ -1,0 +1,10 @@
+module main(testIn1,testOut1)
+
+input testIn1;
+input testOut1;
+
+assign testOut1=testIn1;
+
+
+
+endmodule

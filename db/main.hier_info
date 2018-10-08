@@ -1,0 +1,30 @@
+|main
+real100clock => real100clock.IN1
+testOut1 << VGADriver:driver.port1
+hsync << VGADriver:driver.port2
+vsync << VGADriver:driver.port3
+VGAclock << VGADriver:driver.port4
+VGAr[0] << <GND>
+VGAr[1] << <GND>
+VGAr[2] << <GND>
+VGAr[3] << <GND>
+VGAr[4] << <GND>
+VGAr[5] << <GND>
+VGAr[6] << <GND>
+VGAr[7] << <GND>
+VGAsync << <GND>
+VGAblanck << VGADriver:driver.port5
+t1 => ~NO_FANOUT~
+t2 => ~NO_FANOUT~
+t3 => ~NO_FANOUT~
+
+
+|main|VGADriver:driver
+real100clock => downClock.CLK
+out <= <GND>
+hsync <= hsync.DB_MAX_OUTPUT_PORT_TYPE
+vsync <= vsync.DB_MAX_OUTPUT_PORT_TYPE
+VGAclock <= downClock.DB_MAX_OUTPUT_PORT_TYPE
+VGAblanck <= LessThan4.DB_MAX_OUTPUT_PORT_TYPE
+
+

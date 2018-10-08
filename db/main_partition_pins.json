@@ -1,0 +1,29 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "hsync",
+					"strict" : false
+				},
+				{
+					"name" : "vsync",
+					"strict" : false
+				},
+				{
+					"name" : "VGAclock",
+					"strict" : false
+				},
+				{
+					"name" : "VGAblanck",
+					"strict" : false
+				},
+				{
+					"name" : "real100clock",
+					"strict" : false
+				}
+			]
+		}
+	]
+}
