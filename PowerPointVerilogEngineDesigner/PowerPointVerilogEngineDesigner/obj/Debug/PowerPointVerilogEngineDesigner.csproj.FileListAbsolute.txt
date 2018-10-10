@@ -1,0 +1,15 @@
+C:\Users\aleca\Desktop\UNI\Clases\2018-2019\ECE287\FinalProject\ECE287Project\PowerPointVerilogEngineDesigner\PowerPointVerilogEngineDesigner\bin\Debug\PowerPointVerilogEngineDesigner.exe.config
+C:\Users\aleca\Desktop\UNI\Clases\2018-2019\ECE287\FinalProject\ECE287Project\PowerPointVerilogEngineDesigner\PowerPointVerilogEngineDesigner\bin\Debug\PowerPointVerilogEngineDesigner.exe
+C:\Users\aleca\Desktop\UNI\Clases\2018-2019\ECE287\FinalProject\ECE287Project\PowerPointVerilogEngineDesigner\PowerPointVerilogEngineDesigner\bin\Debug\PowerPointVerilogEngineDesigner.pdb
+C:\Users\aleca\Desktop\UNI\Clases\2018-2019\ECE287\FinalProject\ECE287Project\PowerPointVerilogEngineDesigner\PowerPointVerilogEngineDesigner\bin\Debug\GemBox.Presentation.dll
+C:\Users\aleca\Desktop\UNI\Clases\2018-2019\ECE287\FinalProject\ECE287Project\PowerPointVerilogEngineDesigner\PowerPointVerilogEngineDesigner\bin\Debug\Newtonsoft.Json.dll
+C:\Users\aleca\Desktop\UNI\Clases\2018-2019\ECE287\FinalProject\ECE287Project\PowerPointVerilogEngineDesigner\PowerPointVerilogEngineDesigner\bin\Debug\GemBox.Presentation.xml
+C:\Users\aleca\Desktop\UNI\Clases\2018-2019\ECE287\FinalProject\ECE287Project\PowerPointVerilogEngineDesigner\PowerPointVerilogEngineDesigner\bin\Debug\Newtonsoft.Json.xml
+C:\Users\aleca\Desktop\UNI\Clases\2018-2019\ECE287\FinalProject\ECE287Project\PowerPointVerilogEngineDesigner\PowerPointVerilogEngineDesigner\obj\Debug\PowerPointVerilogEngineDesigner.csprojAssemblyReference.cache
+C:\Users\aleca\Desktop\UNI\Clases\2018-2019\ECE287\FinalProject\ECE287Project\PowerPointVerilogEngineDesigner\PowerPointVerilogEngineDesigner\obj\Debug\PowerPointVerilogEngineDesigner.Form1.resources
+C:\Users\aleca\Desktop\UNI\Clases\2018-2019\ECE287\FinalProject\ECE287Project\PowerPointVerilogEngineDesigner\PowerPointVerilogEngineDesigner\obj\Debug\PowerPointVerilogEngineDesigner.Properties.Resources.resources
+C:\Users\aleca\Desktop\UNI\Clases\2018-2019\ECE287\FinalProject\ECE287Project\PowerPointVerilogEngineDesigner\PowerPointVerilogEngineDesigner\obj\Debug\PowerPointVerilogEngineDesigner.csproj.GenerateResource.cache
+C:\Users\aleca\Desktop\UNI\Clases\2018-2019\ECE287\FinalProject\ECE287Project\PowerPointVerilogEngineDesigner\PowerPointVerilogEngineDesigner\obj\Debug\PowerPointVerilogEngineDesigner.csproj.CoreCompileInputs.cache
+C:\Users\aleca\Desktop\UNI\Clases\2018-2019\ECE287\FinalProject\ECE287Project\PowerPointVerilogEngineDesigner\PowerPointVerilogEngineDesigner\obj\Debug\PowerPointVerilogEngineDesigner.csproj.CopyComplete
+C:\Users\aleca\Desktop\UNI\Clases\2018-2019\ECE287\FinalProject\ECE287Project\PowerPointVerilogEngineDesigner\PowerPointVerilogEngineDesigner\obj\Debug\PowerPointVerilogEngineDesigner.exe
+C:\Users\aleca\Desktop\UNI\Clases\2018-2019\ECE287\FinalProject\ECE287Project\PowerPointVerilogEngineDesigner\PowerPointVerilogEngineDesigner\obj\Debug\PowerPointVerilogEngineDesigner.pdb
