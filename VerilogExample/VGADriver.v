@@ -1,13 +1,18 @@
-module VGADriver(real100clock,out,hsync,vsync,VGAclock,VGAblanck);
+module VGADriver(real100clock,hsync,vsync,VGAclock,VGAblanck,VGAsync,xPixel,yPixel);
+
 
 input real100clock;
+output VGAsync;
 output VGAblanck;
-output out;
 output VGAclock;
-reg out;
 
 reg [10:0]xPos;
 reg [10:0]yPos;
+
+output [9:0]xPixel;
+assign xPixel=xPos-161;
+output [8:0]yPixel;
+assign yPixel=yPos;
 
 output hsync,vsync;
 
@@ -16,22 +21,20 @@ reg downClock;
 
 reg [28:0] scaler;
 
-localparam desiredHz=25000000;
-
-//Timings https://timetoexplore.net/blog/video-timings-vga-720p-1080p
- localparam HS_STA = 16;              // horizontal sync start
- localparam HS_END = 16 + 96;         // horizontal sync end
- localparam HA_STA = 16 + 96 + 48;    // horizontal active pixel start
- localparam VS_STA = 480 + 11;        // vertical sync start
- localparam VS_END = 480 + 11 + 2;    // vertical sync end
- localparam VA_END = 480;             // vertical active pixel end
- localparam width   = 800;             // complete line (pixels)
- localparam height = 524;             // complete screen (lines)
+//Timings from https://timetoexplore.net/blog/video-timings-vga-720p-1080p
+ localparam hSyncS = 16;              // hSync start
+ localparam hSyncE = 16 + 96;         // hSync end
+ localparam vSyncS = 480 + 11;        // vSync start
+ localparam vSyncE = 480 + 11 + 2;    // vSync end
+ localparam width   = 800;             
+ localparam height = 524;             
+ 
+ assign VGAsync=1'b0;
  
  
-assign hsync = !((xPos >= HS_STA) & (xPos < HS_END));
-assign vsync = !((yPos >= VS_STA) & (yPos < VS_END));
-assign VGAblanck = ((xPos>12'd160)) ? 1'b1 : 1'b0;
+assign hsync = !((xPos >= hSyncS) & (xPos < hSyncE));
+assign vsync = !((yPos >= vSyncS) & (yPos < vSyncE));
+assign VGAblanck = ((xPos>12'd158)) ? 1'b1 : 1'b0;
  
 assign VGAclock=downClock; 
 

@@ -1,5 +1,5 @@
 Analysis & Synthesis report for main
-Sun Oct 07 20:47:12 2018
+Wed Oct 10 19:01:46 2018
 Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
 
 
@@ -44,16 +44,16 @@ agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sun Oct 07 20:47:12 2018       ;
+; Analysis & Synthesis Status        ; Successful - Wed Oct 10 19:01:46 2018       ;
 ; Quartus Prime Version              ; 16.1.0 Build 196 10/24/2016 SJ Lite Edition ;
 ; Revision Name                      ; main                                        ;
 ; Top-level Entity Name              ; main                                        ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 51                                          ;
-;     Total combinational functions  ; 51                                          ;
+; Total logic elements               ; 134                                         ;
+;     Total combinational functions  ; 134                                         ;
 ;     Dedicated logic registers      ; 23                                          ;
 ; Total registers                    ; 23                                          ;
-; Total pins                         ; 18                                          ;
+; Total pins                         ; 30                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
@@ -164,14 +164,15 @@ agreement for further details.
 +----------------------------+-------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                  ;
-+----------------------------------+-----------------+------------------------+-----------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                    ; Library ;
-+----------------------------------+-----------------+------------------------+-----------------------------------------------------------------+---------+
-; main.v                           ; yes             ; User Verilog HDL File  ; C:/Users/cabrera/Desktop/FinalProject/ECE287Project/main.v      ;         ;
-; VGADriver.v                      ; yes             ; User Verilog HDL File  ; C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VGADriver.v ;         ;
-+----------------------------------+-----------------+------------------------+-----------------------------------------------------------------+---------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                       ;
++----------------------------------+-----------------+------------------------+--------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                                         ; Library ;
++----------------------------------+-----------------+------------------------+--------------------------------------------------------------------------------------+---------+
+; IH8Verilog_main.v                ; yes             ; User Verilog HDL File  ; C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/IH8Verilog_main.v ;         ;
+; main.v                           ; yes             ; User Verilog HDL File  ; C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/main.v            ;         ;
+; VGADriver.v                      ; yes             ; User Verilog HDL File  ; C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/VGADriver.v       ;         ;
++----------------------------------+-----------------+------------------------+--------------------------------------------------------------------------------------+---------+
 
 
 +--------------------------------------------------------------------------+
@@ -179,41 +180,42 @@ agreement for further details.
 +---------------------------------------------+----------------------------+
 ; Resource                                    ; Usage                      ;
 +---------------------------------------------+----------------------------+
-; Estimated Total logic elements              ; 51                         ;
+; Estimated Total logic elements              ; 134                        ;
 ;                                             ;                            ;
-; Total combinational functions               ; 51                         ;
+; Total combinational functions               ; 134                        ;
 ; Logic element usage by number of LUT inputs ;                            ;
-;     -- 4 input functions                    ; 20                         ;
-;     -- 3 input functions                    ; 6                          ;
-;     -- <=2 input functions                  ; 25                         ;
+;     -- 4 input functions                    ; 72                         ;
+;     -- 3 input functions                    ; 21                         ;
+;     -- <=2 input functions                  ; 41                         ;
 ;                                             ;                            ;
 ; Logic elements by mode                      ;                            ;
-;     -- normal mode                          ; 31                         ;
-;     -- arithmetic mode                      ; 20                         ;
+;     -- normal mode                          ; 105                        ;
+;     -- arithmetic mode                      ; 29                         ;
 ;                                             ;                            ;
 ; Total registers                             ; 23                         ;
 ;     -- Dedicated logic registers            ; 23                         ;
 ;     -- I/O registers                        ; 0                          ;
 ;                                             ;                            ;
-; I/O pins                                    ; 18                         ;
+; I/O pins                                    ; 30                         ;
 ;                                             ;                            ;
 ; Embedded Multiplier 9-bit elements          ; 0                          ;
 ;                                             ;                            ;
 ; Maximum fan-out node                        ; VGADriver:driver|downClock ;
 ; Maximum fan-out                             ; 24                         ;
-; Total fan-out                               ; 224                        ;
-; Average fan-out                             ; 2.04                       ;
+; Total fan-out                               ; 542                        ;
+; Average fan-out                             ; 2.50                       ;
 +---------------------------------------------+----------------------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                         ;
-+----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------+-------------+--------------+
-; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name    ; Entity Name ; Library Name ;
-+----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------+-------------+--------------+
-; |main                      ; 51 (0)              ; 23 (0)                    ; 0           ; 0            ; 0       ; 0         ; 18   ; 0            ; |main                  ; main        ; work         ;
-;    |VGADriver:driver|      ; 51 (51)             ; 23 (23)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|VGADriver:driver ; VGADriver   ; work         ;
-+----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------+-------------+--------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                            ;
++-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------+-----------------------------+--------------+
+; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                        ; Entity Name                 ; Library Name ;
++-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------+-----------------------------+--------------+
+; |main                                     ; 134 (0)             ; 23 (0)                    ; 0           ; 0            ; 0       ; 0         ; 30   ; 0            ; |main                                      ; main                        ; work         ;
+;    |PP2VerilogDrawingController:drawings| ; 69 (69)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|PP2VerilogDrawingController:drawings ; PP2VerilogDrawingController ; work         ;
+;    |VGADriver:driver|                     ; 65 (65)             ; 23 (23)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|VGADriver:driver                     ; VGADriver                   ; work         ;
++-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------+-----------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -232,14 +234,16 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output      ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------+
-; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |main|VGADriver:driver|yPos[10] ;
-; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |main|VGADriver:driver|xPos[10] ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------+
+; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |main|VGADriver:driver|yPos[0]                     ;
+; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |main|VGADriver:driver|xPos[5]                     ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |main|PP2VerilogDrawingController:drawings|VGAr[2] ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |main|PP2VerilogDrawingController:drawings|VGAr[0] ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------+
 
 
 +-----------------------------------------------------+
@@ -247,22 +251,22 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 18                          ;
+; boundary_port         ; 30                          ;
 ; cycloneiii_ff         ; 23                          ;
 ;     SCLR              ; 11                          ;
 ;     plain             ; 12                          ;
-; cycloneiii_lcell_comb ; 52                          ;
-;     arith             ; 20                          ;
-;         2 data inputs ; 20                          ;
-;     normal            ; 32                          ;
+; cycloneiii_lcell_comb ; 136                         ;
+;     arith             ; 29                          ;
+;         2 data inputs ; 29                          ;
+;     normal            ; 107                         ;
 ;         0 data inputs ; 1                           ;
-;         1 data inputs ; 3                           ;
-;         2 data inputs ; 2                           ;
-;         3 data inputs ; 6                           ;
-;         4 data inputs ; 20                          ;
+;         1 data inputs ; 5                           ;
+;         2 data inputs ; 8                           ;
+;         3 data inputs ; 21                          ;
+;         4 data inputs ; 72                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 3.00                        ;
-; Average LUT depth     ; 2.49                        ;
+; Max LUT depth         ; 8.20                        ;
+; Average LUT depth     ; 5.05                        ;
 +-----------------------+-----------------------------+
 
 
@@ -281,45 +285,38 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
-    Info: Processing started: Sun Oct 07 20:47:04 2018
+    Info: Processing started: Wed Oct 10 19:01:37 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off FinalProjectAlejandroWill -c main
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file ih8verilog_main.v
+    Info (12023): Found entity 1: PP2VerilogDrawingController File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file main.v
-    Info (12023): Found entity 1: main File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/main.v Line: 1
+    Info (12023): Found entity 1: main File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/main.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file vgadriver.v
-    Info (12023): Found entity 1: VGADriver File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VGADriver.v Line: 1
+    Info (12023): Found entity 1: VGADriver File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/VGADriver.v Line: 1
 Info (12127): Elaborating entity "main" for the top level hierarchy
-Info (12128): Elaborating entity "VGADriver" for hierarchy "VGADriver:driver" File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/main.v Line: 22
-Warning (10230): Verilog HDL assignment warning at VGADriver.v(51): truncated value with size 32 to match size of target (11) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VGADriver.v Line: 51
-Warning (10230): Verilog HDL assignment warning at VGADriver.v(55): truncated value with size 32 to match size of target (11) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VGADriver.v Line: 55
-Warning (10034): Output port "out" at VGADriver.v(5) has no driver File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VGADriver.v Line: 5
+Info (12128): Elaborating entity "VGADriver" for hierarchy "VGADriver:driver" File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/main.v Line: 21
+Warning (10230): Verilog HDL assignment warning at VGADriver.v(13): truncated value with size 32 to match size of target (10) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/VGADriver.v Line: 13
+Warning (10230): Verilog HDL assignment warning at VGADriver.v(15): truncated value with size 11 to match size of target (9) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/VGADriver.v Line: 15
+Warning (10230): Verilog HDL assignment warning at VGADriver.v(54): truncated value with size 32 to match size of target (11) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/VGADriver.v Line: 54
+Warning (10230): Verilog HDL assignment warning at VGADriver.v(58): truncated value with size 32 to match size of target (11) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/VGADriver.v Line: 58
+Info (12128): Elaborating entity "PP2VerilogDrawingController" for hierarchy "PP2VerilogDrawingController:drawings" File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/main.v Line: 23
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "testOut1" is stuck at GND File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/main.v Line: 9
-    Warning (13410): Pin "VGAr[0]" is stuck at GND File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/main.v Line: 3
-    Warning (13410): Pin "VGAr[1]" is stuck at GND File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/main.v Line: 3
-    Warning (13410): Pin "VGAr[2]" is stuck at GND File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/main.v Line: 3
-    Warning (13410): Pin "VGAr[3]" is stuck at GND File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/main.v Line: 3
-    Warning (13410): Pin "VGAr[4]" is stuck at GND File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/main.v Line: 3
-    Warning (13410): Pin "VGAr[5]" is stuck at GND File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/main.v Line: 3
-    Warning (13410): Pin "VGAr[6]" is stuck at GND File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/main.v Line: 3
-    Warning (13410): Pin "VGAr[7]" is stuck at GND File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/main.v Line: 3
-    Warning (13410): Pin "VGAsync" is stuck at GND File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/main.v Line: 4
+    Warning (13410): Pin "VGAr[1]" is stuck at GND File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/main.v Line: 3
+    Warning (13410): Pin "VGAb[3]" is stuck at GND File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/main.v Line: 5
+    Warning (13410): Pin "VGAsync" is stuck at GND File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/main.v Line: 6
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 3 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "t1" File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/main.v Line: 12
-    Warning (15610): No output dependent on input pin "t2" File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/main.v Line: 12
-    Warning (15610): No output dependent on input pin "t3" File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/main.v Line: 12
-Info (21057): Implemented 69 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 4 input pins
-    Info (21059): Implemented 14 output pins
-    Info (21061): Implemented 51 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 19 warnings
-    Info: Peak virtual memory: 4786 megabytes
-    Info: Processing ended: Sun Oct 07 20:47:12 2018
-    Info: Elapsed time: 00:00:08
+Info (21057): Implemented 164 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 1 input pins
+    Info (21059): Implemented 29 output pins
+    Info (21061): Implemented 134 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 9 warnings
+    Info: Peak virtual memory: 4787 megabytes
+    Info: Processing ended: Wed Oct 10 19:01:46 2018
+    Info: Elapsed time: 00:00:09
     Info: Total CPU time (on all processors): 00:00:19
 
 

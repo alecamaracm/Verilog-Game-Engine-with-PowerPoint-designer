@@ -3,19 +3,19 @@ TimeQuest Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow 1200mV 85C Model Setup 'VGADriver:driver|downClock'
-Slack : -2.275
-TNS   : -47.902
+Slack : -2.426
+TNS   : -48.367
 
 Type  : Slow 1200mV 85C Model Setup 'real100clock'
-Slack : -0.555
-TNS   : -0.555
+Slack : -0.570
+TNS   : -0.570
 
 Type  : Slow 1200mV 85C Model Hold 'VGADriver:driver|downClock'
-Slack : 0.402
+Slack : 0.404
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'real100clock'
-Slack : 0.421
+Slack : 0.431
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'real100clock'
@@ -27,19 +27,19 @@ Slack : -1.285
 TNS   : -28.270
 
 Type  : Slow 1200mV 0C Model Setup 'VGADriver:driver|downClock'
-Slack : -2.034
-TNS   : -42.588
+Slack : -2.156
+TNS   : -42.962
 
 Type  : Slow 1200mV 0C Model Setup 'real100clock'
-Slack : -0.431
-TNS   : -0.431
-
-Type  : Slow 1200mV 0C Model Hold 'real100clock'
-Slack : 0.350
-TNS   : 0.000
+Slack : -0.450
+TNS   : -0.450
 
 Type  : Slow 1200mV 0C Model Hold 'VGADriver:driver|downClock'
-Slack : 0.354
+Slack : 0.355
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'real100clock'
+Slack : 0.363
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'real100clock'
@@ -51,19 +51,19 @@ Slack : -1.285
 TNS   : -28.270
 
 Type  : Fast 1200mV 0C Model Setup 'VGADriver:driver|downClock'
-Slack : -0.601
-TNS   : -12.176
+Slack : -0.647
+TNS   : -12.326
 
 Type  : Fast 1200mV 0C Model Setup 'real100clock'
-Slack : 0.001
-TNS   : 0.000
+Slack : -0.004
+TNS   : -0.004
 
 Type  : Fast 1200mV 0C Model Hold 'real100clock'
-Slack : 0.163
+Slack : 0.167
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'VGADriver:driver|downClock'
-Slack : 0.181
+Slack : 0.182
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'real100clock'

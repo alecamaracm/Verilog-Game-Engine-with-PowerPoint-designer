@@ -48,18 +48,14 @@ set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
 set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
 set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 1
 set_global_assignment -name NOMINAL_CORE_SUPPLY_VOLTAGE 1.2V
-set_global_assignment -name VERILOG_FILE main.v
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_location_assignment PIN_F17 -to testOut1
 set_location_assignment PIN_M21 -to testIn1
-set_global_assignment -name CDF_FILE output_files/Chain1.cdf
-set_global_assignment -name VERILOG_FILE VGADriver.v
 set_location_assignment PIN_R24 -to clock
 set_location_assignment PIN_M23 -to clock2
 set_location_assignment PIN_AG14 -to real100clock
-set_global_assignment -name CDF_FILE output_files/Chain2.cdf
 set_location_assignment PIN_G13 -to hsync
 set_location_assignment PIN_C13 -to vsync
 set_location_assignment PIN_E12 -to VGAr[0]
@@ -76,4 +72,27 @@ set_location_assignment PIN_F11 -to VGAblanck
 set_location_assignment PIN_AC28 -to t2
 set_location_assignment PIN_N21 -to t3
 set_location_assignment PIN_AB28 -to t1
+set_location_assignment PIN_G11 -to VGAg[1]
+set_location_assignment PIN_F8 -to VGAg[2]
+set_location_assignment PIN_H12 -to VGAg[3]
+set_location_assignment PIN_C8 -to VGAg[4]
+set_location_assignment PIN_B8 -to VGAg[5]
+set_location_assignment PIN_F10 -to VGAg[6]
+set_location_assignment PIN_C9 -to VGAg[7]
+set_location_assignment PIN_B10 -to VGAb[0]
+set_location_assignment PIN_A10 -to VGAb[1]
+set_location_assignment PIN_C11 -to VGAb[2]
+set_location_assignment PIN_B11 -to VGAb[3]
+set_location_assignment PIN_A11 -to VGAb[4]
+set_location_assignment PIN_C12 -to VGAb[5]
+set_location_assignment PIN_D11 -to VGAb[6]
+set_location_assignment PIN_D12 -to VGAb[7]
+set_location_assignment PIN_G8 -to VGAg[0]
+set_global_assignment -name VERILOG_FILE IH8Verilog_main.v
+set_global_assignment -name VERILOG_FILE main.v
+set_global_assignment -name CDF_FILE output_files/Chain1.cdf
+set_global_assignment -name VERILOG_FILE VGADriver.v
+set_global_assignment -name CDF_FILE output_files/Chain2.cdf
+set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
+set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
