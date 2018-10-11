@@ -164,8 +164,8 @@ namespace PowerPointVerilogEngineDesigner
                                 {
                                     if ((color.R != startingColor.R || color.G != startingColor.G || color.B != startingColor.B) || j == colorSetBitmap.Width - 1) //Not the same, write the old one  || From startingPixel to current-1 in width (j)
                                     {
-                                        writer.Write(getTabs(tabs) + "if(xPixel>=" + i * compresionFactor + " && xPixel<" + ((i + 1) * compresionFactor) + " && yPixel>=" + startingPixel * compresionFactor + " && yPixel<" + j * compresionFactor + ") ");
-                                        writer.WriteLine("{VGAr,VGAg,VRAb}={" + formatNumber("b", 8, Convert.ToString(startingColor.R, 2).PadLeft(8, '0')) + "," + formatNumber("b", 8, Convert.ToString(startingColor.G, 2).PadLeft(8, '0')) + "," + formatNumber("b", 8, Convert.ToString(startingColor.B, 2).PadLeft(8, '0')) + "};");
+                                        writer.Write(getTabs(tabs) + "if(yPixel>=" + (int)(finalLayout.Top+(i * compresionFactor)) + " && yPixel<" + (int)(finalLayout.Top + ((i + 1) * compresionFactor)) + " && xPixel>=" + (int)(finalLayout.Left + (startingPixel * compresionFactor)) + " && xPixel<" + (int)(finalLayout.Left + (j * compresionFactor)) + ") ");
+                                        writer.WriteLine("{VGAr,VGAg,VGAb}={" + formatNumber("b", 8, Convert.ToString(startingColor.R, 2).PadLeft(8, '0')) + "," + formatNumber("b", 8, Convert.ToString(startingColor.G, 2).PadLeft(8, '0')) + "," + formatNumber("b", 8, Convert.ToString(startingColor.B, 2).PadLeft(8, '0')) + "};");
 
                                         startingColor = color;
                                         startingPixel = j;
@@ -363,9 +363,9 @@ namespace PowerPointVerilogEngineDesigner
                 }
                 else  //Custom color based trnasparency allowed
                 {
-                    writer.WriteLine(getTabs(tabs + 1) + "VGAr = (" + formatNumber("b", 8, Convert.ToString((int)(color.R*(color.A/255.0)), 2).PadLeft(8, '0')) + " + ((" + (int)((color.A / 255.0) * 100)+" * VGAr) / 100);");
-                    writer.WriteLine(getTabs(tabs + 1) + "VGAg = (" + formatNumber("b", 8, Convert.ToString((int)(color.G*(color.A / 255.0)), 2).PadLeft(8, '0')) + " + ((" + (int)((color.A / 255.0) * 100) + " * VGAg) / 100);");
-                    writer.WriteLine(getTabs(tabs + 1) + "VGAb = (" + formatNumber("b", 8, Convert.ToString((int)(color.B * (color.A / 255.0)), 2).PadLeft(8, '0')) + " + ((" + (int)((color.A / 255.0) * 100) + " * VGAb) / 100);");
+                    writer.WriteLine(getTabs(tabs + 1) + "VGAr = (" + formatNumber("b", 8, Convert.ToString((int)(color.R*(color.A/255.0)), 2).PadLeft(8, '0')) + " + ((" + (int)((color.A / 255.0) * 100)+" * VGAr) / 100));");
+                    writer.WriteLine(getTabs(tabs + 1) + "VGAg = (" + formatNumber("b", 8, Convert.ToString((int)(color.G*(color.A / 255.0)), 2).PadLeft(8, '0')) + " + ((" + (int)((color.A / 255.0) * 100) + " * VGAg) / 100));");
+                    writer.WriteLine(getTabs(tabs + 1) + "VGAb = (" + formatNumber("b", 8, Convert.ToString((int)(color.B * (color.A / 255.0)), 2).PadLeft(8, '0')) + " + ((" + (int)((color.A / 255.0) * 100) + " * VGAb) / 100));");
                 }
             }
 
@@ -398,9 +398,9 @@ namespace PowerPointVerilogEngineDesigner
                     }
                     else
                     {
-                        writer.WriteLine(getTabs(tabs + 2) + "VGAr = (" + formatNumber("b", 8, Convert.ToString((int)(outlineFill.Color.R * (outlineFill.Color.A/100)), 2).PadLeft(8, '0')) + " + ((" + (int)((outlineFill.Color.A / 100) * 100) + " * VGAr) / 100);");
-                        writer.WriteLine(getTabs(tabs + 2) + "VGAg = (" + formatNumber("b", 8, Convert.ToString((int)(outlineFill.Color.G * (outlineFill.Color.A / 100)), 2).PadLeft(8, '0')) + " + ((" + (int)((outlineFill.Color.A / 100) * 100) + " * VGAg) / 100);");
-                        writer.WriteLine(getTabs(tabs + 2) + "VGAb = (" + formatNumber("b", 8, Convert.ToString((int)(outlineFill.Color.B * (outlineFill.Color.A / 100)), 2).PadLeft(8, '0')) + " + ((" + (int)((outlineFill.Color.A / 100) * 100) + " * VGAb) / 100);");
+                        writer.WriteLine(getTabs(tabs + 2) + "VGAr = (" + formatNumber("b", 8, Convert.ToString((int)(outlineFill.Color.R * (outlineFill.Color.A/100)), 2).PadLeft(8, '0')) + " + ((" + (int)((outlineFill.Color.A / 100) * 100) + " * VGAr) / 100));");
+                        writer.WriteLine(getTabs(tabs + 2) + "VGAg = (" + formatNumber("b", 8, Convert.ToString((int)(outlineFill.Color.G * (outlineFill.Color.A / 100)), 2).PadLeft(8, '0')) + " + ((" + (int)((outlineFill.Color.A / 100) * 100) + " * VGAg) / 100));");
+                        writer.WriteLine(getTabs(tabs + 2) + "VGAb = (" + formatNumber("b", 8, Convert.ToString((int)(outlineFill.Color.B * (outlineFill.Color.A / 100)), 2).PadLeft(8, '0')) + " + ((" + (int)((outlineFill.Color.A / 100) * 100) + " * VGAb) / 100));");
 
                     }
                 }

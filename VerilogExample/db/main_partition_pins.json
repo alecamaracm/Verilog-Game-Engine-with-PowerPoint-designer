@@ -20,6 +20,10 @@
 					"strict" : false
 				},
 				{
+					"name" : "VGAr[1]",
+					"strict" : false
+				},
+				{
 					"name" : "VGAr[2]",
 					"strict" : false
 				},
@@ -85,6 +89,10 @@
 				},
 				{
 					"name" : "VGAb[2]",
+					"strict" : false
+				},
+				{
+					"name" : "VGAb[3]",
 					"strict" : false
 				},
 				{

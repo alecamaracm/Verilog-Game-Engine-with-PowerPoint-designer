@@ -1,5 +1,5 @@
 Analysis & Synthesis report for main
-Wed Oct 10 19:01:46 2018
+Thu Oct 11 16:07:07 2018
 Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
 
 
@@ -44,13 +44,13 @@ agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed Oct 10 19:01:46 2018       ;
+; Analysis & Synthesis Status        ; Successful - Thu Oct 11 16:07:07 2018       ;
 ; Quartus Prime Version              ; 16.1.0 Build 196 10/24/2016 SJ Lite Edition ;
 ; Revision Name                      ; main                                        ;
 ; Top-level Entity Name              ; main                                        ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 134                                         ;
-;     Total combinational functions  ; 134                                         ;
+; Total logic elements               ; 5,666                                       ;
+;     Total combinational functions  ; 5,666                                       ;
 ;     Dedicated logic registers      ; 23                                          ;
 ; Total registers                    ; 23                                          ;
 ; Total pins                         ; 30                                          ;
@@ -160,7 +160,9 @@ agreement for further details.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-4         ;   0.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processor 3            ;   0.0%      ;
+;     Processor 4            ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -175,36 +177,36 @@ agreement for further details.
 +----------------------------------+-----------------+------------------------+--------------------------------------------------------------------------------------+---------+
 
 
-+--------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                              ;
-+---------------------------------------------+----------------------------+
-; Resource                                    ; Usage                      ;
-+---------------------------------------------+----------------------------+
-; Estimated Total logic elements              ; 134                        ;
-;                                             ;                            ;
-; Total combinational functions               ; 134                        ;
-; Logic element usage by number of LUT inputs ;                            ;
-;     -- 4 input functions                    ; 72                         ;
-;     -- 3 input functions                    ; 21                         ;
-;     -- <=2 input functions                  ; 41                         ;
-;                                             ;                            ;
-; Logic elements by mode                      ;                            ;
-;     -- normal mode                          ; 105                        ;
-;     -- arithmetic mode                      ; 29                         ;
-;                                             ;                            ;
-; Total registers                             ; 23                         ;
-;     -- Dedicated logic registers            ; 23                         ;
-;     -- I/O registers                        ; 0                          ;
-;                                             ;                            ;
-; I/O pins                                    ; 30                         ;
-;                                             ;                            ;
-; Embedded Multiplier 9-bit elements          ; 0                          ;
-;                                             ;                            ;
-; Maximum fan-out node                        ; VGADriver:driver|downClock ;
-; Maximum fan-out                             ; 24                         ;
-; Total fan-out                               ; 542                        ;
-; Average fan-out                             ; 2.50                       ;
-+---------------------------------------------+----------------------------+
++------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                            ;
++---------------------------------------------+--------------------------+
+; Resource                                    ; Usage                    ;
++---------------------------------------------+--------------------------+
+; Estimated Total logic elements              ; 5,666                    ;
+;                                             ;                          ;
+; Total combinational functions               ; 5666                     ;
+; Logic element usage by number of LUT inputs ;                          ;
+;     -- 4 input functions                    ; 4638                     ;
+;     -- 3 input functions                    ; 799                      ;
+;     -- <=2 input functions                  ; 229                      ;
+;                                             ;                          ;
+; Logic elements by mode                      ;                          ;
+;     -- normal mode                          ; 5617                     ;
+;     -- arithmetic mode                      ; 49                       ;
+;                                             ;                          ;
+; Total registers                             ; 23                       ;
+;     -- Dedicated logic registers            ; 23                       ;
+;     -- I/O registers                        ; 0                        ;
+;                                             ;                          ;
+; I/O pins                                    ; 30                       ;
+;                                             ;                          ;
+; Embedded Multiplier 9-bit elements          ; 0                        ;
+;                                             ;                          ;
+; Maximum fan-out node                        ; VGADriver:driver|Add0~18 ;
+; Maximum fan-out                             ; 1094                     ;
+; Total fan-out                               ; 21512                    ;
+; Average fan-out                             ; 3.74                     ;
++---------------------------------------------+--------------------------+
 
 
 +----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -212,9 +214,9 @@ agreement for further details.
 +-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------+-----------------------------+--------------+
 ; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                        ; Entity Name                 ; Library Name ;
 +-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------+-----------------------------+--------------+
-; |main                                     ; 134 (0)             ; 23 (0)                    ; 0           ; 0            ; 0       ; 0         ; 30   ; 0            ; |main                                      ; main                        ; work         ;
-;    |PP2VerilogDrawingController:drawings| ; 69 (69)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|PP2VerilogDrawingController:drawings ; PP2VerilogDrawingController ; work         ;
-;    |VGADriver:driver|                     ; 65 (65)             ; 23 (23)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|VGADriver:driver                     ; VGADriver                   ; work         ;
+; |main                                     ; 5666 (0)            ; 23 (0)                    ; 0           ; 0            ; 0       ; 0         ; 30   ; 0            ; |main                                      ; main                        ; work         ;
+;    |PP2VerilogDrawingController:drawings| ; 5604 (5604)         ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|PP2VerilogDrawingController:drawings ; PP2VerilogDrawingController ; work         ;
+;    |VGADriver:driver|                     ; 62 (62)             ; 23 (23)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|VGADriver:driver                     ; VGADriver                   ; work         ;
 +-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------+-----------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -240,9 +242,11 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                         ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------+
 ; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |main|VGADriver:driver|yPos[0]                     ;
-; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |main|VGADriver:driver|xPos[5]                     ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |main|PP2VerilogDrawingController:drawings|VGAr[2] ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |main|PP2VerilogDrawingController:drawings|VGAr[0] ;
+; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |main|VGADriver:driver|xPos[10]                    ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |main|PP2VerilogDrawingController:drawings|VGAr    ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |main|PP2VerilogDrawingController:drawings|VGAg    ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |main|PP2VerilogDrawingController:drawings|VGAb    ;
+; 1546:1             ; 22 bits   ; 22660 LEs     ; 22660 LEs            ; 0 LEs                  ; No         ; |main|PP2VerilogDrawingController:drawings|VGAr[6] ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------+
 
 
@@ -255,18 +259,19 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; cycloneiii_ff         ; 23                          ;
 ;     SCLR              ; 11                          ;
 ;     plain             ; 12                          ;
-; cycloneiii_lcell_comb ; 136                         ;
-;     arith             ; 29                          ;
-;         2 data inputs ; 29                          ;
-;     normal            ; 107                         ;
-;         0 data inputs ; 1                           ;
-;         1 data inputs ; 5                           ;
-;         2 data inputs ; 8                           ;
-;         3 data inputs ; 21                          ;
-;         4 data inputs ; 72                          ;
+; cycloneiii_lcell_comb ; 5667                        ;
+;     arith             ; 49                          ;
+;         2 data inputs ; 42                          ;
+;         3 data inputs ; 7                           ;
+;     normal            ; 5618                        ;
+;         0 data inputs ; 4                           ;
+;         1 data inputs ; 4                           ;
+;         2 data inputs ; 180                         ;
+;         3 data inputs ; 792                         ;
+;         4 data inputs ; 4638                        ;
 ;                       ;                             ;
-; Max LUT depth         ; 8.20                        ;
-; Average LUT depth     ; 5.05                        ;
+; Max LUT depth         ; 92.20                       ;
+; Average LUT depth     ; 52.35                       ;
 +-----------------------+-----------------------------+
 
 
@@ -275,7 +280,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:00     ;
+; Top            ; 00:01:06     ;
 +----------------+--------------+
 
 
@@ -285,7 +290,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
-    Info: Processing started: Wed Oct 10 19:01:37 2018
+    Info: Processing started: Thu Oct 11 16:05:32 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off FinalProjectAlejandroWill -c main
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -302,21 +307,28 @@ Warning (10230): Verilog HDL assignment warning at VGADriver.v(15): truncated va
 Warning (10230): Verilog HDL assignment warning at VGADriver.v(54): truncated value with size 32 to match size of target (11) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/VGADriver.v Line: 54
 Warning (10230): Verilog HDL assignment warning at VGADriver.v(58): truncated value with size 32 to match size of target (11) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/VGADriver.v Line: 58
 Info (12128): Elaborating entity "PP2VerilogDrawingController" for hierarchy "PP2VerilogDrawingController:drawings" File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/main.v Line: 23
+Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(59): truncated value with size 32 to match size of target (8) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 59
+Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(60): truncated value with size 32 to match size of target (8) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 60
+Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(61): truncated value with size 32 to match size of target (8) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 61
+Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(78): truncated value with size 32 to match size of target (8) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 78
+Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(79): truncated value with size 32 to match size of target (8) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 79
+Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(80): truncated value with size 32 to match size of target (8) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 80
+Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(87): truncated value with size 32 to match size of target (8) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 87
+Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(88): truncated value with size 32 to match size of target (8) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 88
+Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(89): truncated value with size 32 to match size of target (8) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 89
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "VGAr[1]" is stuck at GND File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/main.v Line: 3
-    Warning (13410): Pin "VGAb[3]" is stuck at GND File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/main.v Line: 5
     Warning (13410): Pin "VGAsync" is stuck at GND File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/main.v Line: 6
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 164 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 5696 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 1 input pins
     Info (21059): Implemented 29 output pins
-    Info (21061): Implemented 134 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 9 warnings
-    Info: Peak virtual memory: 4787 megabytes
-    Info: Processing ended: Wed Oct 10 19:01:46 2018
-    Info: Elapsed time: 00:00:09
-    Info: Total CPU time (on all processors): 00:00:19
+    Info (21061): Implemented 5666 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 16 warnings
+    Info: Peak virtual memory: 4835 megabytes
+    Info: Processing ended: Thu Oct 11 16:07:07 2018
+    Info: Elapsed time: 00:01:35
+    Info: Total CPU time (on all processors): 00:01:45
 
 
