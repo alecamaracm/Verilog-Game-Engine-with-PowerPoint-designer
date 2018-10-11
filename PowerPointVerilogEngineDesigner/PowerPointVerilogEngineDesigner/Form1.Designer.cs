@@ -38,7 +38,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxProjectName = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.checkBoxClearLog = new System.Windows.Forms.CheckBox();
             this.checkBoxAutoCompile = new System.Windows.Forms.CheckBox();
+            this.textBoxOutput = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -76,14 +79,14 @@
             // openProjectToolStripMenuItem
             // 
             this.openProjectToolStripMenuItem.Name = "openProjectToolStripMenuItem";
-            this.openProjectToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.openProjectToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.openProjectToolStripMenuItem.Text = "Open project";
             this.openProjectToolStripMenuItem.Click += new System.EventHandler(this.openProjectToolStripMenuItem_Click);
             // 
             // saveProjectToolStripMenuItem
             // 
             this.saveProjectToolStripMenuItem.Name = "saveProjectToolStripMenuItem";
-            this.saveProjectToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saveProjectToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.saveProjectToolStripMenuItem.Text = "Save project";
             this.saveProjectToolStripMenuItem.Click += new System.EventHandler(this.saveProjectToolStripMenuItem_Click);
             // 
@@ -126,6 +129,19 @@
             this.panel1.Size = new System.Drawing.Size(277, 449);
             this.panel1.TabIndex = 4;
             // 
+            // checkBoxClearLog
+            // 
+            this.checkBoxClearLog.AutoSize = true;
+            this.checkBoxClearLog.Checked = true;
+            this.checkBoxClearLog.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxClearLog.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBoxClearLog.Location = new System.Drawing.Point(912, 33);
+            this.checkBoxClearLog.Name = "checkBoxClearLog";
+            this.checkBoxClearLog.Size = new System.Drawing.Size(172, 25);
+            this.checkBoxClearLog.TabIndex = 6;
+            this.checkBoxClearLog.Text = "Clear log on compile";
+            this.checkBoxClearLog.UseVisualStyleBackColor = true;
+            // 
             // checkBoxAutoCompile
             // 
             this.checkBoxAutoCompile.AutoSize = true;
@@ -137,11 +153,34 @@
             this.checkBoxAutoCompile.Text = "Auto compile";
             this.checkBoxAutoCompile.UseVisualStyleBackColor = true;
             // 
+            // textBoxOutput
+            // 
+            this.textBoxOutput.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxOutput.Location = new System.Drawing.Point(297, 60);
+            this.textBoxOutput.Multiline = true;
+            this.textBoxOutput.Name = "textBoxOutput";
+            this.textBoxOutput.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBoxOutput.Size = new System.Drawing.Size(777, 423);
+            this.textBoxOutput.TabIndex = 5;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(296, 34);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(157, 21);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Compilation output:";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1085, 491);
+            this.Controls.Add(this.checkBoxClearLog);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.textBoxOutput);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -169,6 +208,9 @@
         private System.Windows.Forms.TextBox textBoxProjectName;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.CheckBox checkBoxAutoCompile;
+        private System.Windows.Forms.TextBox textBoxOutput;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.CheckBox checkBoxClearLog;
     }
 }
 

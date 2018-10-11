@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Globalization;
 using System.IO;
@@ -26,59 +27,74 @@ namespace PowerPointVerilogEngineDesigner
 
         public Form1()
         {
+                 InitializeComponent();
+
+            Console.SetOut(new MultiTextWriter(new ControlWriter(textBoxOutput), Console.Out));
             ComponentInfo.SetLicense("FREE-LIMITED-KEY");
 
-           
-            
-
-            InitializeComponent();
+      
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            mainDocument = PresentationDocument.Load(currentProjectFolderPath + "\\PPVerilogEngine\\main.pptx");
-            foreach(var slide in mainDocument.Slides)
-            {
-                foreach(var shape in slide.Content.Drawings)
+            if (checkBoxClearLog.Checked) textBoxOutput.Clear();
+
+            Task.Run(() => {
+                Stopwatch watch = new Stopwatch();
+                watch.Start();
+                Console.WriteLine("Loading PowerPoint document main.pptx...");
+                mainDocument = PresentationDocument.Load(currentProjectFolderPath + "\\PPVerilogEngine\\main.pptx");
+                Console.WriteLine("Loaded PowerPoint document main.pptx!");
+
+                using (StreamWriter writer = new StreamWriter(currentProjectFolderPath + "\\IH8Verilog_main.v"))
                 {
-                   
+                    Console.WriteLine("Writing main module definition...");
+                    writer.WriteLine("module PP2VerilogDrawingController(xPixel,yPixel,VGAr,VGAg,VGAb);" + Environment.NewLine);
+
+                    writer.WriteLine("input [9:0]xPixel;" + Environment.NewLine + "input[8:0]yPixel;");
+                    writer.WriteLine("output [7:0]VGAr;");
+                    writer.WriteLine("output [7:0]VGAg;");
+                    writer.WriteLine("output [7:0]VGAb;");
+                    writer.WriteLine("reg [7:0]VGAr;");
+                    writer.WriteLine("reg [7:0]VGAg;");
+                    writer.WriteLine("reg [7:0]VGAb;");
+                    writer.WriteLine();
+
+                    writer.WriteLine("always @(*)");
+                    writer.WriteLine("begin\n");
+
+                    Console.WriteLine("Compiling and writing first slide...");
+                    if (mainDocument.Slides.Count > 0) writeSlide(mainDocument.Slides[0], 1, writer);
+
+                    writer.WriteLine("\nend");
+
+                    writer.WriteLine(Environment.NewLine + "endmodule");
+
+
+                    watch.Stop();
+                    Console.WriteLine("Compilation finished. Took {0}s.",watch.ElapsedMilliseconds/1000.0f);
+
                 }
-            }
 
-            using (StreamWriter writer = new StreamWriter(currentProjectFolderPath + "\\IH8Verilog_main.v"))
-            {
-                writer.WriteLine("module PP2VerilogDrawingController(xPixel,yPixel,VGAr,VGAg,VGAb);"+Environment.NewLine);
+             
 
-                writer.WriteLine("input [9:0]xPixel;"+Environment.NewLine+"input[8:0]yPixel;");
-                writer.WriteLine("output [7:0]VGAr;");
-                writer.WriteLine("output [7:0]VGAg;");
-                writer.WriteLine("output [7:0]VGAb;");
-                writer.WriteLine("reg [7:0]VGAr;");
-                writer.WriteLine("reg [7:0]VGAg;");
-                writer.WriteLine("reg [7:0]VGAb;");
-                writer.WriteLine();
-
-                writer.WriteLine("always @(*)");
-                writer.WriteLine("begin\n");
-
-                if(mainDocument.Slides.Count>0) writeSlide(mainDocument.Slides[0],1,writer);              
-
-                writer.WriteLine("\nend");
-        
-                writer.WriteLine(Environment.NewLine+"endmodule");
-           
-            }
+            });
+            
         }
 
         void writeSlide(Slide slide,int tabs,StreamWriter writer)
         {
+            Console.WriteLine(getTabs(1) + "Reading properties from slide:");
             Dictionary<string, string> slideProperties=new Dictionary<string, string>();
             if(slide.Notes!=null)
             {
-                slideProperties=getProperties(slide.Notes.Content.Drawings.OfType<Shape>().Single(sp => sp.Placeholder.PlaceholderType == PlaceholderType.Text).Text);
-                
+                slideProperties=getProperties(slide.Notes.Content.Drawings.OfType<Shape>().Single(sp => sp.Placeholder.PlaceholderType == PlaceholderType.Text).Text);                
             }
-            
+
+            for(int i=0;i<slideProperties.Values.Count;i++)
+            {
+                Console.WriteLine(getTabs(2) + slideProperties.Keys.ElementAt(i) + " = " + slideProperties.Values.ElementAt(i));
+            }
 
             //Background color
             System.Drawing.Color backColor = System.Drawing.Color.White;  
@@ -86,13 +102,89 @@ namespace PowerPointVerilogEngineDesigner
             {
                 backColor = parseColor(slideProperties["BACKCOLOR"]);                
             }
+            
 
             writer.WriteLine(getTabs(tabs)+"//Writing backgound color");
             writer.WriteLine(getTabs(tabs)+"VGAr = " + formatNumber("b", 8, Convert.ToString(backColor.R, 2).PadLeft(8, '0')) + ";");
             writer.WriteLine(getTabs(tabs)+"VGAg = " + formatNumber("b", 8, Convert.ToString(backColor.G, 2).PadLeft(8, '0')) + "; ");
             writer.WriteLine(getTabs(tabs)+"VGAb = " + formatNumber("b", 8, Convert.ToString(backColor.B, 2).PadLeft(8, '0')) + "; ");
 
+            Console.WriteLine(getTabs(1) + "Writing basic shapes...");
             drawBasicShapes(writer, mainDocument.Slides[0],tabs);
+
+            Console.WriteLine(getTabs(1) + "Writing pictures...");
+            drawBasicPictures(writer,mainDocument.Slides[0],tabs);
+        }
+
+        private void drawBasicPictures(StreamWriter writer, Slide slide, int tabs)
+        {
+            //Draw pictures
+            foreach (Picture picture in slide.Content.Drawings.OfType<Picture>())
+            {
+                if (picture.DrawingType == DrawingType.Picture)
+                {
+                    Dictionary<string, string> properties = getProperties(null, picture.AlternativeText.Description);
+
+                    Console.WriteLine(getTabs(2) + "Writing picture: " + (properties.ContainsKey("NAME") ? properties["NAME"] : "UNNAMED"));
+                  
+                    int compresionFactor = 1;
+                    int maxColorBits = 8;
+                    if (properties.ContainsKey("COMPRESIONLEVEL")) compresionFactor = int.Parse(properties["COMPRESIONLEVEL"]);
+                    if (properties.ContainsKey("COLORBITS")) maxColorBits = int.Parse(properties["COLORBITS"]);
+                    Bitmap baseBitmap = new Bitmap(picture.Fill.Data.Content.Open());
+                    if (Directory.Exists(currentProjectFolderPath + "/PPVerilogEngine//tempPictures") == false) Directory.CreateDirectory(currentProjectFolderPath + "/PPVerilogEngine//tempPictures");
+                    baseBitmap.Save(currentProjectFolderPath + "/PPVerilogEngine//tempPictures//basePicture.png");
+                    DrawingLayout finalLayout = getScaledLayout(picture.Layout);
+
+                    Bitmap resizedBitmap = new Bitmap(baseBitmap, new Size((int)(finalLayout.Width / compresionFactor), (int)(finalLayout.Height / compresionFactor)));
+                    resizedBitmap.Save(currentProjectFolderPath + "/PPVerilogEngine//tempPictures//compressedPicture.png");
+
+                    Bitmap colorSetBitmap = new Bitmap(resizedBitmap);
+                    colorSetBitmap = limitColorBitmap(colorSetBitmap, maxColorBits);
+                    colorSetBitmap.Save(currentProjectFolderPath + "/PPVerilogEngine//tempPictures//colorLimitedPicture.png");
+
+                    int savedPixels = 0;
+                    int usedPixels = 0;
+                    writer.WriteLine(Environment.NewLine + getTabs(tabs) + "//Drawing picture with compression rate: " + compresionFactor + ":1");
+                    for (int i = 0; i < colorSetBitmap.Height; i++)
+                    {
+                        int startingPixel = -1;
+                        var startingColor = System.Drawing.Color.White;
+                        for (int j = 0; j < colorSetBitmap.Width; j++)
+                        {
+                            System.Drawing.Color color = colorSetBitmap.GetPixel(j, i);
+                            if (color.A > 100)
+                            {
+                                if (startingPixel == -1)
+                                {
+                                    startingPixel = j;
+                                    startingColor = color;
+                                }
+                                else
+                                {
+                                    if ((color.R != startingColor.R || color.G != startingColor.G || color.B != startingColor.B) || j == colorSetBitmap.Width - 1) //Not the same, write the old one  || From startingPixel to current-1 in width (j)
+                                    {
+                                        writer.Write(getTabs(tabs) + "if(xPixel>=" + i * compresionFactor + " && xPixel<" + ((i + 1) * compresionFactor) + " && yPixel>=" + startingPixel * compresionFactor + " && yPixel<" + j * compresionFactor + ") ");
+                                        writer.WriteLine("{VGAr,VGAg,VRAb}={" + formatNumber("b", 8, Convert.ToString(startingColor.R, 2).PadLeft(8, '0')) + "," + formatNumber("b", 8, Convert.ToString(startingColor.G, 2).PadLeft(8, '0')) + "," + formatNumber("b", 8, Convert.ToString(startingColor.B, 2).PadLeft(8, '0')) + "};");
+
+                                        startingColor = color;
+                                        startingPixel = j;
+                                        usedPixels++;
+                                    }
+                                    else
+                                    {
+                                        savedPixels++;
+                                        //Do nothing, is still the same color, keep waiting until it changes.
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    Console.WriteLine(getTabs(3)+"Picture compressed at " + Math.Round((float)usedPixels / (baseBitmap.Width * baseBitmap.Height) * 100, 2) + "% of the original size!");
+
+                }
+            }
         }
 
         private Dictionary<string, string> getProperties(GemBox.Presentation.TextBox notes,string fromString="")
@@ -143,7 +235,7 @@ namespace PowerPointVerilogEngineDesigner
                     {
                         toReturn.Add(property, "");
                     }
-                    Console.WriteLine("Property found: " + property);
+                   // Console.WriteLine("Property found: " + property);
                 }
             }
 
@@ -168,7 +260,10 @@ namespace PowerPointVerilogEngineDesigner
                     if (properties.ContainsKey("ADVANCEDTRANSPARENT")) allowedTransparencyLevel = 2;
 
                     if (shape.ShapeType==ShapeGeometryType.Rectangle)
-                    {                        
+                    {
+                        Console.WriteLine(getTabs(2) + "Writing solid shape: "+(properties.ContainsKey("NAME") ? properties["NAME"] : "UNNAMED"));
+
+
                         writer.WriteLine(Environment.NewLine + getTabs(tabs) + "//Drawing Solid shape \"" + (properties.ContainsKey("NAME")?properties["NAME"]:"UNNAMED") +"\"");                      
                         if (properties.ContainsKey("TRANSPARENT")) writer.WriteLine(getTabs(tabs)+"//   --> Allowed 50% transparent render");
                         if (properties.ContainsKey("ADVANCEDTRANSPARENT")) writer.WriteLine(getTabs(tabs) + "//   --> Allowed advanced transparent render");
@@ -179,69 +274,7 @@ namespace PowerPointVerilogEngineDesigner
                 }
             }
 
-            //Draw pictures
-            foreach (Picture picture in slide.Content.Drawings.OfType<Picture>())
-            {
-               if(picture.DrawingType==DrawingType.Picture)
-                {
-                    Dictionary<string, string> properties =getProperties(null,picture.AlternativeText.Description);
-                    int compresionFactor = 1;
-                    int maxColorBits = 8;
-                    if (properties.ContainsKey("COMPRESIONLEVEL")) compresionFactor = int.Parse(properties["COMPRESIONLEVEL"]);
-                    if (properties.ContainsKey("COLORBITS")) maxColorBits = int.Parse(properties["COLORBITS"]);
-                    Bitmap baseBitmap = new Bitmap(picture.Fill.Data.Content.Open());
-                    if (Directory.Exists(currentProjectFolderPath + "/PPVerilogEngine//tempPictures") == false) Directory.CreateDirectory(currentProjectFolderPath + "/PPVerilogEngine//tempPictures");
-                    baseBitmap.Save(currentProjectFolderPath + "/PPVerilogEngine//tempPictures//basePicture.png");
-                    DrawingLayout finalLayout = getScaledLayout(picture.Layout);
-
-                    Bitmap resizedBitmap = new Bitmap(baseBitmap, new Size((int)(finalLayout.Width/compresionFactor),(int)(finalLayout.Height/compresionFactor)));
-                    resizedBitmap.Save(currentProjectFolderPath + "/PPVerilogEngine//tempPictures//compressedPicture.png");
-
-                    Bitmap colorSetBitmap = new Bitmap(resizedBitmap);
-                    colorSetBitmap=limitColorBitmap(colorSetBitmap,maxColorBits);
-                    colorSetBitmap.Save(currentProjectFolderPath + "/PPVerilogEngine//tempPictures//colorLimitedPicture.png");
-
-                    int savedPixels = 0;
-                    int usedPixels = 0;
-                    writer.WriteLine(Environment.NewLine + getTabs(tabs) + "//Drawing picture with compression rate: " +compresionFactor+":1");
-                    for(int i=0;i<colorSetBitmap.Height;i++)
-                    {
-                        int startingPixel = -1;
-                        var startingColor =System.Drawing.Color.White;
-                        for(int j=0;j<colorSetBitmap.Width;j++)
-                        {
-                            System.Drawing.Color color = colorSetBitmap.GetPixel(j, i);
-                            if (color.A>100)
-                            {
-                                if(startingPixel==-1)
-                                {
-                                    startingPixel = j;
-                                    startingColor = color;
-                                }else
-                                {
-                                    if((color.R!=startingColor.R || color.G!=startingColor.G || color.B!=startingColor.B) || j==colorSetBitmap.Width-1) //Not the same, write the old one  || From startingPixel to current-1 in width (j)
-                                    {
-                                        writer.Write(getTabs(tabs)+"if(xPixel>=" + i*compresionFactor + " && xPixel<"+((i+1)*compresionFactor)+" && yPixel>=" + startingPixel*compresionFactor + " && yPixel<" + j*compresionFactor + ") ");
-                                        writer.WriteLine("{VGAr,VGAg,VRAb}={" + formatNumber("b", 8, Convert.ToString(startingColor.R, 2).PadLeft(8, '0')) + "," + formatNumber("b", 8, Convert.ToString(startingColor.G, 2).PadLeft(8, '0')) + "," + formatNumber("b", 8, Convert.ToString(startingColor.B, 2).PadLeft(8, '0')) + "};");
-
-                                        startingColor = color;
-                                        startingPixel = j;
-                                        usedPixels++;
-                                    }
-                                    else
-                                    {
-                                        savedPixels++;
-                                        //Do nothing, is still the same color, keep waiting until it changes.
-                                    }
-                                }
-                            }
-                        }
-                    }
-
-                    Console.WriteLine("Compresed picture is " + Math.Round((float)usedPixels/(baseBitmap.Width*baseBitmap.Height)*100,2)+"% the size of the original");
-
-                }
-            }
+            
         }
 
         private Bitmap limitColorBitmap(Bitmap colorSetBitmap,int bitLimit)
@@ -253,10 +286,6 @@ namespace PowerPointVerilogEngineDesigner
                 for(int j=0;j<colorSetBitmap.Height;j++)
                 {
                     System.Drawing.Color color = colorSetBitmap.GetPixel(i, j);
-                    if(color.R!=0)
-                    {
-
-                    }
                     int r = (int)(Math.Round((double)color.R / dividend, 0) * dividend);
                     int g = (int)(Math.Round((double)color.G / dividend, 0) * dividend);
                     int b = (int)(Math.Round((double)color.B / dividend, 0) * dividend);
@@ -442,6 +471,79 @@ namespace PowerPointVerilogEngineDesigner
         private void OnChanged(object sender, FileSystemEventArgs e)
         {
             if(checkBoxAutoCompile.Checked)this.Invoke((MethodInvoker)delegate(){ button1.PerformClick(); });
+        }
+    }
+
+
+
+
+    public class MultiTextWriter : TextWriter
+    {
+        private IEnumerable<TextWriter> writers;
+        public MultiTextWriter(IEnumerable<TextWriter> writers)
+        {
+            this.writers = writers.ToList();
+        }
+        public MultiTextWriter(params TextWriter[] writers)
+        {
+            this.writers = writers;
+        }
+
+        public override void Write(char value)
+        {
+            foreach (var writer in writers)
+                writer.Write(value);
+        }
+
+        public override void Write(string value)
+        {
+            foreach (var writer in writers)
+                writer.Write(value);
+        }
+
+        public override void Flush()
+        {
+            foreach (var writer in writers)
+                writer.Flush();
+        }
+
+        public override void Close()
+        {
+            foreach (var writer in writers)
+                writer.Close();
+        }
+
+        public override Encoding Encoding
+        {
+            get { return Encoding.ASCII; }
+        }
+    }
+
+    public class ControlWriter : TextWriter
+    {
+        private Control textbox;
+        public ControlWriter(Control textbox)
+        {
+            this.textbox = textbox;
+        }
+
+        public override void Write(char value)
+        {
+            textbox.Invoke((MethodInvoker)delegate () {
+                textbox.Text += value;
+            });            
+        }
+
+        public override void Write(string value)
+        {
+            textbox.Invoke((MethodInvoker)delegate () {
+                textbox.Text += value;
+            });
+        }
+
+        public override Encoding Encoding
+        {
+            get { return Encoding.ASCII; }
         }
     }
 }
