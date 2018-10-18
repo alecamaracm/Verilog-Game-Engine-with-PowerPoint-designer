@@ -1,0 +1,8 @@
+module OTGMouse(data,adresses)
+{
+	input [15:0]data;
+	output [15:0]data;
+	output [1:0}adresses;
+	
+
+}

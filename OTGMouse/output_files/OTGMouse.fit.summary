@@ -1,0 +1,16 @@
+Fitter Status : Successful - Wed Oct 17 20:35:56 2018
+Quartus Prime Version : 16.1.0 Build 196 10/24/2016 SJ Lite Edition
+Revision Name : OTGMouse
+Top-level Entity Name : OTGMouse
+Family : Cyclone IV E
+Device : EP4CE115F29C7
+Timing Models : Final
+Total logic elements : 32 / 114,480 ( < 1 % )
+    Total combinational functions : 25 / 114,480 ( < 1 % )
+    Dedicated logic registers : 21 / 114,480 ( < 1 % )
+Total registers : 21
+Total pins : 19 / 529 ( 4 % )
+Total virtual pins : 0
+Total memory bits : 0 / 3,981,312 ( 0 % )
+Embedded Multiplier 9-bit elements : 0 / 532 ( 0 % )
+Total PLLs : 0 / 4 ( 0 % )

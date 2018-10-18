@@ -1,5 +1,5 @@
 Fitter report for main
-Thu Oct 11 16:07:32 2018
+Wed Oct 17 19:33:55 2018
 Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
 
 
@@ -70,7 +70,7 @@ agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Fitter Summary                                                                   ;
 +------------------------------------+---------------------------------------------+
-; Fitter Status                      ; Successful - Thu Oct 11 16:07:32 2018       ;
+; Fitter Status                      ; Successful - Wed Oct 17 19:33:55 2018       ;
 ; Quartus Prime Version              ; 16.1.0 Build 196 10/24/2016 SJ Lite Edition ;
 ; Revision Name                      ; main                                        ;
 ; Top-level Entity Name              ; main                                        ;
@@ -1731,10 +1731,10 @@ Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:02
 Warning (171167): Found invalid Fitter assignments. See the Ignored Assignments panel in the Fitter Compilation Report for more information.
 Info (144001): Generated suppressed messages file C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/output_files/main.fit.smsg
 Info: Quartus Prime Fitter was successful. 0 errors, 13 warnings
-    Info: Peak virtual memory: 5792 megabytes
-    Info: Processing ended: Thu Oct 11 16:07:33 2018
-    Info: Elapsed time: 00:00:25
-    Info: Total CPU time (on all processors): 00:00:42
+    Info: Peak virtual memory: 5805 megabytes
+    Info: Processing ended: Wed Oct 17 19:33:56 2018
+    Info: Elapsed time: 00:00:24
+    Info: Total CPU time (on all processors): 00:00:39
 
 
 +----------------------------+
