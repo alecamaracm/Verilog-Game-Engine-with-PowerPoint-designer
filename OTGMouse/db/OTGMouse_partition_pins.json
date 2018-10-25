@@ -4,35 +4,7 @@
 			"name" : "Top",
 			"pins" : [
 				{
-					"name" : "leds[0]",
-					"strict" : false
-				},
-				{
-					"name" : "leds[1]",
-					"strict" : false
-				},
-				{
-					"name" : "leds[2]",
-					"strict" : false
-				},
-				{
-					"name" : "leds[3]",
-					"strict" : false
-				},
-				{
 					"name" : "leds[4]",
-					"strict" : false
-				},
-				{
-					"name" : "leds[5]",
-					"strict" : false
-				},
-				{
-					"name" : "leds[6]",
-					"strict" : false
-				},
-				{
-					"name" : "leds[7]",
 					"strict" : false
 				},
 				{
@@ -41,6 +13,14 @@
 				},
 				{
 					"name" : "ps2dt",
+					"strict" : false
+				},
+				{
+					"name" : "CLOCK",
+					"strict" : false
+				},
+				{
+					"name" : "butt",
 					"strict" : false
 				}
 			]

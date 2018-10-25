@@ -1,5 +1,5 @@
 Analysis & Synthesis report for OTGMouse
-Wed Oct 17 20:35:44 2018
+Wed Oct 24 20:00:45 2018
 Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
 
 
@@ -10,13 +10,7 @@ Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
   2. Analysis & Synthesis Summary
   3. Analysis & Synthesis Settings
   4. Parallel Compilation
-  5. Analysis & Synthesis Source Files Read
-  6. Analysis & Synthesis Resource Usage Summary
-  7. Analysis & Synthesis Resource Utilization by Entity
-  8. General Register Statistics
-  9. Post-Synthesis Netlist Statistics for Top Partition
- 10. Elapsed Time Per Partition
- 11. Analysis & Synthesis Messages
+  5. Analysis & Synthesis Messages
 
 
 
@@ -43,20 +37,20 @@ agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed Oct 17 20:35:44 2018       ;
+; Analysis & Synthesis Status        ; Failed - Wed Oct 24 20:00:45 2018           ;
 ; Quartus Prime Version              ; 16.1.0 Build 196 10/24/2016 SJ Lite Edition ;
 ; Revision Name                      ; OTGMouse                                    ;
 ; Top-level Entity Name              ; OTGMouse                                    ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 33                                          ;
-;     Total combinational functions  ; 25                                          ;
-;     Dedicated logic registers      ; 21                                          ;
-; Total registers                    ; 21                                          ;
-; Total pins                         ; 19                                          ;
-; Total virtual pins                 ; 0                                           ;
-; Total memory bits                  ; 0                                           ;
-; Embedded Multiplier 9-bit elements ; 0                                           ;
-; Total PLLs                         ; 0                                           ;
+; Total logic elements               ; N/A until Partition Merge                   ;
+;     Total combinational functions  ; N/A until Partition Merge                   ;
+;     Dedicated logic registers      ; N/A until Partition Merge                   ;
+; Total registers                    ; N/A until Partition Merge                   ;
+; Total pins                         ; N/A until Partition Merge                   ;
+; Total virtual pins                 ; N/A until Partition Merge                   ;
+; Total memory bits                  ; N/A until Partition Merge                   ;
+; Embedded Multiplier 9-bit elements ; N/A until Partition Merge                   ;
+; Total PLLs                         ; N/A until Partition Merge                   ;
 +------------------------------------+---------------------------------------------+
 
 
@@ -155,108 +149,11 @@ agreement for further details.
 ; Maximum allowed            ; 4           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 4           ;
+; Maximum used               ; 1           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-4         ;   0.0%      ;
 +----------------------------+-------------+
-
-
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                          ;
-+----------------------------------+-----------------+------------------------+-------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                            ; Library ;
-+----------------------------------+-----------------+------------------------+-------------------------------------------------------------------------+---------+
-; OTGMouse.v                       ; yes             ; User Verilog HDL File  ; C:/Users/cabrera/Desktop/FinalProject/ECE287Project/OTGMouse/OTGMouse.v ;         ;
-+----------------------------------+-----------------+------------------------+-------------------------------------------------------------------------+---------+
-
-
-+-----------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary               ;
-+---------------------------------------------+-------------+
-; Resource                                    ; Usage       ;
-+---------------------------------------------+-------------+
-; Estimated Total logic elements              ; 33          ;
-;                                             ;             ;
-; Total combinational functions               ; 25          ;
-; Logic element usage by number of LUT inputs ;             ;
-;     -- 4 input functions                    ; 23          ;
-;     -- 3 input functions                    ; 1           ;
-;     -- <=2 input functions                  ; 1           ;
-;                                             ;             ;
-; Logic elements by mode                      ;             ;
-;     -- normal mode                          ; 25          ;
-;     -- arithmetic mode                      ; 0           ;
-;                                             ;             ;
-; Total registers                             ; 21          ;
-;     -- Dedicated logic registers            ; 21          ;
-;     -- I/O registers                        ; 0           ;
-;                                             ;             ;
-; I/O pins                                    ; 19          ;
-;                                             ;             ;
-; Embedded Multiplier 9-bit elements          ; 0           ;
-;                                             ;             ;
-; Maximum fan-out node                        ; ps2ck~input ;
-; Maximum fan-out                             ; 21          ;
-; Total fan-out                               ; 174         ;
-; Average fan-out                             ; 2.07        ;
-+---------------------------------------------+-------------+
-
-
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                      ;
-+----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
-; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name ; Library Name ;
-+----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
-; |OTGMouse                  ; 25 (25)             ; 21 (21)                   ; 0           ; 0            ; 0       ; 0         ; 19   ; 0            ; |OTGMouse           ; OTGMouse    ; work         ;
-+----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
-Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
-
-
-+------------------------------------------------------+
-; General Register Statistics                          ;
-+----------------------------------------------+-------+
-; Statistic                                    ; Value ;
-+----------------------------------------------+-------+
-; Total registers                              ; 21    ;
-; Number of registers using Synchronous Clear  ; 0     ;
-; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 0     ;
-; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 8     ;
-; Number of registers using Preset             ; 0     ;
-+----------------------------------------------+-------+
-
-
-+-----------------------------------------------------+
-; Post-Synthesis Netlist Statistics for Top Partition ;
-+-----------------------+-----------------------------+
-; Type                  ; Count                       ;
-+-----------------------+-----------------------------+
-; boundary_port         ; 19                          ;
-; cycloneiii_ff         ; 21                          ;
-;     ENA               ; 8                           ;
-;     plain             ; 13                          ;
-; cycloneiii_lcell_comb ; 26                          ;
-;     normal            ; 26                          ;
-;         0 data inputs ; 1                           ;
-;         2 data inputs ; 1                           ;
-;         3 data inputs ; 1                           ;
-;         4 data inputs ; 23                          ;
-;                       ;                             ;
-; Max LUT depth         ; 3.00                        ;
-; Average LUT depth     ; 1.76                        ;
-+-----------------------+-----------------------------+
-
-
-+-------------------------------+
-; Elapsed Time Per Partition    ;
-+----------------+--------------+
-; Partition Name ; Elapsed Time ;
-+----------------+--------------+
-; Top            ; 00:00:00     ;
-+----------------+--------------+
 
 
 +-------------------------------+
@@ -265,39 +162,29 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
-    Info: Processing started: Wed Oct 17 20:35:35 2018
+    Info: Processing started: Wed Oct 24 20:00:38 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off OTGMouse -c OTGMouse
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 3 design units, including 3 entities, in source file ps2_controller.v
+    Info (12023): Found entity 1: mouse_Inner_controller File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/OTGMouse/PS2_Controller.v Line: 8
+    Info (12023): Found entity 2: Altera_UP_PS2_Data_In File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/OTGMouse/PS2_Controller.v Line: 152
+    Info (12023): Found entity 3: Altera_UP_PS2_Command_Out File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/OTGMouse/PS2_Controller.v Line: 225
 Info (12021): Found 1 design units, including 1 entities, in source file otgmouse.v
     Info (12023): Found entity 1: OTGMouse File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/OTGMouse/OTGMouse.v Line: 1
-Info (12127): Elaborating entity "OTGMouse" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at OTGMouse.v(10): object "start" assigned a value but never read File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/OTGMouse/OTGMouse.v Line: 10
-Warning (10036): Verilog HDL or VHDL warning at OTGMouse.v(12): object "parity" assigned a value but never read File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/OTGMouse/OTGMouse.v Line: 12
-Warning (10230): Verilog HDL assignment warning at OTGMouse.v(89): truncated value with size 32 to match size of target (4) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/OTGMouse/OTGMouse.v Line: 89
-Warning (10034): Output port "leds[15..8]" at OTGMouse.v(3) has no driver File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/OTGMouse/OTGMouse.v Line: 3
-Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "leds[8]" is stuck at GND File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/OTGMouse/OTGMouse.v Line: 3
-    Warning (13410): Pin "leds[9]" is stuck at GND File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/OTGMouse/OTGMouse.v Line: 3
-    Warning (13410): Pin "leds[10]" is stuck at GND File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/OTGMouse/OTGMouse.v Line: 3
-    Warning (13410): Pin "leds[11]" is stuck at GND File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/OTGMouse/OTGMouse.v Line: 3
-    Warning (13410): Pin "leds[12]" is stuck at GND File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/OTGMouse/OTGMouse.v Line: 3
-    Warning (13410): Pin "leds[13]" is stuck at GND File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/OTGMouse/OTGMouse.v Line: 3
-    Warning (13410): Pin "leds[14]" is stuck at GND File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/OTGMouse/OTGMouse.v Line: 3
-    Warning (13410): Pin "leds[15]" is stuck at GND File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/OTGMouse/OTGMouse.v Line: 3
-Info (286030): Timing-Driven Synthesis is running
-Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
-    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 1 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "CLOCK" File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/OTGMouse/OTGMouse.v Line: 8
-Info (21057): Implemented 52 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 3 input pins
-    Info (21059): Implemented 16 output pins
-    Info (21061): Implemented 33 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 16 warnings
-    Info: Peak virtual memory: 4786 megabytes
-    Info: Processing ended: Wed Oct 17 20:35:44 2018
-    Info: Elapsed time: 00:00:09
-    Info: Total CPU time (on all processors): 00:00:20
+Info (12021): Found 1 design units, including 1 entities, in source file keyboard.v
+    Info (12023): Found entity 1: ps2Keyboard File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/OTGMouse/keyboard.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file mouse.v
+    Info (12023): Found entity 1: ps2Mouse File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/OTGMouse/mouse.v Line: 1
+Warning (10227): Verilog HDL Port Declaration warning at mouse.v(8): data type declaration for "M1" declares packed dimensions but the port declaration declaration does not File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/OTGMouse/mouse.v Line: 8
+Info (10499): HDL info at mouse.v(6): see declaration for object "M1" File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/OTGMouse/mouse.v Line: 6
+Warning (10227): Verilog HDL Port Declaration warning at mouse.v(8): data type declaration for "M2" declares packed dimensions but the port declaration declaration does not File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/OTGMouse/mouse.v Line: 8
+Info (10499): HDL info at mouse.v(7): see declaration for object "M2" File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/OTGMouse/mouse.v Line: 7
+Error (10219): Verilog HDL Continuous Assignment error at mouse.v(24): object "M1" on left-hand side of assignment must have a net type File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/OTGMouse/mouse.v Line: 24
+Error: Quartus Prime Analysis & Synthesis was unsuccessful. 1 error, 3 warnings
+    Error: Peak virtual memory: 4726 megabytes
+    Error: Processing ended: Wed Oct 24 20:00:45 2018
+    Error: Elapsed time: 00:00:07
+    Error: Total CPU time (on all processors): 00:00:18
 
 
