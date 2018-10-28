@@ -27,12 +27,9 @@ namespace PowerPointVerilogEngineDesigner
 
         public Form1()
         {
-                 InitializeComponent();
-
+            InitializeComponent();
             Console.SetOut(new MultiTextWriter(new ControlWriter(textBoxOutput), Console.Out));
             ComponentInfo.SetLicense("FREE-LIMITED-KEY");
-
-      
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -49,9 +46,11 @@ namespace PowerPointVerilogEngineDesigner
                 using (StreamWriter writer = new StreamWriter(currentProjectFolderPath + "\\IH8Verilog_main.v"))
                 {
                     Console.WriteLine("Writing main module definition...");
-                    writer.WriteLine("module PP2VerilogDrawingController(xPixel,yPixel,VGAr,VGAg,VGAb);" + Environment.NewLine);
+                    writer.WriteLine("module PP2VerilogDrawingController(xPixel,yPixel,VGAr,VGAg,VGAb,mouseX,mouseY);" + Environment.NewLine);
 
                     writer.WriteLine("input [9:0]xPixel;" + Environment.NewLine + "input[8:0]yPixel;");
+                    writer.WriteLine("input [10:0]mouseX;");
+                    writer.WriteLine("input [10:0]mouseY;");
                     writer.WriteLine("output [7:0]VGAr;");
                     writer.WriteLine("output [7:0]VGAg;");
                     writer.WriteLine("output [7:0]VGAb;");
@@ -66,9 +65,14 @@ namespace PowerPointVerilogEngineDesigner
                     Console.WriteLine("Compiling and writing first slide...");
                     if (mainDocument.Slides.Count > 0) writeSlide(mainDocument.Slides[0], 1, writer);
 
+                    GemBox.Presentation.Color color = GemBox.Presentation.Color.FromRgb(255, 255, 255);
+
+                    writeMouse(writer, color, 1, new Size(20, 20));
+
                     writer.WriteLine("\nend");
 
                     writer.WriteLine(Environment.NewLine + "endmodule");
+
 
 
                     watch.Stop();
@@ -407,6 +411,21 @@ namespace PowerPointVerilogEngineDesigner
 
                 writer.WriteLine(getTabs(tabs + 1) + "end");
             }
+
+            writer.WriteLine(getTabs(tabs) + "end");
+        }
+
+        void writeMouse(StreamWriter writer, GemBox.Presentation.Color color, int tabs,Size size)
+        {
+
+            writer.WriteLine("\n" + getTabs(tabs) + "//Drawing the mouse");
+            writer.WriteLine(getTabs(tabs) + "if(xPixel>mouseX && xPixel<(mouseX+"+size.Width+") && yPixel>mouseY && yPixel<(mouseY+"+size.Height+"))" + Environment.NewLine + getTabs(tabs) + "begin");
+
+           
+                writer.WriteLine(getTabs(tabs + 1) + "VGAr = " + formatNumber("b", 8, Convert.ToString(color.R, 2).PadLeft(8, '0')) + ";");
+                writer.WriteLine(getTabs(tabs + 1) + "VGAg = " + formatNumber("b", 8, Convert.ToString(color.G, 2).PadLeft(8, '0')) + ";");
+                writer.WriteLine(getTabs(tabs + 1) + "VGAb = " + formatNumber("b", 8, Convert.ToString(color.B, 2).PadLeft(8, '0')) + ";");            
+            
 
             writer.WriteLine(getTabs(tabs) + "end");
         }

@@ -45,7 +45,6 @@ end
 
 
 
-
 always @ (posedge downClock)
 begin
 	if(xPos==width)

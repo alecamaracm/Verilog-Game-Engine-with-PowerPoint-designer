@@ -1,5 +1,5 @@
 Analysis & Synthesis report for OTGMouse
-Wed Oct 24 20:00:45 2018
+Sun Oct 28 17:17:45 2018
 Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
 
 
@@ -10,7 +10,23 @@ Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
   2. Analysis & Synthesis Summary
   3. Analysis & Synthesis Settings
   4. Parallel Compilation
-  5. Analysis & Synthesis Messages
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |OTGMouse|ps2Mouse:mouse|mouse_Inner_controller:innerMouse|s_ps2_transceiver
+  9. State Machine - |OTGMouse|ps2Mouse:mouse|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|s_ps2_transmitter
+ 10. State Machine - |OTGMouse|ps2Mouse:mouse|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Data_In:PS2_Data_In|s_ps2_receiver
+ 11. Registers Removed During Synthesis
+ 12. Removed Registers Triggering Further Register Optimizations
+ 13. General Register Statistics
+ 14. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 15. Parameter Settings for User Entity Instance: ps2Mouse:mouse|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out
+ 16. Port Connectivity Checks: "ps2Mouse:mouse|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Data_In:PS2_Data_In"
+ 17. Port Connectivity Checks: "ps2Mouse:mouse|mouse_Inner_controller:innerMouse"
+ 18. Post-Synthesis Netlist Statistics for Top Partition
+ 19. Elapsed Time Per Partition
+ 20. Analysis & Synthesis Messages
+ 21. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -37,20 +53,20 @@ agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Failed - Wed Oct 24 20:00:45 2018           ;
+; Analysis & Synthesis Status        ; Successful - Sun Oct 28 17:17:45 2018       ;
 ; Quartus Prime Version              ; 16.1.0 Build 196 10/24/2016 SJ Lite Edition ;
 ; Revision Name                      ; OTGMouse                                    ;
 ; Top-level Entity Name              ; OTGMouse                                    ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; N/A until Partition Merge                   ;
-;     Total combinational functions  ; N/A until Partition Merge                   ;
-;     Dedicated logic registers      ; N/A until Partition Merge                   ;
-; Total registers                    ; N/A until Partition Merge                   ;
-; Total pins                         ; N/A until Partition Merge                   ;
-; Total virtual pins                 ; N/A until Partition Merge                   ;
-; Total memory bits                  ; N/A until Partition Merge                   ;
-; Embedded Multiplier 9-bit elements ; N/A until Partition Merge                   ;
-; Total PLLs                         ; N/A until Partition Merge                   ;
+; Total logic elements               ; 222                                         ;
+;     Total combinational functions  ; 204                                         ;
+;     Dedicated logic registers      ; 135                                         ;
+; Total registers                    ; 135                                         ;
+; Total pins                         ; 22                                          ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Total PLLs                         ; 0                                           ;
 +------------------------------------+---------------------------------------------+
 
 
@@ -149,11 +165,292 @@ agreement for further details.
 ; Maximum allowed            ; 4           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
+; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
+;     Processors 2-4         ;   0.0%      ;
 +----------------------------+-------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                ;
++----------------------------------+-----------------+------------------------+-------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                                  ; Library ;
++----------------------------------+-----------------+------------------------+-------------------------------------------------------------------------------+---------+
+; PS2_Controller.v                 ; yes             ; User Verilog HDL File  ; C:/Users/cabrera/Desktop/FinalProject/ECE287Project/OTGMouse/PS2_Controller.v ;         ;
+; OTGMouse.v                       ; yes             ; User Verilog HDL File  ; C:/Users/cabrera/Desktop/FinalProject/ECE287Project/OTGMouse/OTGMouse.v       ;         ;
+; mouse.v                          ; yes             ; User Verilog HDL File  ; C:/Users/cabrera/Desktop/FinalProject/ECE287Project/OTGMouse/mouse.v          ;         ;
++----------------------------------+-----------------+------------------------+-------------------------------------------------------------------------------+---------+
+
+
++-----------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary               ;
++---------------------------------------------+-------------+
+; Resource                                    ; Usage       ;
++---------------------------------------------+-------------+
+; Estimated Total logic elements              ; 222         ;
+;                                             ;             ;
+; Total combinational functions               ; 204         ;
+; Logic element usage by number of LUT inputs ;             ;
+;     -- 4 input functions                    ; 64          ;
+;     -- 3 input functions                    ; 17          ;
+;     -- <=2 input functions                  ; 123         ;
+;                                             ;             ;
+; Logic elements by mode                      ;             ;
+;     -- normal mode                          ; 139         ;
+;     -- arithmetic mode                      ; 65          ;
+;                                             ;             ;
+; Total registers                             ; 135         ;
+;     -- Dedicated logic registers            ; 135         ;
+;     -- I/O registers                        ; 0           ;
+;                                             ;             ;
+; I/O pins                                    ; 22          ;
+;                                             ;             ;
+; Embedded Multiplier 9-bit elements          ; 0           ;
+;                                             ;             ;
+; Maximum fan-out node                        ; CLOCK~input ;
+; Maximum fan-out                             ; 135         ;
+; Total fan-out                               ; 1015        ;
+; Average fan-out                             ; 2.62        ;
++---------------------------------------------+-------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                               ;
++------------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------------+---------------------------+--------------+
+; Compilation Hierarchy Node                           ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                  ; Entity Name               ; Library Name ;
++------------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------------+---------------------------+--------------+
+; |OTGMouse                                            ; 204 (0)             ; 135 (0)                   ; 0           ; 0            ; 0       ; 0         ; 22   ; 0            ; |OTGMouse                                                                                            ; OTGMouse                  ; work         ;
+;    |ps2Mouse:mouse|                                  ; 204 (57)            ; 135 (38)                  ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OTGMouse|ps2Mouse:mouse                                                                             ; ps2Mouse                  ; work         ;
+;       |mouse_Inner_controller:innerMouse|            ; 147 (9)             ; 97 (6)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OTGMouse|ps2Mouse:mouse|mouse_Inner_controller:innerMouse                                           ; mouse_Inner_controller    ; work         ;
+;          |Altera_UP_PS2_Command_Out:PS2_Command_Out| ; 106 (106)           ; 66 (66)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OTGMouse|ps2Mouse:mouse|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out ; Altera_UP_PS2_Command_Out ; work         ;
+;          |Altera_UP_PS2_Data_In:PS2_Data_In|         ; 32 (32)             ; 25 (25)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OTGMouse|ps2Mouse:mouse|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Data_In:PS2_Data_In         ; Altera_UP_PS2_Data_In     ; work         ;
++------------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------------+---------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |OTGMouse|ps2Mouse:mouse|mouse_Inner_controller:innerMouse|s_ps2_transceiver                                                                                                                                                                 ;
++--------------------------------------------+--------------------------------------------+-------------------------------------------+---------------------------------------+------------------------------------+-------------------------------------------+
+; Name                                       ; s_ps2_transceiver.PS2_STATE_3_END_TRANSFER ; s_ps2_transceiver.PS2_STATE_2_COMMAND_OUT ; s_ps2_transceiver.PS2_STATE_1_DATA_IN ; s_ps2_transceiver.PS2_STATE_0_IDLE ; s_ps2_transceiver.PS2_STATE_4_END_DELAYED ;
++--------------------------------------------+--------------------------------------------+-------------------------------------------+---------------------------------------+------------------------------------+-------------------------------------------+
+; s_ps2_transceiver.PS2_STATE_0_IDLE         ; 0                                          ; 0                                         ; 0                                     ; 0                                  ; 0                                         ;
+; s_ps2_transceiver.PS2_STATE_1_DATA_IN      ; 0                                          ; 0                                         ; 1                                     ; 1                                  ; 0                                         ;
+; s_ps2_transceiver.PS2_STATE_2_COMMAND_OUT  ; 0                                          ; 1                                         ; 0                                     ; 1                                  ; 0                                         ;
+; s_ps2_transceiver.PS2_STATE_3_END_TRANSFER ; 1                                          ; 0                                         ; 0                                     ; 1                                  ; 0                                         ;
+; s_ps2_transceiver.PS2_STATE_4_END_DELAYED  ; 0                                          ; 0                                         ; 0                                     ; 1                                  ; 1                                         ;
++--------------------------------------------+--------------------------------------------+-------------------------------------------+---------------------------------------+------------------------------------+-------------------------------------------+
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |OTGMouse|ps2Mouse:mouse|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|s_ps2_transmitter                                                                                                                                                                                                                                                                                                              ;
++------------------------------------------------------+--------------------------------------------------+------------------------------------------------+-----------------------------------------------+-------------------------------------------------+---------------------------------------------+----------------------------------------------+------------------------------------------------------+------------------------------------+
+; Name                                                 ; s_ps2_transmitter.PS2_STATE_7_TRANSMISSION_ERROR ; s_ps2_transmitter.PS2_STATE_6_COMMAND_WAS_SENT ; s_ps2_transmitter.PS2_STATE_5_RECEIVE_ACK_BIT ; s_ps2_transmitter.PS2_STATE_4_TRANSMIT_STOP_BIT ; s_ps2_transmitter.PS2_STATE_3_TRANSMIT_DATA ; s_ps2_transmitter.PS2_STATE_2_WAIT_FOR_CLOCK ; s_ps2_transmitter.PS2_STATE_1_INITIATE_COMMUNICATION ; s_ps2_transmitter.PS2_STATE_0_IDLE ;
++------------------------------------------------------+--------------------------------------------------+------------------------------------------------+-----------------------------------------------+-------------------------------------------------+---------------------------------------------+----------------------------------------------+------------------------------------------------------+------------------------------------+
+; s_ps2_transmitter.PS2_STATE_0_IDLE                   ; 0                                                ; 0                                              ; 0                                             ; 0                                               ; 0                                           ; 0                                            ; 0                                                    ; 0                                  ;
+; s_ps2_transmitter.PS2_STATE_1_INITIATE_COMMUNICATION ; 0                                                ; 0                                              ; 0                                             ; 0                                               ; 0                                           ; 0                                            ; 1                                                    ; 1                                  ;
+; s_ps2_transmitter.PS2_STATE_2_WAIT_FOR_CLOCK         ; 0                                                ; 0                                              ; 0                                             ; 0                                               ; 0                                           ; 1                                            ; 0                                                    ; 1                                  ;
+; s_ps2_transmitter.PS2_STATE_3_TRANSMIT_DATA          ; 0                                                ; 0                                              ; 0                                             ; 0                                               ; 1                                           ; 0                                            ; 0                                                    ; 1                                  ;
+; s_ps2_transmitter.PS2_STATE_4_TRANSMIT_STOP_BIT      ; 0                                                ; 0                                              ; 0                                             ; 1                                               ; 0                                           ; 0                                            ; 0                                                    ; 1                                  ;
+; s_ps2_transmitter.PS2_STATE_5_RECEIVE_ACK_BIT        ; 0                                                ; 0                                              ; 1                                             ; 0                                               ; 0                                           ; 0                                            ; 0                                                    ; 1                                  ;
+; s_ps2_transmitter.PS2_STATE_6_COMMAND_WAS_SENT       ; 0                                                ; 1                                              ; 0                                             ; 0                                               ; 0                                           ; 0                                            ; 0                                                    ; 1                                  ;
+; s_ps2_transmitter.PS2_STATE_7_TRANSMISSION_ERROR     ; 1                                                ; 0                                              ; 0                                             ; 0                                               ; 0                                           ; 0                                            ; 0                                                    ; 1                                  ;
++------------------------------------------------------+--------------------------------------------------+------------------------------------------------+-----------------------------------------------+-------------------------------------------------+---------------------------------------------+----------------------------------------------+------------------------------------------------------+------------------------------------+
+
+
+Encoding Type:  One-Hot
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |OTGMouse|ps2Mouse:mouse|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Data_In:PS2_Data_In|s_ps2_receiver                                                                                                            ;
++------------------------------------------+--------------------------------------+------------------------------------+------------------------------------------+---------------------------------+------------------------------------+
+; Name                                     ; s_ps2_receiver.PS2_STATE_3_PARITY_IN ; s_ps2_receiver.PS2_STATE_2_DATA_IN ; s_ps2_receiver.PS2_STATE_1_WAIT_FOR_DATA ; s_ps2_receiver.PS2_STATE_0_IDLE ; s_ps2_receiver.PS2_STATE_4_STOP_IN ;
++------------------------------------------+--------------------------------------+------------------------------------+------------------------------------------+---------------------------------+------------------------------------+
+; s_ps2_receiver.PS2_STATE_0_IDLE          ; 0                                    ; 0                                  ; 0                                        ; 0                               ; 0                                  ;
+; s_ps2_receiver.PS2_STATE_1_WAIT_FOR_DATA ; 0                                    ; 0                                  ; 1                                        ; 1                               ; 0                                  ;
+; s_ps2_receiver.PS2_STATE_2_DATA_IN       ; 0                                    ; 1                                  ; 0                                        ; 1                               ; 0                                  ;
+; s_ps2_receiver.PS2_STATE_3_PARITY_IN     ; 1                                    ; 0                                  ; 0                                        ; 1                               ; 0                                  ;
+; s_ps2_receiver.PS2_STATE_4_STOP_IN       ; 0                                    ; 0                                  ; 0                                        ; 1                               ; 1                                  ;
++------------------------------------------+--------------------------------------+------------------------------------+------------------------------------------+---------------------------------+------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                                                                                                                                                  ;
++-----------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------+
+; Register name                                                                                                               ; Reason for Removal                                                                                                    ;
++-----------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------+
+; ps2Mouse:mouse|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Data_In:PS2_Data_In|received_data_en[1..7]                   ; Stuck at GND due to stuck port data_in                                                                                ;
+; ps2Mouse:mouse|mouse_Inner_controller:innerMouse|idle_counter[0..7]                                                         ; Lost fanout                                                                                                           ;
+; ps2Mouse:mouse|countt[8,9]                                                                                                  ; Stuck at GND due to stuck port data_in                                                                                ;
+; ps2Mouse:mouse|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|ps2_command[4..7]                ; Merged with ps2Mouse:mouse|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|ps2_command[2] ;
+; ps2Mouse:mouse|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|ps2_command[1,3]                 ; Merged with ps2Mouse:mouse|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|ps2_command[0] ;
+; ps2Mouse:mouse|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|ps2_command[0]                   ; Stuck at GND due to stuck port data_in                                                                                ;
+; ps2Mouse:mouse|nonActivity[51..55]                                                                                          ; Stuck at GND due to stuck port data_in                                                                                ;
+; ps2Mouse:mouse|mouse_Inner_controller:innerMouse|s_ps2_transceiver~2                                                        ; Lost fanout                                                                                                           ;
+; ps2Mouse:mouse|mouse_Inner_controller:innerMouse|s_ps2_transceiver~3                                                        ; Lost fanout                                                                                                           ;
+; ps2Mouse:mouse|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|s_ps2_transmitter~2              ; Lost fanout                                                                                                           ;
+; ps2Mouse:mouse|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|s_ps2_transmitter~3              ; Lost fanout                                                                                                           ;
+; ps2Mouse:mouse|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|s_ps2_transmitter~4              ; Lost fanout                                                                                                           ;
+; ps2Mouse:mouse|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Data_In:PS2_Data_In|s_ps2_receiver~2                         ; Lost fanout                                                                                                           ;
+; ps2Mouse:mouse|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Data_In:PS2_Data_In|s_ps2_receiver~3                         ; Lost fanout                                                                                                           ;
+; ps2Mouse:mouse|mouse_Inner_controller:innerMouse|s_ps2_transceiver.PS2_STATE_2_COMMAND_OUT                                  ; Stuck at GND due to stuck port data_in                                                                                ;
+; ps2Mouse:mouse|mouse_Inner_controller:innerMouse|s_ps2_transceiver.PS2_STATE_4_END_DELAYED                                  ; Stuck at GND due to stuck port data_in                                                                                ;
+; ps2Mouse:mouse|mouse_Inner_controller:innerMouse|s_ps2_transceiver.PS2_STATE_3_END_TRANSFER                                 ; Stuck at GND due to stuck port data_in                                                                                ;
+; ps2Mouse:mouse|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Data_In:PS2_Data_In|s_ps2_receiver.PS2_STATE_1_WAIT_FOR_DATA ; Stuck at GND due to stuck port data_in                                                                                ;
+; ps2Mouse:mouse|nonActivity[18..50]                                                                                          ; Stuck at GND due to stuck port data_in                                                                                ;
+; Total Number of Removed Registers = 73                                                                                      ;                                                                                                                       ;
++-----------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                                                                                                                           ;
++---------------------------------------------------------------------------------------------+---------------------------+-----------------------------------------------------------------------------------------------------------------------------+
+; Register name                                                                               ; Reason for Removal        ; Registers Removed due to This Register                                                                                      ;
++---------------------------------------------------------------------------------------------+---------------------------+-----------------------------------------------------------------------------------------------------------------------------+
+; ps2Mouse:mouse|nonActivity[55]                                                              ; Stuck at GND              ; ps2Mouse:mouse|nonActivity[52], ps2Mouse:mouse|nonActivity[51],                                                             ;
+;                                                                                             ; due to stuck port data_in ; ps2Mouse:mouse|nonActivity[18], ps2Mouse:mouse|nonActivity[19],                                                             ;
+;                                                                                             ;                           ; ps2Mouse:mouse|nonActivity[20], ps2Mouse:mouse|nonActivity[21],                                                             ;
+;                                                                                             ;                           ; ps2Mouse:mouse|nonActivity[22], ps2Mouse:mouse|nonActivity[23],                                                             ;
+;                                                                                             ;                           ; ps2Mouse:mouse|nonActivity[24], ps2Mouse:mouse|nonActivity[25],                                                             ;
+;                                                                                             ;                           ; ps2Mouse:mouse|nonActivity[26], ps2Mouse:mouse|nonActivity[27],                                                             ;
+;                                                                                             ;                           ; ps2Mouse:mouse|nonActivity[28], ps2Mouse:mouse|nonActivity[29],                                                             ;
+;                                                                                             ;                           ; ps2Mouse:mouse|nonActivity[30], ps2Mouse:mouse|nonActivity[31],                                                             ;
+;                                                                                             ;                           ; ps2Mouse:mouse|nonActivity[32], ps2Mouse:mouse|nonActivity[33],                                                             ;
+;                                                                                             ;                           ; ps2Mouse:mouse|nonActivity[34], ps2Mouse:mouse|nonActivity[35],                                                             ;
+;                                                                                             ;                           ; ps2Mouse:mouse|nonActivity[36], ps2Mouse:mouse|nonActivity[37],                                                             ;
+;                                                                                             ;                           ; ps2Mouse:mouse|nonActivity[38], ps2Mouse:mouse|nonActivity[39],                                                             ;
+;                                                                                             ;                           ; ps2Mouse:mouse|nonActivity[40], ps2Mouse:mouse|nonActivity[41],                                                             ;
+;                                                                                             ;                           ; ps2Mouse:mouse|nonActivity[42], ps2Mouse:mouse|nonActivity[43],                                                             ;
+;                                                                                             ;                           ; ps2Mouse:mouse|nonActivity[44], ps2Mouse:mouse|nonActivity[45],                                                             ;
+;                                                                                             ;                           ; ps2Mouse:mouse|nonActivity[46], ps2Mouse:mouse|nonActivity[47],                                                             ;
+;                                                                                             ;                           ; ps2Mouse:mouse|nonActivity[48], ps2Mouse:mouse|nonActivity[49],                                                             ;
+;                                                                                             ;                           ; ps2Mouse:mouse|nonActivity[50]                                                                                              ;
+; ps2Mouse:mouse|mouse_Inner_controller:innerMouse|idle_counter[3]                            ; Lost Fanouts              ; ps2Mouse:mouse|mouse_Inner_controller:innerMouse|idle_counter[4],                                                           ;
+;                                                                                             ;                           ; ps2Mouse:mouse|mouse_Inner_controller:innerMouse|idle_counter[5],                                                           ;
+;                                                                                             ;                           ; ps2Mouse:mouse|mouse_Inner_controller:innerMouse|idle_counter[6],                                                           ;
+;                                                                                             ;                           ; ps2Mouse:mouse|mouse_Inner_controller:innerMouse|idle_counter[7]                                                            ;
+; ps2Mouse:mouse|mouse_Inner_controller:innerMouse|s_ps2_transceiver.PS2_STATE_3_END_TRANSFER ; Stuck at GND              ; ps2Mouse:mouse|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Data_In:PS2_Data_In|s_ps2_receiver.PS2_STATE_1_WAIT_FOR_DATA ;
+;                                                                                             ; due to stuck port data_in ;                                                                                                                             ;
++---------------------------------------------------------------------------------------------+---------------------------+-----------------------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 135   ;
+; Number of registers using Synchronous Clear  ; 64    ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 94    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                                                                 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                                                       ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------------------------------------------------------------------+
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |OTGMouse|ps2Mouse:mouse|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|ps2_command[2]              ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |OTGMouse|ps2Mouse:mouse|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Data_In:PS2_Data_In|data_shift_reg[2]                   ;
+; 3:1                ; 56 bits   ; 112 LEs       ; 56 LEs               ; 56 LEs                 ; Yes        ; |OTGMouse|ps2Mouse:mouse|nonActivity[41]                                                                                         ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |OTGMouse|ps2Mouse:mouse|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Data_In:PS2_Data_In|received_data[5]                    ;
+; 4:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |OTGMouse|ps2Mouse:mouse|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|transfer_counter[14]        ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |OTGMouse|ps2Mouse:mouse|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Data_In:PS2_Data_In|data_count[2]                       ;
+; 4:1                ; 13 bits   ; 26 LEs        ; 13 LEs               ; 13 LEs                 ; Yes        ; |OTGMouse|ps2Mouse:mouse|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|command_initiate_counter[5] ;
+; 4:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |OTGMouse|ps2Mouse:mouse|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|waiting_counter[11]         ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |OTGMouse|ps2Mouse:mouse|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|cur_bit[1]                  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: ps2Mouse:mouse|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out ;
++------------------------------------+----------------------+-----------------------------------------------------------------------------+
+; Parameter Name                     ; Value                ; Type                                                                        ;
++------------------------------------+----------------------+-----------------------------------------------------------------------------+
+; CLOCK_CYCLES_FOR_101US             ; 5050                 ; Signed Integer                                                              ;
+; NUMBER_OF_BITS_FOR_101US           ; 13                   ; Signed Integer                                                              ;
+; COUNTER_INCREMENT_FOR_101US        ; 0000000000001        ; Unsigned Binary                                                             ;
+; CLOCK_CYCLES_FOR_15MS              ; 750000               ; Signed Integer                                                              ;
+; NUMBER_OF_BITS_FOR_15MS            ; 20                   ; Signed Integer                                                              ;
+; COUNTER_INCREMENT_FOR_15MS         ; 00000000000000000001 ; Unsigned Binary                                                             ;
+; CLOCK_CYCLES_FOR_2MS               ; 100000               ; Signed Integer                                                              ;
+; NUMBER_OF_BITS_FOR_2MS             ; 17                   ; Signed Integer                                                              ;
+; COUNTER_INCREMENT_FOR_2MS          ; 00000000000000001    ; Unsigned Binary                                                             ;
+; PS2_STATE_0_IDLE                   ; 000                  ; Unsigned Binary                                                             ;
+; PS2_STATE_1_INITIATE_COMMUNICATION ; 001                  ; Unsigned Binary                                                             ;
+; PS2_STATE_2_WAIT_FOR_CLOCK         ; 010                  ; Unsigned Binary                                                             ;
+; PS2_STATE_3_TRANSMIT_DATA          ; 011                  ; Unsigned Binary                                                             ;
+; PS2_STATE_4_TRANSMIT_STOP_BIT      ; 100                  ; Unsigned Binary                                                             ;
+; PS2_STATE_5_RECEIVE_ACK_BIT        ; 101                  ; Unsigned Binary                                                             ;
+; PS2_STATE_6_COMMAND_WAS_SENT       ; 110                  ; Unsigned Binary                                                             ;
+; PS2_STATE_7_TRANSMISSION_ERROR     ; 111                  ; Unsigned Binary                                                             ;
++------------------------------------+----------------------+-----------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ps2Mouse:mouse|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Data_In:PS2_Data_In"                                                             ;
++------------------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------------+
+; Port             ; Type   ; Severity ; Details                                                                                                                             ;
++------------------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------------+
+; received_data_en ; Output ; Warning  ; Output or bidir port (8 bits) is wider than the port expression (1 bits) it drives; bit(s) "received_data_en[7..1]" have no fanouts ;
++------------------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ps2Mouse:mouse|mouse_Inner_controller:innerMouse"                                                                                                                     ;
++-------------------------------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; Port                          ; Type   ; Severity ; Details                                                                                                                                      ;
++-------------------------------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; PS2_CLK                       ; Bidir  ; Warning  ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                          ;
+; PS2_DAT                       ; Bidir  ; Warning  ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                          ;
+; received_data_en              ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                          ;
+; the_command                   ; Input  ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
+; send_command                  ; Input  ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
+; command_was_sent              ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed.                                     ;
+; error_communication_timed_out ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed.                                     ;
++-------------------------------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 22                          ;
+; cycloneiii_ff         ; 135                         ;
+;     ENA               ; 44                          ;
+;     ENA SCLR          ; 50                          ;
+;     SCLR              ; 14                          ;
+;     plain             ; 27                          ;
+; cycloneiii_io_obuf    ; 4                           ;
+; cycloneiii_lcell_comb ; 205                         ;
+;     arith             ; 65                          ;
+;         2 data inputs ; 65                          ;
+;     normal            ; 140                         ;
+;         0 data inputs ; 2                           ;
+;         1 data inputs ; 3                           ;
+;         2 data inputs ; 54                          ;
+;         3 data inputs ; 17                          ;
+;         4 data inputs ; 64                          ;
+;                       ;                             ;
+; Max LUT depth         ; 8.30                        ;
+; Average LUT depth     ; 3.42                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
 
 
 +-------------------------------+
@@ -162,29 +459,68 @@ agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
-    Info: Processing started: Wed Oct 24 20:00:38 2018
+    Info: Processing started: Sun Oct 28 17:17:36 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off OTGMouse -c OTGMouse
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 4 design units, including 4 entities, in source file twoshex.v
+    Info (12023): Found entity 1: seg7 File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/OTGMouse/TwosHex.v Line: 1
+    Info (12023): Found entity 2: twoComp File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/OTGMouse/TwosHex.v Line: 41
+    Info (12023): Found entity 3: fullAdder File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/OTGMouse/TwosHex.v Line: 56
+    Info (12023): Found entity 4: bit4Adder File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/OTGMouse/TwosHex.v Line: 75
 Info (12021): Found 3 design units, including 3 entities, in source file ps2_controller.v
     Info (12023): Found entity 1: mouse_Inner_controller File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/OTGMouse/PS2_Controller.v Line: 8
     Info (12023): Found entity 2: Altera_UP_PS2_Data_In File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/OTGMouse/PS2_Controller.v Line: 152
     Info (12023): Found entity 3: Altera_UP_PS2_Command_Out File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/OTGMouse/PS2_Controller.v Line: 225
+Warning (10463): Verilog HDL Declaration warning at OTGMouse.v(9): "null" is SystemVerilog-2005 keyword File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/OTGMouse/OTGMouse.v Line: 9
 Info (12021): Found 1 design units, including 1 entities, in source file otgmouse.v
     Info (12023): Found entity 1: OTGMouse File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/OTGMouse/OTGMouse.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file keyboard.v
     Info (12023): Found entity 1: ps2Keyboard File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/OTGMouse/keyboard.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file mouse.v
     Info (12023): Found entity 1: ps2Mouse File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/OTGMouse/mouse.v Line: 1
-Warning (10227): Verilog HDL Port Declaration warning at mouse.v(8): data type declaration for "M1" declares packed dimensions but the port declaration declaration does not File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/OTGMouse/mouse.v Line: 8
-Info (10499): HDL info at mouse.v(6): see declaration for object "M1" File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/OTGMouse/mouse.v Line: 6
-Warning (10227): Verilog HDL Port Declaration warning at mouse.v(8): data type declaration for "M2" declares packed dimensions but the port declaration declaration does not File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/OTGMouse/mouse.v Line: 8
-Info (10499): HDL info at mouse.v(7): see declaration for object "M2" File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/OTGMouse/mouse.v Line: 7
-Error (10219): Verilog HDL Continuous Assignment error at mouse.v(24): object "M1" on left-hand side of assignment must have a net type File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/OTGMouse/mouse.v Line: 24
-Error: Quartus Prime Analysis & Synthesis was unsuccessful. 1 error, 3 warnings
-    Error: Peak virtual memory: 4726 megabytes
-    Error: Processing ended: Wed Oct 24 20:00:45 2018
-    Error: Elapsed time: 00:00:07
-    Error: Total CPU time (on all processors): 00:00:18
+Critical Warning (10846): Verilog HDL Instantiation warning at TwosHex.v(49): instance has no name File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/OTGMouse/TwosHex.v Line: 49
+Info (12127): Elaborating entity "OTGMouse" for the top level hierarchy
+Warning (10034): Output port "leds[5..2]" at OTGMouse.v(4) has no driver File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/OTGMouse/OTGMouse.v Line: 4
+Info (12128): Elaborating entity "ps2Mouse" for hierarchy "ps2Mouse:mouse" File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/OTGMouse/OTGMouse.v Line: 17
+Warning (10230): Verilog HDL assignment warning at mouse.v(63): truncated value with size 32 to match size of target (2) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/OTGMouse/mouse.v Line: 63
+Warning (10230): Verilog HDL assignment warning at mouse.v(68): truncated value with size 32 to match size of target (2) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/OTGMouse/mouse.v Line: 68
+Info (12128): Elaborating entity "mouse_Inner_controller" for hierarchy "ps2Mouse:mouse|mouse_Inner_controller:innerMouse" File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/OTGMouse/mouse.v Line: 37
+Warning (10230): Verilog HDL assignment warning at PS2_Controller.v(31): truncated value with size 32 to match size of target (1) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/OTGMouse/PS2_Controller.v Line: 31
+Warning (10230): Verilog HDL assignment warning at PS2_Controller.v(32): truncated value with size 32 to match size of target (1) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/OTGMouse/PS2_Controller.v Line: 32
+Info (12128): Elaborating entity "Altera_UP_PS2_Data_In" for hierarchy "ps2Mouse:mouse|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Data_In:PS2_Data_In" File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/OTGMouse/PS2_Controller.v Line: 145
+Info (12128): Elaborating entity "Altera_UP_PS2_Command_Out" for hierarchy "ps2Mouse:mouse|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out" File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/OTGMouse/PS2_Controller.v Line: 146
+Warning (12241): 2 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (13039): The following bidirectional pins have no drivers
+    Warning (13040): bidirectional pin "ps2ck2" has no driver File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/OTGMouse/OTGMouse.v Line: 12
+    Warning (13040): bidirectional pin "ps2dt2" has no driver File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/OTGMouse/OTGMouse.v Line: 12
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "leds[2]" is stuck at GND File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/OTGMouse/OTGMouse.v Line: 4
+    Warning (13410): Pin "leds[3]" is stuck at GND File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/OTGMouse/OTGMouse.v Line: 4
+    Warning (13410): Pin "leds[4]" is stuck at GND File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/OTGMouse/OTGMouse.v Line: 4
+    Warning (13410): Pin "leds[5]" is stuck at GND File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/OTGMouse/OTGMouse.v Line: 4
+    Warning (13410): Pin "leds[14]" is stuck at GND File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/OTGMouse/OTGMouse.v Line: 4
+    Warning (13410): Pin "leds[15]" is stuck at GND File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/OTGMouse/OTGMouse.v Line: 4
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 15 registers lost all their fanouts during netlist optimizations.
+Info (144001): Generated suppressed messages file C:/Users/cabrera/Desktop/FinalProject/ECE287Project/OTGMouse/output_files/OTGMouse.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 248 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 2 input pins
+    Info (21059): Implemented 16 output pins
+    Info (21060): Implemented 4 bidirectional pins
+    Info (21061): Implemented 226 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 19 warnings
+    Info: Peak virtual memory: 4789 megabytes
+    Info: Processing ended: Sun Oct 28 17:17:45 2018
+    Info: Elapsed time: 00:00:09
+    Info: Total CPU time (on all processors): 00:00:20
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in C:/Users/cabrera/Desktop/FinalProject/ECE287Project/OTGMouse/output_files/OTGMouse.map.smsg.
 
 
