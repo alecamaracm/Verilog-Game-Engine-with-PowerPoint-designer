@@ -1,5 +1,5 @@
 Analysis & Synthesis report for main
-Sun Oct 28 19:44:24 2018
+Wed Oct 31 18:21:36 2018
 Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
 
 
@@ -26,10 +26,11 @@ Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
  18. Port Connectivity Checks: "ps2Mouse:mouse|twoComp:compX|bit8Adder:comb_11"
  19. Port Connectivity Checks: "ps2Mouse:mouse|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Data_In:PS2_Data_In"
  20. Port Connectivity Checks: "ps2Mouse:mouse|mouse_Inner_controller:innerMouse"
- 21. Post-Synthesis Netlist Statistics for Top Partition
- 22. Elapsed Time Per Partition
- 23. Analysis & Synthesis Messages
- 24. Analysis & Synthesis Suppressed Messages
+ 21. Port Connectivity Checks: "VGADriver:driver"
+ 22. Post-Synthesis Netlist Statistics for Top Partition
+ 23. Elapsed Time Per Partition
+ 24. Analysis & Synthesis Messages
+ 25. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -56,15 +57,15 @@ agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sun Oct 28 19:44:24 2018       ;
+; Analysis & Synthesis Status        ; Successful - Wed Oct 31 18:21:36 2018       ;
 ; Quartus Prime Version              ; 16.1.0 Build 196 10/24/2016 SJ Lite Edition ;
 ; Revision Name                      ; main                                        ;
 ; Top-level Entity Name              ; main                                        ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 702                                         ;
-;     Total combinational functions  ; 666                                         ;
-;     Dedicated logic registers      ; 198                                         ;
-; Total registers                    ; 198                                         ;
+; Total logic elements               ; 3,368                                       ;
+;     Total combinational functions  ; 3,332                                       ;
+;     Dedicated logic registers      ; 196                                         ;
+; Total registers                    ; 196                                         ;
 ; Total pins                         ; 52                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
@@ -172,7 +173,9 @@ agreement for further details.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-4         ;   0.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processor 3            ;   0.0%      ;
+;     Processor 4            ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -194,20 +197,20 @@ agreement for further details.
 +---------------------------------------------+-------------+
 ; Resource                                    ; Usage       ;
 +---------------------------------------------+-------------+
-; Estimated Total logic elements              ; 702         ;
+; Estimated Total logic elements              ; 3,368       ;
 ;                                             ;             ;
-; Total combinational functions               ; 666         ;
+; Total combinational functions               ; 3332        ;
 ; Logic element usage by number of LUT inputs ;             ;
-;     -- 4 input functions                    ; 256         ;
-;     -- 3 input functions                    ; 178         ;
-;     -- <=2 input functions                  ; 232         ;
+;     -- 4 input functions                    ; 1809        ;
+;     -- 3 input functions                    ; 742         ;
+;     -- <=2 input functions                  ; 781         ;
 ;                                             ;             ;
 ; Logic elements by mode                      ;             ;
-;     -- normal mode                          ; 426         ;
-;     -- arithmetic mode                      ; 240         ;
+;     -- normal mode                          ; 2349        ;
+;     -- arithmetic mode                      ; 983         ;
 ;                                             ;             ;
-; Total registers                             ; 198         ;
-;     -- Dedicated logic registers            ; 198         ;
+; Total registers                             ; 196         ;
+;     -- Dedicated logic registers            ; 196         ;
 ;     -- I/O registers                        ; 0           ;
 ;                                             ;             ;
 ; I/O pins                                    ; 52          ;
@@ -215,9 +218,9 @@ agreement for further details.
 ; Embedded Multiplier 9-bit elements          ; 0           ;
 ;                                             ;             ;
 ; Maximum fan-out node                        ; CLOCK~input ;
-; Maximum fan-out                             ; 176         ;
-; Total fan-out                               ; 2763        ;
-; Average fan-out                             ; 2.84        ;
+; Maximum fan-out                             ; 196         ;
+; Total fan-out                               ; 11685       ;
+; Average fan-out                             ; 3.21        ;
 +---------------------------------------------+-------------+
 
 
@@ -226,13 +229,13 @@ agreement for further details.
 +------------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------------------------+-----------------------------+--------------+
 ; Compilation Hierarchy Node                           ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                              ; Entity Name                 ; Library Name ;
 +------------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------------------------+-----------------------------+--------------+
-; |main                                                ; 666 (0)             ; 198 (0)                   ; 0           ; 0            ; 0       ; 0         ; 52   ; 0            ; |main                                                                                            ; main                        ; work         ;
-;    |PP2VerilogDrawingController:drawings|            ; 250 (250)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|PP2VerilogDrawingController:drawings                                                       ; PP2VerilogDrawingController ; work         ;
-;    |VGADriver:driver|                                ; 64 (64)             ; 23 (23)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|VGADriver:driver                                                                           ; VGADriver                   ; work         ;
-;    |ps2Mouse:mouse|                                  ; 352 (183)           ; 175 (78)                  ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|ps2Mouse:mouse                                                                             ; ps2Mouse                    ; work         ;
-;       |mouse_Inner_controller:innerMouse|            ; 147 (9)             ; 97 (6)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|ps2Mouse:mouse|mouse_Inner_controller:innerMouse                                           ; mouse_Inner_controller      ; work         ;
-;          |Altera_UP_PS2_Command_Out:PS2_Command_Out| ; 106 (106)           ; 66 (66)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|ps2Mouse:mouse|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out ; Altera_UP_PS2_Command_Out   ; work         ;
-;          |Altera_UP_PS2_Data_In:PS2_Data_In|         ; 32 (32)             ; 25 (25)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|ps2Mouse:mouse|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Data_In:PS2_Data_In         ; Altera_UP_PS2_Data_In       ; work         ;
+; |main                                                ; 3332 (0)            ; 196 (0)                   ; 0           ; 0            ; 0       ; 0         ; 52   ; 0            ; |main                                                                                            ; main                        ; work         ;
+;    |PP2VerilogDrawingController:drawings|            ; 2924 (2924)         ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|PP2VerilogDrawingController:drawings                                                       ; PP2VerilogDrawingController ; work         ;
+;    |VGADriver:driver|                                ; 58 (58)             ; 23 (23)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|VGADriver:driver                                                                           ; VGADriver                   ; work         ;
+;    |ps2Mouse:mouse|                                  ; 350 (174)           ; 173 (76)                  ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|ps2Mouse:mouse                                                                             ; ps2Mouse                    ; work         ;
+;       |mouse_Inner_controller:innerMouse|            ; 153 (7)             ; 97 (6)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|ps2Mouse:mouse|mouse_Inner_controller:innerMouse                                           ; mouse_Inner_controller      ; work         ;
+;          |Altera_UP_PS2_Command_Out:PS2_Command_Out| ; 113 (113)           ; 66 (66)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|ps2Mouse:mouse|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out ; Altera_UP_PS2_Command_Out   ; work         ;
+;          |Altera_UP_PS2_Data_In:PS2_Data_In|         ; 33 (33)             ; 25 (25)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|ps2Mouse:mouse|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Data_In:PS2_Data_In         ; Altera_UP_PS2_Data_In       ; work         ;
 ;       |twoComp:compX|                                ; 9 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|ps2Mouse:mouse|twoComp:compX                                                               ; twoComp                     ; work         ;
 ;          |bit8Adder:comb_11|                         ; 9 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|ps2Mouse:mouse|twoComp:compX|bit8Adder:comb_11                                             ; bit8Adder                   ; work         ;
 ;             |fullAdder:bit2|                         ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|ps2Mouse:mouse|twoComp:compX|bit8Adder:comb_11|fullAdder:bit2                              ; fullAdder                   ; work         ;
@@ -240,17 +243,17 @@ agreement for further details.
 ;             |fullAdder:bit4|                         ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|ps2Mouse:mouse|twoComp:compX|bit8Adder:comb_11|fullAdder:bit4                              ; fullAdder                   ; work         ;
 ;             |fullAdder:bit5|                         ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|ps2Mouse:mouse|twoComp:compX|bit8Adder:comb_11|fullAdder:bit5                              ; fullAdder                   ; work         ;
 ;             |fullAdder:bit6|                         ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|ps2Mouse:mouse|twoComp:compX|bit8Adder:comb_11|fullAdder:bit6                              ; fullAdder                   ; work         ;
-;             |fullAdder:bit7|                         ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|ps2Mouse:mouse|twoComp:compX|bit8Adder:comb_11|fullAdder:bit7                              ; fullAdder                   ; work         ;
-;             |fullAdder:bit8|                         ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|ps2Mouse:mouse|twoComp:compX|bit8Adder:comb_11|fullAdder:bit8                              ; fullAdder                   ; work         ;
-;       |twoComp:compY|                                ; 13 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|ps2Mouse:mouse|twoComp:compY                                                               ; twoComp                     ; work         ;
-;          |bit8Adder:comb_11|                         ; 13 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|ps2Mouse:mouse|twoComp:compY|bit8Adder:comb_11                                             ; bit8Adder                   ; work         ;
+;             |fullAdder:bit7|                         ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|ps2Mouse:mouse|twoComp:compX|bit8Adder:comb_11|fullAdder:bit7                              ; fullAdder                   ; work         ;
+;             |fullAdder:bit8|                         ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|ps2Mouse:mouse|twoComp:compX|bit8Adder:comb_11|fullAdder:bit8                              ; fullAdder                   ; work         ;
+;       |twoComp:compY|                                ; 14 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|ps2Mouse:mouse|twoComp:compY                                                               ; twoComp                     ; work         ;
+;          |bit8Adder:comb_11|                         ; 14 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|ps2Mouse:mouse|twoComp:compY|bit8Adder:comb_11                                             ; bit8Adder                   ; work         ;
 ;             |fullAdder:bit2|                         ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|ps2Mouse:mouse|twoComp:compY|bit8Adder:comb_11|fullAdder:bit2                              ; fullAdder                   ; work         ;
 ;             |fullAdder:bit3|                         ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|ps2Mouse:mouse|twoComp:compY|bit8Adder:comb_11|fullAdder:bit3                              ; fullAdder                   ; work         ;
 ;             |fullAdder:bit4|                         ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|ps2Mouse:mouse|twoComp:compY|bit8Adder:comb_11|fullAdder:bit4                              ; fullAdder                   ; work         ;
 ;             |fullAdder:bit5|                         ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|ps2Mouse:mouse|twoComp:compY|bit8Adder:comb_11|fullAdder:bit5                              ; fullAdder                   ; work         ;
 ;             |fullAdder:bit6|                         ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|ps2Mouse:mouse|twoComp:compY|bit8Adder:comb_11|fullAdder:bit6                              ; fullAdder                   ; work         ;
 ;             |fullAdder:bit7|                         ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|ps2Mouse:mouse|twoComp:compY|bit8Adder:comb_11|fullAdder:bit7                              ; fullAdder                   ; work         ;
-;             |fullAdder:bit8|                         ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|ps2Mouse:mouse|twoComp:compY|bit8Adder:comb_11|fullAdder:bit8                              ; fullAdder                   ; work         ;
+;             |fullAdder:bit8|                         ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|ps2Mouse:mouse|twoComp:compY|bit8Adder:comb_11|fullAdder:bit8                              ; fullAdder                   ; work         ;
 +------------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------------------------+-----------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -311,6 +314,8 @@ Encoding Type:  One-Hot
 ; ps2Mouse:mouse|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|ps2_command[4..7]                ; Merged with ps2Mouse:mouse|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|ps2_command[2] ;
 ; ps2Mouse:mouse|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|ps2_command[1,3]                 ; Merged with ps2Mouse:mouse|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|ps2_command[0] ;
 ; ps2Mouse:mouse|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|ps2_command[0]                   ; Stuck at GND due to stuck port data_in                                                                                ;
+; ps2Mouse:mouse|mouseX[0]                                                                                                    ; Stuck at GND due to stuck port data_in                                                                                ;
+; ps2Mouse:mouse|mouseY[0]                                                                                                    ; Stuck at GND due to stuck port data_in                                                                                ;
 ; ps2Mouse:mouse|nonActivity[51..55]                                                                                          ; Stuck at GND due to stuck port data_in                                                                                ;
 ; ps2Mouse:mouse|mouse_Inner_controller:innerMouse|s_ps2_transceiver~2                                                        ; Lost fanout                                                                                                           ;
 ; ps2Mouse:mouse|mouse_Inner_controller:innerMouse|s_ps2_transceiver~3                                                        ; Lost fanout                                                                                                           ;
@@ -324,7 +329,7 @@ Encoding Type:  One-Hot
 ; ps2Mouse:mouse|mouse_Inner_controller:innerMouse|s_ps2_transceiver.PS2_STATE_3_END_TRANSFER                                 ; Stuck at GND due to stuck port data_in                                                                                ;
 ; ps2Mouse:mouse|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Data_In:PS2_Data_In|s_ps2_receiver.PS2_STATE_1_WAIT_FOR_DATA ; Stuck at GND due to stuck port data_in                                                                                ;
 ; ps2Mouse:mouse|nonActivity[18..50]                                                                                          ; Stuck at GND due to stuck port data_in                                                                                ;
-; Total Number of Removed Registers = 73                                                                                      ;                                                                                                                       ;
+; Total Number of Removed Registers = 75                                                                                      ;                                                                                                                       ;
 +-----------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------+
 
 
@@ -365,12 +370,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 198   ;
-; Number of registers using Synchronous Clear  ; 97    ;
-; Number of registers using Synchronous Load   ; 22    ;
+; Total registers                              ; 196   ;
+; Number of registers using Synchronous Clear  ; 95    ;
+; Number of registers using Synchronous Load   ; 20    ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 134   ;
+; Number of registers using Clock Enable       ; 150   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -380,23 +385,23 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                                                   ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------------------------------------------------+
-; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |main|ps2Mouse:mouse|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|ps2_command[8]              ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |main|ps2Mouse:mouse|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|ps2_command[2]              ;
 ; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |main|VGADriver:driver|yPos[0]                                                                                               ;
 ; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |main|VGADriver:driver|xPos[10]                                                                                              ;
 ; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |main|ps2Mouse:mouse|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Data_In:PS2_Data_In|data_shift_reg[0]                   ;
-; 3:1                ; 56 bits   ; 112 LEs       ; 56 LEs               ; 56 LEs                 ; Yes        ; |main|ps2Mouse:mouse|nonActivity[30]                                                                                         ;
+; 3:1                ; 56 bits   ; 112 LEs       ; 56 LEs               ; 56 LEs                 ; Yes        ; |main|ps2Mouse:mouse|nonActivity[29]                                                                                         ;
 ; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |main|ps2Mouse:mouse|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Data_In:PS2_Data_In|received_data[5]                    ;
 ; 4:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |main|ps2Mouse:mouse|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|transfer_counter[13]        ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |main|ps2Mouse:mouse|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Data_In:PS2_Data_In|data_count[3]                       ;
-; 5:1                ; 11 bits   ; 33 LEs        ; 22 LEs               ; 11 LEs                 ; Yes        ; |main|ps2Mouse:mouse|mouseX[8]                                                                                               ;
-; 5:1                ; 11 bits   ; 33 LEs        ; 22 LEs               ; 11 LEs                 ; Yes        ; |main|ps2Mouse:mouse|mouseY[4]                                                                                               ;
-; 4:1                ; 13 bits   ; 26 LEs        ; 13 LEs               ; 13 LEs                 ; Yes        ; |main|ps2Mouse:mouse|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|command_initiate_counter[9] ;
-; 4:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |main|ps2Mouse:mouse|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|waiting_counter[1]          ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |main|ps2Mouse:mouse|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Data_In:PS2_Data_In|data_count[2]                       ;
+; 5:1                ; 10 bits   ; 30 LEs        ; 20 LEs               ; 10 LEs                 ; Yes        ; |main|ps2Mouse:mouse|mouseX[9]                                                                                               ;
+; 5:1                ; 10 bits   ; 30 LEs        ; 20 LEs               ; 10 LEs                 ; Yes        ; |main|ps2Mouse:mouse|mouseY[6]                                                                                               ;
+; 4:1                ; 13 bits   ; 26 LEs        ; 13 LEs               ; 13 LEs                 ; Yes        ; |main|ps2Mouse:mouse|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|command_initiate_counter[8] ;
+; 4:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |main|ps2Mouse:mouse|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|waiting_counter[18]         ;
 ; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |main|ps2Mouse:mouse|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|cur_bit[2]                  ;
 ; 3:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |main|PP2VerilogDrawingController:drawings|VGAr                                                                              ;
 ; 3:1                ; 9 bits    ; 18 LEs        ; 18 LEs               ; 0 LEs                  ; No         ; |main|PP2VerilogDrawingController:drawings|VGAr                                                                              ;
 ; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |main|PP2VerilogDrawingController:drawings|VGAg                                                                              ;
-; 4:1                ; 22 bits   ; 44 LEs        ; 44 LEs               ; 0 LEs                  ; No         ; |main|PP2VerilogDrawingController:drawings|VGAb[7]                                                                           ;
+; 251:1              ; 22 bits   ; 3674 LEs      ; 3674 LEs             ; 0 LEs                  ; No         ; |main|PP2VerilogDrawingController:drawings|VGAr[1]                                                                           ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------------------------------------------------+
 
 
@@ -478,32 +483,41 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------------------------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
 
 
++----------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "VGADriver:driver"                                                                                                 ;
++---------------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; Port          ; Type   ; Severity ; Details                                                                                                  ;
++---------------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; currentMemory ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
++---------------+--------+----------+----------------------------------------------------------------------------------------------------------+
+
+
 +-----------------------------------------------------+
 ; Post-Synthesis Netlist Statistics for Top Partition ;
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 52                          ;
-; cycloneiii_ff         ; 198                         ;
-;     ENA               ; 62                          ;
-;     ENA SCLR          ; 50                          ;
-;     ENA SCLR SLD      ; 22                          ;
-;     SCLR              ; 25                          ;
-;     plain             ; 39                          ;
+; cycloneiii_ff         ; 196                         ;
+;     ENA               ; 69                          ;
+;     ENA SCLR          ; 61                          ;
+;     ENA SCLR SLD      ; 20                          ;
+;     SCLR              ; 14                          ;
+;     plain             ; 32                          ;
 ; cycloneiii_io_obuf    ; 4                           ;
-; cycloneiii_lcell_comb ; 667                         ;
-;     arith             ; 240                         ;
-;         2 data inputs ; 134                         ;
-;         3 data inputs ; 106                         ;
-;     normal            ; 427                         ;
-;         0 data inputs ; 9                           ;
+; cycloneiii_lcell_comb ; 3333                        ;
+;     arith             ; 983                         ;
+;         2 data inputs ; 554                         ;
+;         3 data inputs ; 429                         ;
+;     normal            ; 2350                        ;
+;         0 data inputs ; 52                          ;
 ;         1 data inputs ; 11                          ;
-;         2 data inputs ; 79                          ;
-;         3 data inputs ; 72                          ;
-;         4 data inputs ; 256                         ;
+;         2 data inputs ; 165                         ;
+;         3 data inputs ; 313                         ;
+;         4 data inputs ; 1809                        ;
 ;                       ;                             ;
-; Max LUT depth         ; 11.10                       ;
-; Average LUT depth     ; 5.52                        ;
+; Max LUT depth         ; 26.90                       ;
+; Average LUT depth     ; 17.45                       ;
 +-----------------------+-----------------------------+
 
 
@@ -512,7 +526,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:01     ;
+; Top            ; 00:00:10     ;
 +----------------+--------------+
 
 
@@ -522,7 +536,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
-    Info: Processing started: Sun Oct 28 19:44:14 2018
+    Info: Processing started: Wed Oct 31 18:21:17 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off FinalProjectAlejandroWill -c main
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -547,10 +561,10 @@ Critical Warning (10846): Verilog HDL Instantiation warning at mouse.v(173): ins
 Info (12127): Elaborating entity "main" for the top level hierarchy
 Warning (10034): Output port "leds[5..2]" at main.v(8) has no driver File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/main.v Line: 8
 Info (12128): Elaborating entity "VGADriver" for hierarchy "VGADriver:driver" File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/main.v Line: 25
-Warning (10230): Verilog HDL assignment warning at VGADriver.v(13): truncated value with size 32 to match size of target (10) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/VGADriver.v Line: 13
-Warning (10230): Verilog HDL assignment warning at VGADriver.v(15): truncated value with size 11 to match size of target (9) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/VGADriver.v Line: 15
-Warning (10230): Verilog HDL assignment warning at VGADriver.v(53): truncated value with size 32 to match size of target (11) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/VGADriver.v Line: 53
-Warning (10230): Verilog HDL assignment warning at VGADriver.v(57): truncated value with size 32 to match size of target (11) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/VGADriver.v Line: 57
+Warning (10230): Verilog HDL assignment warning at VGADriver.v(15): truncated value with size 32 to match size of target (10) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/VGADriver.v Line: 15
+Warning (10230): Verilog HDL assignment warning at VGADriver.v(17): truncated value with size 11 to match size of target (9) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/VGADriver.v Line: 17
+Warning (10230): Verilog HDL assignment warning at VGADriver.v(52): truncated value with size 32 to match size of target (11) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/VGADriver.v Line: 52
+Warning (10230): Verilog HDL assignment warning at VGADriver.v(56): truncated value with size 32 to match size of target (11) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/VGADriver.v Line: 56
 Info (12128): Elaborating entity "PP2VerilogDrawingController" for hierarchy "PP2VerilogDrawingController:drawings" File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/main.v Line: 27
 Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(53): truncated value with size 32 to match size of target (8) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 53
 Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(54): truncated value with size 32 to match size of target (8) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 54
@@ -577,7 +591,7 @@ Info (12128): Elaborating entity "Altera_UP_PS2_Command_Out" for hierarchy "ps2M
 Info (12128): Elaborating entity "twoComp" for hierarchy "ps2Mouse:mouse|twoComp:compX" File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/mouse.v Line: 46
 Info (12128): Elaborating entity "bit8Adder" for hierarchy "ps2Mouse:mouse|twoComp:compX|bit8Adder:comb_11" File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/mouse.v Line: 173
 Info (12128): Elaborating entity "fullAdder" for hierarchy "ps2Mouse:mouse|twoComp:compX|bit8Adder:comb_11|fullAdder:bit1" File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/mouse.v Line: 207
-Warning (12241): 2 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (12241): 3 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13039): The following bidirectional pins have no drivers
     Warning (13040): bidirectional pin "ps2ck2" has no driver File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/main.v Line: 9
     Warning (13040): bidirectional pin "ps2dt2" has no driver File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/main.v Line: 9
@@ -596,16 +610,16 @@ Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 1 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "real100clock" File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/main.v Line: 21
-Info (21057): Implemented 758 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 3424 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 3 input pins
     Info (21059): Implemented 45 output pins
     Info (21060): Implemented 4 bidirectional pins
-    Info (21061): Implemented 706 logic cells
+    Info (21061): Implemented 3372 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 39 warnings
-    Info: Peak virtual memory: 4795 megabytes
-    Info: Processing ended: Sun Oct 28 19:44:24 2018
-    Info: Elapsed time: 00:00:10
-    Info: Total CPU time (on all processors): 00:00:21
+    Info: Peak virtual memory: 4827 megabytes
+    Info: Processing ended: Wed Oct 31 18:21:36 2018
+    Info: Elapsed time: 00:00:19
+    Info: Total CPU time (on all processors): 00:00:30
 
 
 +------------------------------------------+

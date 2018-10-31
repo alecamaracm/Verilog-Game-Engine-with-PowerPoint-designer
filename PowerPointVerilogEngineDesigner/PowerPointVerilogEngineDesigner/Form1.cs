@@ -65,9 +65,9 @@ namespace PowerPointVerilogEngineDesigner
                     Console.WriteLine("Compiling and writing first slide...");
                     if (mainDocument.Slides.Count > 0) writeSlide(mainDocument.Slides[0], 1, writer);
 
-                    GemBox.Presentation.Color color = GemBox.Presentation.Color.FromRgb(255, 255, 255);
+                    //GemBox.Presentation.Color color = GemBox.Presentation.Color.FromRgb(255, 255, 255);
 
-                    writeMouse(writer, color, 1, new Size(20, 20));
+                   // writeMouse(writer, color, 1, new Size(20, 20));
 
                     writer.WriteLine("\nend");
 
@@ -129,7 +129,7 @@ namespace PowerPointVerilogEngineDesigner
                 {
                     Dictionary<string, string> properties = getProperties(null, picture.AlternativeText.Description);
 
-                    Console.WriteLine(getTabs(2) + "Writing picture: " + (properties.ContainsKey("NAME") ? properties["NAME"] : "UNNAMED"));
+                    Console.WriteLine(getTabs(2) + "Writing picture: " + (properties.ContainsKey("NAME") ? properties["NAME"] : (properties.ContainsKey("CURSOR") ? "Mouse" : "UNNAMED")));
                   
                     int compresionFactor = 1;
                     int maxColorBits = 8;
@@ -140,52 +140,112 @@ namespace PowerPointVerilogEngineDesigner
                     baseBitmap.Save(currentProjectFolderPath + "/PPVerilogEngine//tempPictures//basePicture.png");
                     DrawingLayout finalLayout = getScaledLayout(picture.Layout);
 
-                    Bitmap resizedBitmap = new Bitmap(baseBitmap, new Size((int)(finalLayout.Width / compresionFactor), (int)(finalLayout.Height / compresionFactor)));
-                    resizedBitmap.Save(currentProjectFolderPath + "/PPVerilogEngine//tempPictures//compressedPicture.png");
-
-                    Bitmap colorSetBitmap = new Bitmap(resizedBitmap);
-                    colorSetBitmap = limitColorBitmap(colorSetBitmap, maxColorBits);
-                    colorSetBitmap.Save(currentProjectFolderPath + "/PPVerilogEngine//tempPictures//colorLimitedPicture.png");
-
-                    int savedPixels = 0;
-                    int usedPixels = 0;
-                    writer.WriteLine(Environment.NewLine + getTabs(tabs) + "//Drawing picture with compression rate: " + compresionFactor + ":1");
-                    for (int i = 0; i < colorSetBitmap.Height; i++)
+                    if(properties.ContainsKey("CURSOR"))
                     {
-                        int startingPixel = -1;
-                        var startingColor = System.Drawing.Color.White;
-                        for (int j = 0; j < colorSetBitmap.Width; j++)
-                        {
-                            System.Drawing.Color color = colorSetBitmap.GetPixel(j, i);
-                            if (color.A > 100)
-                            {
-                                if (startingPixel == -1)
-                                {
-                                    startingPixel = j;
-                                    startingColor = color;
-                                }
-                                else
-                                {
-                                    if ((color.R != startingColor.R || color.G != startingColor.G || color.B != startingColor.B) || j == colorSetBitmap.Width - 1) //Not the same, write the old one  || From startingPixel to current-1 in width (j)
-                                    {
-                                        writer.Write(getTabs(tabs) + "if(yPixel>=" + (int)(finalLayout.Top+(i * compresionFactor)) + " && yPixel<" + (int)(finalLayout.Top + ((i + 1) * compresionFactor)) + " && xPixel>=" + (int)(finalLayout.Left + (startingPixel * compresionFactor)) + " && xPixel<" + (int)(finalLayout.Left + (j * compresionFactor)) + ") ");
-                                        writer.WriteLine("{VGAr,VGAg,VGAb}={" + formatNumber("b", 8, Convert.ToString(startingColor.R, 2).PadLeft(8, '0')) + "," + formatNumber("b", 8, Convert.ToString(startingColor.G, 2).PadLeft(8, '0')) + "," + formatNumber("b", 8, Convert.ToString(startingColor.B, 2).PadLeft(8, '0')) + "};");
+                        Size size = new Size(10, 10);
+                        if (properties.ContainsKey("CURSOR-SIZE")) size = new Size(int.Parse(properties["CURSOR-SIZE"].Split(',')[0]), int.Parse(properties["CURSOR-SIZE"].Split(',')[1]));
 
-                                        startingColor = color;
+                        Bitmap resizedBitmap = new Bitmap(baseBitmap,size);
+                        resizedBitmap.Save(currentProjectFolderPath + "/PPVerilogEngine//tempPictures//compressedPicture.png");
+
+                        Bitmap colorSetBitmap = new Bitmap(resizedBitmap);
+                        colorSetBitmap = limitColorBitmap(colorSetBitmap, maxColorBits);
+                        colorSetBitmap.Save(currentProjectFolderPath + "/PPVerilogEngine//tempPictures//colorLimitedPicture.png");
+
+                        int savedPixels = 0;
+                        int usedPixels = 0;
+                        writer.WriteLine(Environment.NewLine + getTabs(tabs) + "//Drawing mouse: ");
+                        for (int i = 0; i < colorSetBitmap.Height; i++)
+                        {
+                            int startingPixel = -1;
+                            var startingColor = System.Drawing.Color.White;
+                            for (int j = 0; j < colorSetBitmap.Width; j++)
+                            {
+                                System.Drawing.Color color = colorSetBitmap.GetPixel(j, i);
+                                if (color.A > 100)
+                                {
+                                    if (startingPixel == -1)
+                                    {
                                         startingPixel = j;
-                                        usedPixels++;
+                                        startingColor = color;
                                     }
                                     else
                                     {
-                                        savedPixels++;
-                                        //Do nothing, is still the same color, keep waiting until it changes.
+                                        if ((color.R != startingColor.R || color.G != startingColor.G || color.B != startingColor.B) || j == colorSetBitmap.Width - 1) //Not the same, write the old one  || From startingPixel to current-1 in width (j)
+                                        {
+                                            writer.Write(getTabs(tabs) + "if(yPixel>=(mouseY+" + (int)((i * compresionFactor)) + ") && yPixel<(mouseY+" + (int)(((i + 1) * compresionFactor)) + ") && xPixel>=(mouseX+" + (int)((startingPixel * compresionFactor)) + ") && xPixel<(mouseX+" + (int)((j * compresionFactor)) + ")) ");
+
+                                            writer.WriteLine("{VGAr,VGAg,VGAb}={" + formatNumber("b", 8, Convert.ToString(startingColor.R, 2).PadLeft(8, '0')) + "," + formatNumber("b", 8, Convert.ToString(startingColor.G, 2).PadLeft(8, '0')) + "," + formatNumber("b", 8, Convert.ToString(startingColor.B, 2).PadLeft(8, '0')) + "};");
+
+                                            startingColor = color;
+                                            startingPixel = j;
+                                            usedPixels++;
+                                        }
+                                        else
+                                        {
+                                            savedPixels++;
+                                            //Do nothing, is still the same color, keep waiting until it changes.
+                                        }
                                     }
                                 }
                             }
                         }
-                    }
 
-                    Console.WriteLine(getTabs(3)+"Picture compressed at " + Math.Round((float)usedPixels / (baseBitmap.Width * baseBitmap.Height) * 100, 2) + "% of the original size!");
+                        Console.WriteLine(getTabs(3) + "Mouse drawn at " + Math.Round((float)usedPixels / (baseBitmap.Width * baseBitmap.Height) * 100, 2) + "% of the original size!");
+
+                    }
+                    else
+                    {
+                        Bitmap resizedBitmap = new Bitmap(baseBitmap, new Size((int)(finalLayout.Width / compresionFactor), (int)(finalLayout.Height / compresionFactor)));
+                        resizedBitmap.Save(currentProjectFolderPath + "/PPVerilogEngine//tempPictures//compressedPicture.png");
+
+                        Bitmap colorSetBitmap = new Bitmap(resizedBitmap);
+                        colorSetBitmap = limitColorBitmap(colorSetBitmap, maxColorBits);
+                        colorSetBitmap.Save(currentProjectFolderPath + "/PPVerilogEngine//tempPictures//colorLimitedPicture.png");
+
+                        int savedPixels = 0;
+                        int usedPixels = 0;
+                        writer.WriteLine(Environment.NewLine + getTabs(tabs) + "//Drawing picture with compression rate: " + compresionFactor + ":1");
+                        for (int i = 0; i < colorSetBitmap.Height; i++)
+                        {
+                            int startingPixel = -1;
+                            var startingColor = System.Drawing.Color.White;
+                            for (int j = 0; j < colorSetBitmap.Width; j++)
+                            {
+                                System.Drawing.Color color = colorSetBitmap.GetPixel(j, i);
+                                if (color.A > 100)
+                                {
+                                    if (startingPixel == -1)
+                                    {
+                                        startingPixel = j;
+                                        startingColor = color;
+                                    }
+                                    else
+                                    {
+                                        if ((color.R != startingColor.R || color.G != startingColor.G || color.B != startingColor.B) || j == colorSetBitmap.Width - 1) //Not the same, write the old one  || From startingPixel to current-1 in width (j)
+                                        {
+                                      
+                                                writer.Write(getTabs(tabs) + "if(yPixel>=" + (int)(finalLayout.Top + (i * compresionFactor)) + " && yPixel<" + (int)(finalLayout.Top + ((i + 1) * compresionFactor)) + " && xPixel>=" + (int)(finalLayout.Left + (startingPixel * compresionFactor)) + " && xPixel<" + (int)(finalLayout.Left + (j * compresionFactor)) + ") ");
+                                                writer.WriteLine("{VGAr,VGAg,VGAb}={" + formatNumber("b", 8, Convert.ToString(startingColor.R, 2).PadLeft(8, '0')) + "," + formatNumber("b", 8, Convert.ToString(startingColor.G, 2).PadLeft(8, '0')) + "," + formatNumber("b", 8, Convert.ToString(startingColor.B, 2).PadLeft(8, '0')) + "};");
+
+                                            
+
+                                            startingColor = color;
+                                            startingPixel = j;
+                                            usedPixels++;
+                                        }
+                                        else
+                                        {
+                                            savedPixels++;
+                                            //Do nothing, is still the same color, keep waiting until it changes.
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        Console.WriteLine(getTabs(3) + "Picture compressed at " + Math.Round((float)usedPixels / (baseBitmap.Width * baseBitmap.Height) * 100, 2) + "% of the original size!");
+                    }
 
                 }
             }

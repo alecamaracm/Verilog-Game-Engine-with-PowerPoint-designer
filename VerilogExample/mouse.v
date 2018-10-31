@@ -1,3 +1,6 @@
+
+
+
 module ps2Mouse(CLOCK,ps2ck,ps2dt,M1,M2,countt,reset,mouseX,mouseY);
 
 	input ps2ck,ps2dt;
@@ -46,7 +49,7 @@ module ps2Mouse(CLOCK,ps2ck,ps2dt,M1,M2,countt,reset,mouseX,mouseY);
 	twoComp compX(Xspeed,invertedX);	
 	twoComp compY(Yspeed,invertedY);
 	
-	localparam mousePrecision=1;
+	localparam mousePrecision=2;
 	
 	reg [55:0]nonActivity;
 	
@@ -85,26 +88,26 @@ module ps2Mouse(CLOCK,ps2ck,ps2dt,M1,M2,countt,reset,mouseX,mouseY);
 						
 						if(Xdir==0 && Xspeed[7]==0)
 						begin
-							if((10'd640-(Xspeed/mousePrecision)<mouseX))  //Its is going to be on the whiteboard
+							if((10'd640-(Xspeed*mousePrecision)<mouseX))  //Its is going to be on the whiteboard
 							begin
 								mouseX=10'd640;
 							end
 							else
 							begin
-								mouseX=mouseX+(Xspeed/mousePrecision);
+								mouseX=mouseX+(Xspeed*mousePrecision);
 							end								
 						end
 						else						
 						begin
 							if(invertedX<8'b00111111)
 							begin								
-								if((invertedX/mousePrecision)>mouseX)  //Its is going to be negative
+								if((invertedX*mousePrecision)>mouseX)  //Its is going to be negative
 								begin
 									mouseX=0;
 								end
 								else
 								begin
-									mouseX=mouseX-(invertedX/mousePrecision);													
+									mouseX=mouseX-(invertedX*mousePrecision);													
 								end							
 							end	
 						end
@@ -116,13 +119,13 @@ module ps2Mouse(CLOCK,ps2ck,ps2dt,M1,M2,countt,reset,mouseX,mouseY);
 						countt=ps2_data;
 						if(Ydir==0 && Yspeed[7]==0)
 						begin
-							if((Yspeed/mousePrecision)>mouseY)  //Its is going to be negative
+							if((Yspeed*mousePrecision)>mouseY)  //Its is going to be negative
 							begin
 								mouseY=0;
 							end
 							else
 							begin
-								mouseY=mouseY-(Yspeed/mousePrecision);													
+								mouseY=mouseY-(Yspeed*mousePrecision);													
 							end	
 						
 						
@@ -132,13 +135,13 @@ module ps2Mouse(CLOCK,ps2ck,ps2dt,M1,M2,countt,reset,mouseX,mouseY);
 						begin
 							if(invertedY<8'b00111111)
 							begin								
-								if((10'd480-(invertedY/mousePrecision)<mouseY))  //Its is going to be on the PC
+								if((10'd480-(invertedY*mousePrecision)<mouseY))  //Its is going to be on the PC
 								begin
 									mouseY=10'd480;
 								end
 								else
 								begin
-									mouseY=mouseY+(invertedY/mousePrecision);
+									mouseY=mouseY+(invertedY*mousePrecision);
 								end								
 							end	
 						end
