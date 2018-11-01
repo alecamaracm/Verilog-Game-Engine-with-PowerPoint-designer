@@ -1,7 +1,22 @@
+/////////////////////////////////////////////////////////////////////////////////////
+//																											  //
+//			Mouse driver. 																				  //
+//			M1 and M2 and the left and right mouse clicks.									  //
+//			mouseX and mouseY and the x and y coordinates.									  //
+//			Please assign all the inputs and outputs before asking for HELP.          //
+//			You can have a look at the pin assignments in our example project.        //
+//			If you want to display the mouse in our VGA driver, you should use the    //					
+//			PowerPoint2Verilog complier to design your UI. (Add the tag CURSOR to the //
+//			picture you want to use as a mouse                                        //
+//---------------------------------------------------------------------------------//
+//			Don't ever bother asking for help. (We are VERYY mean) (Just kidding)     //
+//			You can mail us if you have any questions (cabrera@miamioh.edu) 			  //
+//			or ask as in a lab				 														  //			
+//																											  //
+/////////////////////////////////////////////////////////////////////////////////////
 
 
-
-module ps2Mouse(CLOCK,ps2ck,ps2dt,M1,M2,countt,reset,mouseX,mouseY);
+module ps2Mouse(CLOCK,ps2ck,ps2dt,M1,M2,reset,mouseX,mouseY);
 
 	input ps2ck,ps2dt;
 	
@@ -21,15 +36,13 @@ module ps2Mouse(CLOCK,ps2ck,ps2dt,M1,M2,countt,reset,mouseX,mouseY);
 	reg [3:0]position;	
 	
 	reg [1:0]byteCount;
-	
-	reg[9:0]countt;
-	output[9:0]countt;
+
 	
 	wire	[7:0]ps2_data;
 	reg	[7:0]last_ps2_data;
 	wire	ps2_newData;
 	
-	mouse_Inner_controller innerMouse (
+	mouse_Inner_controller innerMouse (   //Don't touch anything in this declaration. It deals with the data adquisition and basic commands to the mouse.
 	.CLOCK_50				(CLOCK),
 	.reset				(reset),
 	.PS2_CLK			(ps2ck),
@@ -49,9 +62,9 @@ module ps2Mouse(CLOCK,ps2ck,ps2dt,M1,M2,countt,reset,mouseX,mouseY);
 	twoComp compX(Xspeed,invertedX);	
 	twoComp compY(Yspeed,invertedY);
 	
-	localparam mousePrecision=2;
+	localparam mousePrecision=2; //A multiplier for the mouse sensitivity.
 	
-	reg [55:0]nonActivity;
+	reg [55:0]nonActivity; //On a timeout, the data bytes reset.
 	
 	always @(posedge CLOCK)
 	begin
@@ -68,11 +81,10 @@ module ps2Mouse(CLOCK,ps2ck,ps2dt,M1,M2,countt,reset,mouseX,mouseY);
 				nonActivity=56'd0;
 				
 				case (byteCount)
-					4'd0:
+					4'd0: //First data byte
 					begin												
-						//M1=!M1;
-						M1=ps2_data[0]; //2
-						M2=ps2_data[1];//3
+						M1=ps2_data[0];
+						M2=ps2_data[1];
 						
 						byteCount=byteCount+1;
 						
@@ -81,7 +93,7 @@ module ps2Mouse(CLOCK,ps2ck,ps2dt,M1,M2,countt,reset,mouseX,mouseY);
 						Ydir=ps2_data[5];
 						M1=Ydir;
 					end
-					4'd1:
+					4'd1: //Second data byte (X-speed)
 					begin														
 						byteCount=byteCount+1;
 						Xspeed=ps2_data;						
@@ -112,11 +124,10 @@ module ps2Mouse(CLOCK,ps2ck,ps2dt,M1,M2,countt,reset,mouseX,mouseY);
 							end	
 						end
 					end
-					4'd2:
+					4'd2:  //Thrid data byte (Y-speed)
 					begin						
 						byteCount=byteCount+1;
 						Yspeed=ps2_data;						
-						countt=ps2_data;
 						if(Ydir==0 && Yspeed[7]==0)
 						begin
 							if((Yspeed*mousePrecision)>mouseY)  //Its is going to be negative

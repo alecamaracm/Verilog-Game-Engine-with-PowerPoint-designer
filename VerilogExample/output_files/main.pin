@@ -468,7 +468,7 @@ VGAg[0]                      : G8        : output : 2.5 V             :         
 RESERVED_INPUT_WITH_WEAK_PULLUP : G9        :        :                   :         : 8         :                
 VGAr[4]                      : G10       : output : 2.5 V             :         : 8         : Y              
 VGAg[1]                      : G11       : output : 2.5 V             :         : 8         : Y              
-RESERVED_INPUT_WITH_WEAK_PULLUP : G12       :        :                   :         : 8         :                
+RX                           : G12       : input  : 2.5 V             :         : 8         : Y              
 hsync                        : G13       : output : 2.5 V             :         : 8         : Y              
 RESERVED_INPUT_WITH_WEAK_PULLUP : G14       :        :                   :         : 8         :                
 leds[15]                     : G15       : output : 2.5 V             :         : 7         : Y              

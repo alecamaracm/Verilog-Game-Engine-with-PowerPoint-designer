@@ -1,2 +1,2 @@
-Warning (10268): Verilog HDL information at keyboard.v(28): always construct contains both blocking and non-blocking assignments File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/keyboard.v Line: 28
-Warning (10268): Verilog HDL information at VGADriver.v(43): always construct contains both blocking and non-blocking assignments File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/VGADriver.v Line: 43
+Warning (10268): Verilog HDL information at keyboard.v(43): always construct contains both blocking and non-blocking assignments File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/keyboard.v Line: 43
+Warning (10268): Verilog HDL information at VGADriver.v(57): always construct contains both blocking and non-blocking assignments File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/VGADriver.v Line: 57

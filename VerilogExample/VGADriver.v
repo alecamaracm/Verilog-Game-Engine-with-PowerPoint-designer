@@ -1,18 +1,20 @@
 /////////////////////////////////////////////////////////////////////////////////////
 //																											  //
-//			Base VGA driver. Framebuffer not inlcuded yet. But Will			           //
+//			Base VGA driver. Framebuffer not inlcuded yet. But will be (Hopefully)    //
 //			Please assign all the inputs and outputs before asking for HELP.          //
-//			You can have a look at the pin assignment in our example project.         //
+//			You can have a look at the pin assignments in our example project.         //
 //			To properly use this driver, you should use the PowerPoint2Complier       //
 //				to design your UI.                                                     //
+//---------------------------------------------------------------------------------//
 //			Don't ever bother asking for help. (We are VERYY mean) (Just kidding)     //
-//			
-//																											 //
-////////////////////////////////////////////////////////////////////////////////
+//			You can mail us if you have any questions (cabrera@miamioh.edu) 			  //
+//			or ask as in a lab				 														  //			
+//																											  //
+/////////////////////////////////////////////////////////////////////////////////////
 
 module VGADriver(real100clock,hsync,vsync,VGAclock,VGAblanck,VGAsync,xPixel,yPixel,currentMemory);
 
-output currentMemory;
+output currentMemory; //WIP
 reg currentMemory;
 
 input real100clock;
