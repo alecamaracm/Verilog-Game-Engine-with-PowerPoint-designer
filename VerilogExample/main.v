@@ -18,19 +18,34 @@ wire [8:0]yPixel;
 wire [10:0]mouseX;
 wire [10:0]mouseY;
 
+wire [9:0]Basic_transparencyY;
+wire [9:0]Basic_transparencyX;
+
+wire [9:0]WasdBlockX;
+wire [9:0]WasdBlockY;
+
+wire [3:0]wasd;
+wire [3:0]arrows;
+
+wire [9:0]ArrowsBlockX;
+wire [9:0]ArrowsBlockY;
+
+wire animationClOCK;
 
 output VGAclock;
 input real100clock;
 output hsync,vsync;
 
 
-//VGADriver driver(CLOCK,hsync,vsync,VGAclock,VGAblanck,VGAsync,xPixel,yPixel);
+VGADriver driver(CLOCK,hsync,vsync,VGAclock,VGAblanck,VGAsync,xPixel,yPixel,animationClOCK);
 
-UART_DMA uart(CLOCK,RX,leds[15:7]);
+//UART_DMA uart(CLOCK,RX,leds[15:7]);
 
-//PP2VerilogDrawingController drawings(xPixel,yPixel,VGAr,VGAg,VGAb,mouseX,mouseY); //This file is generated automatically by the compiler. Please DO NOT modify it.
+PP2VerilogDrawingController drawings(xPixel,yPixel,VGAr,VGAg,VGAb,mouseX,mouseY,Basic_transparencyX,Basic_transparencyY,WasdBlockX,WasdBlockY,ArrowsBlockX,ArrowsBlockY); //This file is generated automatically by the compiler. Please DO NOT modify it.
 
-//ps2Keyboard keyboard(CLOCK,ps2ck2,ps2dt2,leds[10:6],leds[4],leds[5]);
+ps2Keyboard keyboard(CLOCK,ps2ck2,ps2dt2,wasd,arrows,leds[4],leds[5]);
 //ps2Mouse mouse(CLOCK,ps2ck,ps2dt,leds[0],leds[1],!butt,mouseX,mouseY);
+
+animations1  anim1(animationClOCK,xPixel,yPixel,wasd,arrows,Basic_transparencyX,Basic_transparencyY,WasdBlockX,WasdBlockY,ArrowsBlockX,ArrowsBlockY);
 
 endmodule

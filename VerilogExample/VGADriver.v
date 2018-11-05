@@ -12,10 +12,8 @@
 //																											  //
 /////////////////////////////////////////////////////////////////////////////////////
 
-module VGADriver(real100clock,hsync,vsync,VGAclock,VGAblanck,VGAsync,xPixel,yPixel,currentMemory);
+module VGADriver(real100clock,hsync,vsync,VGAclock,VGAblanck,VGAsync,xPixel,yPixel,,animationCLOCK);
 
-output currentMemory; //WIP
-reg currentMemory;
 
 input real100clock;
 output VGAsync;
@@ -32,6 +30,8 @@ assign yPixel=yPos;
 
 output hsync,vsync;
 
+output animationCLOCK;
+reg animationCLOCK;
 
 reg downClock;
 
@@ -77,8 +77,21 @@ begin
 		end
 		
 		
-		currentMemory=!currentMemory;
+
+		
+		if(yPos== (480 + 12) && xPos== 5)
+		begin
+			animationCLOCK=1'b1;
+		end
+		else
+		begin
+				animationCLOCK=1'b0;
+		end
+
 	end
+	
+	
+
 end
 
 endmodule

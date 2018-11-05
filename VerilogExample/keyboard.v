@@ -16,21 +16,17 @@
 
 
 
-module ps2Keyboard(CLOCK,ps2ck,ps2dt,wasd,space,enter);
+module ps2Keyboard(CLOCK,ps2ck,ps2dt,wasd,arrows,space,enter);
 
-	inout ps2ck,ps2dt;
-	reg ps2ck,ps2dt;
-	
+	inout ps2ck,ps2dt;	
 	
 	output [3:0]wasd,space,enter;
-	reg [3:0]wasd,space,enter;
+	reg [3:0]wasd,enter,space;
+	
+	output [3:0]arrows;
+	reg [3:0]arrows;
 	
 	input CLOCK;
-	
-	reg start;
-	reg [7:0]data;
-	reg parity;
-	reg stop;
 	
 	reg releasex;
 	reg releaseCK;
@@ -38,84 +34,66 @@ module ps2Keyboard(CLOCK,ps2ck,ps2dt,wasd,space,enter);
 	reg [3:0]position;
 	reg [5:0]skipCycles;	
 	
+	reg [2:0]e0;
+	
 
 	
-	always @(posedge ps2ck)
+		reg [55:0]nonActivity; //On a timeout, the data bytes reset.
+	
+	wire	[7:0]ps2_data;
+	reg	[7:0]last_ps2_data;
+	wire	ps2_newData;
+	
+	mouse_Inner_controller innerMouse (   //Don't touch anything in this declaration. It deals with the data adquisition and basic commands to the mouse.
+	.CLOCK_50				(CLOCK),
+	.reset				(1'b0),
+	.PS2_CLK			(ps2ck),
+ 	.PS2_DAT			(ps2dt),
+	.received_data		(ps2_data),
+	.received_data_en	(ps2_newData)
+	);
+	
+
+	always @(posedge ps2_newData)
 	begin
+
 			
-	
-			case (position)
-				4'd0:
+				case (ps2_data)
+					8'hF0: 
+					begin //releasex will be 1 when the key has been released.
+						releasex=1'b1;
+						releaseCK=1'b0;		
+					end
+					8'hE0:
+					begin
+						e0=3'd3;
+					end
+				endcase
+				
+				
+				
+				if(e0>0) //Certain keys have a pre-code
 				begin
-	
-					start=1;
+					case (ps2_data)
+						8'h75: arrows[0]<=!releasex;
+						8'h6B: arrows[1]<=!releasex;	
+						8'h72: arrows[2]<=!releasex;
+						8'h74: arrows[3]<=!releasex;
+					endcase
 				end
-				4'd1:
+				else
 				begin
-					data[0]=ps2dt;
+					case (ps2_data)					
+						8'h1D: wasd[0]<=!releasex;
+						8'h1B: wasd[2]<=!releasex;	
+						8'h1C: wasd[1]<=!releasex;
+						8'h23: wasd[3]<=!releasex;	
+						8'h5A: enter<=!releasex;
+						8'h29: space<=!releasex;   //Just copy this line for any keys you might want to add				
+				endcase
+				
 				end
-				4'd2:
-				begin
-					data[1]=ps2dt;
-				end
-				4'd3:
-				begin
-					data[2]=ps2dt;
-				end
-				4'd4:
-				begin
-					data[3]=ps2dt;
-				end
-				4'd5:
-				begin
-					data[4]=ps2dt;
-				end
-				4'd6:
-				begin
-					data[5]=ps2dt;
-				end
-				4'd7:
-				begin
-					data[6]=ps2dt;
-				end
-				4'd8:
-				begin
-					data[7]=ps2dt;
-				end
-				4'd9:
-				begin
-					parity=ps2dt;
-				end				
-				4'd10:  //Parity
-				begin
-					stop=ps2dt;
-				end
-			endcase
-
-		
-		position=position+1;
-		
-		if(stop==1)
-		begin
-		
-			start=0;
-			stop=0;
-			parity=0;
-			position=0;
-			case (data)
-				8'hF0: 
-				begin //releasex will be 1 when the key has been released.
-					releasex=1'b1;
-					releaseCK=1'b0;				
-				end
-				8'h1D: wasd[0]<=!releasex;
-				8'h1B: wasd[2]<=!releasex;	
-				8'h1C: wasd[1]<=!releasex;
-				8'h23: wasd[3]<=!releasex;
-				8'h5A: enter<=!releasex;
-				8'h29: space<=!releasex;   //Just copy this line for any keys you might want to add
-
-			endcase
+			
 			
 			
 			if(releaseCK==1'b1)
@@ -130,9 +108,20 @@ module ps2Keyboard(CLOCK,ps2ck,ps2dt,wasd,space,enter);
 					releaseCK=1'b1;
 				end
 			end
-		end
+			
+			if(e0>3'b0)
+			begin
+				e0=e0-3'b1;			
+			end
+			
+			
+		
+		
+		
+		
 		
 	end
+
 	
 	endmodule
 

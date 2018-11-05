@@ -1,0 +1,14 @@
+module animations1(CLOCK,Basic_transparencyX,Basic_transparencyY)
+begin
+	
+	always @ (posedge CLOCK)
+	begin
+		
+		Basic_transparencyX=Basic_transparencyX+1;
+		Basic_transparencyY=Basic_transparencyY+1;
+		
+		if(Basic_transparencyX>640) Basic_transparencyX=0;
+		if(Basic_transparencyY>480) Basic_transparencyY=0;
+	end
+
+end

@@ -4,39 +4,131 @@
 			"name" : "Top",
 			"pins" : [
 				{
-					"name" : "leds[7]",
+					"name" : "hsync",
 					"strict" : false
 				},
 				{
-					"name" : "leds[8]",
+					"name" : "vsync",
 					"strict" : false
 				},
 				{
-					"name" : "leds[9]",
+					"name" : "VGAclock",
 					"strict" : false
 				},
 				{
-					"name" : "leds[10]",
+					"name" : "VGAr[0]",
 					"strict" : false
 				},
 				{
-					"name" : "leds[11]",
+					"name" : "VGAr[1]",
 					"strict" : false
 				},
 				{
-					"name" : "leds[12]",
+					"name" : "VGAr[2]",
 					"strict" : false
 				},
 				{
-					"name" : "leds[13]",
+					"name" : "VGAr[3]",
 					"strict" : false
 				},
 				{
-					"name" : "leds[14]",
+					"name" : "VGAr[4]",
 					"strict" : false
 				},
 				{
-					"name" : "RX",
+					"name" : "VGAr[5]",
+					"strict" : false
+				},
+				{
+					"name" : "VGAr[6]",
+					"strict" : false
+				},
+				{
+					"name" : "VGAr[7]",
+					"strict" : false
+				},
+				{
+					"name" : "VGAg[0]",
+					"strict" : false
+				},
+				{
+					"name" : "VGAg[1]",
+					"strict" : false
+				},
+				{
+					"name" : "VGAg[2]",
+					"strict" : false
+				},
+				{
+					"name" : "VGAg[3]",
+					"strict" : false
+				},
+				{
+					"name" : "VGAg[4]",
+					"strict" : false
+				},
+				{
+					"name" : "VGAg[5]",
+					"strict" : false
+				},
+				{
+					"name" : "VGAg[6]",
+					"strict" : false
+				},
+				{
+					"name" : "VGAg[7]",
+					"strict" : false
+				},
+				{
+					"name" : "VGAb[0]",
+					"strict" : false
+				},
+				{
+					"name" : "VGAb[1]",
+					"strict" : false
+				},
+				{
+					"name" : "VGAb[2]",
+					"strict" : false
+				},
+				{
+					"name" : "VGAb[3]",
+					"strict" : false
+				},
+				{
+					"name" : "VGAb[4]",
+					"strict" : false
+				},
+				{
+					"name" : "VGAb[5]",
+					"strict" : false
+				},
+				{
+					"name" : "VGAb[6]",
+					"strict" : false
+				},
+				{
+					"name" : "VGAb[7]",
+					"strict" : false
+				},
+				{
+					"name" : "VGAblanck",
+					"strict" : false
+				},
+				{
+					"name" : "leds[4]",
+					"strict" : false
+				},
+				{
+					"name" : "leds[5]",
+					"strict" : false
+				},
+				{
+					"name" : "ps2ck2",
+					"strict" : false
+				},
+				{
+					"name" : "ps2dt2",
 					"strict" : false
 				},
 				{

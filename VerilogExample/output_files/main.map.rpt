@@ -1,5 +1,5 @@
 Analysis & Synthesis report for main
-Wed Oct 31 20:41:01 2018
+Sun Nov 04 19:50:36 2018
 Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
 
 
@@ -13,13 +13,23 @@ Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. Registers Removed During Synthesis
-  9. General Register Statistics
- 10. Port Connectivity Checks: "UART_DMA:uart"
- 11. Post-Synthesis Netlist Statistics for Top Partition
- 12. Elapsed Time Per Partition
- 13. Analysis & Synthesis Messages
- 14. Analysis & Synthesis Suppressed Messages
+  8. State Machine - |main|ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|s_ps2_transceiver
+  9. State Machine - |main|ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|s_ps2_transmitter
+ 10. State Machine - |main|ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Data_In:PS2_Data_In|s_ps2_receiver
+ 11. Registers Removed During Synthesis
+ 12. Removed Registers Triggering Further Register Optimizations
+ 13. General Register Statistics
+ 14. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 15. Parameter Settings for User Entity Instance: ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out
+ 16. Parameter Settings for User Entity Instance: animations1:anim1
+ 17. Port Connectivity Checks: "animations1:anim1"
+ 18. Port Connectivity Checks: "ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Data_In:PS2_Data_In"
+ 19. Port Connectivity Checks: "ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse"
+ 20. Port Connectivity Checks: "ps2Keyboard:keyboard"
+ 21. Post-Synthesis Netlist Statistics for Top Partition
+ 22. Elapsed Time Per Partition
+ 23. Analysis & Synthesis Messages
+ 24. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -46,15 +56,15 @@ agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed Oct 31 20:41:01 2018       ;
+; Analysis & Synthesis Status        ; Successful - Sun Nov 04 19:50:36 2018       ;
 ; Quartus Prime Version              ; 16.1.0 Build 196 10/24/2016 SJ Lite Edition ;
 ; Revision Name                      ; main                                        ;
 ; Top-level Entity Name              ; main                                        ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 50                                          ;
-;     Total combinational functions  ; 42                                          ;
-;     Dedicated logic registers      ; 30                                          ;
-; Total registers                    ; 30                                          ;
+; Total logic elements               ; 3,916                                       ;
+;     Total combinational functions  ; 3,897                                       ;
+;     Dedicated logic registers      ; 129                                         ;
+; Total registers                    ; 129                                         ;
 ; Total pins                         ; 53                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
@@ -162,71 +172,220 @@ agreement for further details.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-4         ;   0.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processor 3            ;   0.0%      ;
+;     Processor 4            ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                            ;
-+----------------------------------+-----------------+------------------------+---------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                              ; Library ;
-+----------------------------------+-----------------+------------------------+---------------------------------------------------------------------------+---------+
-; main.v                           ; yes             ; User Verilog HDL File  ; C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/main.v ;         ;
-; UART.v                           ; yes             ; User Verilog HDL File  ; C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/UART.v ;         ;
-+----------------------------------+-----------------+------------------------+---------------------------------------------------------------------------+---------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                       ;
++----------------------------------+-----------------+------------------------+--------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                                         ; Library ;
++----------------------------------+-----------------+------------------------+--------------------------------------------------------------------------------------+---------+
+; PS2_Controller.v                 ; yes             ; User Verilog HDL File  ; C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/PS2_Controller.v  ;         ;
+; keyboard.v                       ; yes             ; User Verilog HDL File  ; C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/keyboard.v        ;         ;
+; IH8Verilog_main.v                ; yes             ; User Verilog HDL File  ; C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/IH8Verilog_main.v ;         ;
+; main.v                           ; yes             ; User Verilog HDL File  ; C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/main.v            ;         ;
+; VGADriver.v                      ; yes             ; User Verilog HDL File  ; C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/VGADriver.v       ;         ;
+; Verilog1.v                       ; yes             ; User Verilog HDL File  ; C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/Verilog1.v        ;         ;
++----------------------------------+-----------------+------------------------+--------------------------------------------------------------------------------------+---------+
 
 
-+-----------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary               ;
-+---------------------------------------------+-------------+
-; Resource                                    ; Usage       ;
-+---------------------------------------------+-------------+
-; Estimated Total logic elements              ; 50          ;
-;                                             ;             ;
-; Total combinational functions               ; 42          ;
-; Logic element usage by number of LUT inputs ;             ;
-;     -- 4 input functions                    ; 22          ;
-;     -- 3 input functions                    ; 9           ;
-;     -- <=2 input functions                  ; 11          ;
-;                                             ;             ;
-; Logic elements by mode                      ;             ;
-;     -- normal mode                          ; 33          ;
-;     -- arithmetic mode                      ; 9           ;
-;                                             ;             ;
-; Total registers                             ; 30          ;
-;     -- Dedicated logic registers            ; 30          ;
-;     -- I/O registers                        ; 0           ;
-;                                             ;             ;
-; I/O pins                                    ; 53          ;
-;                                             ;             ;
-; Embedded Multiplier 9-bit elements          ; 0           ;
-;                                             ;             ;
-; Maximum fan-out node                        ; CLOCK~input ;
-; Maximum fan-out                             ; 30          ;
-; Total fan-out                               ; 277         ;
-; Average fan-out                             ; 1.52        ;
-+---------------------------------------------+-------------+
++------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                            ;
++---------------------------------------------+--------------------------+
+; Resource                                    ; Usage                    ;
++---------------------------------------------+--------------------------+
+; Estimated Total logic elements              ; 3,916                    ;
+;                                             ;                          ;
+; Total combinational functions               ; 3897                     ;
+; Logic element usage by number of LUT inputs ;                          ;
+;     -- 4 input functions                    ; 2729                     ;
+;     -- 3 input functions                    ; 729                      ;
+;     -- <=2 input functions                  ; 439                      ;
+;                                             ;                          ;
+; Logic elements by mode                      ;                          ;
+;     -- normal mode                          ; 3362                     ;
+;     -- arithmetic mode                      ; 535                      ;
+;                                             ;                          ;
+; Total registers                             ; 129                      ;
+;     -- Dedicated logic registers            ; 129                      ;
+;     -- I/O registers                        ; 0                        ;
+;                                             ;                          ;
+; I/O pins                                    ; 53                       ;
+;                                             ;                          ;
+; Embedded Multiplier 9-bit elements          ; 0                        ;
+;                                             ;                          ;
+; Maximum fan-out node                        ; VGADriver:driver|Add0~18 ;
+; Maximum fan-out                             ; 536                      ;
+; Total fan-out                               ; 14333                    ;
+; Average fan-out                             ; 3.47                     ;
++---------------------------------------------+--------------------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                      ;
-+----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
-; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name ; Library Name ;
-+----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
-; |main                      ; 42 (0)              ; 30 (0)                    ; 0           ; 0            ; 0       ; 0         ; 53   ; 0            ; |main               ; main        ; work         ;
-;    |UART_DMA:uart|         ; 42 (42)             ; 30 (30)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|UART_DMA:uart ; UART_DMA    ; work         ;
-+----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                   ;
++----------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------+-----------------------------+--------------+
+; Compilation Hierarchy Node                   ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                            ; Entity Name                 ; Library Name ;
++----------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------+-----------------------------+--------------+
+; |main                                        ; 3897 (0)            ; 129 (0)                   ; 0           ; 0            ; 0       ; 0         ; 53   ; 0            ; |main                                                                                          ; main                        ; work         ;
+;    |PP2VerilogDrawingController:drawings|    ; 3624 (3624)         ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|PP2VerilogDrawingController:drawings                                                     ; PP2VerilogDrawingController ; work         ;
+;    |VGADriver:driver|                        ; 66 (66)             ; 24 (24)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|VGADriver:driver                                                                         ; VGADriver                   ; work         ;
+;    |animations1:anim1|                       ; 146 (146)           ; 62 (62)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|animations1:anim1                                                                        ; animations1                 ; work         ;
+;    |ps2Keyboard:keyboard|                    ; 61 (41)             ; 43 (13)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|ps2Keyboard:keyboard                                                                     ; ps2Keyboard                 ; work         ;
+;       |mouse_Inner_controller:innerMouse|    ; 20 (4)              ; 30 (5)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse                                   ; mouse_Inner_controller      ; work         ;
+;          |Altera_UP_PS2_Data_In:PS2_Data_In| ; 16 (16)             ; 25 (25)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Data_In:PS2_Data_In ; Altera_UP_PS2_Data_In       ; work         ;
++----------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------+-----------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+--------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                             ;
-+---------------------------------------+----------------------------------------+
-; Register name                         ; Reason for Removal                     ;
-+---------------------------------------+----------------------------------------+
-; UART_DMA:uart|stop                    ; Stuck at GND due to stuck port data_in ;
-; Total Number of Removed Registers = 1 ;                                        ;
-+---------------------------------------+----------------------------------------+
+Encoding Type:  One-Hot
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |main|ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|s_ps2_transceiver                                                                                                                                                               ;
++--------------------------------------------+--------------------------------------------+-------------------------------------------+---------------------------------------+------------------------------------+-------------------------------------------+
+; Name                                       ; s_ps2_transceiver.PS2_STATE_3_END_TRANSFER ; s_ps2_transceiver.PS2_STATE_2_COMMAND_OUT ; s_ps2_transceiver.PS2_STATE_1_DATA_IN ; s_ps2_transceiver.PS2_STATE_0_IDLE ; s_ps2_transceiver.PS2_STATE_4_END_DELAYED ;
++--------------------------------------------+--------------------------------------------+-------------------------------------------+---------------------------------------+------------------------------------+-------------------------------------------+
+; s_ps2_transceiver.PS2_STATE_0_IDLE         ; 0                                          ; 0                                         ; 0                                     ; 0                                  ; 0                                         ;
+; s_ps2_transceiver.PS2_STATE_1_DATA_IN      ; 0                                          ; 0                                         ; 1                                     ; 1                                  ; 0                                         ;
+; s_ps2_transceiver.PS2_STATE_2_COMMAND_OUT  ; 0                                          ; 1                                         ; 0                                     ; 1                                  ; 0                                         ;
+; s_ps2_transceiver.PS2_STATE_3_END_TRANSFER ; 1                                          ; 0                                         ; 0                                     ; 1                                  ; 0                                         ;
+; s_ps2_transceiver.PS2_STATE_4_END_DELAYED  ; 0                                          ; 0                                         ; 0                                     ; 1                                  ; 1                                         ;
++--------------------------------------------+--------------------------------------------+-------------------------------------------+---------------------------------------+------------------------------------+-------------------------------------------+
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |main|ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|s_ps2_transmitter                                                                                                                                                                                                                                                                                                            ;
++------------------------------------------------------+--------------------------------------------------+------------------------------------------------+-----------------------------------------------+-------------------------------------------------+---------------------------------------------+----------------------------------------------+------------------------------------------------------+------------------------------------+
+; Name                                                 ; s_ps2_transmitter.PS2_STATE_7_TRANSMISSION_ERROR ; s_ps2_transmitter.PS2_STATE_6_COMMAND_WAS_SENT ; s_ps2_transmitter.PS2_STATE_5_RECEIVE_ACK_BIT ; s_ps2_transmitter.PS2_STATE_4_TRANSMIT_STOP_BIT ; s_ps2_transmitter.PS2_STATE_3_TRANSMIT_DATA ; s_ps2_transmitter.PS2_STATE_2_WAIT_FOR_CLOCK ; s_ps2_transmitter.PS2_STATE_1_INITIATE_COMMUNICATION ; s_ps2_transmitter.PS2_STATE_0_IDLE ;
++------------------------------------------------------+--------------------------------------------------+------------------------------------------------+-----------------------------------------------+-------------------------------------------------+---------------------------------------------+----------------------------------------------+------------------------------------------------------+------------------------------------+
+; s_ps2_transmitter.PS2_STATE_0_IDLE                   ; 0                                                ; 0                                              ; 0                                             ; 0                                               ; 0                                           ; 0                                            ; 0                                                    ; 0                                  ;
+; s_ps2_transmitter.PS2_STATE_1_INITIATE_COMMUNICATION ; 0                                                ; 0                                              ; 0                                             ; 0                                               ; 0                                           ; 0                                            ; 1                                                    ; 1                                  ;
+; s_ps2_transmitter.PS2_STATE_2_WAIT_FOR_CLOCK         ; 0                                                ; 0                                              ; 0                                             ; 0                                               ; 0                                           ; 1                                            ; 0                                                    ; 1                                  ;
+; s_ps2_transmitter.PS2_STATE_3_TRANSMIT_DATA          ; 0                                                ; 0                                              ; 0                                             ; 0                                               ; 1                                           ; 0                                            ; 0                                                    ; 1                                  ;
+; s_ps2_transmitter.PS2_STATE_4_TRANSMIT_STOP_BIT      ; 0                                                ; 0                                              ; 0                                             ; 1                                               ; 0                                           ; 0                                            ; 0                                                    ; 1                                  ;
+; s_ps2_transmitter.PS2_STATE_5_RECEIVE_ACK_BIT        ; 0                                                ; 0                                              ; 1                                             ; 0                                               ; 0                                           ; 0                                            ; 0                                                    ; 1                                  ;
+; s_ps2_transmitter.PS2_STATE_6_COMMAND_WAS_SENT       ; 0                                                ; 1                                              ; 0                                             ; 0                                               ; 0                                           ; 0                                            ; 0                                                    ; 1                                  ;
+; s_ps2_transmitter.PS2_STATE_7_TRANSMISSION_ERROR     ; 1                                                ; 0                                              ; 0                                             ; 0                                               ; 0                                           ; 0                                            ; 0                                                    ; 1                                  ;
++------------------------------------------------------+--------------------------------------------------+------------------------------------------------+-----------------------------------------------+-------------------------------------------------+---------------------------------------------+----------------------------------------------+------------------------------------------------------+------------------------------------+
+
+
+Encoding Type:  One-Hot
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |main|ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Data_In:PS2_Data_In|s_ps2_receiver                                                                                                          ;
++------------------------------------------+--------------------------------------+------------------------------------+------------------------------------------+---------------------------------+------------------------------------+
+; Name                                     ; s_ps2_receiver.PS2_STATE_3_PARITY_IN ; s_ps2_receiver.PS2_STATE_2_DATA_IN ; s_ps2_receiver.PS2_STATE_1_WAIT_FOR_DATA ; s_ps2_receiver.PS2_STATE_0_IDLE ; s_ps2_receiver.PS2_STATE_4_STOP_IN ;
++------------------------------------------+--------------------------------------+------------------------------------+------------------------------------------+---------------------------------+------------------------------------+
+; s_ps2_receiver.PS2_STATE_0_IDLE          ; 0                                    ; 0                                  ; 0                                        ; 0                               ; 0                                  ;
+; s_ps2_receiver.PS2_STATE_1_WAIT_FOR_DATA ; 0                                    ; 0                                  ; 1                                        ; 1                               ; 0                                  ;
+; s_ps2_receiver.PS2_STATE_2_DATA_IN       ; 0                                    ; 1                                  ; 0                                        ; 1                               ; 0                                  ;
+; s_ps2_receiver.PS2_STATE_3_PARITY_IN     ; 1                                    ; 0                                  ; 0                                        ; 1                               ; 0                                  ;
+; s_ps2_receiver.PS2_STATE_4_STOP_IN       ; 0                                    ; 0                                  ; 0                                        ; 1                               ; 1                                  ;
++------------------------------------------+--------------------------------------+------------------------------------+------------------------------------------+---------------------------------+------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                                                                                                 ;
++-------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------+
+; Register name                                                                                                                                         ; Reason for Removal                         ;
++-------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------+
+; ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Data_In:PS2_Data_In|received_data_en[1..7]                                       ; Stuck at GND due to stuck port data_in     ;
+; ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|idle_counter[0..7]                                                                             ; Lost fanout                                ;
+; ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|init_done                                                                                      ; Stuck at VCC due to stuck port data_in     ;
+; ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|ps2_command[0..7]                                    ; Stuck at GND due to stuck port data_in     ;
+; ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|ps2_command[8]                                       ; Stuck at VCC due to stuck port data_in     ;
+; ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|error_communication_timed_out                        ; Stuck at GND due to stuck port data_in     ;
+; ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|command_was_sent                                     ; Stuck at GND due to stuck port data_in     ;
+; ps2Keyboard:keyboard|e0[2]                                                                                                                            ; Stuck at GND due to stuck port data_in     ;
+; ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|s_ps2_transceiver~2                                                                            ; Lost fanout                                ;
+; ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|s_ps2_transceiver~3                                                                            ; Lost fanout                                ;
+; ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|s_ps2_transmitter~2                                  ; Lost fanout                                ;
+; ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|s_ps2_transmitter~3                                  ; Lost fanout                                ;
+; ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|s_ps2_transmitter~4                                  ; Lost fanout                                ;
+; ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Data_In:PS2_Data_In|s_ps2_receiver~2                                             ; Lost fanout                                ;
+; ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Data_In:PS2_Data_In|s_ps2_receiver~3                                             ; Lost fanout                                ;
+; ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|s_ps2_transceiver.PS2_STATE_3_END_TRANSFER                                                     ; Stuck at GND due to stuck port data_in     ;
+; ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Data_In:PS2_Data_In|s_ps2_receiver.PS2_STATE_1_WAIT_FOR_DATA                     ; Stuck at GND due to stuck port data_in     ;
+; ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|s_ps2_transmitter.PS2_STATE_0_IDLE                   ; Lost fanout                                ;
+; ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|s_ps2_transmitter.PS2_STATE_6_COMMAND_WAS_SENT       ; Lost fanout                                ;
+; ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|s_ps2_transmitter.PS2_STATE_7_TRANSMISSION_ERROR     ; Lost fanout                                ;
+; ps2Keyboard:keyboard|releasex                                                                                                                         ; Merged with ps2Keyboard:keyboard|releaseCK ;
+; ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|s_ps2_transmitter.PS2_STATE_1_INITIATE_COMMUNICATION ; Stuck at GND due to stuck port data_in     ;
+; ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|s_ps2_transceiver.PS2_STATE_2_COMMAND_OUT                                                      ; Stuck at GND due to stuck port data_in     ;
+; ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|s_ps2_transceiver.PS2_STATE_4_END_DELAYED                                                      ; Stuck at GND due to stuck port data_in     ;
+; ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|command_initiate_counter[1..13]                      ; Stuck at GND due to stuck port data_in     ;
+; ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|s_ps2_transmitter.PS2_STATE_2_WAIT_FOR_CLOCK         ; Stuck at GND due to stuck port data_in     ;
+; ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|waiting_counter[1..20]                               ; Stuck at GND due to stuck port data_in     ;
+; ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|s_ps2_transmitter.PS2_STATE_3_TRANSMIT_DATA          ; Stuck at GND due to stuck port data_in     ;
+; ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|cur_bit[0..3]                                        ; Stuck at GND due to stuck port data_in     ;
+; ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|s_ps2_transmitter.PS2_STATE_4_TRANSMIT_STOP_BIT      ; Stuck at GND due to stuck port data_in     ;
+; ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|s_ps2_transmitter.PS2_STATE_5_RECEIVE_ACK_BIT        ; Stuck at GND due to stuck port data_in     ;
+; ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|transfer_counter[1..17]                              ; Stuck at GND due to stuck port data_in     ;
+; Total Number of Removed Registers = 102                                                                                                               ;                                            ;
++-------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                                                                                                                                                                                                   ;
++-----------------------------------------------------------------------------------------------------------------------------------------------+---------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------+
+; Register name                                                                                                                                 ; Reason for Removal        ; Registers Removed due to This Register                                                                                                            ;
++-----------------------------------------------------------------------------------------------------------------------------------------------+---------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------+
+; ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|s_ps2_transmitter.PS2_STATE_2_WAIT_FOR_CLOCK ; Stuck at GND              ; ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|waiting_counter[7],                              ;
+;                                                                                                                                               ; due to stuck port data_in ; ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|waiting_counter[8],                              ;
+;                                                                                                                                               ;                           ; ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|waiting_counter[9],                              ;
+;                                                                                                                                               ;                           ; ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|waiting_counter[10],                             ;
+;                                                                                                                                               ;                           ; ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|waiting_counter[11],                             ;
+;                                                                                                                                               ;                           ; ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|waiting_counter[12],                             ;
+;                                                                                                                                               ;                           ; ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|waiting_counter[13],                             ;
+;                                                                                                                                               ;                           ; ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|waiting_counter[14],                             ;
+;                                                                                                                                               ;                           ; ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|waiting_counter[15],                             ;
+;                                                                                                                                               ;                           ; ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|waiting_counter[16],                             ;
+;                                                                                                                                               ;                           ; ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|waiting_counter[17],                             ;
+;                                                                                                                                               ;                           ; ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|waiting_counter[18],                             ;
+;                                                                                                                                               ;                           ; ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|waiting_counter[19],                             ;
+;                                                                                                                                               ;                           ; ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|waiting_counter[20],                             ;
+;                                                                                                                                               ;                           ; ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|s_ps2_transmitter.PS2_STATE_3_TRANSMIT_DATA,     ;
+;                                                                                                                                               ;                           ; ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|s_ps2_transmitter.PS2_STATE_4_TRANSMIT_STOP_BIT, ;
+;                                                                                                                                               ;                           ; ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|s_ps2_transmitter.PS2_STATE_5_RECEIVE_ACK_BIT,   ;
+;                                                                                                                                               ;                           ; ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|transfer_counter[7],                             ;
+;                                                                                                                                               ;                           ; ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|transfer_counter[8],                             ;
+;                                                                                                                                               ;                           ; ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|transfer_counter[9],                             ;
+;                                                                                                                                               ;                           ; ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|transfer_counter[10],                            ;
+;                                                                                                                                               ;                           ; ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|transfer_counter[11],                            ;
+;                                                                                                                                               ;                           ; ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|transfer_counter[12],                            ;
+;                                                                                                                                               ;                           ; ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|transfer_counter[13],                            ;
+;                                                                                                                                               ;                           ; ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|transfer_counter[14],                            ;
+;                                                                                                                                               ;                           ; ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|transfer_counter[15],                            ;
+;                                                                                                                                               ;                           ; ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|transfer_counter[16],                            ;
+;                                                                                                                                               ;                           ; ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|transfer_counter[17]                             ;
+; ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|init_done                                                                              ; Stuck at VCC              ; ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|ps2_command[2],                                  ;
+;                                                                                                                                               ; due to stuck port data_in ; ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|ps2_command[4],                                  ;
+;                                                                                                                                               ;                           ; ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|ps2_command[5],                                  ;
+;                                                                                                                                               ;                           ; ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|ps2_command[6],                                  ;
+;                                                                                                                                               ;                           ; ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|ps2_command[7],                                  ;
+;                                                                                                                                               ;                           ; ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|ps2_command[8],                                  ;
+;                                                                                                                                               ;                           ; ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|error_communication_timed_out,                   ;
+;                                                                                                                                               ;                           ; ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|command_initiate_counter[13],                    ;
+;                                                                                                                                               ;                           ; ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|command_initiate_counter[1],                     ;
+;                                                                                                                                               ;                           ; ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|command_initiate_counter[2],                     ;
+;                                                                                                                                               ;                           ; ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|command_initiate_counter[3],                     ;
+;                                                                                                                                               ;                           ; ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|command_initiate_counter[4],                     ;
+;                                                                                                                                               ;                           ; ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|command_initiate_counter[5],                     ;
+;                                                                                                                                               ;                           ; ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|command_initiate_counter[6],                     ;
+;                                                                                                                                               ;                           ; ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|command_initiate_counter[7],                     ;
+;                                                                                                                                               ;                           ; ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|command_initiate_counter[8],                     ;
+;                                                                                                                                               ;                           ; ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|command_initiate_counter[9],                     ;
+;                                                                                                                                               ;                           ; ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|command_initiate_counter[10],                    ;
+;                                                                                                                                               ;                           ; ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|command_initiate_counter[11],                    ;
+;                                                                                                                                               ;                           ; ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|command_initiate_counter[12]                     ;
+; ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|idle_counter[3]                                                                        ; Lost Fanouts              ; ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|idle_counter[4],                                                                           ;
+;                                                                                                                                               ;                           ; ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|idle_counter[5],                                                                           ;
+;                                                                                                                                               ;                           ; ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|idle_counter[6],                                                                           ;
+;                                                                                                                                               ;                           ; ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|idle_counter[7]                                                                            ;
+; ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|s_ps2_transceiver.PS2_STATE_3_END_TRANSFER                                             ; Stuck at GND              ; ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Data_In:PS2_Data_In|s_ps2_receiver.PS2_STATE_1_WAIT_FOR_DATA                 ;
+;                                                                                                                                               ; due to stuck port data_in ;                                                                                                                                                   ;
++-----------------------------------------------------------------------------------------------------------------------------------------------+---------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -234,23 +393,123 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 30    ;
-; Number of registers using Synchronous Clear  ; 0     ;
+; Total registers                              ; 129   ;
+; Number of registers using Synchronous Clear  ; 11    ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 16    ;
+; Number of registers using Clock Enable       ; 58    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                                                                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                                                         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------------------------------------------------------+
+; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |main|VGADriver:driver|yPos[8]                                                                                                     ;
+; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |main|VGADriver:driver|xPos[9]                                                                                                     ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |main|animations1:anim1|Basic_transparencyX[8]                                                                                     ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |main|animations1:anim1|Basic_transparencyY[7]                                                                                     ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |main|ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|transfer_counter[15]        ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |main|ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Data_In:PS2_Data_In|data_count[0]                       ;
+; 3:1                ; 13 bits   ; 26 LEs        ; 13 LEs               ; 13 LEs                 ; Yes        ; |main|ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|command_initiate_counter[6] ;
+; 3:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |main|ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|waiting_counter[16]         ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |main|ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|cur_bit[2]                  ;
+; 3:1                ; 22 bits   ; 44 LEs        ; 44 LEs               ; 0 LEs                  ; No         ; |main|PP2VerilogDrawingController:drawings|VGAr                                                                                    ;
+; 3:1                ; 21 bits   ; 42 LEs        ; 42 LEs               ; 0 LEs                  ; No         ; |main|PP2VerilogDrawingController:drawings|VGAg                                                                                    ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |main|PP2VerilogDrawingController:drawings|VGAb                                                                                    ;
+; 3:1                ; 18 bits   ; 36 LEs        ; 36 LEs               ; 0 LEs                  ; No         ; |main|PP2VerilogDrawingController:drawings|VGAb                                                                                    ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; No         ; |main|PP2VerilogDrawingController:drawings|VGAg                                                                                    ;
+; 558:1              ; 24 bits   ; 8928 LEs      ; 8928 LEs             ; 0 LEs                  ; No         ; |main|PP2VerilogDrawingController:drawings|VGAb[5]                                                                                 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out ;
++------------------------------------+----------------------+-----------------------------------------------------------------------------------+
+; Parameter Name                     ; Value                ; Type                                                                              ;
++------------------------------------+----------------------+-----------------------------------------------------------------------------------+
+; CLOCK_CYCLES_FOR_101US             ; 5050                 ; Signed Integer                                                                    ;
+; NUMBER_OF_BITS_FOR_101US           ; 13                   ; Signed Integer                                                                    ;
+; COUNTER_INCREMENT_FOR_101US        ; 0000000000001        ; Unsigned Binary                                                                   ;
+; CLOCK_CYCLES_FOR_15MS              ; 750000               ; Signed Integer                                                                    ;
+; NUMBER_OF_BITS_FOR_15MS            ; 20                   ; Signed Integer                                                                    ;
+; COUNTER_INCREMENT_FOR_15MS         ; 00000000000000000001 ; Unsigned Binary                                                                   ;
+; CLOCK_CYCLES_FOR_2MS               ; 100000               ; Signed Integer                                                                    ;
+; NUMBER_OF_BITS_FOR_2MS             ; 17                   ; Signed Integer                                                                    ;
+; COUNTER_INCREMENT_FOR_2MS          ; 00000000000000001    ; Unsigned Binary                                                                   ;
+; PS2_STATE_0_IDLE                   ; 000                  ; Unsigned Binary                                                                   ;
+; PS2_STATE_1_INITIATE_COMMUNICATION ; 001                  ; Unsigned Binary                                                                   ;
+; PS2_STATE_2_WAIT_FOR_CLOCK         ; 010                  ; Unsigned Binary                                                                   ;
+; PS2_STATE_3_TRANSMIT_DATA          ; 011                  ; Unsigned Binary                                                                   ;
+; PS2_STATE_4_TRANSMIT_STOP_BIT      ; 100                  ; Unsigned Binary                                                                   ;
+; PS2_STATE_5_RECEIVE_ACK_BIT        ; 101                  ; Unsigned Binary                                                                   ;
+; PS2_STATE_6_COMMAND_WAS_SENT       ; 110                  ; Unsigned Binary                                                                   ;
+; PS2_STATE_7_TRANSMISSION_ERROR     ; 111                  ; Unsigned Binary                                                                   ;
++------------------------------------+----------------------+-----------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: animations1:anim1 ;
++----------------+------------+----------------------------------+
+; Parameter Name ; Value      ; Type                             ;
++----------------+------------+----------------------------------+
+; testWidth      ; 388        ; Signed Integer                   ;
+; testHeight     ; 68         ; Signed Integer                   ;
+; wasdWidth      ; 155        ; Signed Integer                   ;
+; wasdHeight     ; 82         ; Signed Integer                   ;
+; arrowsWidth    ; 155        ; Signed Integer                   ;
+; arrowsHeight   ; 82         ; Signed Integer                   ;
+; testSpeed      ; 0000000001 ; Unsigned Binary                  ;
+; wasdSpeed      ; 0000000101 ; Unsigned Binary                  ;
+; arrowsSpeed    ; 0000000101 ; Unsigned Binary                  ;
++----------------+------------+----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "animations1:anim1"                                                                                                                                  ;
++--------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port   ; Type  ; Severity ; Details                                                                                                                                            ;
++--------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+; xPixel ; Input ; Warning  ; Input port expression (10 bits) is smaller than the input port (11 bits) it drives.  Extra input bit(s) "xPixel[10..10]" will be connected to GND. ;
+; yPixel ; Input ; Warning  ; Input port expression (9 bits) is smaller than the input port (11 bits) it drives.  Extra input bit(s) "yPixel[10..9]" will be connected to GND.   ;
++--------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Data_In:PS2_Data_In"                                                       ;
++------------------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------------+
+; Port             ; Type   ; Severity ; Details                                                                                                                             ;
++------------------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------------+
+; received_data_en ; Output ; Warning  ; Output or bidir port (8 bits) is wider than the port expression (1 bits) it drives; bit(s) "received_data_en[7..1]" have no fanouts ;
++------------------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------------+
+
+
 +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "UART_DMA:uart"                                                                                                                                                        ;
-+------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port ; Type   ; Severity ; Details                                                                                                                                                               ;
-+------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; leds ; Output ; Warning  ; Output or bidir port (8 bits) is smaller than the port expression (9 bits) it drives.  The 1 most-significant bit(s) in the port expression will be connected to GND. ;
-+------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse"                                                                                                               ;
++-------------------------------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; Port                          ; Type   ; Severity ; Details                                                                                                                                      ;
++-------------------------------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; reset                         ; Input  ; Info     ; Stuck at GND                                                                                                                                 ;
+; the_command                   ; Input  ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
+; send_command                  ; Input  ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
+; command_was_sent              ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed.                                     ;
+; error_communication_timed_out ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed.                                     ;
++-------------------------------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ps2Keyboard:keyboard"                                                                                                     ;
++-------+--------+----------+--------------------------------------------------------------------------------------------------------------------------+
+; Port  ; Type   ; Severity ; Details                                                                                                                  ;
++-------+--------+----------+--------------------------------------------------------------------------------------------------------------------------+
+; space ; Output ; Warning  ; Output or bidir port (4 bits) is wider than the port expression (1 bits) it drives; bit(s) "space[3..1]" have no fanouts ;
+; enter ; Output ; Warning  ; Output or bidir port (4 bits) is wider than the port expression (1 bits) it drives; bit(s) "enter[3..1]" have no fanouts ;
++-------+--------+----------+--------------------------------------------------------------------------------------------------------------------------+
 
 
 +-----------------------------------------------------+
@@ -259,22 +518,24 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 53                          ;
-; cycloneiii_ff         ; 30                          ;
-;     ENA               ; 16                          ;
-;     plain             ; 14                          ;
+; cycloneiii_ff         ; 129                         ;
+;     ENA               ; 47                          ;
+;     ENA SCLR          ; 11                          ;
+;     plain             ; 71                          ;
 ; cycloneiii_io_obuf    ; 4                           ;
-; cycloneiii_lcell_comb ; 43                          ;
-;     arith             ; 9                           ;
-;         2 data inputs ; 9                           ;
-;     normal            ; 34                          ;
-;         0 data inputs ; 1                           ;
-;         1 data inputs ; 1                           ;
-;         2 data inputs ; 1                           ;
-;         3 data inputs ; 9                           ;
-;         4 data inputs ; 22                          ;
+; cycloneiii_lcell_comb ; 3898                        ;
+;     arith             ; 535                         ;
+;         2 data inputs ; 231                         ;
+;         3 data inputs ; 304                         ;
+;     normal            ; 3363                        ;
+;         0 data inputs ; 28                          ;
+;         1 data inputs ; 8                           ;
+;         2 data inputs ; 173                         ;
+;         3 data inputs ; 425                         ;
+;         4 data inputs ; 2729                        ;
 ;                       ;                             ;
-; Max LUT depth         ; 4.00                        ;
-; Average LUT depth     ; 2.05                        ;
+; Max LUT depth         ; 55.80                       ;
+; Average LUT depth     ; 30.84                       ;
 +-----------------------+-----------------------------+
 
 
@@ -283,7 +544,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:00     ;
+; Top            ; 00:00:21     ;
 +----------------+--------------+
 
 
@@ -293,7 +554,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
-    Info: Processing started: Wed Oct 31 20:40:52 2018
+    Info: Processing started: Sun Nov 04 19:50:05 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off FinalProjectAlejandroWill -c main
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -312,86 +573,90 @@ Info (12021): Found 1 design units, including 1 entities, in source file ih8veri
     Info (12023): Found entity 1: PP2VerilogDrawingController File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 4
 Info (12021): Found 1 design units, including 1 entities, in source file main.v
     Info (12023): Found entity 1: main File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/main.v Line: 1
+Warning (10238): Verilog Module Declaration warning at VGADriver.v(15): ignored anonymous port(s) indicated by duplicate or dangling comma(s) in the port list for module "VGADriver" File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/VGADriver.v Line: 15
 Info (12021): Found 1 design units, including 1 entities, in source file vgadriver.v
     Info (12023): Found entity 1: VGADriver File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/VGADriver.v Line: 15
 Info (12021): Found 1 design units, including 1 entities, in source file uart.v
     Info (12023): Found entity 1: UART_DMA File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/UART.v Line: 12
+Info (12021): Found 1 design units, including 1 entities, in source file verilog1.v
+    Info (12023): Found entity 1: animations1 File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/Verilog1.v Line: 1
 Critical Warning (10846): Verilog HDL Instantiation warning at mouse.v(187): instance has no name File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/mouse.v Line: 187
 Info (12127): Elaborating entity "main" for the top level hierarchy
-Warning (10034): Output port "VGAr" at main.v(3) has no driver File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/main.v Line: 3
-Warning (10034): Output port "VGAg" at main.v(4) has no driver File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/main.v Line: 4
-Warning (10034): Output port "VGAb" at main.v(5) has no driver File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/main.v Line: 5
-Warning (10034): Output port "leds[6..0]" at main.v(10) has no driver File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/main.v Line: 10
-Warning (10034): Output port "hsync" at main.v(24) has no driver File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/main.v Line: 24
-Warning (10034): Output port "vsync" at main.v(24) has no driver File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/main.v Line: 24
-Warning (10034): Output port "VGAclock" at main.v(22) has no driver File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/main.v Line: 22
-Warning (10034): Output port "VGAsync" at main.v(6) has no driver File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/main.v Line: 6
-Warning (10034): Output port "VGAblanck" at main.v(6) has no driver File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/main.v Line: 6
-Info (12128): Elaborating entity "UART_DMA" for hierarchy "UART_DMA:uart" File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/main.v Line: 29
-Warning (10036): Verilog HDL or VHDL warning at UART.v(22): object "start" assigned a value but never read File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/UART.v Line: 22
-Warning (10036): Verilog HDL or VHDL warning at UART.v(24): object "parity" assigned a value but never read File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/UART.v Line: 24
-Warning (10230): Verilog HDL assignment warning at UART.v(83): truncated value with size 32 to match size of target (4) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/UART.v Line: 83
-Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (10034): Output port "leds[15..6]" at main.v(10) has no driver File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/main.v Line: 10
+Warning (10034): Output port "leds[3..0]" at main.v(10) has no driver File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/main.v Line: 10
+Info (12128): Elaborating entity "VGADriver" for hierarchy "VGADriver:driver" File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/main.v Line: 40
+Warning (10230): Verilog HDL assignment warning at VGADriver.v(27): truncated value with size 32 to match size of target (10) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/VGADriver.v Line: 27
+Warning (10230): Verilog HDL assignment warning at VGADriver.v(29): truncated value with size 11 to match size of target (9) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/VGADriver.v Line: 29
+Warning (10230): Verilog HDL assignment warning at VGADriver.v(66): truncated value with size 32 to match size of target (11) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/VGADriver.v Line: 66
+Warning (10230): Verilog HDL assignment warning at VGADriver.v(70): truncated value with size 32 to match size of target (11) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/VGADriver.v Line: 70
+Info (12128): Elaborating entity "PP2VerilogDrawingController" for hierarchy "PP2VerilogDrawingController:drawings" File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/main.v Line: 44
+Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(57): truncated value with size 32 to match size of target (8) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 57
+Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(58): truncated value with size 32 to match size of target (8) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 58
+Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(59): truncated value with size 32 to match size of target (8) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 59
+Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(66): truncated value with size 32 to match size of target (8) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 66
+Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(67): truncated value with size 32 to match size of target (8) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 67
+Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(68): truncated value with size 32 to match size of target (8) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 68
+Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(83): truncated value with size 32 to match size of target (8) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 83
+Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(84): truncated value with size 32 to match size of target (8) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 84
+Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(85): truncated value with size 32 to match size of target (8) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 85
+Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(98): truncated value with size 32 to match size of target (8) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 98
+Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(99): truncated value with size 32 to match size of target (8) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 99
+Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(100): truncated value with size 32 to match size of target (8) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 100
+Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(103): truncated value with size 32 to match size of target (8) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 103
+Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(104): truncated value with size 32 to match size of target (8) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 104
+Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(105): truncated value with size 32 to match size of target (8) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 105
+Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(113): truncated value with size 32 to match size of target (8) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 113
+Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(114): truncated value with size 32 to match size of target (8) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 114
+Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(115): truncated value with size 32 to match size of target (8) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 115
+Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(118): truncated value with size 32 to match size of target (8) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 118
+Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(119): truncated value with size 32 to match size of target (8) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 119
+Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(120): truncated value with size 32 to match size of target (8) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 120
+Info (12128): Elaborating entity "ps2Keyboard" for hierarchy "ps2Keyboard:keyboard" File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/main.v Line: 46
+Info (12128): Elaborating entity "mouse_Inner_controller" for hierarchy "ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse" File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/keyboard.v Line: 54
+Warning (10230): Verilog HDL assignment warning at PS2_Controller.v(31): truncated value with size 32 to match size of target (1) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/PS2_Controller.v Line: 31
+Warning (10230): Verilog HDL assignment warning at PS2_Controller.v(32): truncated value with size 32 to match size of target (1) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/PS2_Controller.v Line: 32
+Info (12128): Elaborating entity "Altera_UP_PS2_Data_In" for hierarchy "ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Data_In:PS2_Data_In" File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/PS2_Controller.v Line: 145
+Info (12128): Elaborating entity "Altera_UP_PS2_Command_Out" for hierarchy "ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out" File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/PS2_Controller.v Line: 146
+Info (12128): Elaborating entity "animations1" for hierarchy "animations1:anim1" File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/main.v Line: 49
+Warning (12241): 4 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13039): The following bidirectional pins have no drivers
     Warning (13040): bidirectional pin "ps2ck" has no driver File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/main.v Line: 11
     Warning (13040): bidirectional pin "ps2dt" has no driver File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/main.v Line: 11
-    Warning (13040): bidirectional pin "ps2ck2" has no driver File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/main.v Line: 11
-    Warning (13040): bidirectional pin "ps2dt2" has no driver File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/main.v Line: 11
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "hsync" is stuck at GND File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/main.v Line: 24
-    Warning (13410): Pin "vsync" is stuck at GND File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/main.v Line: 24
-    Warning (13410): Pin "VGAclock" is stuck at GND File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/main.v Line: 22
-    Warning (13410): Pin "VGAr[0]" is stuck at GND File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/main.v Line: 3
-    Warning (13410): Pin "VGAr[1]" is stuck at GND File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/main.v Line: 3
-    Warning (13410): Pin "VGAr[2]" is stuck at GND File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/main.v Line: 3
-    Warning (13410): Pin "VGAr[3]" is stuck at GND File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/main.v Line: 3
-    Warning (13410): Pin "VGAr[4]" is stuck at GND File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/main.v Line: 3
-    Warning (13410): Pin "VGAr[5]" is stuck at GND File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/main.v Line: 3
-    Warning (13410): Pin "VGAr[6]" is stuck at GND File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/main.v Line: 3
-    Warning (13410): Pin "VGAr[7]" is stuck at GND File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/main.v Line: 3
-    Warning (13410): Pin "VGAg[0]" is stuck at GND File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/main.v Line: 4
-    Warning (13410): Pin "VGAg[1]" is stuck at GND File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/main.v Line: 4
-    Warning (13410): Pin "VGAg[2]" is stuck at GND File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/main.v Line: 4
-    Warning (13410): Pin "VGAg[3]" is stuck at GND File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/main.v Line: 4
-    Warning (13410): Pin "VGAg[4]" is stuck at GND File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/main.v Line: 4
-    Warning (13410): Pin "VGAg[5]" is stuck at GND File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/main.v Line: 4
-    Warning (13410): Pin "VGAg[6]" is stuck at GND File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/main.v Line: 4
-    Warning (13410): Pin "VGAg[7]" is stuck at GND File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/main.v Line: 4
-    Warning (13410): Pin "VGAb[0]" is stuck at GND File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/main.v Line: 5
-    Warning (13410): Pin "VGAb[1]" is stuck at GND File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/main.v Line: 5
-    Warning (13410): Pin "VGAb[2]" is stuck at GND File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/main.v Line: 5
-    Warning (13410): Pin "VGAb[3]" is stuck at GND File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/main.v Line: 5
-    Warning (13410): Pin "VGAb[4]" is stuck at GND File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/main.v Line: 5
-    Warning (13410): Pin "VGAb[5]" is stuck at GND File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/main.v Line: 5
-    Warning (13410): Pin "VGAb[6]" is stuck at GND File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/main.v Line: 5
-    Warning (13410): Pin "VGAb[7]" is stuck at GND File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/main.v Line: 5
     Warning (13410): Pin "VGAsync" is stuck at GND File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/main.v Line: 6
-    Warning (13410): Pin "VGAblanck" is stuck at GND File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/main.v Line: 6
     Warning (13410): Pin "leds[0]" is stuck at GND File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/main.v Line: 10
     Warning (13410): Pin "leds[1]" is stuck at GND File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/main.v Line: 10
     Warning (13410): Pin "leds[2]" is stuck at GND File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/main.v Line: 10
     Warning (13410): Pin "leds[3]" is stuck at GND File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/main.v Line: 10
-    Warning (13410): Pin "leds[4]" is stuck at GND File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/main.v Line: 10
-    Warning (13410): Pin "leds[5]" is stuck at GND File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/main.v Line: 10
     Warning (13410): Pin "leds[6]" is stuck at GND File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/main.v Line: 10
+    Warning (13410): Pin "leds[7]" is stuck at GND File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/main.v Line: 10
+    Warning (13410): Pin "leds[8]" is stuck at GND File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/main.v Line: 10
+    Warning (13410): Pin "leds[9]" is stuck at GND File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/main.v Line: 10
+    Warning (13410): Pin "leds[10]" is stuck at GND File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/main.v Line: 10
+    Warning (13410): Pin "leds[11]" is stuck at GND File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/main.v Line: 10
+    Warning (13410): Pin "leds[12]" is stuck at GND File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/main.v Line: 10
+    Warning (13410): Pin "leds[13]" is stuck at GND File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/main.v Line: 10
+    Warning (13410): Pin "leds[14]" is stuck at GND File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/main.v Line: 10
     Warning (13410): Pin "leds[15]" is stuck at GND File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/main.v Line: 10
 Info (286030): Timing-Driven Synthesis is running
+Info (17049): 18 registers lost all their fanouts during netlist optimizations.
 Info (144001): Generated suppressed messages file C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/output_files/main.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 2 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "real100clock" File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/main.v Line: 23
+Warning (21074): Design contains 3 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "real100clock" File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/main.v Line: 36
     Warning (15610): No output dependent on input pin "butt" File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/main.v Line: 12
-Info (21057): Implemented 111 device resources after synthesis - the final resource count might be different
+    Warning (15610): No output dependent on input pin "RX" File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/VerilogExample/main.v Line: 8
+Info (21057): Implemented 3970 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 4 input pins
     Info (21059): Implemented 45 output pins
     Info (21060): Implemented 4 bidirectional pins
-    Info (21061): Implemented 58 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 61 warnings
-    Info: Peak virtual memory: 4786 megabytes
-    Info: Processing ended: Wed Oct 31 20:41:01 2018
-    Info: Elapsed time: 00:00:09
-    Info: Total CPU time (on all processors): 00:00:19
+    Info (21061): Implemented 3917 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 56 warnings
+    Info: Peak virtual memory: 4815 megabytes
+    Info: Processing ended: Sun Nov 04 19:50:36 2018
+    Info: Elapsed time: 00:00:31
+    Info: Total CPU time (on all processors): 00:00:42
 
 
 +------------------------------------------+
