@@ -116,11 +116,27 @@
 					"strict" : false
 				},
 				{
+					"name" : "leds[0]",
+					"strict" : false
+				},
+				{
+					"name" : "leds[1]",
+					"strict" : false
+				},
+				{
 					"name" : "leds[4]",
 					"strict" : false
 				},
 				{
 					"name" : "leds[5]",
+					"strict" : false
+				},
+				{
+					"name" : "ps2ck",
+					"strict" : false
+				},
+				{
+					"name" : "ps2dt",
 					"strict" : false
 				},
 				{
@@ -133,6 +149,10 @@
 				},
 				{
 					"name" : "CLOCK",
+					"strict" : false
+				},
+				{
+					"name" : "butt",
 					"strict" : false
 				}
 			]

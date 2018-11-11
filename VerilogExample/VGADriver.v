@@ -12,7 +12,7 @@
 //																											  //
 /////////////////////////////////////////////////////////////////////////////////////
 
-module VGADriver(real100clock,hsync,vsync,VGAclock,VGAblanck,VGAsync,xPixel,yPixel,,animationCLOCK);
+	module VGADriver(real100clock,hsync,vsync,VGAclock,VGAblanck,VGAsync,xPixel,yPixel,animationCLOCK);
 
 
 input real100clock;
@@ -85,7 +85,7 @@ begin
 		end
 		else
 		begin
-				animationCLOCK=1'b0;
+			animationCLOCK=1'b0;
 		end
 
 	end

@@ -1,11 +1,9 @@
-module animations1(CLOCK,xPixel,yPixel,wasd,arrows,Basic_transparencyX,Basic_transparencyY,wasdBlockX,wasdBlockY,ArrowsBlockX,ArrowsBlockY);
+module animations1(CLOCK,wasd,arrows,Basic_transparencyX,Basic_transparencyY,wasdBlockX,wasdBlockY,ArrowsBlockX,ArrowsBlockY);
 	
 input CLOCK;
 
 input [3:0]wasd;
 input [3:0]arrows;
-input [10:0]xPixel;
-input [10:0]yPixel;
 
 output [9:0]Basic_transparencyX;
 output [9:0]Basic_transparencyY;
@@ -63,8 +61,7 @@ reg testYDir;
 			begin
 				Basic_transparencyX<=Basic_transparencyX-testSpeed;
 			end
-		end
-		
+		end	
 		
 		
 		

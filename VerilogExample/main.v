@@ -41,11 +41,11 @@ VGADriver driver(CLOCK,hsync,vsync,VGAclock,VGAblanck,VGAsync,xPixel,yPixel,anim
 
 //UART_DMA uart(CLOCK,RX,leds[15:7]);
 
-PP2VerilogDrawingController drawings(xPixel,yPixel,VGAr,VGAg,VGAb,mouseX,mouseY,Basic_transparencyX,Basic_transparencyY,WasdBlockX,WasdBlockY,ArrowsBlockX,ArrowsBlockY); //This file is generated automatically by the compiler. Please DO NOT modify it.
+PP2VerilogDrawingController drawings(animationClOCK,wasd,arrows,xPixel,yPixel,VGAr,VGAg,VGAb,mouseX,mouseY,Basic_transparencyX,Basic_transparencyY); //This file is generated automatically by the compiler. Please DO NOT modify it.
 
 ps2Keyboard keyboard(CLOCK,ps2ck2,ps2dt2,wasd,arrows,leds[4],leds[5]);
-//ps2Mouse mouse(CLOCK,ps2ck,ps2dt,leds[0],leds[1],!butt,mouseX,mouseY);
+ps2Mouse mouse(CLOCK,ps2ck,ps2dt,leds[0],leds[1],!butt,mouseX,mouseY);
 
-animations1  anim1(animationClOCK,xPixel,yPixel,wasd,arrows,Basic_transparencyX,Basic_transparencyY,WasdBlockX,WasdBlockY,ArrowsBlockX,ArrowsBlockY);
+//animations1  anim1(animationClOCK,xPixel,yPixel,wasd,arrows,Basic_transparencyX,Basic_transparencyY,WasdBlockX,WasdBlockY,ArrowsBlockX,ArrowsBlockY);
 
 endmodule
