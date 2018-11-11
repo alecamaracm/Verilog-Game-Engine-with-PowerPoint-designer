@@ -1,4 +1,4 @@
-module animations1(CLOCK,wasd,arrows,Basic_transparencyX,Basic_transparencyY,wasdBlockX,wasdBlockY,ArrowsBlockX,ArrowsBlockY);
+module animations1(CLOCK,wasd,arrows,Basic_transparencyX,Basic_transparencyY);
 	
 input CLOCK;
 
@@ -10,28 +10,13 @@ output [9:0]Basic_transparencyY;
 reg [9:0]Basic_transparencyX;
 reg [9:0]Basic_transparencyY;
 
-output [9:0]wasdBlockX;
-output [9:0]wasdBlockY;
-reg [9:0]wasdBlockX;
-reg [9:0]wasdBlockY;
-
-output [9:0]ArrowsBlockX;
-output [9:0]ArrowsBlockY;
-reg [9:0]ArrowsBlockX;
-reg [9:0]ArrowsBlockY;
 
 parameter testWidth=388;
 parameter testHeight=68;
 
-parameter wasdWidth=155;
-parameter wasdHeight=82;
-
-parameter arrowsWidth=155;
-parameter arrowsHeight=82;
 
 parameter testSpeed=10'd1;
-parameter wasdSpeed=10'd5;
-parameter arrowsSpeed=10'd5;
+
 
 
 reg testXDir;
@@ -87,16 +72,8 @@ reg testYDir;
 				Basic_transparencyY<=Basic_transparencyY-10'd1;
 			end
 		end
-		
-		if(wasd[0]==1 && wasdBlockY>0) wasdBlockY=wasdBlockY-wasdSpeed;		
-		if(wasd[1]==1 && wasdBlockX>0) wasdBlockX=wasdBlockX-wasdSpeed;		
-		if(wasd[2]==1 && wasdBlockY<480-wasdHeight) wasdBlockY=wasdBlockY+wasdSpeed;		
-		if(wasd[3]==1 && wasdBlockX<640-wasdWidth) wasdBlockX=wasdBlockX+wasdSpeed;
+	
 
-		if(arrows[0]==1 && ArrowsBlockY>0) ArrowsBlockY=ArrowsBlockY-arrowsSpeed;		
-		if(arrows[1]==1 && ArrowsBlockX>0) ArrowsBlockX=ArrowsBlockX-arrowsSpeed;		
-		if(arrows[2]==1 && ArrowsBlockY<480-arrowsHeight) ArrowsBlockY=ArrowsBlockY+arrowsSpeed;		
-		if(arrows[3]==1 && ArrowsBlockX<640-arrowsWidth) ArrowsBlockX=ArrowsBlockX+arrowsSpeed;
 		 
 	end
 

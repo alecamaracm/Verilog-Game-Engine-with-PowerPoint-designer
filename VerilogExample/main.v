@@ -46,6 +46,6 @@ PP2VerilogDrawingController drawings(animationClOCK,wasd,arrows,xPixel,yPixel,VG
 ps2Keyboard keyboard(CLOCK,ps2ck2,ps2dt2,wasd,arrows,leds[4],leds[5]);
 ps2Mouse mouse(CLOCK,ps2ck,ps2dt,leds[0],leds[1],!butt,mouseX,mouseY);
 
-//animations1  anim1(animationClOCK,xPixel,yPixel,wasd,arrows,Basic_transparencyX,Basic_transparencyY,WasdBlockX,WasdBlockY,ArrowsBlockX,ArrowsBlockY);
+animations1  anim1(animationClOCK,wasd,arrows,Basic_transparencyX,Basic_transparencyY);
 
 endmodule
