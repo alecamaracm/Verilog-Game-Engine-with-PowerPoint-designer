@@ -86,12 +86,10 @@ module ps2Mouse(CLOCK,ps2ck,ps2dt,M1,M2,reset,mouseX,mouseY);
 						M1=ps2_data[0];
 						M2=ps2_data[1];
 						
-						byteCount=byteCount+1;
-						
+						byteCount=byteCount+1;						
 						
 						Xdir=ps2_data[4];
 						Ydir=ps2_data[5];
-						M1=Ydir;
 					end
 					4'd1: //Second data byte (X-speed)
 					begin														

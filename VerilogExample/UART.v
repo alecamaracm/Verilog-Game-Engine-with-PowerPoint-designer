@@ -9,18 +9,26 @@
 /////////////////////////////////////////////////////////////////////////////////////
 
 
-module UART_DMA(CLOCK,RX,leds);
+module UART(CLOCK,RX,dt,dtavail,bad);
 	
-	output [7:0]leds;
-	reg [7:0]leds;
+	output [7:0]dt;
+	reg [7:0]dt;
+	
+	output dtavail;
+	reg dtavail;
 	
 	input CLOCK;	
 	input RX;
+	
+	output bad;
+	reg bad;
 		
-	reg [9:0]downClocker;
+	reg [19:0]downClocker;
 	
 		reg start;
+		reg parityCount;
 	reg [7:0]data;
+
 	reg parity;
 	reg stop;
 		
@@ -29,7 +37,7 @@ module UART_DMA(CLOCK,RX,leds);
 	always @ (posedge CLOCK)
 	begin	
 	
-		if(downClocker==99)
+		if(downClocker==20'd99)
 		begin
 			if(!RX || position>0)
 			begin
@@ -70,11 +78,11 @@ module UART_DMA(CLOCK,RX,leds);
 				begin
 					data[7]=RX;
 				end
-				//4'd9:
-				//begin
-				//	parity=RX;
-				//end				
-				4'd9:  //Parity
+				/*4'd9:
+				begin
+					parity=RX;
+				end	*/			
+				4'd9:
 				begin
 					stop=1;
 				end
@@ -83,19 +91,36 @@ module UART_DMA(CLOCK,RX,leds);
 				position=position+1;	
 				
 				if(stop==1)
-				begin				
+				begin			
+					
+					parityCount=data[0]+data[1]+data[2]+data[3]+data[4]+data[5]+data[6]+data[7];
+					
+					if(parityCount==parity)
+					begin					
+						bad=1'b1;
+					end
+					else
+					begin
+						bad=1'b0;
+					end
+					
+					dt=data;
+					
+					dtavail=!dtavail;
+					
 					start=0;
 					stop=0;
 					parity=0;
 					position=0;
-					leds=data;
+					
+					
 				end	
 			end
-			downClocker=10'b0;
+			downClocker=20'b0;
 		end
 		else
 		begin
-			downClocker=downClocker+10'b1;
+			downClocker=downClocker+20'b1;
 		end
 		
 	

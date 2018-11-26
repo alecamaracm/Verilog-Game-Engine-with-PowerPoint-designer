@@ -152,7 +152,7 @@
 					"strict" : false
 				},
 				{
-					"name" : "butt",
+					"name" : "key[0]",
 					"strict" : false
 				}
 			]
