@@ -63,6 +63,7 @@ namespace PowerPointVerilogEngineDesigner
                 movingProperties.Clear();
                 wasdMovings.Clear();
                 arrowMovings.Clear();
+                bouncings.Clear();
                 bitmapsToWrite.Clear();
                 Stopwatch watch = new Stopwatch();
                 watch.Start();
@@ -236,13 +237,13 @@ namespace PowerPointVerilogEngineDesigner
                 MovingProperties properties = movingProperties[s.Substring(0,s.Length-1)];
                 if(s.EndsWith("X"))
                 {
-                    writer.WriteLine(getTabs(1) + "if(wasd[1]==1 && " + s + ">0) " + s + "=" + s + "-"+properties.speed+";");
-                    writer.WriteLine(getTabs(1) + "if (wasd[3] == 1 && " + s + " < 640 - " + properties.width + ") " + s + " = " + s + " + " + properties.speed + ";");
+                    writer.WriteLine(getTabs(1) + "if(wasd[1]==1 && " + s + ">" + properties.minX + ") " + s + "=" + s + "-"+properties.speed+";");
+                    writer.WriteLine(getTabs(1) + "if (wasd[3] == 1 && " + s + " < " + properties.maxX + " - " + properties.width + ") " + s + " = " + s + " + " + properties.speed + ";");
                 }
                 else
                 {
-                    writer.WriteLine(getTabs(1) + "if(wasd[0]==1 && "+s+">0) "+s+"="+s+ "-" + properties.speed + ";");
-                    writer.WriteLine(getTabs(1) + "if(wasd[2]==1 && " + s + "<480-" + properties.height + ") " + s + "=" + s + "+" + properties.speed + ";");
+                    writer.WriteLine(getTabs(1) + "if(wasd[0]==1 && "+s+ ">" + properties.minY + ") " + s+"="+s+ "-" + properties.speed + ";");
+                    writer.WriteLine(getTabs(1) + "if(wasd[2]==1 && " + s + "<" + properties.maxY + "-" + properties.height + ") " + s + "=" + s + "+" + properties.speed + ";");
                 }
             }
 
@@ -254,13 +255,13 @@ namespace PowerPointVerilogEngineDesigner
                 MovingProperties properties = movingProperties[s.Substring(0, s.Length - 1)];
                 if (s.EndsWith("X"))
                 {
-                    writer.WriteLine(getTabs(1) + "if(arrows[1]==1 && " + s + ">0) " + s + "=" + s + "-" + properties.speed + ";");
-                    writer.WriteLine(getTabs(1) + "if (arrows[3] == 1 && " + s + " < 640 - " + properties.width + ") " + s + " = " + s + " + " + properties.speed + ";");
+                    writer.WriteLine(getTabs(1) + "if(arrows[1]==1 && " + s + ">" + properties.minX + ") " + s + "=" + s + "-" + properties.speed + ";");
+                    writer.WriteLine(getTabs(1) + "if (arrows[3] == 1 && " + s + " < " + properties.maxX + " - " + properties.width + ") " + s + " = " + s + " + " + properties.speed + ";");
                 }
                 else
                 {
-                    writer.WriteLine(getTabs(1) + "if(arrows[0]==1 && " + s + ">0) " + s + "=" + s + "-" + properties.speed + ";");
-                    writer.WriteLine(getTabs(1) + "if(arrows[2]==1 && " + s + "<480-" + properties.height + ") " + s + "=" + s + "+" + properties.speed + ";");
+                    writer.WriteLine(getTabs(1) + "if(arrows[0]==1 && " + s + ">" + properties.minY + ") " + s + "=" + s + "-" + properties.speed + ";");
+                    writer.WriteLine(getTabs(1) + "if(arrows[2]==1 && " + s + "<" + properties.maxY + "-" + properties.height + ") " + s + "=" + s + "+" + properties.speed + ";");
                 }
             }
 
@@ -274,15 +275,15 @@ namespace PowerPointVerilogEngineDesigner
                 writer.WriteLine("\tbegin");
                 if(s.EndsWith("X"))
                 {
-                    writer.WriteLine("\t\tif (" + s + " >= 640 - " + properties.width + ")");
+                    writer.WriteLine("\t\tif (" + s + " >= "+properties.maxX+" - " + properties.width + ")");
                 }
                 else
                 {
-                    writer.WriteLine("\t\tif (" + s + " >= 480 - " + properties.height + ")");
+                    writer.WriteLine("\t\tif (" + s + " >= " + properties.maxY + " - " + properties.height + ")");
                 }
      
                 writer.WriteLine("\t\tbegin");
-                writer.WriteLine("\t\t\t" + s + "Dir = 0;");
+                writer.WriteLine("\t\t\t" + s + "Dir = " + properties.minX+ ";");
                 writer.WriteLine("\t\tend");
                 writer.WriteLine("\t\telse");
                 writer.WriteLine("\t\tbegin");
@@ -291,7 +292,7 @@ namespace PowerPointVerilogEngineDesigner
                 writer.WriteLine("\tend");
                 writer.WriteLine("\telse");
                 writer.WriteLine("\tbegin");
-                writer.WriteLine("\t\tif (" + s + " <= 0)");
+                writer.WriteLine("\t\tif (" + s + " <= " + properties.minY + ")");
                 writer.WriteLine("\t\tbegin");
                 writer.WriteLine("\t\t\t" + s + "Dir = 1;");
                 writer.WriteLine("\t\tend");
@@ -334,227 +335,293 @@ namespace PowerPointVerilogEngineDesigner
             writer.WriteLine(getTabs(tabs)+"VGAg = " + formatNumber("b", 8, Convert.ToString(backColor.G, 2).PadLeft(8, '0')) + "; ");
             writer.WriteLine(getTabs(tabs)+"VGAb = " + formatNumber("b", 8, Convert.ToString(backColor.B, 2).PadLeft(8, '0')) + "; ");
 
-            Console.WriteLine(getTabs(1) + "Writing basic shapes...");
-            drawBasicShapes(writer, mainDocument.Slides[0],tabs);
+           
 
-            Console.WriteLine(getTabs(1) + "Writing pictures...");
-            drawBasicPictures(writer,mainDocument.Slides[0],tabs);
+            Console.WriteLine(getTabs(1) + "Writing thingys...");
+            drawBasicThingys(writer,mainDocument.Slides[0],tabs);
         }
 
-        private void drawBasicPictures(StreamWriter writer, Slide slide, int tabs)
+        private void drawBasicThingys(StreamWriter writer, Slide slide, int tabs)
         {
-            //Draw pictures
-            foreach (Picture picture in slide.Content.Drawings.OfType<Picture>())
+            foreach (GeometryShape picturex in slide.Content.Drawings)
             {
-                if (picture.DrawingType == DrawingType.Picture)
+                Dictionary<string, string> properties=new Dictionary<string, string>();
+                if (picturex is Picture)
                 {
-                    Dictionary<string, string> properties = getProperties(null, picture.AlternativeText.Description);
+                    properties = getProperties(null, (picturex as Picture).AlternativeText.Description);
+                }
+                else if (picturex is Shape)
+                {
+                    properties= getProperties((picturex as Shape).Text); 
+                }
 
-                    Console.WriteLine(getTabs(2) + "Writing picture: " + (properties.ContainsKey("NAME") ? properties["NAME"] : (properties.ContainsKey("CURSOR") ? "Mouse" : "UNNAMED")));
+                getScaledLayout(picturex.Layout);
 
-                    //Transparency only valid for in-memory pictures;
-                    int allowedTransparencyLevel = 0;
+                int allowedTransparencyLevel = 0;
+
+                if (picturex is Picture || picturex is Shape)
+                {
+                    
                     if (properties.ContainsKey("TRANSPARENT")) allowedTransparencyLevel = 1;
                     if (properties.ContainsKey("ADVANCEDTRANSPARENT")) allowedTransparencyLevel = 2;
 
-                    int compresionFactor = 1;
-                    int maxColorBits = 8;
-                    if (properties.ContainsKey("COMPRESIONLEVEL")) compresionFactor = int.Parse(properties["COMPRESIONLEVEL"]);
-                    if (properties.ContainsKey("COLORBITS")) maxColorBits = int.Parse(properties["COLORBITS"]);
-                    Bitmap baseBitmap = new Bitmap(picture.Fill.Data.Content.Open());
-                    if (Directory.Exists(currentProjectFolderPath + "/PPVerilogEngine//tempPictures") == false) Directory.CreateDirectory(currentProjectFolderPath + "/PPVerilogEngine//tempPictures");
-                    baseBitmap.Save(currentProjectFolderPath + "/PPVerilogEngine//tempPictures//basePicture.png");
-                    DrawingLayout finalLayout = getScaledLayout(picture.Layout);
+                    int minX = properties.ContainsKey("BOUNDSX") ?int.Parse(properties["BOUNDSX"].Split(',')[0]) : 0;
+                    int maxX = properties.ContainsKey("BOUNDSX") ? int.Parse(properties["BOUNDSX"].Split(',')[1]) : 640;
+                    int minY = properties.ContainsKey("BOUNDSY") ? int.Parse(properties["BOUNDSY"].Split(',')[0]) : 0;
+                    int maxY = properties.ContainsKey("BOUNDSY") ? int.Parse(properties["BOUNDSY"].Split(',')[1]) : 480;
 
-                    if(properties.ContainsKey("MEMORY"))
+                    if (properties.ContainsKey("WASDMovement") && properties.ContainsKey("NAME") && properties.ContainsKey("MOVEABLE"))
                     {
-                        Bitmap resizedBitmap = new Bitmap(baseBitmap, new Size((int)(finalLayout.Width / compresionFactor), (int)(finalLayout.Height / compresionFactor)));
-                        resizedBitmap.Save(currentProjectFolderPath + "/PPVerilogEngine//tempPictures//memcompressedPicture.png");
-                        maxColorBits = 5;
-                        Bitmap colorSetBitmap = new Bitmap(resizedBitmap);
-                        colorSetBitmap = limitColorBitmap(colorSetBitmap, maxColorBits);
-                        colorSetBitmap.Save(currentProjectFolderPath + "/PPVerilogEngine//tempPictures//memcolorLimitedPicture.png");
-                        MemoryBitmaps memoryBitmaps = new MemoryBitmaps() { reducedBitmap = colorSetBitmap };
-                        if (properties.ContainsKey("MOVEABLE") && properties.ContainsKey("NAME"))
+                        int sp = properties.ContainsKey("AnimationSpeed") ? int.Parse(properties["AnimationSpeed"]) : 1;
+                        wasdMovings.Add(properties["NAME"].Replace(" ", "_") + "X");
+                        wasdMovings.Add(properties["NAME"].Replace(" ", "_") + "Y");                        
+                        movingProperties.Add(properties["NAME"].Replace(" ", "_"), new MovingProperties() { height = (int)picturex.Layout.Height.To(LengthUnit.Point), width = (int)picturex.Layout.Width.To(LengthUnit.Point), name = properties["NAME"].Replace(" ", "_"), speed = sp,minX=minX,maxX=maxX,maxY=maxY,minY=minY });
+                    }
+
+                    if (properties.ContainsKey("ARROWSMovement") && properties.ContainsKey("NAME") && properties.ContainsKey("MOVEABLE"))
+                    {
+                        int sp = properties.ContainsKey("AnimationSpeed") ? int.Parse(properties["AnimationSpeed"]) : 1;
+                        arrowMovings.Add(properties["NAME"].Replace(" ", "_") + "X");
+                        arrowMovings.Add(properties["NAME"].Replace(" ", "_") + "Y");
+                        movingProperties.Add(properties["NAME"].Replace(" ", "_"), new MovingProperties() { height = (int)picturex.Layout.Height.To(LengthUnit.Point), width = (int)picturex.Layout.Width.To(LengthUnit.Point), name = properties["NAME"].Replace(" ", "_"), speed = sp, minX = minX, maxX = maxX, maxY = maxY, minY = minY });
+                    }
+
+                    if (properties.ContainsKey("BOUNCING") && properties.ContainsKey("NAME") && properties.ContainsKey("MOVEABLE"))
+                    {
+                        int sp = properties.ContainsKey("AnimationSpeed") ? int.Parse(properties["AnimationSpeed"]) : 1;
+                        bouncings.Add(properties["NAME"].Replace(" ", "_") + "X");
+                        bouncings.Add(properties["NAME"].Replace(" ", "_") + "Y");
+                        movingProperties.Add(properties["NAME"].Replace(" ", "_"), new MovingProperties() { height = (int)picturex.Layout.Height.To(LengthUnit.Point), width = (int)picturex.Layout.Width.To(LengthUnit.Point), name = properties["NAME"].Replace(" ", "_"), speed = sp, minX = minX, maxX = maxX, maxY = maxY, minY = minY });
+                    }
+
+                }
+                
+
+
+                if (picturex is Picture)
+                {
+                    Picture picture = (Picture)picturex;
+                    if (picture.DrawingType == DrawingType.Picture)
+                    {
+                        Console.WriteLine(getTabs(2) + "Writing picture: " + (properties.ContainsKey("NAME") ? properties["NAME"] : (properties.ContainsKey("CURSOR") ? "Mouse" : "UNNAMED")));
+                        //Transparency only valid for in-memory pictures;
+
+                        int compresionFactor = 1;
+                        int maxColorBits = 8;
+                        if (properties.ContainsKey("COMPRESIONLEVEL")) compresionFactor = int.Parse(properties["COMPRESIONLEVEL"]);
+                        if (properties.ContainsKey("COLORBITS")) maxColorBits = int.Parse(properties["COLORBITS"]);
+
+                        Bitmap baseBitmap = new Bitmap(picture.Fill.Data.Content.Open());
+                        if (Directory.Exists(currentProjectFolderPath + "/PPVerilogEngine//tempPictures") == false) Directory.CreateDirectory(currentProjectFolderPath + "/PPVerilogEngine//tempPictures");
+                        baseBitmap.Save(currentProjectFolderPath + "/PPVerilogEngine//tempPictures//basePicture.png");
+                        
+
+                        if (properties.ContainsKey("MEMORY"))
                         {
-                            memoryBitmaps.x=properties["NAME"].Replace(" ", "_") + "X";
-                            memoryBitmaps.y=properties["NAME"].Replace(" ", "_") + "Y";
-                        }else
-                        {
-                            memoryBitmaps.x = ((int)(finalLayout.Left.To(LengthUnit.Point))).ToString();
-                            memoryBitmaps.y = ((int)(finalLayout.Top.To(LengthUnit.Point))).ToString();
+                            Bitmap resizedBitmap = new Bitmap(baseBitmap, new Size((int)(picture.Layout.Width / compresionFactor), (int)(picture.Layout.Height / compresionFactor)));
+                            resizedBitmap.Save(currentProjectFolderPath + "/PPVerilogEngine//tempPictures//memcompressedPicture.png");
+                            maxColorBits = 5;
+                            Bitmap colorSetBitmap = new Bitmap(resizedBitmap);
+                            colorSetBitmap = limitColorBitmap(colorSetBitmap, maxColorBits);
+                            colorSetBitmap.Save(currentProjectFolderPath + "/PPVerilogEngine//tempPictures//memcolorLimitedPicture.png");
+                            MemoryBitmaps memoryBitmaps = new MemoryBitmaps() { reducedBitmap = colorSetBitmap };
+                            if (properties.ContainsKey("MOVEABLE") && properties.ContainsKey("NAME"))
+                            {
+                                memoryBitmaps.x = properties["NAME"].Replace(" ", "_") + "X";
+                                memoryBitmaps.y = properties["NAME"].Replace(" ", "_") + "Y";
+                            }
+                            else
+                            {
+                                memoryBitmaps.x = ((int)(picture.Layout.Left.To(LengthUnit.Point))).ToString();
+                                memoryBitmaps.y = ((int)(picture.Layout.Top.To(LengthUnit.Point))).ToString();
+                            }
+                            memoryBitmaps.name = properties["NAME"].Replace(" ", "_");
+                            memoryBitmaps.scale = compresionFactor;
+
+                            memoryBitmaps.size = memoryBitmaps.reducedBitmap.Width * memoryBitmaps.reducedBitmap.Height;
+                            bitmapsToWrite.Add(memoryBitmaps);
+                            writer.WriteLine();
+                            writer.WriteLine(getTabs(tabs) + String.Format("if(yPixel>={0}Y && yPixel<{0}Y+({2}*{1}) && xPixel>={0}X && xPixel<{0}X+({3}*{1}))", properties["NAME"].Replace(" ", "_"), compresionFactor, (int)(picture.Layout.Height / compresionFactor), (int)(picture.Layout.Width / compresionFactor)));
+                            writer.WriteLine("\tbegin");
+
+
+                            if (allowedTransparencyLevel == 0)  //No transparency allowed
+                            {
+                                writer.WriteLine(getTabs(1 + tabs) + "VGAr=" + properties["NAME"].Replace(" ", "_") + "q[14:10]*8;");
+                                writer.WriteLine(getTabs(1 + tabs) + "VGAg=" + properties["NAME"].Replace(" ", "_") + "q[9:5]*8;");
+                                writer.WriteLine(getTabs(1 + tabs) + "VGAb=" + properties["NAME"].Replace(" ", "_") + "q[4:0]*8;");
+                            }
+                            else
+                            {
+                                if (allowedTransparencyLevel == 1)  //Basic transparency (50/50) allowed
+                                {
+                                    writer.WriteLine(getTabs(1 + tabs) + "VGAr=(VGAr+" + properties["NAME"].Replace(" ", "_") + "q[14:10]*8)/2;");
+                                    writer.WriteLine(getTabs(1 + tabs) + "VGAg=(VGAg+" + properties["NAME"].Replace(" ", "_") + "q[9:5]*8)/2;");
+                                    writer.WriteLine(getTabs(1 + tabs) + "VGAb=(VGAb+" + properties["NAME"].Replace(" ", "_") + "q[4:0]*8)/2;");
+                                }
+                                else  //Custom color based trnasparency allowed
+                                {
+                                    int transLevel = int.Parse(properties["ADVANCEDTRANSPARENT"]);
+                                    writer.WriteLine(getTabs(tabs + 1) + "VGAr = (" + "(" + memoryBitmaps.name + "q[14:10]*8) *" + (100 - transLevel) + "+" + transLevel + " * VGAr) / 100;");
+                                    writer.WriteLine(getTabs(tabs + 1) + "VGAg= (" + "(" + memoryBitmaps.name + "q[9:5]*8) *" + (100 - transLevel) + "+" + transLevel + " * VGAg) / 100;");
+                                    writer.WriteLine(getTabs(tabs + 1) + "VGAb = (" + "(" + memoryBitmaps.name + "q[4:0]*8) *" + (100 - transLevel) + "+" + transLevel + " * VGAb) / 100;");
+                                }
+                            }
+
+                            
+
+
+                            writer.WriteLine("\tend");
+
+
+
+
+                            Console.WriteLine(getTabs(3) + "Picture from memory: " + (properties.ContainsKey("NAME") ? properties["NAME"] : "UNNAMED"));
                         }
-                        memoryBitmaps.name = properties["NAME"].Replace(" ", "_");
-                        memoryBitmaps.scale = compresionFactor;
-
-                        memoryBitmaps.size = memoryBitmaps.reducedBitmap.Width * memoryBitmaps.reducedBitmap.Height;
-                        bitmapsToWrite.Add(memoryBitmaps);
-                        writer.WriteLine();
-                        writer.WriteLine(getTabs(tabs) + String.Format("if(yPixel>={0}Y && yPixel<{0}Y+({2}*{1}) && xPixel>={0}X && xPixel<{0}X+({3}*{1}))", properties["NAME"].Replace(" ", "_"), compresionFactor, (int)(finalLayout.Height / compresionFactor), (int)(finalLayout.Width / compresionFactor)));
-                        writer.WriteLine("\tbegin");
-
-
-                        if (allowedTransparencyLevel == 0)  //No transparency allowed
+                        else if (properties.ContainsKey("CURSOR"))
                         {
-                            writer.WriteLine(getTabs(1 + tabs) + "VGAr=" + properties["NAME"].Replace(" ", "_") + "q[14:10]*8;");
-                            writer.WriteLine(getTabs(1 + tabs) + "VGAg=" + properties["NAME"].Replace(" ", "_") + "q[9:5]*8;");
-                            writer.WriteLine(getTabs(1 + tabs) + "VGAb=" + properties["NAME"].Replace(" ", "_") + "q[4:0]*8;");
+                            Size size = new Size(10, 10);
+                            if (properties.ContainsKey("CURSOR-SIZE")) size = new Size(int.Parse(properties["CURSOR-SIZE"].Split(',')[0]), int.Parse(properties["CURSOR-SIZE"].Split(',')[1]));
+
+                            Bitmap resizedBitmap = new Bitmap(baseBitmap, size);
+                            resizedBitmap.Save(currentProjectFolderPath + "/PPVerilogEngine//tempPictures//compressedPicture.png");
+
+                            Bitmap colorSetBitmap = new Bitmap(resizedBitmap);
+                            colorSetBitmap = limitColorBitmap(colorSetBitmap, maxColorBits);
+                            colorSetBitmap.Save(currentProjectFolderPath + "/PPVerilogEngine//tempPictures//colorLimitedPicture.png");
+
+                            int savedPixels = 0;
+                            int usedPixels = 0;
+                            writer.WriteLine(Environment.NewLine + getTabs(tabs) + "//Drawing mouse: ");
+                            for (int i = 0; i < colorSetBitmap.Height; i++)
+                            {
+                                int startingPixel = -1;
+                                var startingColor = System.Drawing.Color.White;
+                                for (int j = 0; j < colorSetBitmap.Width; j++)
+                                {
+                                    System.Drawing.Color color = colorSetBitmap.GetPixel(j, i);
+                                    if (color.A > 100)
+                                    {
+                                        if (startingPixel == -1)
+                                        {
+                                            startingPixel = j;
+                                            startingColor = color;
+                                        }
+                                        else
+                                        {
+                                            if ((color.R != startingColor.R || color.G != startingColor.G || color.B != startingColor.B) || j == colorSetBitmap.Width - 1) //Not the same, write the old one  || From startingPixel to current-1 in width (j)
+                                            {
+                                                writer.Write(getTabs(tabs) + "if(yPixel>=(mouseY+" + (int)((i * compresionFactor)) + ") && yPixel<(mouseY+" + (int)(((i + 1) * compresionFactor)) + ") && xPixel>=(mouseX+" + (int)((startingPixel * compresionFactor)) + ") && xPixel<(mouseX+" + (int)((j * compresionFactor)) + ")) ");
+
+                                                writer.WriteLine("{VGAr,VGAg,VGAb}={" + formatNumber("b", 8, Convert.ToString(startingColor.R, 2).PadLeft(8, '0')) + "," + formatNumber("b", 8, Convert.ToString(startingColor.G, 2).PadLeft(8, '0')) + "," + formatNumber("b", 8, Convert.ToString(startingColor.B, 2).PadLeft(8, '0')) + "};");
+
+                                                startingColor = color;
+                                                startingPixel = j;
+                                                usedPixels++;
+                                            }
+                                            else
+                                            {
+                                                savedPixels++;
+                                                //Do nothing, is still the same color, keep waiting until it changes.
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                            Console.WriteLine(getTabs(3) + "Mouse drawn at " + Math.Round((float)usedPixels / (baseBitmap.Width * baseBitmap.Height) * 100, 2) + "% of the original size!");
+
                         }
                         else
                         {
-                            if (allowedTransparencyLevel == 1)  //Basic transparency (50/50) allowed
+                            Bitmap resizedBitmap = new Bitmap(baseBitmap, new Size((int)(picture.Layout.Width / compresionFactor), (int)(picture.Layout.Height / compresionFactor)));
+                            resizedBitmap.Save(currentProjectFolderPath + "/PPVerilogEngine//tempPictures//compressedPicture.png");
+
+                            Bitmap colorSetBitmap = new Bitmap(resizedBitmap);
+                            colorSetBitmap = limitColorBitmap(colorSetBitmap, maxColorBits);
+                            colorSetBitmap.Save(currentProjectFolderPath + "/PPVerilogEngine//tempPictures//colorLimitedPicture.png");
+
+                            int savedPixels = 0;
+                            int usedPixels = 0;
+                            writer.WriteLine(Environment.NewLine + getTabs(tabs) + "//Drawing picture with compression rate: " + compresionFactor + ":1");
+                            for (int i = 0; i < colorSetBitmap.Height; i++)
                             {
-                                writer.WriteLine(getTabs(1 + tabs) + "VGAr=(VGAr+" + properties["NAME"].Replace(" ", "_") + "q[14:10]*8)/2;");
-                                writer.WriteLine(getTabs(1 + tabs) + "VGAg=(VGAg+" + properties["NAME"].Replace(" ", "_") + "q[9:5]*8)/2;");
-                                writer.WriteLine(getTabs(1 + tabs) + "VGAb=(VGAb+" + properties["NAME"].Replace(" ", "_") + "q[4:0]*8)/2;");
-                            }                        
-                            else  //Custom color based trnasparency allowed
-                            {
-                                int transLevel = int.Parse(properties["ADVANCEDTRANSPARENT"]);
-                                writer.WriteLine(getTabs(tabs + 1) + "VGAr = (" + "("+memoryBitmaps.name+"q[14:10]*8) *" + (100- transLevel) + "+"+ transLevel+ " * VGAr) / 100;");
-                                writer.WriteLine(getTabs(tabs + 1) + "VGAg= (" + "(" + memoryBitmaps.name + "q[9:5]*8) *" + (100 - transLevel) + "+" + transLevel + " * VGAg) / 100;");
-                                writer.WriteLine(getTabs(tabs + 1) + "VGAb = (" + "(" + memoryBitmaps.name + "q[4:0]*8) *" + (100 - transLevel) + "+" + transLevel + " * VGAb) / 100;");
-                            }
-                        }
-
-                        if (properties.ContainsKey("WASDMovement") && properties.ContainsKey("NAME") && properties.ContainsKey("MOVEABLE"))
-                        {
-                            int sp = properties.ContainsKey("AnimationSpeed") ? int.Parse(properties["AnimationSpeed"]) : 1;
-                            wasdMovings.Add(properties["NAME"].Replace(" ", "_") + "X");
-                            wasdMovings.Add(properties["NAME"].Replace(" ", "_") + "Y");
-                            movingProperties.Add(properties["NAME"].Replace(" ", "_"), new MovingProperties() { height = resizedBitmap.Height*compresionFactor, width = resizedBitmap.Width * compresionFactor, name = properties["NAME"].Replace(" ", "_"), speed = sp });
-                        }
-
-                        if (properties.ContainsKey("ARROWSMovement") && properties.ContainsKey("NAME") && properties.ContainsKey("MOVEABLE"))
-                        {
-                            int sp = properties.ContainsKey("AnimationSpeed") ? int.Parse(properties["AnimationSpeed"]) : 1;
-                            arrowMovings.Add(properties["NAME"].Replace(" ", "_") + "X");
-                            arrowMovings.Add(properties["NAME"].Replace(" ", "_") + "Y");
-                            movingProperties.Add(properties["NAME"].Replace(" ", "_"), new MovingProperties() { height = resizedBitmap.Height * compresionFactor, width = resizedBitmap.Width * compresionFactor, name = properties["NAME"].Replace(" ", "_"), speed = sp });
-                        }
-
-                        if (properties.ContainsKey("BOUNCING") && properties.ContainsKey("NAME") && properties.ContainsKey("MOVEABLE"))
-                        {
-                            int sp = properties.ContainsKey("AnimationSpeed") ? int.Parse(properties["AnimationSpeed"]) : 1;
-                            bouncings.Add(properties["NAME"].Replace(" ", "_") + "X");
-                            bouncings.Add(properties["NAME"].Replace(" ", "_") + "Y");
-                            movingProperties.Add(properties["NAME"].Replace(" ", "_"), new MovingProperties() { height = resizedBitmap.Height * compresionFactor, width = resizedBitmap.Width * compresionFactor, name = properties["NAME"].Replace(" ", "_"), speed = sp });
-                        }
-
-
-                        writer.WriteLine("\tend");
-                        
-
-
-
-                        Console.WriteLine(getTabs(3) + "Picture from memory: "+ (properties.ContainsKey("NAME") ? properties["NAME"] : "UNNAMED"));
-                    }
-                    else if(properties.ContainsKey("CURSOR"))
-                    {
-                        Size size = new Size(10, 10);
-                        if (properties.ContainsKey("CURSOR-SIZE")) size = new Size(int.Parse(properties["CURSOR-SIZE"].Split(',')[0]), int.Parse(properties["CURSOR-SIZE"].Split(',')[1]));
-
-                        Bitmap resizedBitmap = new Bitmap(baseBitmap,size);
-                        resizedBitmap.Save(currentProjectFolderPath + "/PPVerilogEngine//tempPictures//compressedPicture.png");
-
-                        Bitmap colorSetBitmap = new Bitmap(resizedBitmap);
-                        colorSetBitmap = limitColorBitmap(colorSetBitmap, maxColorBits);
-                        colorSetBitmap.Save(currentProjectFolderPath + "/PPVerilogEngine//tempPictures//colorLimitedPicture.png");
-
-                        int savedPixels = 0;
-                        int usedPixels = 0;
-                        writer.WriteLine(Environment.NewLine + getTabs(tabs) + "//Drawing mouse: ");
-                        for (int i = 0; i < colorSetBitmap.Height; i++)
-                        {
-                            int startingPixel = -1;
-                            var startingColor = System.Drawing.Color.White;
-                            for (int j = 0; j < colorSetBitmap.Width; j++)
-                            {
-                                System.Drawing.Color color = colorSetBitmap.GetPixel(j, i);
-                                if (color.A > 100)
+                                int startingPixel = -1;
+                                var startingColor = System.Drawing.Color.White;
+                                for (int j = 0; j < colorSetBitmap.Width; j++)
                                 {
-                                    if (startingPixel == -1)
+                                    System.Drawing.Color color = colorSetBitmap.GetPixel(j, i);
+                                    if (color.A > 100)
                                     {
-                                        startingPixel = j;
-                                        startingColor = color;
-                                    }
-                                    else
-                                    {
-                                        if ((color.R != startingColor.R || color.G != startingColor.G || color.B != startingColor.B) || j == colorSetBitmap.Width - 1) //Not the same, write the old one  || From startingPixel to current-1 in width (j)
+                                        if (startingPixel == -1)
                                         {
-                                            writer.Write(getTabs(tabs) + "if(yPixel>=(mouseY+" + (int)((i * compresionFactor)) + ") && yPixel<(mouseY+" + (int)(((i + 1) * compresionFactor)) + ") && xPixel>=(mouseX+" + (int)((startingPixel * compresionFactor)) + ") && xPixel<(mouseX+" + (int)((j * compresionFactor)) + ")) ");
-
-                                            writer.WriteLine("{VGAr,VGAg,VGAb}={" + formatNumber("b", 8, Convert.ToString(startingColor.R, 2).PadLeft(8, '0')) + "," + formatNumber("b", 8, Convert.ToString(startingColor.G, 2).PadLeft(8, '0')) + "," + formatNumber("b", 8, Convert.ToString(startingColor.B, 2).PadLeft(8, '0')) + "};");
-
-                                            startingColor = color;
                                             startingPixel = j;
-                                            usedPixels++;
+                                            startingColor = color;
                                         }
                                         else
                                         {
-                                            savedPixels++;
-                                            //Do nothing, is still the same color, keep waiting until it changes.
-                                        }
-                                    }
-                                }
-                            }
-                        }
+                                            if ((color.R != startingColor.R || color.G != startingColor.G || color.B != startingColor.B) || j == colorSetBitmap.Width - 1) //Not the same, write the old one  || From startingPixel to current-1 in width (j)
+                                            {
 
-                        Console.WriteLine(getTabs(3) + "Mouse drawn at " + Math.Round((float)usedPixels / (baseBitmap.Width * baseBitmap.Height) * 100, 2) + "% of the original size!");
-
-                    }
-                    else
-                    {
-                        Bitmap resizedBitmap = new Bitmap(baseBitmap, new Size((int)(finalLayout.Width / compresionFactor), (int)(finalLayout.Height / compresionFactor)));
-                        resizedBitmap.Save(currentProjectFolderPath + "/PPVerilogEngine//tempPictures//compressedPicture.png");
-
-                        Bitmap colorSetBitmap = new Bitmap(resizedBitmap);
-                        colorSetBitmap = limitColorBitmap(colorSetBitmap, maxColorBits);
-                        colorSetBitmap.Save(currentProjectFolderPath + "/PPVerilogEngine//tempPictures//colorLimitedPicture.png");
-
-                        int savedPixels = 0;
-                        int usedPixels = 0;
-                        writer.WriteLine(Environment.NewLine + getTabs(tabs) + "//Drawing picture with compression rate: " + compresionFactor + ":1");
-                        for (int i = 0; i < colorSetBitmap.Height; i++)
-                        {
-                            int startingPixel = -1;
-                            var startingColor = System.Drawing.Color.White;
-                            for (int j = 0; j < colorSetBitmap.Width; j++)
-                            {
-                                System.Drawing.Color color = colorSetBitmap.GetPixel(j, i);
-                                if (color.A > 100)
-                                {
-                                    if (startingPixel == -1)
-                                    {
-                                        startingPixel = j;
-                                        startingColor = color;
-                                    }
-                                    else
-                                    {
-                                        if ((color.R != startingColor.R || color.G != startingColor.G || color.B != startingColor.B) || j == colorSetBitmap.Width - 1) //Not the same, write the old one  || From startingPixel to current-1 in width (j)
-                                        {
-                                      
-                                                writer.Write(getTabs(tabs) + "if(yPixel>=" + (int)(finalLayout.Top + (i * compresionFactor)) + " && yPixel<" + (int)(finalLayout.Top + ((i + 1) * compresionFactor)) + " && xPixel>=" + (int)(finalLayout.Left + (startingPixel * compresionFactor)) + " && xPixel<" + (int)(finalLayout.Left + (j * compresionFactor)) + ") ");
+                                                writer.Write(getTabs(tabs) + "if(yPixel>=" + (int)(picture.Layout.Top + (i * compresionFactor)) + " && yPixel<" + (int)(picture.Layout.Top + ((i + 1) * compresionFactor)) + " && xPixel>=" + (int)(picture.Layout.Left + (startingPixel * compresionFactor)) + " && xPixel<" + (int)(picture.Layout.Left + (j * compresionFactor)) + ") ");
                                                 writer.WriteLine("{VGAr,VGAg,VGAb}={" + formatNumber("b", 8, Convert.ToString(startingColor.R, 2).PadLeft(8, '0')) + "," + formatNumber("b", 8, Convert.ToString(startingColor.G, 2).PadLeft(8, '0')) + "," + formatNumber("b", 8, Convert.ToString(startingColor.B, 2).PadLeft(8, '0')) + "};");
 
-                                            
 
-                                            startingColor = color;
-                                            startingPixel = j;
-                                            usedPixels++;
-                                        }
-                                        else
-                                        {
-                                            savedPixels++;
-                                            //Do nothing, is still the same color, keep waiting until it changes.
+
+                                                startingColor = color;
+                                                startingPixel = j;
+                                                usedPixels++;
+                                            }
+                                            else
+                                            {
+                                                savedPixels++;
+                                                //Do nothing, is still the same color, keep waiting until it changes.
+                                            }
                                         }
                                     }
                                 }
                             }
+
+                            Console.WriteLine(getTabs(3) + "Picture compressed at " + Math.Round((float)usedPixels / (baseBitmap.Width * baseBitmap.Height) * 100, 2) + "% of the original size!");
                         }
 
-                        Console.WriteLine(getTabs(3) + "Picture compressed at " + Math.Round((float)usedPixels / (baseBitmap.Width * baseBitmap.Height) * 100, 2) + "% of the original size!");
                     }
+                }
+                else if (picturex is Shape)
+                {
+                    Shape shape = (Shape)picturex;
+
+                    if (shape.Format.Fill.FillType == FillFormatType.Solid)
+                    {
+                        SolidFillFormat f = (SolidFillFormat)shape.Format.Fill;
+
+                        //Find level of transparency                       
+
+                        if (shape.ShapeType == ShapeGeometryType.Rectangle)
+                        {
+                            Console.WriteLine(getTabs(2) + "Writing solid shape: " + (properties.ContainsKey("NAME") ? properties["NAME"] : "UNNAMED"));
+
+
+                            writer.WriteLine(Environment.NewLine + getTabs(tabs) + "//Drawing Solid shape \"" + (properties.ContainsKey("NAME") ? properties["NAME"] : "UNNAMED") + "\"");
+                            if (properties.ContainsKey("TRANSPARENT")) writer.WriteLine(getTabs(tabs) + "//   --> Allowed 50% transparent render");
+                            if (properties.ContainsKey("ADVANCEDTRANSPARENT")) writer.WriteLine(getTabs(tabs) + "//   --> Allowed advanced transparent render");
+
+                           
+
+                            //Draw shapes
+                            if (properties.ContainsKey("MOVEABLE") && properties.ContainsKey("NAME"))
+                            {
+                                writeSquareShapeColorMoveable(writer, f.Color, shape.Layout, tabs, shape.Format.Outline, properties.ContainsKey("BORDER"), allowedTransparencyLevel, properties["NAME"].Replace(" ", "_"));
+                            }
+                            else
+                            {
+                                writeSquareShapeColor(writer, f.Color, shape.Layout, tabs, shape.Format.Outline, properties.ContainsKey("BORDER"), allowedTransparencyLevel);
+                            }
+                           
+
+                        }
+                    }
+
 
                 }
             }
@@ -617,73 +684,7 @@ namespace PowerPointVerilogEngineDesigner
             return toReturn;
         }
 
-        private void drawBasicShapes(StreamWriter writer, Slide slide,int tabs)
-        {
-            //Draw shapes
-            foreach(Shape shape in slide.Content.Drawings.OfType<Shape>())
-            {
-                Dictionary<string, string> properties = getProperties(shape.Text);
-                if(shape.Format.Fill.FillType==FillFormatType.Solid)
-                {
-                    SolidFillFormat f = (SolidFillFormat)shape.Format.Fill;
-
-                    //Find level of transparency
-                    int allowedTransparencyLevel = 0;
-                    if (properties.ContainsKey("TRANSPARENT")) allowedTransparencyLevel = 1;
-                    if (properties.ContainsKey("ADVANCEDTRANSPARENT")) allowedTransparencyLevel = 2;
-
-                    if (shape.ShapeType==ShapeGeometryType.Rectangle)
-                    {
-                        Console.WriteLine(getTabs(2) + "Writing solid shape: "+(properties.ContainsKey("NAME") ? properties["NAME"] : "UNNAMED"));
-
-
-                        writer.WriteLine(Environment.NewLine + getTabs(tabs) + "//Drawing Solid shape \"" + (properties.ContainsKey("NAME")?properties["NAME"]:"UNNAMED") +"\"");                      
-                        if (properties.ContainsKey("TRANSPARENT")) writer.WriteLine(getTabs(tabs)+"//   --> Allowed 50% transparent render");
-                        if (properties.ContainsKey("ADVANCEDTRANSPARENT")) writer.WriteLine(getTabs(tabs) + "//   --> Allowed advanced transparent render");
-
-                        getScaledLayout(shape.Layout);
-
-                        //Draw shapes
-                        if (properties.ContainsKey("MOVEABLE") && properties.ContainsKey("NAME"))
-                        {
-                            writeSquareShapeColorMoveable(writer, f.Color, shape.Layout, tabs, shape.Format.Outline, properties.ContainsKey("BORDER"), allowedTransparencyLevel, properties["NAME"].Replace(" ", "_"));
-                        } else
-                        {
-                            writeSquareShapeColor(writer, f.Color, shape.Layout, tabs, shape.Format.Outline, properties.ContainsKey("BORDER"), allowedTransparencyLevel);
-                        }
-                        if (properties.ContainsKey("WASDMovement") && properties.ContainsKey("NAME") && properties.ContainsKey("MOVEABLE"))
-                        {
-                            int sp = properties.ContainsKey("AnimationSpeed") ? int.Parse(properties["AnimationSpeed"]): 1;
-                            wasdMovings.Add(properties["NAME"].Replace(" ", "_") + "X");
-                            wasdMovings.Add(properties["NAME"].Replace(" ", "_") + "Y");
-                            movingProperties.Add(properties["NAME"].Replace(" ", "_"), new MovingProperties() { height= (int)shape.Layout.Height.To(LengthUnit.Point), width= (int)shape.Layout.Width.To(LengthUnit.Point), name=properties["NAME"].Replace(" ", "_"), speed=sp});
-                        }
-                          
-                        if (properties.ContainsKey("ARROWSMovement") && properties.ContainsKey("NAME") && properties.ContainsKey("MOVEABLE"))
-                        {
-                            int sp = properties.ContainsKey("AnimationSpeed") ? int.Parse(properties["AnimationSpeed"]) : 1;
-                            arrowMovings.Add(properties["NAME"].Replace(" ", "_") + "X");
-                            arrowMovings.Add(properties["NAME"].Replace(" ", "_") + "Y");
-                            movingProperties.Add(properties["NAME"].Replace(" ", "_"), new MovingProperties() { height = (int)shape.Layout.Height.To(LengthUnit.Point), width = (int)shape.Layout.Width.To(LengthUnit.Point), name = properties["NAME"].Replace(" ", "_"), speed = sp });
-
-                        }
-
-                        if (properties.ContainsKey("BOUNCING") && properties.ContainsKey("NAME") && properties.ContainsKey("MOVEABLE"))
-                        {
-                            int sp = properties.ContainsKey("AnimationSpeed") ? int.Parse(properties["AnimationSpeed"]) : 1;
-                            bouncings.Add(properties["NAME"].Replace(" ", "_") + "X");
-                            bouncings.Add(properties["NAME"].Replace(" ", "_") + "Y");
-                            movingProperties.Add(properties["NAME"].Replace(" ", "_"), new MovingProperties() { height = (int)shape.Layout.Height.To(LengthUnit.Point), width = (int)shape.Layout.Width.To(LengthUnit.Point), name = properties["NAME"].Replace(" ", "_"), speed = sp });
-                        }
-
-
-
-                    }                    
-                }
-            }
-
-            
-        }
+     
 
         private Bitmap limitColorBitmap(Bitmap colorSetBitmap,int bitLimit)
         {
@@ -1027,6 +1028,10 @@ namespace PowerPointVerilogEngineDesigner
         public int width;
         public int height;
         public int speed;
+        public int minX;
+        public int maxX;
+        public int minY;
+        public int maxY;
      //   public bool memory = false;
     }
 

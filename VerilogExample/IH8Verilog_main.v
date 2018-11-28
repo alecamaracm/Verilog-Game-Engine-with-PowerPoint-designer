@@ -27,21 +27,6 @@ begin
 	VGAg = 8'b11111111; 
 	VGAb = 8'b11111111; 
 
-	//Drawing Solid shape "Basic transparency"
-	//   --> Allowed 50% transparent render
-	if(xPixel>Basic_transparencyX && xPixel<Basic_transparencyX+130 && yPixel>Basic_transparencyY && yPixel<Basic_transparencyY+68)
-	begin
-		VGAr = (8'b01110000 + VGAr) / 2;
-		VGAg = (8'b10101101 + VGAg) / 2;
-		VGAb = (8'b01000111 + VGAb) / 2;
-		if(xPixel<Basic_transparencyX+3 || xPixel>Basic_transparencyX+127 || yPixel<Basic_transparencyY+3 || yPixel>Basic_transparencyY+65)    //Drawing border
-		begin
-			VGAr = 8'b11110100;
-			VGAg = 8'b10110001;
-			VGAb = 8'b10000011;
-		end
-	end
-
 	if(yPixel>=timesTableY && yPixel<timesTableY+(179*2) && xPixel>=timesTableX && xPixel<timesTableX+(327*2))
 	begin
 		VGAr=timesTableq[14:10]*8;
@@ -306,18 +291,33 @@ begin
 		VGAb=einsteinq[4:0]*8;
 	end
 
-	if(yPixel>=peterY && yPixel<peterY+(156*1) && xPixel>=peterX && xPixel<peterX+(156*1))
-	begin
-		VGAr=peterq[14:10]*8;
-		VGAg=peterq[9:5]*8;
-		VGAb=peterq[4:0]*8;
-	end
-
 	if(yPixel>=bouncerY && yPixel<bouncerY+(171*1) && xPixel>=bouncerX && xPixel<bouncerX+(303*1))
 	begin
 		VGAr=(VGAr+bouncerq[14:10]*8)/2;
 		VGAg=(VGAg+bouncerq[9:5]*8)/2;
 		VGAb=(VGAb+bouncerq[4:0]*8)/2;
+	end
+
+	//Drawing Solid shape "Basictransparency"
+	//   --> Allowed 50% transparent render
+	if(xPixel>BasictransparencyX && xPixel<BasictransparencyX+130 && yPixel>BasictransparencyY && yPixel<BasictransparencyY+68)
+	begin
+		VGAr = (8'b01110000 + VGAr) / 2;
+		VGAg = (8'b10101101 + VGAg) / 2;
+		VGAb = (8'b01000111 + VGAb) / 2;
+		if(xPixel<BasictransparencyX+3 || xPixel>BasictransparencyX+127 || yPixel<BasictransparencyY+3 || yPixel>BasictransparencyY+65)    //Drawing border
+		begin
+			VGAr = 8'b11110100;
+			VGAg = 8'b10110001;
+			VGAb = 8'b10000011;
+		end
+	end
+
+	if(yPixel>=peterY && yPixel<peterY+(156*1) && xPixel>=peterX && xPixel<peterX+(156*1))
+	begin
+		VGAr=peterq[14:10]*8;
+		VGAg=peterq[9:5]*8;
+		VGAb=peterq[4:0]*8;
 	end
 
 end
@@ -326,25 +326,25 @@ wire [9:0]peterX;
 wire [9:0]peterY;
 wire [9:0]einsteinX;
 wire [9:0]einsteinY;
-wire [9:0]Basic_transparencyX;
-wire [9:0]Basic_transparencyY;
 wire [9:0]bouncerX;
 wire [9:0]bouncerY;
+wire [9:0]BasictransparencyX;
+wire [9:0]BasictransparencyY;
 
 
-animations anim1(animationCLOCK,wasd,arrows,Basic_transparencyX,Basic_transparencyY,bouncerX,bouncerY,peterX,peterY,einsteinX,einsteinY);
+animations anim1(animationCLOCK,wasd,arrows,bouncerX,bouncerY,BasictransparencyX,BasictransparencyY,peterX,peterY,einsteinX,einsteinY);
 wire [14:0]timesTableq;
 ramtimesTable timesTableram((((yPixel-timesTableY)/2)*327 +((xPixel-timesTableX)/2)+1),CLOCK,15'd0,0,timesTableq);
 wire [14:0]einsteinq;
 rameinstein einsteinram((((yPixel-einsteinY)/1)*139 +((xPixel-einsteinX)/1)+1),CLOCK,15'd0,0,einsteinq);
-wire [14:0]peterq;
-rampeter peterram((((yPixel-peterY)/1)*156 +((xPixel-peterX)/1)+1),CLOCK,15'd0,0,peterq);
 wire [14:0]bouncerq;
 rambouncer bouncerram((((yPixel-bouncerY)/1)*303 +((xPixel-bouncerX)/1)+1),CLOCK,15'd0,0,bouncerq);
+wire [14:0]peterq;
+rampeter peterram((((yPixel-peterY)/1)*156 +((xPixel-peterX)/1)+1),CLOCK,15'd0,0,peterq);
 
 endmodule
 
-module animations(animationCLOCK,wasd,arrows,Basic_transparencyX,Basic_transparencyY,bouncerX,bouncerY,peterX,peterY,einsteinX,einsteinY);
+module animations(animationCLOCK,wasd,arrows,bouncerX,bouncerY,BasictransparencyX,BasictransparencyY,peterX,peterY,einsteinX,einsteinY);
 
 output [9:0]peterX;
 reg [9:0]peterX;
@@ -354,18 +354,18 @@ output [9:0]einsteinX;
 reg [9:0]einsteinX;
 output [9:0]einsteinY;
 reg [9:0]einsteinY;
-output [9:0]Basic_transparencyX;
-reg [9:0]Basic_transparencyX;
-reg Basic_transparencyXDir;
-output [9:0]Basic_transparencyY;
-reg [9:0]Basic_transparencyY;
-reg Basic_transparencyYDir;
 output [9:0]bouncerX;
 reg [9:0]bouncerX;
 reg bouncerXDir;
 output [9:0]bouncerY;
 reg [9:0]bouncerY;
 reg bouncerYDir;
+output [9:0]BasictransparencyX;
+reg [9:0]BasictransparencyX;
+reg BasictransparencyXDir;
+output [9:0]BasictransparencyY;
+reg [9:0]BasictransparencyY;
+reg BasictransparencyYDir;
 input animationCLOCK;
 input [3:0]arrows;
 input [3:0]wasd;
@@ -379,62 +379,17 @@ begin
 	if(wasd[2]==1 && einsteinY<480-156) einsteinY=einsteinY+1;
 
 	//Writing ARROWS movement for peterX:
-	if(arrows[1]==1 && peterX>0) peterX=peterX-5;
-	if (arrows[3] == 1 && peterX < 640 - 156) peterX = peterX + 5;
+	if(arrows[1]==1 && peterX>200) peterX=peterX-5;
+	if (arrows[3] == 1 && peterX < 500 - 156) peterX = peterX + 5;
 	if(arrows[0]==1 && peterY>0) peterY=peterY-5;
 	if(arrows[2]==1 && peterY<480-156) peterY=peterY+5;
 
-	//Writing Bouncing movement for Basic_transparencyX:
-	if(Basic_transparencyXDir==1)
-	begin
-		if (Basic_transparencyX >= 640 - 130)
-		begin
-			Basic_transparencyXDir = 0;
-		end
-		else
-		begin
-			Basic_transparencyX <= Basic_transparencyX + 10;
-		end
-	end
-	else
-	begin
-		if (Basic_transparencyX <= 0)
-		begin
-			Basic_transparencyXDir = 1;
-		end
-		else
-		begin
-			Basic_transparencyX <= Basic_transparencyX - 10;
-		end
-	end
-	if(Basic_transparencyYDir==1)
-	begin
-		if (Basic_transparencyY >= 480 - 68)
-		begin
-			Basic_transparencyYDir = 0;
-		end
-		else
-		begin
-			Basic_transparencyY <= Basic_transparencyY + 10;
-		end
-	end
-	else
-	begin
-		if (Basic_transparencyY <= 0)
-		begin
-			Basic_transparencyYDir = 1;
-		end
-		else
-		begin
-			Basic_transparencyY <= Basic_transparencyY - 10;
-		end
-	end
 	//Writing Bouncing movement for bouncerX:
 	if(bouncerXDir==1)
 	begin
-		if (bouncerX >= 640 - 303)
+		if (bouncerX >= 540 - 303)
 		begin
-			bouncerXDir = 0;
+			bouncerXDir = 100;
 		end
 		else
 		begin
@@ -443,7 +398,7 @@ begin
 	end
 	else
 	begin
-		if (bouncerX <= 0)
+		if (bouncerX <= 100)
 		begin
 			bouncerXDir = 1;
 		end
@@ -454,9 +409,9 @@ begin
 	end
 	if(bouncerYDir==1)
 	begin
-		if (bouncerY >= 480 - 171)
+		if (bouncerY >= 380 - 171)
 		begin
-			bouncerYDir = 0;
+			bouncerYDir = 100;
 		end
 		else
 		begin
@@ -465,13 +420,58 @@ begin
 	end
 	else
 	begin
-		if (bouncerY <= 0)
+		if (bouncerY <= 100)
 		begin
 			bouncerYDir = 1;
 		end
 		else
 		begin
 			bouncerY <= bouncerY - 1;
+		end
+	end
+	//Writing Bouncing movement for BasictransparencyX:
+	if(BasictransparencyXDir==1)
+	begin
+		if (BasictransparencyX >= 640 - 130)
+		begin
+			BasictransparencyXDir = 0;
+		end
+		else
+		begin
+			BasictransparencyX <= BasictransparencyX + 10;
+		end
+	end
+	else
+	begin
+		if (BasictransparencyX <= 0)
+		begin
+			BasictransparencyXDir = 1;
+		end
+		else
+		begin
+			BasictransparencyX <= BasictransparencyX - 10;
+		end
+	end
+	if(BasictransparencyYDir==1)
+	begin
+		if (BasictransparencyY >= 480 - 68)
+		begin
+			BasictransparencyYDir = 0;
+		end
+		else
+		begin
+			BasictransparencyY <= BasictransparencyY + 10;
+		end
+	end
+	else
+	begin
+		if (BasictransparencyY <= 0)
+		begin
+			BasictransparencyYDir = 1;
+		end
+		else
+		begin
+			BasictransparencyY <= BasictransparencyY - 10;
 		end
 	end
 end
