@@ -1,0 +1,13 @@
+test_sim/test.v
+test_sim/clocked_audio_output/mentor/cao_fifo.v
+test_sim/clocked_audio_output/mentor/cao_merge.v
+test_sim/clocked_audio_output/mentor/cao_avalon.v
+test_sim/clocked_audio_output/mentor/cao_registers.v
+test_sim/clocked_audio_output/mentor/altera_cao_reset_synchronizer.v
+test_sim/clocked_audio_output/mentor/clocked_audio_output.v
+test_sim/clocked_audio_output/aldec/cao_fifo.v
+test_sim/clocked_audio_output/aldec/cao_merge.v
+test_sim/clocked_audio_output/aldec/cao_avalon.v
+test_sim/clocked_audio_output/aldec/cao_registers.v
+test_sim/clocked_audio_output/aldec/altera_cao_reset_synchronizer.v
+test_sim/clocked_audio_output/aldec/clocked_audio_output.v

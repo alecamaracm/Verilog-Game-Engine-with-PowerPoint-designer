@@ -9,7 +9,7 @@
 /////////////////////////////////////////////////////////////////////////////////////
 
 
-module UART(CLOCK,RX,dt,dtavail,bad);
+module UARTold(CLOCK,RX,dt,dtavail,bad);
 	
 	output [7:0]dt;
 	reg [7:0]dt;

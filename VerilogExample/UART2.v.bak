@@ -1,0 +1,76 @@
+module UART(CLOCK,RX,dataReceived,dataAvail,dataToSend,sendData)
+
+reg [3:0]RXstate;
+
+parameter RXidle=4'b0000;
+parameter RXstart=4'b0001;
+parameter RXget=4'b0010;
+
+reg [9:0]RXcount;
+reg [5:0]RXdataBit;
+
+reg [7:0]data;
+output [7:0]data;
+
+reg dataAvail;
+output dataAvail;
+
+input [7:0]dataToSend;
+input sendData;
+
+
+always(posedge CLOCK)
+begin
+
+	case (RXstate)
+
+		RXidle:
+		begin
+			if(RX==1'b0)
+			begin
+				RXstate=RXstart;
+				RXcount=10'd0;						
+			end
+		end
+		RXstart:
+		begin
+			if(RXcount>=10'd150)
+			begin
+				RXstate=RXget;
+				RXcount=10'd0;
+				RXdataBit=6'd0;
+			end
+			else
+			begin
+				RXcount=RXcount+10'd1;
+			end
+		end
+		RXget:
+		begin
+			if(RXcount>=10'd100)
+			begin
+				data[RXdataBit]=RX;
+				RXdataBit=RXdataBit+6'd1;
+				if(RXdataBit>=6'd7)
+				begin
+					RXstate=RXidle;					
+					dataAvail=!dataAvail;
+				end
+			end
+			else
+			begin
+				RXcount=RXcount+10'd1;				
+			end
+		
+		end
+	
+	
+	
+	
+	endcase
+
+
+end
+
+
+endmodule

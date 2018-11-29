@@ -1,0 +1,27 @@
+module buzzing(CLOCK,GPIO)
+
+input CLOCK;
+output GPIO;
+
+
+reg [29:0]counter;
+
+always @(posedge CLOCK)
+begin
+	
+	if(couter>(125000/2))
+	begin
+		GPIO=!GPIO;
+		counter=0;
+	end
+	else
+	begin
+		counter=counter+1;
+	end
+
+
+end
+
+
+
+endmodule

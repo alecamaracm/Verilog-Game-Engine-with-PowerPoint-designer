@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<simPackage>
+ <file
+   path="test_sim/clocked_audio_output/mentor/cao_fifo.v"
+   type="VERILOG_ENCRYPT"
+   library="test"
+   simulator="modelsim" />
+ <file
+   path="test_sim/clocked_audio_output/mentor/cao_merge.v"
+   type="VERILOG_ENCRYPT"
+   library="test"
+   simulator="modelsim" />
+ <file
+   path="test_sim/clocked_audio_output/mentor/cao_avalon.v"
+   type="VERILOG_ENCRYPT"
+   library="test"
+   simulator="modelsim" />
+ <file
+   path="test_sim/clocked_audio_output/mentor/cao_registers.v"
+   type="VERILOG_ENCRYPT"
+   library="test"
+   simulator="modelsim" />
+ <file
+   path="test_sim/clocked_audio_output/mentor/altera_cao_reset_synchronizer.v"
+   type="VERILOG_ENCRYPT"
+   library="test"
+   simulator="modelsim" />
+ <file
+   path="test_sim/clocked_audio_output/mentor/clocked_audio_output.v"
+   type="VERILOG_ENCRYPT"
+   library="test"
+   simulator="modelsim" />
+ <file
+   path="test_sim/clocked_audio_output/aldec/cao_fifo.v"
+   type="VERILOG_ENCRYPT"
+   library="test"
+   simulator="riviera" />
+ <file
+   path="test_sim/clocked_audio_output/aldec/cao_merge.v"
+   type="VERILOG_ENCRYPT"
+   library="test"
+   simulator="riviera" />
+ <file
+   path="test_sim/clocked_audio_output/aldec/cao_avalon.v"
+   type="VERILOG_ENCRYPT"
+   library="test"
+   simulator="riviera" />
+ <file
+   path="test_sim/clocked_audio_output/aldec/cao_registers.v"
+   type="VERILOG_ENCRYPT"
+   library="test"
+   simulator="riviera" />
+ <file
+   path="test_sim/clocked_audio_output/aldec/altera_cao_reset_synchronizer.v"
+   type="VERILOG_ENCRYPT"
+   library="test"
+   simulator="riviera" />
+ <file
+   path="test_sim/clocked_audio_output/aldec/clocked_audio_output.v"
+   type="VERILOG_ENCRYPT"
+   library="test"
+   simulator="riviera" />
+ <file path="test_sim/test.v" type="VERILOG" />
+ <topLevel name="test" />
+ <deviceFamily name="cycloneive" />
+</simPackage>

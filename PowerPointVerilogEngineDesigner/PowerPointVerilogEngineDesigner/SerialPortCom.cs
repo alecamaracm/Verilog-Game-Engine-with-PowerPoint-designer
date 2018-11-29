@@ -7,6 +7,7 @@ using System.IO;
 using System.IO.Ports;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -44,6 +45,7 @@ namespace PowerPointVerilogEngineDesigner
             for(long i=0;i<numericUpDown1.Value;i++)
             {
                 port.Write(new byte[2] { (byte)random.Next() , (byte)random.Next() },0,2);
+                Thread.Sleep(100);
             }
         }
 

@@ -1,0 +1,39 @@
+set_global_assignment -entity "test" -library "test" -name IP_TOOL_NAME "clocked_audio_output"
+set_global_assignment -entity "test" -library "test" -name IP_TOOL_VERSION "16.1"
+set_global_assignment -entity "test" -library "test" -name IP_TOOL_ENV "mwpim"
+set_global_assignment -library "test" -name MISC_FILE [file join $::quartus(qip_path) "test.cmp"]
+set_global_assignment -entity "test" -library "test" -name IP_TARGETED_DEVICE_FAMILY "Cyclone IV E"
+set_global_assignment -entity "test" -library "test" -name IP_GENERATED_DEVICE_FAMILY "{Cyclone IV E}"
+set_global_assignment -entity "test" -library "test" -name IP_QSYS_MODE "UNKNOWN"
+set_global_assignment -name SYNTHESIS_ONLY_QIP ON
+set_global_assignment -entity "test" -library "test" -name IP_COMPONENT_NAME "dGVzdA=="
+set_global_assignment -entity "test" -library "test" -name IP_COMPONENT_DISPLAY_NAME "Q2xvY2tlZCBBdWRpbyBPdXRwdXQ="
+set_global_assignment -entity "test" -library "test" -name IP_COMPONENT_REPORT_HIERARCHY "Off"
+set_global_assignment -entity "test" -library "test" -name IP_COMPONENT_INTERNAL "Off"
+set_global_assignment -entity "test" -library "test" -name IP_COMPONENT_AUTHOR "QWx0ZXJhIENvcnBvcmF0aW9u"
+set_global_assignment -entity "test" -library "test" -name IP_COMPONENT_VERSION "MTYuMQ=="
+set_global_assignment -entity "test" -library "test" -name IP_COMPONENT_DESCRIPTION "Q2xvY2tlZCBBdWRpbyBPdXRwdXQ="
+set_global_assignment -entity "clocked_audio_output" -library "test" -name IP_COMPONENT_NAME "Y2xvY2tlZF9hdWRpb19vdXRwdXQ="
+set_global_assignment -entity "clocked_audio_output" -library "test" -name IP_COMPONENT_DISPLAY_NAME "Q2xvY2tlZCBBdWRpbyBPdXRwdXQ="
+set_global_assignment -entity "clocked_audio_output" -library "test" -name IP_COMPONENT_REPORT_HIERARCHY "Off"
+set_global_assignment -entity "clocked_audio_output" -library "test" -name IP_COMPONENT_INTERNAL "Off"
+set_global_assignment -entity "clocked_audio_output" -library "test" -name IP_COMPONENT_AUTHOR "QWx0ZXJhIENvcnBvcmF0aW9u"
+set_global_assignment -entity "clocked_audio_output" -library "test" -name IP_COMPONENT_VERSION "MTYuMQ=="
+set_global_assignment -entity "clocked_audio_output" -library "test" -name IP_COMPONENT_DESCRIPTION "Q2xvY2tlZCBBdWRpbyBPdXRwdXQ="
+set_global_assignment -entity "clocked_audio_output" -library "test" -name IP_COMPONENT_PARAMETER "RkFNSUxZ::Q3ljbG9uZSBJViBF::RGV2aWNlIGZhbWlseSBzZWxlY3RlZA=="
+set_global_assignment -entity "clocked_audio_output" -library "test" -name IP_COMPONENT_PARAMETER "R19DQU9fRklGT19ERVBUSA==::NA==::RmlmbyBTaXplICgyXjMgdG8gMl4xMCk="
+set_global_assignment -entity "clocked_audio_output" -library "test" -name IP_COMPONENT_PARAMETER "R19DQU9fSU5DTFVERV9DVFJMX1JFRw==::MA==::SW5jbHVkZSBBdmFsb24tTU0gQ29udHJvbCBJbnRlcmZhY2U="
+
+set_global_assignment -library "test" -name VERILOG_FILE [file join $::quartus(qip_path) "test.v"]
+set_global_assignment -library "test" -name VERILOG_FILE [file join $::quartus(qip_path) "test/cao_fifo.v"]
+set_global_assignment -library "test" -name VERILOG_FILE [file join $::quartus(qip_path) "test/cao_merge.v"]
+set_global_assignment -library "test" -name VERILOG_FILE [file join $::quartus(qip_path) "test/cao_avalon.v"]
+set_global_assignment -library "test" -name VERILOG_FILE [file join $::quartus(qip_path) "test/cao_registers.v"]
+set_global_assignment -library "test" -name VERILOG_FILE [file join $::quartus(qip_path) "test/altera_cao_reset_synchronizer.v"]
+set_global_assignment -library "test" -name VERILOG_FILE [file join $::quartus(qip_path) "test/clocked_audio_output.v"]
+set_global_assignment -library "test" -name SOURCE_FILE [file join $::quartus(qip_path) "test/clocked_audio_output.ocp"]
+set_global_assignment -library "test" -name SDC_FILE [file join $::quartus(qip_path) "test/clocked_audio_output.sdc"]
+
+set_global_assignment -entity "clocked_audio_output" -library "test" -name IP_TOOL_NAME "clocked_audio_output"
+set_global_assignment -entity "clocked_audio_output" -library "test" -name IP_TOOL_VERSION "16.1"
+set_global_assignment -entity "clocked_audio_output" -library "test" -name IP_TOOL_ENV "mwpim"
