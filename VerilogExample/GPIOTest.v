@@ -14,8 +14,11 @@ reg TR;
 reg [39:0]freq;
 reg [29:0]counter;
 reg [29:0]counter2;
-reg [39:0]timex;
+
 reg doneThis;
+
+reg [29:0]echoStart;
+reg inEcho;
 
 always @(posedge CLOCK)
 begin
@@ -32,11 +35,11 @@ begin
 	end
 
 	
-	if(counter2<50)
+	if(counter2<500)
 	begin
+		inEcho=0;
 		TR=1;
 		doneThis=0;
-		timex=0;
 	end
 	else if(counter2>(5000000))
 	begin		
@@ -45,19 +48,27 @@ begin
 	else
 	begin
 		TR=0;
-		if(ECH==0)
+		if(ECH==1 && inEcho==0 && doneThis==0)
 		begin
-			timex=timex+1;
+			inEcho=1;
+			echoStart=counter2;
 		end
-		if(ECH==1 && doneThis==0)
+		
+		if(ECH==0 && inEcho==1)
 		begin
-			doneThis=1;
-			leds=(timex/375);
+			if(counter2-echoStart<1500000)
+			begin
+				freq=(counter2-echoStart-7500)/155;
+			end
 			
-		end		
+			leds=freq/15;
+			
+			inEcho=0;
+			doneThis=1;
+		end
 	end
-	leds[2]=ECH;
-counter2=counter2+1;
+	
+	counter2=counter2+1;
 end
 
 
