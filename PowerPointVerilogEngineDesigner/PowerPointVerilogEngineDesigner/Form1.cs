@@ -132,7 +132,8 @@ namespace PowerPointVerilogEngineDesigner
                     writer.WriteLine();
                     if (arrowMovings.Count > 0 || wasdMovings.Count > 0)
                     {
-                        writer.WriteLine("\nanimations anim1(animationCLOCK,reset,wasd,arrows," + String.Join(",", bouncings.ToArray()) + ","+ String.Join(",", arrowMovings.ToArray()) + "," + String.Join(",", wasdMovings.ToArray()) + ");");
+                        string aaa=("\nanimations anim1(animationCLOCK,reset,wasd,arrows," + String.Join(",", bouncings.ToArray()) + ","+ String.Join(",", arrowMovings.ToArray()) + "," + String.Join(",", wasdMovings.ToArray()) + ");");
+                        writer.WriteLine(aaa.Replace(",,",","));
                     }
 
                     foreach (MemoryBitmaps m in bitmapsToWrite)
@@ -206,7 +207,9 @@ namespace PowerPointVerilogEngineDesigner
 
         private void writeAnimationModule(Slide slide,StreamWriter writer)
         {
-            writer.WriteLine("\nmodule animations(animationCLOCK,reset,wasd,arrows," +  String.Join(",", bouncings.ToArray())+","+ String.Join(",",arrowMovings.ToArray())+","+ String.Join(",", wasdMovings.ToArray()) + ");\n");
+           string aaa=("\nmodule animations(animationCLOCK,reset,wasd,arrows," +  String.Join(",", bouncings.ToArray())+","+ String.Join(",",arrowMovings.ToArray())+","+ String.Join(",", wasdMovings.ToArray()) + ");\n");
+            writer.WriteLine(aaa.Replace(",,", ","));
+
             writer.WriteLine("input reset;");
             foreach (String s in arrowMovings)
             {
@@ -412,7 +415,7 @@ namespace PowerPointVerilogEngineDesigner
                         movingProperties.Add(properties["NAME"].Replace(" ", "_"), new MovingProperties() { height = (int)picturex.Layout.Height.To(LengthUnit.Point), width = (int)picturex.Layout.Width.To(LengthUnit.Point), name = properties["NAME"].Replace(" ", "_"), speed = sp, minX = minX, maxX = maxX, maxY = maxY, minY = minY });
                     }
 
-                    if(properties.ContainsKey("MOVEABLE"))
+                    if(properties.ContainsKey("MOVEABLE") && (properties.ContainsKey("ARROWSMovement") || properties.ContainsKey("BOUNCING") || properties.ContainsKey("WASDMovement")))
                     {
                         resetLocations.Add(new ResetLocations() { varName = properties["NAME"].Replace(" ", "_") + "X", defValue = (int)picturex.Layout.Left.To(LengthUnit.Point) });
                         resetLocations.Add(new ResetLocations() { varName = properties["NAME"].Replace(" ", "_") + "Y", defValue = (int)picturex.Layout.Top.To(LengthUnit.Point) });

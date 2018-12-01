@@ -24,7 +24,7 @@ always @(posedge CLOCK)
 begin
 	
 	//if(counter>(125000/2))
-	if(counter>(freq/2))
+	if(counter>(25000000/freq))
 	begin
 		GPIO=!GPIO;
 		counter=0;
@@ -56,9 +56,10 @@ begin
 		
 		if(ECH==0 && inEcho==1)
 		begin
-			if(counter2-echoStart<1500000)
+			if(counter2-echoStart<150000)
 			begin
-				freq=(counter2-echoStart-7500)/155;
+				//freq=(freq+((counter2-echoStart-7500)/155));
+				freq=(freq+((counter2-echoStart-7500)/155))/2;
 			end
 			
 			leds=freq/15;
