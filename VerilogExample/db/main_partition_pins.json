@@ -132,6 +132,10 @@
 					"strict" : false
 				},
 				{
+					"name" : "leds[8]",
+					"strict" : false
+				},
+				{
 					"name" : "leds[10]",
 					"strict" : false
 				},

@@ -1,5 +1,5 @@
 Flow report for main
-Fri Nov 30 20:02:31 2018
+Sun Dec 02 19:36:03 2018
 Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
 
 
@@ -41,20 +41,20 @@ agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Fri Nov 30 20:02:25 2018       ;
+; Flow Status                        ; Successful - Sun Dec 02 19:35:56 2018       ;
 ; Quartus Prime Version              ; 16.1.0 Build 196 10/24/2016 SJ Lite Edition ;
 ; Revision Name                      ; main                                        ;
 ; Top-level Entity Name              ; main                                        ;
 ; Family                             ; Cyclone IV E                                ;
 ; Device                             ; EP4CE115F29C7                               ;
 ; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 3,839 / 114,480 ( 3 % )                     ;
-;     Total combinational functions  ; 3,807 / 114,480 ( 3 % )                     ;
-;     Dedicated logic registers      ; 510 / 114,480 ( < 1 % )                     ;
-; Total registers                    ; 510                                         ;
+; Total logic elements               ; 4,461 / 114,480 ( 4 % )                     ;
+;     Total combinational functions  ; 4,423 / 114,480 ( 4 % )                     ;
+;     Dedicated logic registers      ; 544 / 114,480 ( < 1 % )                     ;
+; Total registers                    ; 544                                         ;
 ; Total pins                         ; 80 / 529 ( 15 % )                           ;
 ; Total virtual pins                 ; 0                                           ;
-; Total memory bits                  ; 983,040 / 3,981,312 ( 25 % )                ;
+; Total memory bits                  ; 2,949,120 / 3,981,312 ( 74 % )              ;
 ; Embedded Multiplier 9-bit elements ; 0 / 532 ( 0 % )                             ;
 ; Total PLLs                         ; 0 / 4 ( 0 % )                               ;
 +------------------------------------+---------------------------------------------+
@@ -65,7 +65,7 @@ agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 11/30/2018 20:01:23 ;
+; Start date & time ; 12/02/2018 19:34:40 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; main                ;
 +-------------------+---------------------+
@@ -76,7 +76,7 @@ agreement for further details.
 +-------------------------------------+----------------------------------------------------------------------+---------------+-------------+------------+
 ; Assignment Name                     ; Value                                                                ; Default Value ; Entity Name ; Section Id ;
 +-------------------------------------+----------------------------------------------------------------------+---------------+-------------+------------+
-; COMPILER_SIGNATURE_ID               ; 238177198226203.154362608309408                                      ; --            ; --          ; --         ;
+; COMPILER_SIGNATURE_ID               ; 238177198223976.154379728005852                                      ; --            ; --          ; --         ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                                                   ; --            ; --          ; --         ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                                                    ; --            ; --          ; --         ;
 ; MISC_FILE                           ; ramtimesTable_bb.v                                                   ; --            ; --          ; --         ;
@@ -115,11 +115,11 @@ agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:15     ; 1.0                     ; 4869 MB             ; 00:00:29                           ;
-; Fitter                    ; 00:00:39     ; 1.1                     ; 5841 MB             ; 00:01:19                           ;
-; Assembler                 ; 00:00:04     ; 1.0                     ; 4716 MB             ; 00:00:03                           ;
-; TimeQuest Timing Analyzer ; 00:00:05     ; 1.8                     ; 4989 MB             ; 00:00:05                           ;
-; Total                     ; 00:01:03     ; --                      ; --                  ; 00:01:56                           ;
+; Analysis & Synthesis      ; 00:00:16     ; 1.0                     ; 4873 MB             ; 00:00:28                           ;
+; Fitter                    ; 00:00:51     ; 1.1                     ; 5860 MB             ; 00:01:47                           ;
+; Assembler                 ; 00:00:04     ; 1.0                     ; 4742 MB             ; 00:00:04                           ;
+; TimeQuest Timing Analyzer ; 00:00:05     ; 1.6                     ; 4958 MB             ; 00:00:06                           ;
+; Total                     ; 00:01:16     ; --                      ; --                  ; 00:02:25                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -128,10 +128,10 @@ agreement for further details.
 +---------------------------+------------------+------------+------------+----------------+
 ; Module Name               ; Machine Hostname ; OS Name    ; OS Version ; Processor type ;
 +---------------------------+------------------+------------+------------+----------------+
-; Analysis & Synthesis      ; CEC-EGB267-08    ; Windows 10 ; 10.0       ; x86_64         ;
-; Fitter                    ; CEC-EGB267-08    ; Windows 10 ; 10.0       ; x86_64         ;
-; Assembler                 ; CEC-EGB267-08    ; Windows 10 ; 10.0       ; x86_64         ;
-; TimeQuest Timing Analyzer ; CEC-EGB267-08    ; Windows 10 ; 10.0       ; x86_64         ;
+; Analysis & Synthesis      ; CEC-EGB267-07    ; Windows 10 ; 10.0       ; x86_64         ;
+; Fitter                    ; CEC-EGB267-07    ; Windows 10 ; 10.0       ; x86_64         ;
+; Assembler                 ; CEC-EGB267-07    ; Windows 10 ; 10.0       ; x86_64         ;
+; TimeQuest Timing Analyzer ; CEC-EGB267-07    ; Windows 10 ; 10.0       ; x86_64         ;
 +---------------------------+------------------+------------+------------+----------------+
 
 

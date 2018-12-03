@@ -4,7 +4,7 @@ JedecChain;
 	DefaultMfr(6E);
 
 	P ActionCode(Cfg)
-		Device PartName(EP4CE115F29) Path("C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/output_files/") File("main.sof") MfrSpec(OpMask(1));
+		Device PartName(EP4CE115F29) Path("C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/output_files/") File("main.sof") MfrSpec(OpMask(1));
 
 ChainEnd;
 

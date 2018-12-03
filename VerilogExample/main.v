@@ -46,7 +46,7 @@ wire u1;
 VGADriver driver(CLOCK,hsync,vsync,VGAclock,VGAblanck,VGAsync,xPixel,yPixel,animationClOCK);
 
 
-PP2VerilogDrawingController drawings(CLOCK,key[2],animationClOCK,wasd,arrows,xPixel,yPixel,VGAr,VGAg,VGAb,mouseX,mouseY,peterX,peterY); //This file is generated automatically by the compiler. Please DO NOT modify it.
+PP2VerilogDrawingController drawings(CLOCK,key[2],animationClOCK,wasd,arrows,xPixel,yPixel,VGAr,VGAg,VGAb,mouseX,mouseY,peterX,peterY,leds[8]); //This file is generated automatically by the compiler. Please DO NOT modify it.
 
 ps2Keyboard keyboard(CLOCK,ps2ck2,ps2dt2,wasd,arrows,leds[4],leds[5]);//
 ps2Mouse mouse(CLOCK,ps2ck,ps2dt,leds[0],leds[1],!key[0],mouseX,mouseY);//
