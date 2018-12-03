@@ -1,0 +1,29 @@
+Info: Starting: Create block symbol file (.bsf)
+Info: qsys-generate C:\Users\cabrera\Desktop\final\ECE287Project\VerilogExample\UARTtest.qsys --block-symbol-file --output-directory=C:\Users\cabrera\Desktop\final\ECE287Project\VerilogExample\UARTtest --family="Cyclone IV E" --part=EP4CE115F29C7
+Progress: Loading VerilogExample/UARTtest.qsys
+Progress: Reading input file
+Progress: Adding rs232_0 [altera_up_avalon_rs232 16.1]
+Progress: Parameterizing module rs232_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: qsys-generate succeeded.
+Info: Finished: Create block symbol file (.bsf)
+Info: 
+Info: Starting: Create HDL design files for synthesis
+Info: qsys-generate C:\Users\cabrera\Desktop\final\ECE287Project\VerilogExample\UARTtest.qsys --synthesis=VERILOG --output-directory=C:\Users\cabrera\Desktop\final\ECE287Project\VerilogExample\UARTtest\synthesis --family="Cyclone IV E" --part=EP4CE115F29C7
+Progress: Loading VerilogExample/UARTtest.qsys
+Progress: Reading input file
+Progress: Adding rs232_0 [altera_up_avalon_rs232 16.1]
+Progress: Parameterizing module rs232_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: UARTtest: Generating UARTtest "UARTtest" for QUARTUS_SYNTH
+Info: rs232_0: Starting Generation of RS232 UART
+Info: rs232_0: "UARTtest" instantiated altera_up_avalon_rs232 "rs232_0"
+Info: UARTtest: Done "UARTtest" with 2 modules, 6 files
+Info: qsys-generate succeeded.
+Info: Finished: Create HDL design files for synthesis
