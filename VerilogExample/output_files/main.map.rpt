@@ -1,5 +1,5 @@
 Analysis & Synthesis report for main
-Sun Dec 02 19:34:56 2018
+Sun Dec 02 19:47:28 2018
 Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
 
 
@@ -89,7 +89,7 @@ agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sun Dec 02 19:34:56 2018       ;
+; Analysis & Synthesis Status        ; Successful - Sun Dec 02 19:47:28 2018       ;
 ; Quartus Prime Version              ; 16.1.0 Build 196 10/24/2016 SJ Lite Edition ;
 ; Revision Name                      ; main                                        ;
 ; Top-level Entity Name              ; main                                        ;
@@ -211,82 +211,82 @@ agreement for further details.
 +----------------------------+-------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                                        ;
-+-------------------------------------+-----------------+----------------------------------------+----------------------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path    ; Used in Netlist ; File Type                              ; File Name with Absolute Path                                                                       ; Library ;
-+-------------------------------------+-----------------+----------------------------------------+----------------------------------------------------------------------------------------------------+---------+
-; GPIOTest.v                          ; yes             ; User Verilog HDL File                  ; C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/GPIOTest.v                          ;         ;
-; PS2_Controller.v                    ; yes             ; User Verilog HDL File                  ; C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/PS2_Controller.v                    ;         ;
-; mouse.v                             ; yes             ; User Verilog HDL File                  ; C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/mouse.v                             ;         ;
-; keyboard.v                          ; yes             ; User Verilog HDL File                  ; C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/keyboard.v                          ;         ;
-; IH8Verilog_main.v                   ; yes             ; User Verilog HDL File                  ; C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/IH8Verilog_main.v                   ;         ;
-; main.v                              ; yes             ; User Verilog HDL File                  ; C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/main.v                              ;         ;
-; VGADriver.v                         ; yes             ; User Verilog HDL File                  ; C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/VGADriver.v                         ;         ;
-; ramtimesTable.v                     ; yes             ; User Wizard-Generated File             ; C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/ramtimesTable.v                     ;         ;
-; rameinstein.v                       ; yes             ; User Wizard-Generated File             ; C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/rameinstein.v                       ;         ;
-; rampeter.v                          ; yes             ; User Wizard-Generated File             ; C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/rampeter.v                          ;         ;
-; rambouncer.v                        ; yes             ; User Wizard-Generated File             ; C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/rambouncer.v                        ;         ;
-; UART2.v                             ; yes             ; User Verilog HDL File                  ; C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/UART2.v                             ;         ;
-; altsyncram.tdf                      ; yes             ; Megafunction                           ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/altsyncram.tdf                              ;         ;
-; stratix_ram_block.inc               ; yes             ; Megafunction                           ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/stratix_ram_block.inc                       ;         ;
-; lpm_mux.inc                         ; yes             ; Megafunction                           ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/lpm_mux.inc                                 ;         ;
-; lpm_decode.inc                      ; yes             ; Megafunction                           ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/lpm_decode.inc                              ;         ;
-; aglobal161.inc                      ; yes             ; Megafunction                           ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/aglobal161.inc                              ;         ;
-; a_rdenreg.inc                       ; yes             ; Megafunction                           ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/a_rdenreg.inc                               ;         ;
-; altrom.inc                          ; yes             ; Megafunction                           ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/altrom.inc                                  ;         ;
-; altram.inc                          ; yes             ; Megafunction                           ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/altram.inc                                  ;         ;
-; altdpram.inc                        ; yes             ; Megafunction                           ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/altdpram.inc                                ;         ;
-; db/altsyncram_4dk1.tdf              ; yes             ; Auto-Generated Megafunction            ; C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/db/altsyncram_4dk1.tdf              ;         ;
-; meminitialization/ramtimestable.mif ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/meminitialization/ramtimestable.mif ;         ;
-; db/decode_rsa.tdf                   ; yes             ; Auto-Generated Megafunction            ; C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/db/decode_rsa.tdf                   ;         ;
-; db/decode_k8a.tdf                   ; yes             ; Auto-Generated Megafunction            ; C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/db/decode_k8a.tdf                   ;         ;
-; db/mux_pob.tdf                      ; yes             ; Auto-Generated Megafunction            ; C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/db/mux_pob.tdf                      ;         ;
-; db/altsyncram_p6k1.tdf              ; yes             ; Auto-Generated Megafunction            ; C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/db/altsyncram_p6k1.tdf              ;         ;
-; meminitialization/rameinstein.mif   ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/meminitialization/rameinstein.mif   ;         ;
-; db/decode_msa.tdf                   ; yes             ; Auto-Generated Megafunction            ; C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/db/decode_msa.tdf                   ;         ;
-; db/decode_f8a.tdf                   ; yes             ; Auto-Generated Megafunction            ; C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/db/decode_f8a.tdf                   ;         ;
-; db/mux_kob.tdf                      ; yes             ; Auto-Generated Megafunction            ; C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/db/mux_kob.tdf                      ;         ;
-; db/altsyncram_qsj1.tdf              ; yes             ; Auto-Generated Megafunction            ; C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/db/altsyncram_qsj1.tdf              ;         ;
-; meminitialization/rampeter.mif      ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/meminitialization/rampeter.mif      ;         ;
-; db/altsyncram_83k1.tdf              ; yes             ; Auto-Generated Megafunction            ; C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/db/altsyncram_83k1.tdf              ;         ;
-; meminitialization/rambouncer.mif    ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/meminitialization/rambouncer.mif    ;         ;
-; lpm_mult.tdf                        ; yes             ; Megafunction                           ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/lpm_mult.tdf                                ;         ;
-; lpm_add_sub.inc                     ; yes             ; Megafunction                           ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/lpm_add_sub.inc                             ;         ;
-; multcore.inc                        ; yes             ; Megafunction                           ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/multcore.inc                                ;         ;
-; bypassff.inc                        ; yes             ; Megafunction                           ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/bypassff.inc                                ;         ;
-; altshift.inc                        ; yes             ; Megafunction                           ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/altshift.inc                                ;         ;
-; multcore.tdf                        ; yes             ; Megafunction                           ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/multcore.tdf                                ;         ;
-; csa_add.inc                         ; yes             ; Megafunction                           ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/csa_add.inc                                 ;         ;
-; mpar_add.inc                        ; yes             ; Megafunction                           ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/mpar_add.inc                                ;         ;
-; muleabz.inc                         ; yes             ; Megafunction                           ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/muleabz.inc                                 ;         ;
-; mul_lfrg.inc                        ; yes             ; Megafunction                           ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/mul_lfrg.inc                                ;         ;
-; mul_boothc.inc                      ; yes             ; Megafunction                           ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/mul_boothc.inc                              ;         ;
-; alt_ded_mult.inc                    ; yes             ; Megafunction                           ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/alt_ded_mult.inc                            ;         ;
-; alt_ded_mult_y.inc                  ; yes             ; Megafunction                           ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/alt_ded_mult_y.inc                          ;         ;
-; dffpipe.inc                         ; yes             ; Megafunction                           ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/dffpipe.inc                                 ;         ;
-; mpar_add.tdf                        ; yes             ; Megafunction                           ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/mpar_add.tdf                                ;         ;
-; lpm_add_sub.tdf                     ; yes             ; Megafunction                           ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/lpm_add_sub.tdf                             ;         ;
-; addcore.inc                         ; yes             ; Megafunction                           ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/addcore.inc                                 ;         ;
-; look_add.inc                        ; yes             ; Megafunction                           ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/look_add.inc                                ;         ;
-; alt_stratix_add_sub.inc             ; yes             ; Megafunction                           ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/alt_stratix_add_sub.inc                     ;         ;
-; db/add_sub_mgh.tdf                  ; yes             ; Auto-Generated Megafunction            ; C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/db/add_sub_mgh.tdf                  ;         ;
-; altshift.tdf                        ; yes             ; Megafunction                           ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/altshift.tdf                                ;         ;
-; db/add_sub_lgh.tdf                  ; yes             ; Auto-Generated Megafunction            ; C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/db/add_sub_lgh.tdf                  ;         ;
-; db/add_sub_pgh.tdf                  ; yes             ; Auto-Generated Megafunction            ; C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/db/add_sub_pgh.tdf                  ;         ;
-; lpm_divide.tdf                      ; yes             ; Megafunction                           ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/lpm_divide.tdf                              ;         ;
-; abs_divider.inc                     ; yes             ; Megafunction                           ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/abs_divider.inc                             ;         ;
-; sign_div_unsign.inc                 ; yes             ; Megafunction                           ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/sign_div_unsign.inc                         ;         ;
-; db/lpm_divide_ikm.tdf               ; yes             ; Auto-Generated Megafunction            ; C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/db/lpm_divide_ikm.tdf               ;         ;
-; db/sign_div_unsign_7nh.tdf          ; yes             ; Auto-Generated Megafunction            ; C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/db/sign_div_unsign_7nh.tdf          ;         ;
-; db/alt_u_div_2af.tdf                ; yes             ; Auto-Generated Megafunction            ; C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/db/alt_u_div_2af.tdf                ;         ;
-; db/add_sub_7pc.tdf                  ; yes             ; Auto-Generated Megafunction            ; C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/db/add_sub_7pc.tdf                  ;         ;
-; db/add_sub_8pc.tdf                  ; yes             ; Auto-Generated Megafunction            ; C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/db/add_sub_8pc.tdf                  ;         ;
-; db/add_sub_qgh.tdf                  ; yes             ; Auto-Generated Megafunction            ; C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/db/add_sub_qgh.tdf                  ;         ;
-; db/lpm_divide_ajm.tdf               ; yes             ; Auto-Generated Megafunction            ; C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/db/lpm_divide_ajm.tdf               ;         ;
-; db/sign_div_unsign_2mh.tdf          ; yes             ; Auto-Generated Megafunction            ; C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/db/sign_div_unsign_2mh.tdf          ;         ;
-; db/alt_u_div_b7f.tdf                ; yes             ; Auto-Generated Megafunction            ; C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/db/alt_u_div_b7f.tdf                ;         ;
-+-------------------------------------+-----------------+----------------------------------------+----------------------------------------------------------------------------------------------------+---------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                     ;
++-------------------------------------+-----------------+----------------------------------------+-------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path    ; Used in Netlist ; File Type                              ; File Name with Absolute Path                                                                    ; Library ;
++-------------------------------------+-----------------+----------------------------------------+-------------------------------------------------------------------------------------------------+---------+
+; GPIOTest.v                          ; yes             ; User Verilog HDL File                  ; C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/GPIOTest.v                          ;         ;
+; PS2_Controller.v                    ; yes             ; User Verilog HDL File                  ; C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/PS2_Controller.v                    ;         ;
+; mouse.v                             ; yes             ; User Verilog HDL File                  ; C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/mouse.v                             ;         ;
+; keyboard.v                          ; yes             ; User Verilog HDL File                  ; C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/keyboard.v                          ;         ;
+; IH8Verilog_main.v                   ; yes             ; User Verilog HDL File                  ; C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/IH8Verilog_main.v                   ;         ;
+; main.v                              ; yes             ; User Verilog HDL File                  ; C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/main.v                              ;         ;
+; VGADriver.v                         ; yes             ; User Verilog HDL File                  ; C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/VGADriver.v                         ;         ;
+; ramtimesTable.v                     ; yes             ; User Wizard-Generated File             ; C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/ramtimesTable.v                     ;         ;
+; rameinstein.v                       ; yes             ; User Wizard-Generated File             ; C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/rameinstein.v                       ;         ;
+; rampeter.v                          ; yes             ; User Wizard-Generated File             ; C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/rampeter.v                          ;         ;
+; rambouncer.v                        ; yes             ; User Wizard-Generated File             ; C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/rambouncer.v                        ;         ;
+; UART2.v                             ; yes             ; User Verilog HDL File                  ; C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/UART2.v                             ;         ;
+; altsyncram.tdf                      ; yes             ; Megafunction                           ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/altsyncram.tdf                           ;         ;
+; stratix_ram_block.inc               ; yes             ; Megafunction                           ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/stratix_ram_block.inc                    ;         ;
+; lpm_mux.inc                         ; yes             ; Megafunction                           ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/lpm_mux.inc                              ;         ;
+; lpm_decode.inc                      ; yes             ; Megafunction                           ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/lpm_decode.inc                           ;         ;
+; aglobal161.inc                      ; yes             ; Megafunction                           ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/aglobal161.inc                           ;         ;
+; a_rdenreg.inc                       ; yes             ; Megafunction                           ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/a_rdenreg.inc                            ;         ;
+; altrom.inc                          ; yes             ; Megafunction                           ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/altrom.inc                               ;         ;
+; altram.inc                          ; yes             ; Megafunction                           ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/altram.inc                               ;         ;
+; altdpram.inc                        ; yes             ; Megafunction                           ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/altdpram.inc                             ;         ;
+; db/altsyncram_4dk1.tdf              ; yes             ; Auto-Generated Megafunction            ; C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/db/altsyncram_4dk1.tdf              ;         ;
+; meminitialization/ramtimestable.mif ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/meminitialization/ramtimestable.mif ;         ;
+; db/decode_rsa.tdf                   ; yes             ; Auto-Generated Megafunction            ; C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/db/decode_rsa.tdf                   ;         ;
+; db/decode_k8a.tdf                   ; yes             ; Auto-Generated Megafunction            ; C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/db/decode_k8a.tdf                   ;         ;
+; db/mux_pob.tdf                      ; yes             ; Auto-Generated Megafunction            ; C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/db/mux_pob.tdf                      ;         ;
+; db/altsyncram_p6k1.tdf              ; yes             ; Auto-Generated Megafunction            ; C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/db/altsyncram_p6k1.tdf              ;         ;
+; meminitialization/rameinstein.mif   ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/meminitialization/rameinstein.mif   ;         ;
+; db/decode_msa.tdf                   ; yes             ; Auto-Generated Megafunction            ; C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/db/decode_msa.tdf                   ;         ;
+; db/decode_f8a.tdf                   ; yes             ; Auto-Generated Megafunction            ; C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/db/decode_f8a.tdf                   ;         ;
+; db/mux_kob.tdf                      ; yes             ; Auto-Generated Megafunction            ; C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/db/mux_kob.tdf                      ;         ;
+; db/altsyncram_qsj1.tdf              ; yes             ; Auto-Generated Megafunction            ; C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/db/altsyncram_qsj1.tdf              ;         ;
+; meminitialization/rampeter.mif      ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/meminitialization/rampeter.mif      ;         ;
+; db/altsyncram_83k1.tdf              ; yes             ; Auto-Generated Megafunction            ; C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/db/altsyncram_83k1.tdf              ;         ;
+; meminitialization/rambouncer.mif    ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/meminitialization/rambouncer.mif    ;         ;
+; lpm_mult.tdf                        ; yes             ; Megafunction                           ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/lpm_mult.tdf                             ;         ;
+; lpm_add_sub.inc                     ; yes             ; Megafunction                           ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/lpm_add_sub.inc                          ;         ;
+; multcore.inc                        ; yes             ; Megafunction                           ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/multcore.inc                             ;         ;
+; bypassff.inc                        ; yes             ; Megafunction                           ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/bypassff.inc                             ;         ;
+; altshift.inc                        ; yes             ; Megafunction                           ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/altshift.inc                             ;         ;
+; multcore.tdf                        ; yes             ; Megafunction                           ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/multcore.tdf                             ;         ;
+; csa_add.inc                         ; yes             ; Megafunction                           ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/csa_add.inc                              ;         ;
+; mpar_add.inc                        ; yes             ; Megafunction                           ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/mpar_add.inc                             ;         ;
+; muleabz.inc                         ; yes             ; Megafunction                           ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/muleabz.inc                              ;         ;
+; mul_lfrg.inc                        ; yes             ; Megafunction                           ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/mul_lfrg.inc                             ;         ;
+; mul_boothc.inc                      ; yes             ; Megafunction                           ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/mul_boothc.inc                           ;         ;
+; alt_ded_mult.inc                    ; yes             ; Megafunction                           ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/alt_ded_mult.inc                         ;         ;
+; alt_ded_mult_y.inc                  ; yes             ; Megafunction                           ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/alt_ded_mult_y.inc                       ;         ;
+; dffpipe.inc                         ; yes             ; Megafunction                           ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/dffpipe.inc                              ;         ;
+; mpar_add.tdf                        ; yes             ; Megafunction                           ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/mpar_add.tdf                             ;         ;
+; lpm_add_sub.tdf                     ; yes             ; Megafunction                           ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/lpm_add_sub.tdf                          ;         ;
+; addcore.inc                         ; yes             ; Megafunction                           ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/addcore.inc                              ;         ;
+; look_add.inc                        ; yes             ; Megafunction                           ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/look_add.inc                             ;         ;
+; alt_stratix_add_sub.inc             ; yes             ; Megafunction                           ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/alt_stratix_add_sub.inc                  ;         ;
+; db/add_sub_mgh.tdf                  ; yes             ; Auto-Generated Megafunction            ; C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/db/add_sub_mgh.tdf                  ;         ;
+; altshift.tdf                        ; yes             ; Megafunction                           ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/altshift.tdf                             ;         ;
+; db/add_sub_lgh.tdf                  ; yes             ; Auto-Generated Megafunction            ; C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/db/add_sub_lgh.tdf                  ;         ;
+; db/add_sub_pgh.tdf                  ; yes             ; Auto-Generated Megafunction            ; C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/db/add_sub_pgh.tdf                  ;         ;
+; lpm_divide.tdf                      ; yes             ; Megafunction                           ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/lpm_divide.tdf                           ;         ;
+; abs_divider.inc                     ; yes             ; Megafunction                           ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/abs_divider.inc                          ;         ;
+; sign_div_unsign.inc                 ; yes             ; Megafunction                           ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/sign_div_unsign.inc                      ;         ;
+; db/lpm_divide_ikm.tdf               ; yes             ; Auto-Generated Megafunction            ; C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/db/lpm_divide_ikm.tdf               ;         ;
+; db/sign_div_unsign_7nh.tdf          ; yes             ; Auto-Generated Megafunction            ; C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/db/sign_div_unsign_7nh.tdf          ;         ;
+; db/alt_u_div_2af.tdf                ; yes             ; Auto-Generated Megafunction            ; C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/db/alt_u_div_2af.tdf                ;         ;
+; db/add_sub_7pc.tdf                  ; yes             ; Auto-Generated Megafunction            ; C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/db/add_sub_7pc.tdf                  ;         ;
+; db/add_sub_8pc.tdf                  ; yes             ; Auto-Generated Megafunction            ; C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/db/add_sub_8pc.tdf                  ;         ;
+; db/add_sub_qgh.tdf                  ; yes             ; Auto-Generated Megafunction            ; C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/db/add_sub_qgh.tdf                  ;         ;
+; db/lpm_divide_ajm.tdf               ; yes             ; Auto-Generated Megafunction            ; C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/db/lpm_divide_ajm.tdf               ;         ;
+; db/sign_div_unsign_2mh.tdf          ; yes             ; Auto-Generated Megafunction            ; C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/db/sign_div_unsign_2mh.tdf          ;         ;
+; db/alt_u_div_b7f.tdf                ; yes             ; Auto-Generated Megafunction            ; C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/db/alt_u_div_b7f.tdf                ;         ;
++-------------------------------------+-----------------+----------------------------------------+-------------------------------------------------------------------------------------------------+---------+
 
 
 +-----------------------------------------------------------+
@@ -1593,7 +1593,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
-    Info: Processing started: Sun Dec 02 19:34:39 2018
+    Info: Processing started: Sun Dec 02 19:47:13 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off FinalProjectAlejandroWill -c main
 Warning (125092): Tcl Script File ram1test.qip not found
     Info (125063): set_global_assignment -name QIP_FILE ram1test.qip
@@ -1604,108 +1604,108 @@ Warning (125092): Tcl Script File ramsad.qip not found
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file uarttest/uarttest_bb.v
-    Info (12023): Found entity 1: UARTtest File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/UARTtest/UARTtest_bb.v Line: 2
+    Info (12023): Found entity 1: UARTtest File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/UARTtest/UARTtest_bb.v Line: 2
 Info (12021): Found 1 design units, including 1 entities, in source file gpiotest.v
-    Info (12023): Found entity 1: buzzing File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/GPIOTest.v Line: 1
+    Info (12023): Found entity 1: buzzing File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/GPIOTest.v Line: 1
 Warning (12019): Can't analyze file -- file audioTest/unnamed_bb.v is missing
 Info (12021): Found 3 design units, including 3 entities, in source file ps2_controller.v
-    Info (12023): Found entity 1: mouse_Inner_controller File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/PS2_Controller.v Line: 8
-    Info (12023): Found entity 2: Altera_UP_PS2_Data_In File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/PS2_Controller.v Line: 152
-    Info (12023): Found entity 3: Altera_UP_PS2_Command_Out File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/PS2_Controller.v Line: 225
+    Info (12023): Found entity 1: mouse_Inner_controller File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/PS2_Controller.v Line: 8
+    Info (12023): Found entity 2: Altera_UP_PS2_Data_In File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/PS2_Controller.v Line: 152
+    Info (12023): Found entity 3: Altera_UP_PS2_Command_Out File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/PS2_Controller.v Line: 225
 Info (12021): Found 4 design units, including 4 entities, in source file mouse.v
-    Info (12023): Found entity 1: ps2Mouse File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/mouse.v Line: 19
-    Info (12023): Found entity 2: twoComp File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/mouse.v Line: 177
-    Info (12023): Found entity 3: fullAdder File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/mouse.v Line: 190
-    Info (12023): Found entity 4: bit8Adder File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/mouse.v Line: 209
+    Info (12023): Found entity 1: ps2Mouse File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/mouse.v Line: 19
+    Info (12023): Found entity 2: twoComp File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/mouse.v Line: 177
+    Info (12023): Found entity 3: fullAdder File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/mouse.v Line: 190
+    Info (12023): Found entity 4: bit8Adder File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/mouse.v Line: 209
 Info (12021): Found 1 design units, including 1 entities, in source file keyboard.v
-    Info (12023): Found entity 1: ps2Keyboard File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/keyboard.v Line: 19
+    Info (12023): Found entity 1: ps2Keyboard File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/keyboard.v Line: 19
 Info (12021): Found 3 design units, including 3 entities, in source file ih8verilog_main.v
-    Info (12023): Found entity 1: PP2VerilogDrawingController File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 4
-    Info (12023): Found entity 2: animations File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 100
-    Info (12023): Found entity 3: collsMod File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 238
+    Info (12023): Found entity 1: PP2VerilogDrawingController File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 4
+    Info (12023): Found entity 2: animations File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 100
+    Info (12023): Found entity 3: collsMod File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 256
 Info (12021): Found 2 design units, including 2 entities, in source file main.v
-    Info (12023): Found entity 1: main File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/main.v Line: 1
-    Info (12023): Found entity 2: enjoy File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/main.v Line: 66
+    Info (12023): Found entity 1: main File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/main.v Line: 1
+    Info (12023): Found entity 2: enjoy File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/main.v Line: 66
 Info (12021): Found 1 design units, including 1 entities, in source file vgadriver.v
-    Info (12023): Found entity 1: VGADriver File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/VGADriver.v Line: 15
+    Info (12023): Found entity 1: VGADriver File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/VGADriver.v Line: 15
 Info (12021): Found 1 design units, including 1 entities, in source file uart.v
-    Info (12023): Found entity 1: UARTold File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/UART.v Line: 12
+    Info (12023): Found entity 1: UARTold File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/UART.v Line: 12
 Info (12021): Found 1 design units, including 1 entities, in source file ramtimestable.v
-    Info (12023): Found entity 1: ramtimesTable File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/ramtimesTable.v Line: 40
+    Info (12023): Found entity 1: ramtimesTable File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/ramtimesTable.v Line: 40
 Info (12021): Found 1 design units, including 1 entities, in source file rameinstein.v
-    Info (12023): Found entity 1: rameinstein File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/rameinstein.v Line: 40
+    Info (12023): Found entity 1: rameinstein File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/rameinstein.v Line: 40
 Info (12021): Found 1 design units, including 1 entities, in source file rampeter.v
-    Info (12023): Found entity 1: rampeter File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/rampeter.v Line: 40
+    Info (12023): Found entity 1: rampeter File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/rampeter.v Line: 40
 Info (12021): Found 1 design units, including 1 entities, in source file rambasic_transparency.v
-    Info (12023): Found entity 1: ramBasic_transparency File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/ramBasic_transparency.v Line: 40
+    Info (12023): Found entity 1: ramBasic_transparency File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/ramBasic_transparency.v Line: 40
 Info (12021): Found 1 design units, including 1 entities, in source file rambouncer.v
-    Info (12023): Found entity 1: rambouncer File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/rambouncer.v Line: 40
+    Info (12023): Found entity 1: rambouncer File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/rambouncer.v Line: 40
 Info (12021): Found 1 design units, including 1 entities, in source file uart2.v
-    Info (12023): Found entity 1: UART2 File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/UART2.v Line: 1
+    Info (12023): Found entity 1: UART2 File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/UART2.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file test.v
-    Info (12023): Found entity 1: test File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/test.v Line: 8
+    Info (12023): Found entity 1: test File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/test.v Line: 8
 Info (12021): Found 1 design units, including 1 entities, in source file test/cao_fifo.v
-    Info (12023): Found entity 1: cao_fifo File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/test/cao_fifo.v Line: 17
+    Info (12023): Found entity 1: cao_fifo File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/test/cao_fifo.v Line: 17
 Info (12021): Found 1 design units, including 1 entities, in source file test/cao_merge.v
-    Info (12023): Found entity 1: cao_merge File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/test/cao_merge.v Line: 17
+    Info (12023): Found entity 1: cao_merge File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/test/cao_merge.v Line: 17
 Info (12021): Found 1 design units, including 1 entities, in source file test/cao_avalon.v
-    Info (12023): Found entity 1: cao_avalon File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/test/cao_avalon.v Line: 17
+    Info (12023): Found entity 1: cao_avalon File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/test/cao_avalon.v Line: 17
 Info (12021): Found 1 design units, including 1 entities, in source file test/cao_registers.v
-    Info (12023): Found entity 1: cao_registers File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/test/cao_registers.v Line: 17
+    Info (12023): Found entity 1: cao_registers File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/test/cao_registers.v Line: 17
 Info (12021): Found 1 design units, including 1 entities, in source file test/altera_cao_reset_synchronizer.v
-    Info (12023): Found entity 1: altera_cao_reset_synchronizer File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/test/altera_cao_reset_synchronizer.v Line: 19
+    Info (12023): Found entity 1: altera_cao_reset_synchronizer File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/test/altera_cao_reset_synchronizer.v Line: 19
 Info (12021): Found 1 design units, including 1 entities, in source file test/clocked_audio_output.v
-    Info (12023): Found entity 1: clocked_audio_output File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/test/clocked_audio_output.v Line: 17
-Warning (10236): Verilog HDL Implicit Net warning at IH8Verilog_main.v(90): created implicit net for "timesTableY" File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 90
-Warning (10236): Verilog HDL Implicit Net warning at IH8Verilog_main.v(90): created implicit net for "timesTableX" File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 90
-Critical Warning (10846): Verilog HDL Instantiation warning at mouse.v(185): instance has no name File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/mouse.v Line: 185
+    Info (12023): Found entity 1: clocked_audio_output File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/test/clocked_audio_output.v Line: 17
+Warning (10236): Verilog HDL Implicit Net warning at IH8Verilog_main.v(90): created implicit net for "timesTableY" File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 90
+Warning (10236): Verilog HDL Implicit Net warning at IH8Verilog_main.v(90): created implicit net for "timesTableX" File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 90
+Critical Warning (10846): Verilog HDL Instantiation warning at mouse.v(185): instance has no name File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/mouse.v Line: 185
 Info (12127): Elaborating entity "main" for the top level hierarchy
-Warning (10034): Output port "leds[9]" at main.v(13) has no driver File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/main.v Line: 13
-Warning (10034): Output port "leds[7..6]" at main.v(13) has no driver File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/main.v Line: 13
-Warning (10034): Output port "leds[3..2]" at main.v(13) has no driver File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/main.v Line: 13
-Info (12128): Elaborating entity "VGADriver" for hierarchy "VGADriver:driver" File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/main.v Line: 46
-Warning (10230): Verilog HDL assignment warning at VGADriver.v(27): truncated value with size 32 to match size of target (10) File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/VGADriver.v Line: 27
-Warning (10230): Verilog HDL assignment warning at VGADriver.v(29): truncated value with size 11 to match size of target (9) File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/VGADriver.v Line: 29
-Warning (10230): Verilog HDL assignment warning at VGADriver.v(66): truncated value with size 32 to match size of target (11) File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/VGADriver.v Line: 66
-Warning (10230): Verilog HDL assignment warning at VGADriver.v(70): truncated value with size 32 to match size of target (11) File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/VGADriver.v Line: 70
-Info (12128): Elaborating entity "PP2VerilogDrawingController" for hierarchy "PP2VerilogDrawingController:drawings" File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/main.v Line: 49
-Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(36): truncated value with size 32 to match size of target (8) File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 36
-Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(37): truncated value with size 32 to match size of target (8) File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 37
-Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(38): truncated value with size 32 to match size of target (8) File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 38
-Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(43): truncated value with size 32 to match size of target (8) File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 43
-Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(44): truncated value with size 32 to match size of target (8) File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 44
-Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(45): truncated value with size 32 to match size of target (8) File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 45
-Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(52): truncated value with size 32 to match size of target (8) File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 52
-Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(53): truncated value with size 32 to match size of target (8) File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 53
-Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(54): truncated value with size 32 to match size of target (8) File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 54
-Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(65): truncated value with size 32 to match size of target (8) File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 65
-Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(66): truncated value with size 32 to match size of target (8) File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 66
-Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(67): truncated value with size 32 to match size of target (8) File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 67
-Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(72): truncated value with size 32 to match size of target (8) File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 72
-Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(73): truncated value with size 32 to match size of target (8) File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 73
-Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(74): truncated value with size 32 to match size of target (8) File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 74
-Warning (10030): Net "timesTableY" at IH8Verilog_main.v(90) has no driver or initial value, using a default initial value '0' File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 90
-Warning (10030): Net "timesTableX" at IH8Verilog_main.v(90) has no driver or initial value, using a default initial value '0' File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 90
-Info (12128): Elaborating entity "animations" for hierarchy "PP2VerilogDrawingController:drawings|animations:anim1" File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 87
-Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(139): truncated value with size 32 to match size of target (10) File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 139
-Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(140): truncated value with size 32 to match size of target (10) File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 140
-Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(141): truncated value with size 32 to match size of target (10) File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 141
-Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(142): truncated value with size 32 to match size of target (10) File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 142
-Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(154): truncated value with size 32 to match size of target (10) File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 154
-Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(165): truncated value with size 32 to match size of target (10) File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 165
-Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(176): truncated value with size 32 to match size of target (10) File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 176
-Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(187): truncated value with size 32 to match size of target (10) File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 187
-Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(195): truncated value with size 32 to match size of target (1) File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 195
-Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(199): truncated value with size 32 to match size of target (10) File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 199
-Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(210): truncated value with size 32 to match size of target (10) File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 210
-Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(217): truncated value with size 32 to match size of target (1) File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 217
-Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(221): truncated value with size 32 to match size of target (10) File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 221
-Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(232): truncated value with size 32 to match size of target (10) File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 232
-Info (12128): Elaborating entity "collsMod" for hierarchy "PP2VerilogDrawingController:drawings|collsMod:mod" File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 88
-Info (12128): Elaborating entity "ramtimesTable" for hierarchy "PP2VerilogDrawingController:drawings|ramtimesTable:timesTableram" File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 90
-Info (12128): Elaborating entity "altsyncram" for hierarchy "PP2VerilogDrawingController:drawings|ramtimesTable:timesTableram|altsyncram:altsyncram_component" File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/ramtimesTable.v Line: 86
-Info (12130): Elaborated megafunction instantiation "PP2VerilogDrawingController:drawings|ramtimesTable:timesTableram|altsyncram:altsyncram_component" File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/ramtimesTable.v Line: 86
-Info (12133): Instantiated megafunction "PP2VerilogDrawingController:drawings|ramtimesTable:timesTableram|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/ramtimesTable.v Line: 86
+Warning (10034): Output port "leds[9]" at main.v(13) has no driver File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/main.v Line: 13
+Warning (10034): Output port "leds[7..6]" at main.v(13) has no driver File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/main.v Line: 13
+Warning (10034): Output port "leds[3..2]" at main.v(13) has no driver File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/main.v Line: 13
+Info (12128): Elaborating entity "VGADriver" for hierarchy "VGADriver:driver" File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/main.v Line: 46
+Warning (10230): Verilog HDL assignment warning at VGADriver.v(27): truncated value with size 32 to match size of target (10) File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/VGADriver.v Line: 27
+Warning (10230): Verilog HDL assignment warning at VGADriver.v(29): truncated value with size 11 to match size of target (9) File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/VGADriver.v Line: 29
+Warning (10230): Verilog HDL assignment warning at VGADriver.v(66): truncated value with size 32 to match size of target (11) File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/VGADriver.v Line: 66
+Warning (10230): Verilog HDL assignment warning at VGADriver.v(70): truncated value with size 32 to match size of target (11) File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/VGADriver.v Line: 70
+Info (12128): Elaborating entity "PP2VerilogDrawingController" for hierarchy "PP2VerilogDrawingController:drawings" File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/main.v Line: 49
+Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(36): truncated value with size 32 to match size of target (8) File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 36
+Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(37): truncated value with size 32 to match size of target (8) File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 37
+Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(38): truncated value with size 32 to match size of target (8) File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 38
+Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(43): truncated value with size 32 to match size of target (8) File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 43
+Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(44): truncated value with size 32 to match size of target (8) File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 44
+Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(45): truncated value with size 32 to match size of target (8) File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 45
+Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(52): truncated value with size 32 to match size of target (8) File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 52
+Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(53): truncated value with size 32 to match size of target (8) File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 53
+Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(54): truncated value with size 32 to match size of target (8) File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 54
+Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(65): truncated value with size 32 to match size of target (8) File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 65
+Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(66): truncated value with size 32 to match size of target (8) File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 66
+Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(67): truncated value with size 32 to match size of target (8) File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 67
+Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(72): truncated value with size 32 to match size of target (8) File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 72
+Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(73): truncated value with size 32 to match size of target (8) File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 73
+Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(74): truncated value with size 32 to match size of target (8) File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 74
+Warning (10030): Net "timesTableY" at IH8Verilog_main.v(90) has no driver or initial value, using a default initial value '0' File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 90
+Warning (10030): Net "timesTableX" at IH8Verilog_main.v(90) has no driver or initial value, using a default initial value '0' File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 90
+Info (12128): Elaborating entity "animations" for hierarchy "PP2VerilogDrawingController:drawings|animations:anim1" File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 87
+Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(157): truncated value with size 32 to match size of target (10) File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 157
+Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(158): truncated value with size 32 to match size of target (10) File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 158
+Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(159): truncated value with size 32 to match size of target (10) File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 159
+Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(160): truncated value with size 32 to match size of target (10) File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 160
+Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(172): truncated value with size 32 to match size of target (10) File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 172
+Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(183): truncated value with size 32 to match size of target (10) File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 183
+Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(194): truncated value with size 32 to match size of target (10) File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 194
+Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(205): truncated value with size 32 to match size of target (10) File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 205
+Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(213): truncated value with size 32 to match size of target (1) File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 213
+Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(217): truncated value with size 32 to match size of target (10) File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 217
+Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(228): truncated value with size 32 to match size of target (10) File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 228
+Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(235): truncated value with size 32 to match size of target (1) File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 235
+Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(239): truncated value with size 32 to match size of target (10) File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 239
+Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(250): truncated value with size 32 to match size of target (10) File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 250
+Info (12128): Elaborating entity "collsMod" for hierarchy "PP2VerilogDrawingController:drawings|collsMod:mod" File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 88
+Info (12128): Elaborating entity "ramtimesTable" for hierarchy "PP2VerilogDrawingController:drawings|ramtimesTable:timesTableram" File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 90
+Info (12128): Elaborating entity "altsyncram" for hierarchy "PP2VerilogDrawingController:drawings|ramtimesTable:timesTableram|altsyncram:altsyncram_component" File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/ramtimesTable.v Line: 86
+Info (12130): Elaborated megafunction instantiation "PP2VerilogDrawingController:drawings|ramtimesTable:timesTableram|altsyncram:altsyncram_component" File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/ramtimesTable.v Line: 86
+Info (12133): Instantiated megafunction "PP2VerilogDrawingController:drawings|ramtimesTable:timesTableram|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/ramtimesTable.v Line: 86
     Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
     Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
     Info (12134): Parameter "init_file" = "../memInitialization/ramtimesTable.mif"
@@ -1722,21 +1722,21 @@ Info (12133): Instantiated megafunction "PP2VerilogDrawingController:drawings|ra
     Info (12134): Parameter "width_a" = "15"
     Info (12134): Parameter "width_byteena_a" = "1"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_4dk1.tdf
-    Info (12023): Found entity 1: altsyncram_4dk1 File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/db/altsyncram_4dk1.tdf Line: 34
+    Info (12023): Found entity 1: altsyncram_4dk1 File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/db/altsyncram_4dk1.tdf Line: 34
 Info (12128): Elaborating entity "altsyncram_4dk1" for hierarchy "PP2VerilogDrawingController:drawings|ramtimesTable:timesTableram|altsyncram:altsyncram_component|altsyncram_4dk1:auto_generated" File: c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
 Info (12021): Found 1 design units, including 1 entities, in source file db/decode_rsa.tdf
-    Info (12023): Found entity 1: decode_rsa File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/db/decode_rsa.tdf Line: 23
-Info (12128): Elaborating entity "decode_rsa" for hierarchy "PP2VerilogDrawingController:drawings|ramtimesTable:timesTableram|altsyncram:altsyncram_component|altsyncram_4dk1:auto_generated|decode_rsa:decode3" File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/db/altsyncram_4dk1.tdf Line: 45
+    Info (12023): Found entity 1: decode_rsa File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/db/decode_rsa.tdf Line: 23
+Info (12128): Elaborating entity "decode_rsa" for hierarchy "PP2VerilogDrawingController:drawings|ramtimesTable:timesTableram|altsyncram:altsyncram_component|altsyncram_4dk1:auto_generated|decode_rsa:decode3" File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/db/altsyncram_4dk1.tdf Line: 45
 Info (12021): Found 1 design units, including 1 entities, in source file db/decode_k8a.tdf
-    Info (12023): Found entity 1: decode_k8a File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/db/decode_k8a.tdf Line: 23
-Info (12128): Elaborating entity "decode_k8a" for hierarchy "PP2VerilogDrawingController:drawings|ramtimesTable:timesTableram|altsyncram:altsyncram_component|altsyncram_4dk1:auto_generated|decode_k8a:rden_decode" File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/db/altsyncram_4dk1.tdf Line: 46
+    Info (12023): Found entity 1: decode_k8a File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/db/decode_k8a.tdf Line: 23
+Info (12128): Elaborating entity "decode_k8a" for hierarchy "PP2VerilogDrawingController:drawings|ramtimesTable:timesTableram|altsyncram:altsyncram_component|altsyncram_4dk1:auto_generated|decode_k8a:rden_decode" File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/db/altsyncram_4dk1.tdf Line: 46
 Info (12021): Found 1 design units, including 1 entities, in source file db/mux_pob.tdf
-    Info (12023): Found entity 1: mux_pob File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/db/mux_pob.tdf Line: 23
-Info (12128): Elaborating entity "mux_pob" for hierarchy "PP2VerilogDrawingController:drawings|ramtimesTable:timesTableram|altsyncram:altsyncram_component|altsyncram_4dk1:auto_generated|mux_pob:mux2" File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/db/altsyncram_4dk1.tdf Line: 47
-Info (12128): Elaborating entity "rameinstein" for hierarchy "PP2VerilogDrawingController:drawings|rameinstein:einsteinram" File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 92
-Info (12128): Elaborating entity "altsyncram" for hierarchy "PP2VerilogDrawingController:drawings|rameinstein:einsteinram|altsyncram:altsyncram_component" File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/rameinstein.v Line: 86
-Info (12130): Elaborated megafunction instantiation "PP2VerilogDrawingController:drawings|rameinstein:einsteinram|altsyncram:altsyncram_component" File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/rameinstein.v Line: 86
-Info (12133): Instantiated megafunction "PP2VerilogDrawingController:drawings|rameinstein:einsteinram|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/rameinstein.v Line: 86
+    Info (12023): Found entity 1: mux_pob File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/db/mux_pob.tdf Line: 23
+Info (12128): Elaborating entity "mux_pob" for hierarchy "PP2VerilogDrawingController:drawings|ramtimesTable:timesTableram|altsyncram:altsyncram_component|altsyncram_4dk1:auto_generated|mux_pob:mux2" File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/db/altsyncram_4dk1.tdf Line: 47
+Info (12128): Elaborating entity "rameinstein" for hierarchy "PP2VerilogDrawingController:drawings|rameinstein:einsteinram" File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 92
+Info (12128): Elaborating entity "altsyncram" for hierarchy "PP2VerilogDrawingController:drawings|rameinstein:einsteinram|altsyncram:altsyncram_component" File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/rameinstein.v Line: 86
+Info (12130): Elaborated megafunction instantiation "PP2VerilogDrawingController:drawings|rameinstein:einsteinram|altsyncram:altsyncram_component" File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/rameinstein.v Line: 86
+Info (12133): Instantiated megafunction "PP2VerilogDrawingController:drawings|rameinstein:einsteinram|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/rameinstein.v Line: 86
     Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
     Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
     Info (12134): Parameter "init_file" = "../memInitialization/rameinstein.mif"
@@ -1753,21 +1753,21 @@ Info (12133): Instantiated megafunction "PP2VerilogDrawingController:drawings|ra
     Info (12134): Parameter "width_a" = "15"
     Info (12134): Parameter "width_byteena_a" = "1"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_p6k1.tdf
-    Info (12023): Found entity 1: altsyncram_p6k1 File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/db/altsyncram_p6k1.tdf Line: 34
+    Info (12023): Found entity 1: altsyncram_p6k1 File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/db/altsyncram_p6k1.tdf Line: 34
 Info (12128): Elaborating entity "altsyncram_p6k1" for hierarchy "PP2VerilogDrawingController:drawings|rameinstein:einsteinram|altsyncram:altsyncram_component|altsyncram_p6k1:auto_generated" File: c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
 Info (12021): Found 1 design units, including 1 entities, in source file db/decode_msa.tdf
-    Info (12023): Found entity 1: decode_msa File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/db/decode_msa.tdf Line: 23
-Info (12128): Elaborating entity "decode_msa" for hierarchy "PP2VerilogDrawingController:drawings|rameinstein:einsteinram|altsyncram:altsyncram_component|altsyncram_p6k1:auto_generated|decode_msa:decode3" File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/db/altsyncram_p6k1.tdf Line: 45
+    Info (12023): Found entity 1: decode_msa File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/db/decode_msa.tdf Line: 23
+Info (12128): Elaborating entity "decode_msa" for hierarchy "PP2VerilogDrawingController:drawings|rameinstein:einsteinram|altsyncram:altsyncram_component|altsyncram_p6k1:auto_generated|decode_msa:decode3" File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/db/altsyncram_p6k1.tdf Line: 45
 Info (12021): Found 1 design units, including 1 entities, in source file db/decode_f8a.tdf
-    Info (12023): Found entity 1: decode_f8a File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/db/decode_f8a.tdf Line: 23
-Info (12128): Elaborating entity "decode_f8a" for hierarchy "PP2VerilogDrawingController:drawings|rameinstein:einsteinram|altsyncram:altsyncram_component|altsyncram_p6k1:auto_generated|decode_f8a:rden_decode" File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/db/altsyncram_p6k1.tdf Line: 46
+    Info (12023): Found entity 1: decode_f8a File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/db/decode_f8a.tdf Line: 23
+Info (12128): Elaborating entity "decode_f8a" for hierarchy "PP2VerilogDrawingController:drawings|rameinstein:einsteinram|altsyncram:altsyncram_component|altsyncram_p6k1:auto_generated|decode_f8a:rden_decode" File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/db/altsyncram_p6k1.tdf Line: 46
 Info (12021): Found 1 design units, including 1 entities, in source file db/mux_kob.tdf
-    Info (12023): Found entity 1: mux_kob File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/db/mux_kob.tdf Line: 23
-Info (12128): Elaborating entity "mux_kob" for hierarchy "PP2VerilogDrawingController:drawings|rameinstein:einsteinram|altsyncram:altsyncram_component|altsyncram_p6k1:auto_generated|mux_kob:mux2" File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/db/altsyncram_p6k1.tdf Line: 47
-Info (12128): Elaborating entity "rampeter" for hierarchy "PP2VerilogDrawingController:drawings|rampeter:peterram" File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 94
-Info (12128): Elaborating entity "altsyncram" for hierarchy "PP2VerilogDrawingController:drawings|rampeter:peterram|altsyncram:altsyncram_component" File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/rampeter.v Line: 86
-Info (12130): Elaborated megafunction instantiation "PP2VerilogDrawingController:drawings|rampeter:peterram|altsyncram:altsyncram_component" File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/rampeter.v Line: 86
-Info (12133): Instantiated megafunction "PP2VerilogDrawingController:drawings|rampeter:peterram|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/rampeter.v Line: 86
+    Info (12023): Found entity 1: mux_kob File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/db/mux_kob.tdf Line: 23
+Info (12128): Elaborating entity "mux_kob" for hierarchy "PP2VerilogDrawingController:drawings|rameinstein:einsteinram|altsyncram:altsyncram_component|altsyncram_p6k1:auto_generated|mux_kob:mux2" File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/db/altsyncram_p6k1.tdf Line: 47
+Info (12128): Elaborating entity "rampeter" for hierarchy "PP2VerilogDrawingController:drawings|rampeter:peterram" File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 94
+Info (12128): Elaborating entity "altsyncram" for hierarchy "PP2VerilogDrawingController:drawings|rampeter:peterram|altsyncram:altsyncram_component" File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/rampeter.v Line: 86
+Info (12130): Elaborated megafunction instantiation "PP2VerilogDrawingController:drawings|rampeter:peterram|altsyncram:altsyncram_component" File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/rampeter.v Line: 86
+Info (12133): Instantiated megafunction "PP2VerilogDrawingController:drawings|rampeter:peterram|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/rampeter.v Line: 86
     Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
     Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
     Info (12134): Parameter "init_file" = "../memInitialization/rampeter.mif"
@@ -1784,12 +1784,12 @@ Info (12133): Instantiated megafunction "PP2VerilogDrawingController:drawings|ra
     Info (12134): Parameter "width_a" = "15"
     Info (12134): Parameter "width_byteena_a" = "1"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_qsj1.tdf
-    Info (12023): Found entity 1: altsyncram_qsj1 File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/db/altsyncram_qsj1.tdf Line: 34
+    Info (12023): Found entity 1: altsyncram_qsj1 File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/db/altsyncram_qsj1.tdf Line: 34
 Info (12128): Elaborating entity "altsyncram_qsj1" for hierarchy "PP2VerilogDrawingController:drawings|rampeter:peterram|altsyncram:altsyncram_component|altsyncram_qsj1:auto_generated" File: c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
-Info (12128): Elaborating entity "rambouncer" for hierarchy "PP2VerilogDrawingController:drawings|rambouncer:bouncerram" File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 96
-Info (12128): Elaborating entity "altsyncram" for hierarchy "PP2VerilogDrawingController:drawings|rambouncer:bouncerram|altsyncram:altsyncram_component" File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/rambouncer.v Line: 86
-Info (12130): Elaborated megafunction instantiation "PP2VerilogDrawingController:drawings|rambouncer:bouncerram|altsyncram:altsyncram_component" File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/rambouncer.v Line: 86
-Info (12133): Instantiated megafunction "PP2VerilogDrawingController:drawings|rambouncer:bouncerram|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/rambouncer.v Line: 86
+Info (12128): Elaborating entity "rambouncer" for hierarchy "PP2VerilogDrawingController:drawings|rambouncer:bouncerram" File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 96
+Info (12128): Elaborating entity "altsyncram" for hierarchy "PP2VerilogDrawingController:drawings|rambouncer:bouncerram|altsyncram:altsyncram_component" File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/rambouncer.v Line: 86
+Info (12130): Elaborated megafunction instantiation "PP2VerilogDrawingController:drawings|rambouncer:bouncerram|altsyncram:altsyncram_component" File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/rambouncer.v Line: 86
+Info (12133): Instantiated megafunction "PP2VerilogDrawingController:drawings|rambouncer:bouncerram|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/rambouncer.v Line: 86
     Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
     Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
     Info (12134): Parameter "init_file" = "../memInitialization/rambouncer.mif"
@@ -1806,43 +1806,43 @@ Info (12133): Instantiated megafunction "PP2VerilogDrawingController:drawings|ra
     Info (12134): Parameter "width_a" = "15"
     Info (12134): Parameter "width_byteena_a" = "1"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_83k1.tdf
-    Info (12023): Found entity 1: altsyncram_83k1 File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/db/altsyncram_83k1.tdf Line: 34
+    Info (12023): Found entity 1: altsyncram_83k1 File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/db/altsyncram_83k1.tdf Line: 34
 Info (12128): Elaborating entity "altsyncram_83k1" for hierarchy "PP2VerilogDrawingController:drawings|rambouncer:bouncerram|altsyncram:altsyncram_component|altsyncram_83k1:auto_generated" File: c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
-Info (12128): Elaborating entity "ps2Keyboard" for hierarchy "ps2Keyboard:keyboard" File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/main.v Line: 51
-Info (12128): Elaborating entity "mouse_Inner_controller" for hierarchy "ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse" File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/keyboard.v Line: 54
-Warning (10230): Verilog HDL assignment warning at PS2_Controller.v(31): truncated value with size 32 to match size of target (1) File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/PS2_Controller.v Line: 31
-Warning (10230): Verilog HDL assignment warning at PS2_Controller.v(32): truncated value with size 32 to match size of target (1) File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/PS2_Controller.v Line: 32
-Info (12128): Elaborating entity "Altera_UP_PS2_Data_In" for hierarchy "ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Data_In:PS2_Data_In" File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/PS2_Controller.v Line: 145
-Info (12128): Elaborating entity "Altera_UP_PS2_Command_Out" for hierarchy "ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out" File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/PS2_Controller.v Line: 146
-Info (12128): Elaborating entity "ps2Mouse" for hierarchy "ps2Mouse:mouse" File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/main.v Line: 52
-Warning (10230): Verilog HDL assignment warning at mouse.v(89): truncated value with size 32 to match size of target (2) File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/mouse.v Line: 89
-Warning (10230): Verilog HDL assignment warning at mouse.v(96): truncated value with size 32 to match size of target (2) File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/mouse.v Line: 96
-Warning (10230): Verilog HDL assignment warning at mouse.v(107): truncated value with size 32 to match size of target (11) File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/mouse.v Line: 107
-Warning (10230): Verilog HDL assignment warning at mouse.v(120): truncated value with size 32 to match size of target (11) File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/mouse.v Line: 120
-Warning (10230): Verilog HDL assignment warning at mouse.v(127): truncated value with size 32 to match size of target (2) File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/mouse.v Line: 127
-Warning (10230): Verilog HDL assignment warning at mouse.v(137): truncated value with size 32 to match size of target (11) File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/mouse.v Line: 137
-Warning (10230): Verilog HDL assignment warning at mouse.v(153): truncated value with size 32 to match size of target (11) File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/mouse.v Line: 153
-Info (12128): Elaborating entity "twoComp" for hierarchy "ps2Mouse:mouse|twoComp:compX" File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/mouse.v Line: 62
-Info (12128): Elaborating entity "bit8Adder" for hierarchy "ps2Mouse:mouse|twoComp:compX|bit8Adder:comb_11" File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/mouse.v Line: 185
-Info (12128): Elaborating entity "fullAdder" for hierarchy "ps2Mouse:mouse|twoComp:compX|bit8Adder:comb_11|fullAdder:bit1" File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/mouse.v Line: 219
-Info (12128): Elaborating entity "buzzing" for hierarchy "buzzing:buz" File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/main.v Line: 56
-Warning (10230): Verilog HDL assignment warning at GPIOTest.v(34): truncated value with size 32 to match size of target (30) File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/GPIOTest.v Line: 34
-Warning (10230): Verilog HDL assignment warning at GPIOTest.v(65): truncated value with size 40 to match size of target (10) File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/GPIOTest.v Line: 65
-Warning (10230): Verilog HDL assignment warning at GPIOTest.v(72): truncated value with size 32 to match size of target (30) File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/GPIOTest.v Line: 72
-Info (12128): Elaborating entity "enjoy" for hierarchy "enjoy:joy" File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/main.v Line: 58
-Warning (10230): Verilog HDL assignment warning at main.v(130): truncated value with size 32 to match size of target (10) File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/main.v Line: 130
-Warning (10230): Verilog HDL assignment warning at main.v(149): truncated value with size 32 to match size of target (10) File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/main.v Line: 149
-Info (12128): Elaborating entity "UART2" for hierarchy "enjoy:joy|UART2:uart" File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/main.v Line: 94
-Warning (12030): Port "ordered port 8" on the entity instantiation of "PS2_Data_In" is connected to a signal of width 1. The formal width of the signal in the module is 8.  The extra bits will be left dangling without any fan-out logic. File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/PS2_Controller.v Line: 145
+Info (12128): Elaborating entity "ps2Keyboard" for hierarchy "ps2Keyboard:keyboard" File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/main.v Line: 51
+Info (12128): Elaborating entity "mouse_Inner_controller" for hierarchy "ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse" File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/keyboard.v Line: 54
+Warning (10230): Verilog HDL assignment warning at PS2_Controller.v(31): truncated value with size 32 to match size of target (1) File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/PS2_Controller.v Line: 31
+Warning (10230): Verilog HDL assignment warning at PS2_Controller.v(32): truncated value with size 32 to match size of target (1) File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/PS2_Controller.v Line: 32
+Info (12128): Elaborating entity "Altera_UP_PS2_Data_In" for hierarchy "ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Data_In:PS2_Data_In" File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/PS2_Controller.v Line: 145
+Info (12128): Elaborating entity "Altera_UP_PS2_Command_Out" for hierarchy "ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out" File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/PS2_Controller.v Line: 146
+Info (12128): Elaborating entity "ps2Mouse" for hierarchy "ps2Mouse:mouse" File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/main.v Line: 52
+Warning (10230): Verilog HDL assignment warning at mouse.v(89): truncated value with size 32 to match size of target (2) File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/mouse.v Line: 89
+Warning (10230): Verilog HDL assignment warning at mouse.v(96): truncated value with size 32 to match size of target (2) File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/mouse.v Line: 96
+Warning (10230): Verilog HDL assignment warning at mouse.v(107): truncated value with size 32 to match size of target (11) File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/mouse.v Line: 107
+Warning (10230): Verilog HDL assignment warning at mouse.v(120): truncated value with size 32 to match size of target (11) File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/mouse.v Line: 120
+Warning (10230): Verilog HDL assignment warning at mouse.v(127): truncated value with size 32 to match size of target (2) File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/mouse.v Line: 127
+Warning (10230): Verilog HDL assignment warning at mouse.v(137): truncated value with size 32 to match size of target (11) File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/mouse.v Line: 137
+Warning (10230): Verilog HDL assignment warning at mouse.v(153): truncated value with size 32 to match size of target (11) File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/mouse.v Line: 153
+Info (12128): Elaborating entity "twoComp" for hierarchy "ps2Mouse:mouse|twoComp:compX" File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/mouse.v Line: 62
+Info (12128): Elaborating entity "bit8Adder" for hierarchy "ps2Mouse:mouse|twoComp:compX|bit8Adder:comb_11" File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/mouse.v Line: 185
+Info (12128): Elaborating entity "fullAdder" for hierarchy "ps2Mouse:mouse|twoComp:compX|bit8Adder:comb_11|fullAdder:bit1" File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/mouse.v Line: 219
+Info (12128): Elaborating entity "buzzing" for hierarchy "buzzing:buz" File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/main.v Line: 56
+Warning (10230): Verilog HDL assignment warning at GPIOTest.v(34): truncated value with size 32 to match size of target (30) File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/GPIOTest.v Line: 34
+Warning (10230): Verilog HDL assignment warning at GPIOTest.v(65): truncated value with size 40 to match size of target (10) File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/GPIOTest.v Line: 65
+Warning (10230): Verilog HDL assignment warning at GPIOTest.v(72): truncated value with size 32 to match size of target (30) File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/GPIOTest.v Line: 72
+Info (12128): Elaborating entity "enjoy" for hierarchy "enjoy:joy" File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/main.v Line: 58
+Warning (10230): Verilog HDL assignment warning at main.v(130): truncated value with size 32 to match size of target (10) File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/main.v Line: 130
+Warning (10230): Verilog HDL assignment warning at main.v(149): truncated value with size 32 to match size of target (10) File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/main.v Line: 149
+Info (12128): Elaborating entity "UART2" for hierarchy "enjoy:joy|UART2:uart" File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/main.v Line: 94
+Warning (12030): Port "ordered port 8" on the entity instantiation of "PS2_Data_In" is connected to a signal of width 1. The formal width of the signal in the module is 8.  The extra bits will be left dangling without any fan-out logic. File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/PS2_Controller.v Line: 145
 Info (278001): Inferred 6 megafunctions from design logic
-    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "PP2VerilogDrawingController:drawings|Mult0" File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 90
-    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "PP2VerilogDrawingController:drawings|Mult1" File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 92
-    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "PP2VerilogDrawingController:drawings|Mult2" File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 94
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "buzzing:buz|Div0" File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/GPIOTest.v Line: 27
-    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "PP2VerilogDrawingController:drawings|Mult3" File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 96
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "buzzing:buz|Div1" File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/GPIOTest.v Line: 62
-Info (12130): Elaborated megafunction instantiation "PP2VerilogDrawingController:drawings|lpm_mult:Mult0" File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 90
-Info (12133): Instantiated megafunction "PP2VerilogDrawingController:drawings|lpm_mult:Mult0" with the following parameter: File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 90
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "PP2VerilogDrawingController:drawings|Mult0" File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 90
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "PP2VerilogDrawingController:drawings|Mult1" File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 92
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "PP2VerilogDrawingController:drawings|Mult2" File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 94
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "buzzing:buz|Div0" File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/GPIOTest.v Line: 27
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "PP2VerilogDrawingController:drawings|Mult3" File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 96
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "buzzing:buz|Div1" File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/GPIOTest.v Line: 62
+Info (12130): Elaborated megafunction instantiation "PP2VerilogDrawingController:drawings|lpm_mult:Mult0" File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 90
+Info (12133): Instantiated megafunction "PP2VerilogDrawingController:drawings|lpm_mult:Mult0" with the following parameter: File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 90
     Info (12134): Parameter "LPM_WIDTHA" = "8"
     Info (12134): Parameter "LPM_WIDTHB" = "9"
     Info (12134): Parameter "LPM_WIDTHP" = "17"
@@ -1856,10 +1856,10 @@ Info (12131): Elaborated megafunction instantiation "PP2VerilogDrawingController
 Info (12131): Elaborated megafunction instantiation "PP2VerilogDrawingController:drawings|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder", which is child of megafunction instantiation "PP2VerilogDrawingController:drawings|lpm_mult:Mult0" File: c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/multcore.tdf Line: 229
 Info (12131): Elaborated megafunction instantiation "PP2VerilogDrawingController:drawings|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder|lpm_add_sub:adder[0]", which is child of megafunction instantiation "PP2VerilogDrawingController:drawings|lpm_mult:Mult0" File: c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/mpar_add.tdf Line: 78
 Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_mgh.tdf
-    Info (12023): Found entity 1: add_sub_mgh File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/db/add_sub_mgh.tdf Line: 23
+    Info (12023): Found entity 1: add_sub_mgh File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/db/add_sub_mgh.tdf Line: 23
 Info (12131): Elaborated megafunction instantiation "PP2VerilogDrawingController:drawings|lpm_mult:Mult0|altshift:external_latency_ffs", which is child of megafunction instantiation "PP2VerilogDrawingController:drawings|lpm_mult:Mult0" File: c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/lpm_mult.tdf Line: 352
-Info (12130): Elaborated megafunction instantiation "PP2VerilogDrawingController:drawings|lpm_mult:Mult1" File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 92
-Info (12133): Instantiated megafunction "PP2VerilogDrawingController:drawings|lpm_mult:Mult1" with the following parameter: File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 92
+Info (12130): Elaborated megafunction instantiation "PP2VerilogDrawingController:drawings|lpm_mult:Mult1" File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 92
+Info (12133): Instantiated megafunction "PP2VerilogDrawingController:drawings|lpm_mult:Mult1" with the following parameter: File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 92
     Info (12134): Parameter "LPM_WIDTHA" = "15"
     Info (12134): Parameter "LPM_WIDTHB" = "8"
     Info (12134): Parameter "LPM_WIDTHP" = "23"
@@ -1873,14 +1873,14 @@ Info (12131): Elaborated megafunction instantiation "PP2VerilogDrawingController
 Info (12131): Elaborated megafunction instantiation "PP2VerilogDrawingController:drawings|lpm_mult:Mult1|multcore:mult_core|mpar_add:padder", which is child of megafunction instantiation "PP2VerilogDrawingController:drawings|lpm_mult:Mult1" File: c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/multcore.tdf Line: 229
 Info (12131): Elaborated megafunction instantiation "PP2VerilogDrawingController:drawings|lpm_mult:Mult1|multcore:mult_core|mpar_add:padder|lpm_add_sub:adder[1]", which is child of megafunction instantiation "PP2VerilogDrawingController:drawings|lpm_mult:Mult1" File: c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/mpar_add.tdf Line: 78
 Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_lgh.tdf
-    Info (12023): Found entity 1: add_sub_lgh File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/db/add_sub_lgh.tdf Line: 23
+    Info (12023): Found entity 1: add_sub_lgh File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/db/add_sub_lgh.tdf Line: 23
 Info (12131): Elaborated megafunction instantiation "PP2VerilogDrawingController:drawings|lpm_mult:Mult1|multcore:mult_core|mpar_add:padder|mpar_add:sub_par_add", which is child of megafunction instantiation "PP2VerilogDrawingController:drawings|lpm_mult:Mult1" File: c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/mpar_add.tdf Line: 138
 Info (12131): Elaborated megafunction instantiation "PP2VerilogDrawingController:drawings|lpm_mult:Mult1|multcore:mult_core|mpar_add:padder|mpar_add:sub_par_add|lpm_add_sub:adder[0]", which is child of megafunction instantiation "PP2VerilogDrawingController:drawings|lpm_mult:Mult1" File: c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/mpar_add.tdf Line: 78
 Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_pgh.tdf
-    Info (12023): Found entity 1: add_sub_pgh File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/db/add_sub_pgh.tdf Line: 23
+    Info (12023): Found entity 1: add_sub_pgh File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/db/add_sub_pgh.tdf Line: 23
 Info (12131): Elaborated megafunction instantiation "PP2VerilogDrawingController:drawings|lpm_mult:Mult1|altshift:external_latency_ffs", which is child of megafunction instantiation "PP2VerilogDrawingController:drawings|lpm_mult:Mult1" File: c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/lpm_mult.tdf Line: 352
-Info (12130): Elaborated megafunction instantiation "PP2VerilogDrawingController:drawings|lpm_mult:Mult2" File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 94
-Info (12133): Instantiated megafunction "PP2VerilogDrawingController:drawings|lpm_mult:Mult2" with the following parameter: File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 94
+Info (12130): Elaborated megafunction instantiation "PP2VerilogDrawingController:drawings|lpm_mult:Mult2" File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 94
+Info (12133): Instantiated megafunction "PP2VerilogDrawingController:drawings|lpm_mult:Mult2" with the following parameter: File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 94
     Info (12134): Parameter "LPM_WIDTHA" = "15"
     Info (12134): Parameter "LPM_WIDTHB" = "8"
     Info (12134): Parameter "LPM_WIDTHP" = "23"
@@ -1890,24 +1890,24 @@ Info (12133): Instantiated megafunction "PP2VerilogDrawingController:drawings|lp
     Info (12134): Parameter "INPUT_A_IS_CONSTANT" = "NO"
     Info (12134): Parameter "INPUT_B_IS_CONSTANT" = "YES"
     Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
-Info (12130): Elaborated megafunction instantiation "buzzing:buz|lpm_divide:Div0" File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/GPIOTest.v Line: 27
-Info (12133): Instantiated megafunction "buzzing:buz|lpm_divide:Div0" with the following parameter: File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/GPIOTest.v Line: 27
+Info (12130): Elaborated megafunction instantiation "buzzing:buz|lpm_divide:Div0" File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/GPIOTest.v Line: 27
+Info (12133): Instantiated megafunction "buzzing:buz|lpm_divide:Div0" with the following parameter: File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/GPIOTest.v Line: 27
     Info (12134): Parameter "LPM_WIDTHN" = "25"
     Info (12134): Parameter "LPM_WIDTHD" = "40"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
     Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
 Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_ikm.tdf
-    Info (12023): Found entity 1: lpm_divide_ikm File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/db/lpm_divide_ikm.tdf Line: 25
+    Info (12023): Found entity 1: lpm_divide_ikm File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/db/lpm_divide_ikm.tdf Line: 25
 Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_7nh.tdf
-    Info (12023): Found entity 1: sign_div_unsign_7nh File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/db/sign_div_unsign_7nh.tdf Line: 25
+    Info (12023): Found entity 1: sign_div_unsign_7nh File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/db/sign_div_unsign_7nh.tdf Line: 25
 Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_2af.tdf
-    Info (12023): Found entity 1: alt_u_div_2af File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/db/alt_u_div_2af.tdf Line: 27
+    Info (12023): Found entity 1: alt_u_div_2af File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/db/alt_u_div_2af.tdf Line: 27
 Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_7pc.tdf
-    Info (12023): Found entity 1: add_sub_7pc File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/db/add_sub_7pc.tdf Line: 23
+    Info (12023): Found entity 1: add_sub_7pc File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/db/add_sub_7pc.tdf Line: 23
 Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_8pc.tdf
-    Info (12023): Found entity 1: add_sub_8pc File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/db/add_sub_8pc.tdf Line: 23
-Info (12130): Elaborated megafunction instantiation "PP2VerilogDrawingController:drawings|lpm_mult:Mult3" File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 96
-Info (12133): Instantiated megafunction "PP2VerilogDrawingController:drawings|lpm_mult:Mult3" with the following parameter: File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 96
+    Info (12023): Found entity 1: add_sub_8pc File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/db/add_sub_8pc.tdf Line: 23
+Info (12130): Elaborated megafunction instantiation "PP2VerilogDrawingController:drawings|lpm_mult:Mult3" File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 96
+Info (12133): Instantiated megafunction "PP2VerilogDrawingController:drawings|lpm_mult:Mult3" with the following parameter: File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/IH8Verilog_main.v Line: 96
     Info (12134): Parameter "LPM_WIDTHA" = "16"
     Info (12134): Parameter "LPM_WIDTHB" = "9"
     Info (12134): Parameter "LPM_WIDTHP" = "25"
@@ -1923,31 +1923,31 @@ Info (12131): Elaborated megafunction instantiation "PP2VerilogDrawingController
 Info (12131): Elaborated megafunction instantiation "PP2VerilogDrawingController:drawings|lpm_mult:Mult3|multcore:mult_core|mpar_add:padder|mpar_add:sub_par_add", which is child of megafunction instantiation "PP2VerilogDrawingController:drawings|lpm_mult:Mult3" File: c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/mpar_add.tdf Line: 138
 Info (12131): Elaborated megafunction instantiation "PP2VerilogDrawingController:drawings|lpm_mult:Mult3|multcore:mult_core|mpar_add:padder|mpar_add:sub_par_add|lpm_add_sub:adder[0]", which is child of megafunction instantiation "PP2VerilogDrawingController:drawings|lpm_mult:Mult3" File: c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/mpar_add.tdf Line: 78
 Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_qgh.tdf
-    Info (12023): Found entity 1: add_sub_qgh File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/db/add_sub_qgh.tdf Line: 23
+    Info (12023): Found entity 1: add_sub_qgh File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/db/add_sub_qgh.tdf Line: 23
 Info (12131): Elaborated megafunction instantiation "PP2VerilogDrawingController:drawings|lpm_mult:Mult3|altshift:external_latency_ffs", which is child of megafunction instantiation "PP2VerilogDrawingController:drawings|lpm_mult:Mult3" File: c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/lpm_mult.tdf Line: 352
-Info (12130): Elaborated megafunction instantiation "buzzing:buz|lpm_divide:Div1" File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/GPIOTest.v Line: 62
-Info (12133): Instantiated megafunction "buzzing:buz|lpm_divide:Div1" with the following parameter: File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/GPIOTest.v Line: 62
+Info (12130): Elaborated megafunction instantiation "buzzing:buz|lpm_divide:Div1" File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/GPIOTest.v Line: 62
+Info (12133): Instantiated megafunction "buzzing:buz|lpm_divide:Div1" with the following parameter: File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/GPIOTest.v Line: 62
     Info (12134): Parameter "LPM_WIDTHN" = "40"
     Info (12134): Parameter "LPM_WIDTHD" = "8"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
     Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
 Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_ajm.tdf
-    Info (12023): Found entity 1: lpm_divide_ajm File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/db/lpm_divide_ajm.tdf Line: 25
+    Info (12023): Found entity 1: lpm_divide_ajm File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/db/lpm_divide_ajm.tdf Line: 25
 Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_2mh.tdf
-    Info (12023): Found entity 1: sign_div_unsign_2mh File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/db/sign_div_unsign_2mh.tdf Line: 25
+    Info (12023): Found entity 1: sign_div_unsign_2mh File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/db/sign_div_unsign_2mh.tdf Line: 25
 Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_b7f.tdf
-    Info (12023): Found entity 1: alt_u_div_b7f File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/db/alt_u_div_b7f.tdf Line: 27
+    Info (12023): Found entity 1: alt_u_div_b7f File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/db/alt_u_div_b7f.tdf Line: 27
 Warning (12189): OpenCore Simulation-Only Evaluation feature is turned on for all cores in the design
     Warning (12191): Some cores in this design do not support the OpenCore Plus Hardware Evaluation feature
         Warning (12192): "SDI Interface (SD, HD)" does not support the OpenCore Plus Hardware Evaluation feature
 Warning (12241): 8 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "VGAsync" is stuck at GND File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/main.v Line: 6
-    Warning (13410): Pin "leds[2]" is stuck at GND File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/main.v Line: 13
-    Warning (13410): Pin "leds[3]" is stuck at GND File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/main.v Line: 13
-    Warning (13410): Pin "leds[6]" is stuck at GND File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/main.v Line: 13
-    Warning (13410): Pin "leds[7]" is stuck at GND File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/main.v Line: 13
-    Warning (13410): Pin "leds[9]" is stuck at GND File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/main.v Line: 13
+    Warning (13410): Pin "VGAsync" is stuck at GND File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/main.v Line: 6
+    Warning (13410): Pin "leds[2]" is stuck at GND File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/main.v Line: 13
+    Warning (13410): Pin "leds[3]" is stuck at GND File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/main.v Line: 13
+    Warning (13410): Pin "leds[6]" is stuck at GND File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/main.v Line: 13
+    Warning (13410): Pin "leds[7]" is stuck at GND File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/main.v Line: 13
+    Warning (13410): Pin "leds[9]" is stuck at GND File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/main.v Line: 13
 Info (286030): Timing-Driven Synthesis is running
 Info (17049): 40 registers lost all their fanouts during netlist optimizations.
 Warning (20013): Ignored 13 assignments for entity "clocked_audio_output" -- entity does not exist in design
@@ -1955,29 +1955,29 @@ Warning (20013): Ignored 16 assignments for entity "test" -- entity does not exi
     Warning (20014): Assignment for entity set_global_assignment -name IP_TOOL_NAME clocked_audio_output -entity test -sip test.sip -library lib_test was ignored
     Warning (20014): Assignment for entity set_global_assignment -name IP_TOOL_VERSION 16.1 -entity test -sip test.sip -library lib_test was ignored
     Warning (20014): Assignment for entity set_global_assignment -name IP_TOOL_ENV mwpim -entity test -sip test.sip -library lib_test was ignored
-Info (144001): Generated suppressed messages file C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/output_files/main.map.smsg
+Info (144001): Generated suppressed messages file C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/output_files/main.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 19 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "sw[0]" File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/main.v Line: 14
-    Warning (15610): No output dependent on input pin "sw[1]" File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/main.v Line: 14
-    Warning (15610): No output dependent on input pin "sw[2]" File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/main.v Line: 14
-    Warning (15610): No output dependent on input pin "sw[3]" File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/main.v Line: 14
-    Warning (15610): No output dependent on input pin "sw[4]" File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/main.v Line: 14
-    Warning (15610): No output dependent on input pin "sw[5]" File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/main.v Line: 14
-    Warning (15610): No output dependent on input pin "sw[6]" File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/main.v Line: 14
-    Warning (15610): No output dependent on input pin "sw[7]" File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/main.v Line: 14
-    Warning (15610): No output dependent on input pin "sw[8]" File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/main.v Line: 14
-    Warning (15610): No output dependent on input pin "sw[9]" File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/main.v Line: 14
-    Warning (15610): No output dependent on input pin "sw[10]" File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/main.v Line: 14
-    Warning (15610): No output dependent on input pin "sw[11]" File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/main.v Line: 14
-    Warning (15610): No output dependent on input pin "sw[12]" File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/main.v Line: 14
-    Warning (15610): No output dependent on input pin "sw[13]" File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/main.v Line: 14
-    Warning (15610): No output dependent on input pin "sw[14]" File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/main.v Line: 14
-    Warning (15610): No output dependent on input pin "sw[15]" File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/main.v Line: 14
-    Warning (15610): No output dependent on input pin "sw[16]" File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/main.v Line: 14
-    Warning (15610): No output dependent on input pin "sw[17]" File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/main.v Line: 14
-    Warning (15610): No output dependent on input pin "key[3]" File: C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/main.v Line: 15
+    Warning (15610): No output dependent on input pin "sw[0]" File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/main.v Line: 14
+    Warning (15610): No output dependent on input pin "sw[1]" File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/main.v Line: 14
+    Warning (15610): No output dependent on input pin "sw[2]" File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/main.v Line: 14
+    Warning (15610): No output dependent on input pin "sw[3]" File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/main.v Line: 14
+    Warning (15610): No output dependent on input pin "sw[4]" File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/main.v Line: 14
+    Warning (15610): No output dependent on input pin "sw[5]" File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/main.v Line: 14
+    Warning (15610): No output dependent on input pin "sw[6]" File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/main.v Line: 14
+    Warning (15610): No output dependent on input pin "sw[7]" File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/main.v Line: 14
+    Warning (15610): No output dependent on input pin "sw[8]" File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/main.v Line: 14
+    Warning (15610): No output dependent on input pin "sw[9]" File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/main.v Line: 14
+    Warning (15610): No output dependent on input pin "sw[10]" File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/main.v Line: 14
+    Warning (15610): No output dependent on input pin "sw[11]" File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/main.v Line: 14
+    Warning (15610): No output dependent on input pin "sw[12]" File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/main.v Line: 14
+    Warning (15610): No output dependent on input pin "sw[13]" File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/main.v Line: 14
+    Warning (15610): No output dependent on input pin "sw[14]" File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/main.v Line: 14
+    Warning (15610): No output dependent on input pin "sw[15]" File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/main.v Line: 14
+    Warning (15610): No output dependent on input pin "sw[16]" File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/main.v Line: 14
+    Warning (15610): No output dependent on input pin "sw[17]" File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/main.v Line: 14
+    Warning (15610): No output dependent on input pin "key[3]" File: C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/main.v Line: 15
 Info (21057): Implemented 4966 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 26 input pins
     Info (21059): Implemented 50 output pins
@@ -1986,14 +1986,14 @@ Info (21057): Implemented 4966 device resources after synthesis - the final reso
     Info (21064): Implemented 360 RAM segments
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 97 warnings
     Info: Peak virtual memory: 4873 megabytes
-    Info: Processing ended: Sun Dec 02 19:34:56 2018
-    Info: Elapsed time: 00:00:17
-    Info: Total CPU time (on all processors): 00:00:29
+    Info: Processing ended: Sun Dec 02 19:47:29 2018
+    Info: Elapsed time: 00:00:16
+    Info: Total CPU time (on all processors): 00:00:26
 
 
 +------------------------------------------+
 ; Analysis & Synthesis Suppressed Messages ;
 +------------------------------------------+
-The suppressed messages can be found in C:/Users/cabrera/Documents/GitHub/ECE287Project/VerilogExample/output_files/main.map.smsg.
+The suppressed messages can be found in C:/Users/cabrera/Desktop/final/ECE287Project/VerilogExample/output_files/main.map.smsg.
 
 
