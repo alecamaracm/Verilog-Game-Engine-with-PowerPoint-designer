@@ -74,7 +74,7 @@ begin
 				data[RXdataBit]=RX;
 				RXdataBit=RXdataBit+6'd1;
 				RXcount=10'd0;
-				if(RXdataBit>=6'd7)
+				if(RXdataBit>=6'd8)
 				begin
 					RXstate=RXwait;				
 

@@ -4,6 +4,7 @@ input CLOCK;
 output GPIO;
 reg GPIO;
 
+output [39:0]freq;
 reg [39:0]freq;
 reg [29:0]counter;
 

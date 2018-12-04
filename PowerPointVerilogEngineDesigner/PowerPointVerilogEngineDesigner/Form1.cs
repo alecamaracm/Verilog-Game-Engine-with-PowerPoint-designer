@@ -39,7 +39,7 @@ namespace PowerPointVerilogEngineDesigner
 
         Dictionary<string, List<Collideables>> collideables = new Dictionary<string, List<Collideables>>();
 
-
+        List<string> visibles = new List<string>();
         bool working = false;
 
         public Form1(bool upd)
@@ -71,6 +71,7 @@ namespace PowerPointVerilogEngineDesigner
                 bouncings.Clear();
                 bitmapsToWrite.Clear();
                 collideables.Clear();
+                visibles.Clear();
                 Stopwatch watch = new Stopwatch();
                 watch.Start();
                 Console.WriteLine("Loading PowerPoint document main.pptx...");
@@ -98,7 +99,6 @@ namespace PowerPointVerilogEngineDesigner
                     writer.WriteLine("reg [7:0]VGAr;");
                     writer.WriteLine("reg [7:0]VGAg;");
                     writer.WriteLine("reg [7:0]VGAb;");
-                    writer.WriteLine("reg [15:0]buffer;");
                     writer.WriteLine("input reset;");
 
 
@@ -140,10 +140,10 @@ namespace PowerPointVerilogEngineDesigner
 
 
                     writer.WriteLine();
-                    if (arrowMovings.Count > 0 || wasdMovings.Count > 0)
+                    if (arrowMovings.Count > 0 || wasdMovings.Count > 0||true)
                     {
                         string aaa=("\nanimations anim1(animationCLOCK,reset,wasd,arrows," + String.Join(",", bouncings.ToArray()) + ","+ String.Join(",", arrowMovings.ToArray()) + "," + String.Join(",", wasdMovings.ToArray()) + ");");
-                        writer.WriteLine(aaa.Replace(",,",","));
+                        writer.WriteLine(aaa.Replace(",,",",").Replace(",,", ","));
                     }
 
 
@@ -161,8 +161,8 @@ namespace PowerPointVerilogEngineDesigner
 
                     foreach (MemoryBitmaps m in bitmapsToWrite)
                     {
-                        writer.WriteLine("wire [14:0]" + m.name + "q;");
-                        writer.WriteLine(String.Format("ram{0} {0}ram((((yPixel-{0}Y)/{2})*{1} +((xPixel-{0}X)/{2})+1),CLOCK,15'd0,0,{0}q);",
+                        writer.WriteLine("wire [15:0]" + m.name + "q;");
+                        writer.WriteLine(String.Format("ram{0} {0}ram((((yPixel-{0}Y)/{2})*{1} +((xPixel-{0}X)/{2})+1),CLOCK,16'd0,0,{0}q);",
                             m.name,m.reducedBitmap.Width,m.scale));
 
 
@@ -174,12 +174,15 @@ namespace PowerPointVerilogEngineDesigner
                         {
                             for (int i = 0; i < m.reducedBitmap.Width; i++)
                             {
+                                System.Drawing.Color color = m.reducedBitmap.GetPixel(i, j);
                                 ulong hugeColor = 0;
-                                ulong rColor = (byte)(m.reducedBitmap.GetPixel(i, j).R / 8);
+                                ulong visib = (ulong)(color.A>10?1:0);
+                                hugeColor = hugeColor + (visib << 15);
+                                ulong rColor = (byte)(color.R / 8);
                                 hugeColor = hugeColor + (rColor << 10);
-                                ulong gColor = (byte)(m.reducedBitmap.GetPixel(i, j).G / 8);
+                                ulong gColor = (byte)(color.G / 8);
                                 hugeColor = hugeColor + (gColor << 5);
-                                ulong bColor = (byte)(m.reducedBitmap.GetPixel(i, j).B / 8);
+                                ulong bColor = (byte)(color.B / 8);
                                 hugeColor = hugeColor + (bColor << 0);
                                 array[count] = hugeColor;
                                 count += 1;
@@ -189,7 +192,7 @@ namespace PowerPointVerilogEngineDesigner
                         using (StreamWriter writer2 = new StreamWriter(new FileInfo(currentProjectFilePath).Directory+ "\\memInitialization\\ram"+m.name+".mif"))
                         {
                             writer2.WriteLine("DEPTH = " + array.Length + ";");
-                            writer2.WriteLine("WIDTH = 15;");
+                            writer2.WriteLine("WIDTH = 16;");
                             writer2.WriteLine("ADDRESS_RADIX = DEC;");
                             writer2.WriteLine("DATA_RADIX = DEC;");
                             writer2.WriteLine("CONTENT");
@@ -205,7 +208,7 @@ namespace PowerPointVerilogEngineDesigner
 
                     writer.WriteLine(Environment.NewLine + "endmodule");
 
-                    if(arrowMovings.Count>0 || wasdMovings.Count>0 || bouncings.Count > 0)
+                    if(arrowMovings.Count>0 || wasdMovings.Count>0 || bouncings.Count > 0||true)
                     {
                         writeAnimationModule(mainDocument.Slides[0],writer);
                     }
@@ -257,7 +260,7 @@ namespace PowerPointVerilogEngineDesigner
         private void writeAnimationModule(Slide slide,StreamWriter writer)
         {
            string aaa=("\nmodule animations(animationCLOCK,reset,wasd,arrows," +  String.Join(",", bouncings.ToArray())+","+ String.Join(",",arrowMovings.ToArray())+","+ String.Join(",", wasdMovings.ToArray()) + ");\n");
-            writer.WriteLine(aaa.Replace(",,", ","));
+            writer.WriteLine(aaa.Replace(",,", ",").Replace(",,", ","));
 
             writer.WriteLine("input reset;");
             foreach (String s in arrowMovings)
@@ -282,18 +285,19 @@ namespace PowerPointVerilogEngineDesigner
             writer.WriteLine("input [3:0]wasd;");
             writer.WriteLine("reg initilized;");
 
+            writer.WriteLine("\ninitial begin");
+
+            foreach (ResetLocations a in resetLocations)
+            {
+                writer.WriteLine("\t" + a.varName + "=" + a.defValue + ";");
+            }
+            writer.WriteLine("end\n");
 
             writer.WriteLine("\nalways @ (posedge animationCLOCK)");
             writer.WriteLine("begin");
 
-            writer.WriteLine("\n\tif(reset==0 || initilized==0)");
-            writer.WriteLine("\tbegin");
-            writer.WriteLine("\t\tinitilized=1;");
-            foreach (ResetLocations a in resetLocations)
-            {
-                writer.WriteLine("\t\t" + a.varName + "=" + a.defValue + ";");
-            }
-            writer.WriteLine("\tend\n");
+
+         
             /* foreach (String s in arrowMovings)
              {
                  writer.WriteLine("input [9:0]" + s + ";");
@@ -547,7 +551,7 @@ namespace PowerPointVerilogEngineDesigner
                             memoryBitmaps.size = memoryBitmaps.reducedBitmap.Width * memoryBitmaps.reducedBitmap.Height;
                             bitmapsToWrite.Add(memoryBitmaps);
                             writer.WriteLine();
-                            writer.WriteLine(getTabs(tabs) + String.Format("if(yPixel>={0}Y && yPixel<{0}Y+({2}*{1}) && xPixel>={0}X && xPixel<{0}X+({3}*{1}))", properties["NAME"].Replace(" ", "_"), compresionFactor, (int)(picture.Layout.Height / compresionFactor), (int)(picture.Layout.Width / compresionFactor)));
+                            writer.WriteLine(getTabs(tabs) + String.Format("if(yPixel>={0}Y && yPixel<{0}Y+({2}*{1}) && xPixel>={0}X+1 && xPixel<{0}X+({3}*{1}) && {0}q[15]==1'b1)", properties["NAME"].Replace(" ", "_"), compresionFactor, (int)(picture.Layout.Height / compresionFactor), (int)(picture.Layout.Width / compresionFactor)));
                             writer.WriteLine("\tbegin");
 
 
@@ -868,6 +872,10 @@ namespace PowerPointVerilogEngineDesigner
                     toReturn.Add(properties["NAME"].Replace(" ","_") + "X");
                     toReturn.Add(properties["NAME"].Replace(" ", "_") + "Y");
                 }
+                if (properties.ContainsKey("VISIBLE") && properties.ContainsKey("NAME"))
+                {
+                    visibles.Add(properties["NAME"].Replace(" ", "_"));
+                }
             }
 
             foreach (Picture shape in slide.Content.Drawings.OfType<Picture>())
@@ -878,6 +886,10 @@ namespace PowerPointVerilogEngineDesigner
                     toReturn.Add(properties["NAME"].Replace(" ", "_") + "X");
                     toReturn.Add(properties["NAME"].Replace(" ", "_") + "Y");
                 }
+                 if (properties.ContainsKey("VISIBLE") && properties.ContainsKey("NAME"))
+                {
+                    visibles.Add(properties["NAME"].Replace(" ", "_"));
+                }
             }
 
             return toReturn;
@@ -886,8 +898,8 @@ namespace PowerPointVerilogEngineDesigner
 
         void writeSquareShapeColor(StreamWriter writer, GemBox.Presentation.Color color,DrawingLayout scaledLayout,int tabs,LineFormat outline,bool borderEnabled, int allowedTransparencyLevel)
         {
-            writer.WriteLine(getTabs(tabs) + "if(xPixel>" + (int)scaledLayout.Left.To(LengthUnit.Point) + " && xPixel<" + ((int)scaledLayout.Left.To(LengthUnit.Point) + (int)scaledLayout.Width.To(LengthUnit.Point)) +
-                " && yPixel>" + (int)scaledLayout.Top.To(LengthUnit.Point) + " && yPixel<" + ((int)scaledLayout.Top.To(LengthUnit.Point) + (int)scaledLayout.Height.To(LengthUnit.Point)) + ")"+Environment.NewLine+getTabs(tabs)+"begin");
+            writer.WriteLine(getTabs(tabs) + "if(xPixel>=" + (int)scaledLayout.Left.To(LengthUnit.Point) + " && xPixel<=" + ((int)scaledLayout.Left.To(LengthUnit.Point) + (int)scaledLayout.Width.To(LengthUnit.Point)) +
+                " && yPixel>=" + (int)scaledLayout.Top.To(LengthUnit.Point) + " && yPixel<=" + ((int)scaledLayout.Top.To(LengthUnit.Point) + (int)scaledLayout.Height.To(LengthUnit.Point)) + ")"+Environment.NewLine+getTabs(tabs)+"begin");
 
             if(allowedTransparencyLevel == 0 || color.A==255)  //No transparency allowed
             {
@@ -957,8 +969,8 @@ namespace PowerPointVerilogEngineDesigner
         void writeSquareShapeColorMoveable(StreamWriter writer, GemBox.Presentation.Color color, DrawingLayout scaledLayout, int tabs, LineFormat outline, bool borderEnabled, int allowedTransparencyLevel,string name)
         {
 
-            writer.WriteLine(getTabs(tabs) + "if(xPixel>"+name+"X && xPixel<"+name+"X+" + (int)scaledLayout.Width.To(LengthUnit.Point) +
-                " && yPixel>"+name+"Y && yPixel<"+name+"Y+" + (int)scaledLayout.Height.To(LengthUnit.Point) + ")" + Environment.NewLine + getTabs(tabs) + "begin");
+            writer.WriteLine(getTabs(tabs) + "if(xPixel>="+name+"X && xPixel<="+name+"X+" + (int)scaledLayout.Width.To(LengthUnit.Point) +
+                " && yPixel>="+name+"Y && yPixel<="+name+"Y+" + (int)scaledLayout.Height.To(LengthUnit.Point) + ")" + Environment.NewLine + getTabs(tabs) + "begin");
 
             if (allowedTransparencyLevel == 0 || color.A == 255)  //No transparency allowed
             {
