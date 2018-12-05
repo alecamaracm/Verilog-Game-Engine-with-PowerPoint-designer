@@ -1,0 +1,22 @@
+module backAnimator(animationClOCK,BACK1X,BACK1Y,BACK2X,BACK2Y,score)
+
+input animationClOCK;
+output BACK1X;
+output BACK1Y;
+output BACK2X;
+output BACK2Y
+input score;
+
+reg [19:0]realx;
+
+always @(posedge animationClOCK)
+begin
+	
+
+end
+
+
+assign BACK1Y=0;
+assign BACK2Y=0;
+
+endmodule
