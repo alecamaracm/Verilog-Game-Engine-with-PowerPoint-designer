@@ -73,16 +73,21 @@ wire [9:0]cloud2Y;
 wire [9:0]cloud3X;
 wire [9:0]cloud3Y;
 
-	assign pointX=550;
-	assign cloud1X=180;
-	assign cloud1Y=70;
-	assign cloud2X=290;
-	assign cloud2Y=90;
-	assign cloud3X=435;
-	assign cloud3Y=60;
-	assign PIPEDOWN1X=250;
-   assign PIPEDOWN1Y=pointY;
-	assign PIPEDOWN1VISIBLE=1;
+assign pointX=550;
+assign cloud1X=180;
+assign cloud1Y=70;
+assign cloud2X=290;
+assign cloud2Y=90;
+assign cloud3X=435;
+assign cloud3Y=60;
+assign PIPEDOWN1X=250;
+assign PIPEDOWN1Y=pointY;
+assign PIPEDOWN1VISIBLE=1;
+
+wire mouse1;
+wire mouse2;
+
+reg [9:0]score;
 
 UART2 uart(CLOCK,RX,key[1],rrr,u1,8'd0,1'b0);
 
@@ -92,9 +97,19 @@ VGADriver driver(CLOCK,hsync,vsync,VGAclock,VGAblanck,VGAsync,xPixel,yPixel,anim
 PP2VerilogDrawingController drawings(CLOCK,reset,animationCLOCK,wasd,arrows,xPixel,yPixel,VGAr,VGAg,VGAb,mouseX,mouseY,BACK2X,BACK2Y,BACK1X,BACK1Y,PIPEDOWN1X,PIPEDOWN1Y,PIPEDOWN2X,PIPEDOWN2Y,PIPEDOWN3X,PIPEDOWN3Y,pointX,pointY,PIPEUP1X,PIPEUP1Y,PIPEUP2X,PIPEUP2Y,PIPEUP3X,PIPEUP3Y,cloud1X,cloud1Y,cloud2X,cloud2Y,cloud3X,cloud3Y,PIPEDOWN1VISIBLE,PIPEDOWN2VISIBLE,PIPEDOWN3VISIBLE,PIPEUP1SKIPY,PIPEUP1VISIBLE,PIPEUP2SKIPY,PIPEUP2VISIBLE,PIPEUP3SKIPY,PIPEUP3VISIBLE);
 
 ps2Keyboard keyboard(CLOCK,ps2ck2,ps2dt2,wasd,arrows,leds[4],leds[5]);//
-ps2Mouse mouse(CLOCK,ps2ck,ps2dt,leds[0],leds[1],!key[0],mouseX,mouseY);//;
+ps2Mouse mouse(CLOCK,ps2ck,ps2dt,mouse1,mouse2,!key[0],mouseX,mouseY);//;
 
-placerUpDown placer(CLOCK,pointY,GPIO1,key[3],leds[17:8]);
+placerUpDown placer(CLOCK,pointY,GPIO1,key[3]);
 
+pipeAnimations(animationCLOCK,PIPEDOWN1X,PIPEDOWN1Y,PIPEDOWN2X,PIPEDOWN2Y,PIPEDOWN3X,PIPEDOWN3Y,pointY,PIPEUP1X,PIPEUP1Y,PIPEUP2X,PIPEUP2Y,PIPEUP3X,PIPEUP3Y,
+	PIPEDOWN1VISIBLE,PIPEDOWN2VISIBLE,PIPEDOWN3VISIBLE,PIPEUP1SKIPY,PIPEUP1VISIBLE,PIPEUP2SKIPY,PIPEUP2VISIBLE,PIPEUP3SKIPY,PIPEUP3VISIBLE,score,mouse1);
 
+	always @(posedge key[1])
+	begin
+		
+		score=score+1;
+		if(key[0]) score=0;
+		led[17:13]=score;
+	end
+	
 endmodule

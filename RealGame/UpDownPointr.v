@@ -1,7 +1,7 @@
 
 
 
-module placerUpDown(CLOCK,pointY,RX,reset,leds);
+module placerUpDown(CLOCK,pointY,RX,reset);
 
 	output [9:0]pointY;
 	input CLOCK;
@@ -9,9 +9,7 @@ module placerUpDown(CLOCK,pointY,RX,reset,leds);
 	input RX;
 		input reset;
 		
-		output [9:0]leds;
-		reg [9:0]leds;
-	
+
 	
 	reg [4:0]count;
 	wire dataAvail,u3;
@@ -56,7 +54,7 @@ module placerUpDown(CLOCK,pointY,RX,reset,leds);
 			begin
 				
 				firstData=data;
-				leds[7:0]=data;
+			
 				count=1;
 			end
 			5'd1:
@@ -64,7 +62,7 @@ module placerUpDown(CLOCK,pointY,RX,reset,leds);
 				
 				fullData={data,firstData};
 				pointY=(fullData[9:0]/4)+99;
-				leds[9:8]=data[1:0];
+		
 				count=0;
 			end
 							

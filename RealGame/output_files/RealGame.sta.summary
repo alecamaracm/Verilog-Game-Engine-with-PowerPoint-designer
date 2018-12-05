@@ -1,14 +1,14 @@
 ------------------------------------------------------------
-TimeQuest Timing Analyzer Summary
+Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow 1200mV 85C Model Setup 'CLOCK'
-Slack : -22.232
-TNS   : -4649.080
+Slack : -22.130
+TNS   : -4666.589
 
 Type  : Slow 1200mV 85C Model Setup 'ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Data_In:PS2_Data_In|received_data_en[0]'
-Slack : -1.592
-TNS   : -7.036
+Slack : -1.563
+TNS   : -7.038
 
 Type  : Slow 1200mV 85C Model Hold 'CLOCK'
 Slack : 0.402
@@ -27,12 +27,12 @@ Slack : -1.285
 TNS   : -6.425
 
 Type  : Slow 1200mV 0C Model Setup 'CLOCK'
-Slack : -19.915
-TNS   : -4154.610
+Slack : -19.880
+TNS   : -4174.567
 
 Type  : Slow 1200mV 0C Model Setup 'ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Data_In:PS2_Data_In|received_data_en[0]'
-Slack : -1.426
-TNS   : -6.119
+Slack : -1.357
+TNS   : -6.089
 
 Type  : Slow 1200mV 0C Model Hold 'CLOCK'
 Slack : 0.353
@@ -51,12 +51,12 @@ Slack : -1.285
 TNS   : -6.425
 
 Type  : Fast 1200mV 0C Model Setup 'CLOCK'
-Slack : -10.404
-TNS   : -1921.515
+Slack : -10.213
+TNS   : -1924.341
 
 Type  : Fast 1200mV 0C Model Setup 'ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Data_In:PS2_Data_In|received_data_en[0]'
-Slack : -0.303
-TNS   : -0.890
+Slack : -0.264
+TNS   : -0.901
 
 Type  : Fast 1200mV 0C Model Hold 'CLOCK'
 Slack : 0.180
@@ -68,7 +68,7 @@ TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'CLOCK'
 Slack : -3.000
-TNS   : -710.071
+TNS   : -710.093
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Data_In:PS2_Data_In|received_data_en[0]'
 Slack : -1.000
