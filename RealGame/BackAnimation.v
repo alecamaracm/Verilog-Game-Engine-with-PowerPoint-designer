@@ -32,7 +32,7 @@ assign BACK1Y=0;
 assign BACK2X=0;
 assign BACK2Y=0;
 assign BACK1SKIPX=0;
-assign BACK2SKIPX=(640-(realx/100));
+assign BACK2SKIPX=(640-(realx/100)<=5)?0:(640-(realx/100)-5);
 
 
 

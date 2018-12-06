@@ -1,6 +1,6 @@
 module pipeAnimations(animationCLOCK,PIPEDOWN1X,PIPEDOWN1Y,PIPEDOWN2X,PIPEDOWN2Y,PIPEDOWN3X,PIPEDOWN3Y,pointY,PIPEUP1X,PIPEUP1Y,PIPEUP2X,PIPEUP2Y,PIPEUP3X,PIPEUP3Y,
 	PIPEDOWN1VISIBLE,PIPEDOWN2VISIBLE,PIPEDOWN3VISIBLE,PIPEUP1SKIPY,PIPEUP1VISIBLE,PIPEUP2SKIPY,PIPEUP2VISIBLE,PIPEUP3SKIPY,PIPEUP3VISIBLE,score,
-	mouse1,mouse2,leds);
+	mouse1,mouse2,leds,endOfMapPipe);
 
 input animationCLOCK;
 output [9:0]PIPEDOWN1X;
@@ -26,6 +26,9 @@ output PIPEUP2VISIBLE;
 output [9:0]PIPEUP3SKIPY;
 output PIPEUP3VISIBLE;
 
+output endOfMapPipe;
+reg endOfMapPipe;
+
 output [3:0]leds;
 input mouse1,mouse2;
 
@@ -37,7 +40,7 @@ reg [9:0]score3;
 localparam [9:0]scoreToPipeSpeed=50;
 localparam [9:0]pipeSpeedMultiplier=1;
 localparam [9:0]doublePipeMinScore=10;
-localparam [9:0]basePipeSpace=200;
+localparam [9:0]basePipeSpace=175;
 localparam [9:0]minPipeSpace=100;
 localparam [9:0]spaceReductionPerScore=30;
 localparam [9:0]pipeUpImageSize=402;
@@ -63,12 +66,15 @@ reg [19:0]real3posY;
 always @(posedge animationCLOCK)
 begin
 
+	if(endOfMapPipe==1) endOfMapPipe=0;
+
 	if(pipe1En==1)
 	begin
 		if(real1posX<((((score1+1)*scoreToPipeSpeed)+minSpeed)*pipeSpeedMultiplier)) //Pipe 1 has reached the end. Disable it.
 		begin
 			pipe1En=0;
 			real1posX=0;
+			endOfMapPipe=1;
 		end
 		else
 		begin
@@ -110,11 +116,11 @@ assign PIPEUP1SKIPY=pipeUpImageSize-(real1posY-(pipeSpace1/2));
 assign PIPEUP2SKIPY=pipeUpImageSize-(real2posY-(pipeSpace1/2));
 assign PIPEUP3SKIPY=pipeUpImageSize-(real3posY-(pipeSpace1/2));
 
-assign PIPEDOWN1VISIBLE= (score1>=doublePipeMinScore) ? (pipe1En) :(pipe1En && real1posY>240);
-assign PIPEDOWN2VISIBLE= (score1>=doublePipeMinScore) ? (pipe2En) :(pipe2En && real2posY>240);
-assign PIPEDOWN3VISIBLE= (score1>=doublePipeMinScore) ? (pipe3En) :(pipe3En && real3posY>240);
-assign PIPEUP1VISIBLE= (score1>=doublePipeMinScore) ? (pipe1En) :(pipe1En && real1posY<=240);
-assign PIPEUP2VISIBLE= (score1>=doublePipeMinScore) ? (pipe2En) :(pipe2En && real2posY<=240);
-assign PIPEUP3VISIBLE= (score1>=doublePipeMinScore) ? (pipe3En) :(pipe3En && real3posY<=240);
+assign PIPEDOWN1VISIBLE= (score1>=doublePipeMinScore) ? (pipe1En) :(pipe1En && real1posY<240);
+assign PIPEDOWN2VISIBLE= (score1>=doublePipeMinScore) ? (pipe2En) :(pipe2En && real2posY<240);
+assign PIPEDOWN3VISIBLE= (score1>=doublePipeMinScore) ? (pipe3En) :(pipe3En && real3posY<240);
+assign PIPEUP1VISIBLE= (score1>=doublePipeMinScore) ? (pipe1En) :(pipe1En && real1posY>=240);
+assign PIPEUP2VISIBLE= (score1>=doublePipeMinScore) ? (pipe2En) :(pipe2En && real2posY>=240);
+assign PIPEUP3VISIBLE= (score1>=doublePipeMinScore) ? (pipe3En) :(pipe3En && real3posY>=240);
 
 endmodule

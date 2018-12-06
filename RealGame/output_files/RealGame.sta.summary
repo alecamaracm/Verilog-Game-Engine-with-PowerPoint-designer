@@ -3,120 +3,120 @@ TimeQuest Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow 1200mV 85C Model Setup 'CLOCK'
-Slack : -67.558
-TNS   : -11499.764
+Slack : -67.622
+TNS   : -11750.949
 
 Type  : Slow 1200mV 85C Model Setup 'VGADriver:driver|animationCLOCK'
-Slack : -10.090
-TNS   : -419.684
+Slack : -12.002
+TNS   : -639.080
 
 Type  : Slow 1200mV 85C Model Setup 'ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Data_In:PS2_Data_In|received_data_en[0]'
-Slack : -1.300
-TNS   : -5.625
+Slack : -1.620
+TNS   : -7.416
 
-Type  : Slow 1200mV 85C Model Setup 'key[1]'
-Slack : -1.212
-TNS   : -8.970
+Type  : Slow 1200mV 85C Model Setup 'pipeAnimations:comb_80|endOfMapPipe'
+Slack : -1.136
+TNS   : -16.104
 
 Type  : Slow 1200mV 85C Model Hold 'VGADriver:driver|animationCLOCK'
-Slack : -0.594
-TNS   : -18.038
+Slack : -0.118
+TNS   : -0.281
 
 Type  : Slow 1200mV 85C Model Hold 'CLOCK'
-Slack : 0.389
+Slack : 0.401
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Data_In:PS2_Data_In|received_data_en[0]'
 Slack : 0.403
 TNS   : 0.000
 
-Type  : Slow 1200mV 85C Model Hold 'key[1]'
-Slack : 0.479
+Type  : Slow 1200mV 85C Model Hold 'pipeAnimations:comb_80|endOfMapPipe'
+Slack : 0.408
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'CLOCK'
 Slack : -3.000
-TNS   : -1413.426
-
-Type  : Slow 1200mV 85C Model Minimum Pulse Width 'key[1]'
-Slack : -3.000
-TNS   : -15.850
+TNS   : -1445.742
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'VGADriver:driver|animationCLOCK'
 Slack : -1.285
-TNS   : -74.530
+TNS   : -160.625
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'pipeAnimations:comb_80|endOfMapPipe'
+Slack : -1.285
+TNS   : -25.700
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Data_In:PS2_Data_In|received_data_en[0]'
 Slack : -1.285
 TNS   : -6.425
 
 Type  : Slow 1200mV 0C Model Setup 'CLOCK'
-Slack : -60.861
-TNS   : -10345.761
+Slack : -60.835
+TNS   : -10563.827
 
 Type  : Slow 1200mV 0C Model Setup 'VGADriver:driver|animationCLOCK'
-Slack : -8.985
-TNS   : -378.566
+Slack : -10.980
+TNS   : -572.553
 
 Type  : Slow 1200mV 0C Model Setup 'ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Data_In:PS2_Data_In|received_data_en[0]'
-Slack : -1.141
-TNS   : -4.771
+Slack : -1.375
+TNS   : -6.331
 
-Type  : Slow 1200mV 0C Model Setup 'key[1]'
-Slack : -0.980
-TNS   : -6.983
+Type  : Slow 1200mV 0C Model Setup 'pipeAnimations:comb_80|endOfMapPipe'
+Slack : -0.918
+TNS   : -12.468
 
 Type  : Slow 1200mV 0C Model Hold 'VGADriver:driver|animationCLOCK'
-Slack : -0.594
-TNS   : -16.527
+Slack : -0.131
+TNS   : -0.472
 
 Type  : Slow 1200mV 0C Model Hold 'CLOCK'
-Slack : 0.348
+Slack : 0.353
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Data_In:PS2_Data_In|received_data_en[0]'
 Slack : 0.353
 TNS   : 0.000
 
-Type  : Slow 1200mV 0C Model Hold 'key[1]'
-Slack : 0.433
+Type  : Slow 1200mV 0C Model Hold 'pipeAnimations:comb_80|endOfMapPipe'
+Slack : 0.365
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'CLOCK'
 Slack : -3.000
-TNS   : -1397.058
-
-Type  : Slow 1200mV 0C Model Minimum Pulse Width 'key[1]'
-Slack : -3.000
-TNS   : -15.850
+TNS   : -1428.846
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'VGADriver:driver|animationCLOCK'
 Slack : -1.285
-TNS   : -74.530
+TNS   : -160.625
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'pipeAnimations:comb_80|endOfMapPipe'
+Slack : -1.285
+TNS   : -25.700
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Data_In:PS2_Data_In|received_data_en[0]'
 Slack : -1.285
 TNS   : -6.425
 
 Type  : Fast 1200mV 0C Model Setup 'CLOCK'
-Slack : -32.364
-TNS   : -5234.019
+Slack : -32.285
+TNS   : -5338.212
 
 Type  : Fast 1200mV 0C Model Setup 'VGADriver:driver|animationCLOCK'
-Slack : -4.348
-TNS   : -170.441
+Slack : -5.364
+TNS   : -248.540
 
 Type  : Fast 1200mV 0C Model Setup 'ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Data_In:PS2_Data_In|received_data_en[0]'
-Slack : -0.155
-TNS   : -0.409
+Slack : -0.302
+TNS   : -1.228
 
-Type  : Fast 1200mV 0C Model Setup 'key[1]'
-Slack : -0.072
-TNS   : -0.144
+Type  : Fast 1200mV 0C Model Setup 'pipeAnimations:comb_80|endOfMapPipe'
+Slack : -0.039
+TNS   : -0.113
 
 Type  : Fast 1200mV 0C Model Hold 'VGADriver:driver|animationCLOCK'
-Slack : -0.388
-TNS   : -13.812
+Slack : -0.109
+TNS   : -0.640
 
 Type  : Fast 1200mV 0C Model Hold 'CLOCK'
 Slack : 0.180
@@ -126,21 +126,21 @@ Type  : Fast 1200mV 0C Model Hold 'ps2Keyboard:keyboard|mouse_Inner_controller:i
 Slack : 0.181
 TNS   : 0.000
 
-Type  : Fast 1200mV 0C Model Hold 'key[1]'
-Slack : 0.219
+Type  : Fast 1200mV 0C Model Hold 'pipeAnimations:comb_80|endOfMapPipe'
+Slack : 0.187
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'CLOCK'
 Slack : -3.000
-TNS   : -755.599
-
-Type  : Fast 1200mV 0C Model Minimum Pulse Width 'key[1]'
-Slack : -3.000
-TNS   : -15.960
+TNS   : -769.086
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'VGADriver:driver|animationCLOCK'
 Slack : -1.000
-TNS   : -58.000
+TNS   : -125.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'pipeAnimations:comb_80|endOfMapPipe'
+Slack : -1.000
+TNS   : -20.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Data_In:PS2_Data_In|received_data_en[0]'
 Slack : -1.000
