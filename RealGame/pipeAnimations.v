@@ -37,14 +37,14 @@ reg [9:0]score1;
 reg [9:0]score2;
 reg [9:0]score3;
 
-localparam [9:0]scoreToPipeSpeed=50;
+localparam [9:0]scoreToPipeSpeed=35;
 localparam [9:0]pipeSpeedMultiplier=1;
 localparam [9:0]doublePipeMinScore=10;
 localparam [9:0]basePipeSpace=175;
-localparam [9:0]minPipeSpace=100;
-localparam [9:0]spaceReductionPerScore=30;
+localparam [9:0]minPipeSpace=150;
+localparam [9:0]spaceReductionPerScore=20;
 localparam [9:0]pipeUpImageSize=402;
-localparam [9:0]minSpeed=150;
+localparam [9:0]minSpeed=220;
 
 reg pipe1En,pipe2En,pipe3En;
 

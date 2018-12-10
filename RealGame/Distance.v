@@ -1,9 +1,6 @@
-module distance(CLOCK,GPIO,TR,ECH,cm);
+module distance(CLOCK,TR,ECH,cm);
 
 input CLOCK;
-output GPIO;
-reg GPIO;
-
 
 reg [9:0]cm;
 output [9:0]cm;
@@ -21,35 +18,38 @@ localparam maxCM=100;
 always @(posedge CLOCK)
 begin
 	
+
+	
 	if(counter2<50)
 	begin
 		TR=1;
 		doneThis=0;
 		timex=0;
 	end
-	else if(counter2>(5000000))
+	else if(counter2>500000)
 	begin		
+		TR=0;
 		counter2=0;
+		if(timex>0 && timex<192000)
+		begin
+			timex=timex/50; //Microseconds
+			timex=timex/2;  //Two way;
+			timex=timex/2;			
+			cm=timex;			
+		end
+		
 	end
 	else
 	begin
 		TR=0;
-		if(ECH==0)
+		if(ECH==1)
 		begin
 			timex=timex+1;
-		end
-		if(ECH==1 && doneThis==0)
-		begin
-			doneThis=1;
-			if((timex/58.82)<maxCM)
-			begin
-				cm=(timex/58.82);	
-			end
-		
-		end		
+		end			
 	end	
 	counter2=counter2+1;
 	
+
 end
 
 

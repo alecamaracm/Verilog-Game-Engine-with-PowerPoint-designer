@@ -4,15 +4,14 @@ input CLOCK;
 output GPIO;
 reg GPIO;
 
-output [39:0]freq;
-reg [39:0]freq;
+input [39:0]freq;
 reg [29:0]counter;
 
 
 always @(posedge CLOCK)
 begin
 	
-	if(counter>(freq/2))
+	if(counter>50000000/((freq/2)))
 	begin
 		GPIO=!GPIO;
 		counter=0;

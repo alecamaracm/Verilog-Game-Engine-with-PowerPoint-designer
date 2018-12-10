@@ -210,7 +210,7 @@ namespace PowerPointVerilogEngineDesigner
 
 
                         writer.WriteLine("wire [15:0]" + m.name + "q;");
-                        writer.WriteLine(String.Format("ram{0} {0}ram((((yPixel-{0}Y+{0}SKIPY)/{2})*({1}) +(((xPixel-{0}X)/{2})+1)+({0}SKIPX/{3})+(({5})*({0}sp))),CLOCK,16'd0,0,{0}q);",
+                        writer.WriteLine(String.Format("ram{0} {0}ram((((yPixel-{0}Y+{0}SKIPY)/{2})*({1}) +(((xPixel-{0}X)/{2}))+({0}SKIPX/{3})+(({5})*({0}sp))),CLOCK,16'd0,0,{0}q);",
                             m.name,m.reducedBitmap.Width,m.scale,skipscale[m.name],m.spriteCount, m.reducedBitmap.Width/ m.spriteCount));
 
 
@@ -541,8 +541,8 @@ namespace PowerPointVerilogEngineDesigner
                 if(properties.ContainsKey("COLLIDING"))
                 {
                     Collideables collideablesx = new Collideables();
-                    collideablesx.width = (int)picturex.Layout.Width.To(LengthUnit.Point);
-                    collideablesx.height = (int)picturex.Layout.Height.To(LengthUnit.Point);
+                    collideablesx.width = (int)picturex.Layout.Width.To(LengthUnit.Point)/spriteCount;
+                    collideablesx.height = (int)picturex.Layout.Height.To(LengthUnit.Point)/spriteCount;
                     if(properties.ContainsKey("MOVEABLE"))
                     {
                         collideablesx.x = properties["NAME"].Replace(" ", "_") + "X";
@@ -1248,14 +1248,32 @@ namespace PowerPointVerilogEngineDesigner
 
                 for(int i=0;i< var.Value.Count;i++)
                 {
-                    for (int j= 0; j < var.Value.Count; j++)
+                    if(var.Key== "tuberias")
                     {
-                        if(i !=j && usedOnes.Contains(i+" "+j)==false && usedOnes.Contains(j + " " + i) == false)
+                        if (var.Value[i].x=="birdX")
                         {
-                            statements.Add("((" + var.Value[i].y + "+" + var.Value[i].height + ">" + var.Value[j].y + ") && " + "(" + var.Value[i].y + "<" + var.Value[j].y + "+" + var.Value[j].height + ") && " + "(" + var.Value[i].x + "+" + var.Value[i].width + ">" + var.Value[j].x + ") && " + "(" + var.Value[i].x + "<" + var.Value[j].x + "+" + var.Value[j].width + "))");
-                            usedOnes.Add(i + " " + j);
+                            for (int j = 0; j < var.Value.Count; j++)
+                            {
+                                if (i != j && usedOnes.Contains(i + " " + j) == false && usedOnes.Contains(j + " " + i) == false)
+                                {
+                                    statements.Add("((" + var.Value[i].y + "+" + var.Value[i].height + ">" + var.Value[j].y + ") && " + "(" + var.Value[i].y + "<" + var.Value[j].y + "+" + var.Value[j].height + ") && " + "(" + var.Value[i].x + "+" + var.Value[i].width + ">" + var.Value[j].x + ") && " + "(" + var.Value[i].x + "<" + var.Value[j].x + "+" + var.Value[j].width + "))");
+                                    usedOnes.Add(i + " " + j);
+                                }
+                            }
                         }
                     }
+                    else
+                    {
+                        for (int j = 0; j < var.Value.Count; j++)
+                        {
+                            if (i != j && usedOnes.Contains(i + " " + j) == false && usedOnes.Contains(j + " " + i) == false)
+                            {
+                                statements.Add("((" + var.Value[i].y + "+" + var.Value[i].height + ">" + var.Value[j].y + ") && " + "(" + var.Value[i].y + "<" + var.Value[j].y + "+" + var.Value[j].height + ") && " + "(" + var.Value[i].x + "+" + var.Value[i].width + ">" + var.Value[j].x + ") && " + "(" + var.Value[i].x + "<" + var.Value[j].x + "+" + var.Value[j].width + "))");
+                                usedOnes.Add(i + " " + j);
+                            }
+                        }
+                    }
+                  
                 }
 
                 writer.WriteLine("\tassign col" + var.Key + "=" + String.Join("||",statements.ToArray())+ ";");

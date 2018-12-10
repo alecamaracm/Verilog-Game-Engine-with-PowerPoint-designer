@@ -124,27 +124,19 @@
 					"strict" : false
 				},
 				{
-					"name" : "leds[13]",
-					"strict" : false
-				},
-				{
-					"name" : "leds[14]",
-					"strict" : false
-				},
-				{
-					"name" : "leds[15]",
-					"strict" : false
-				},
-				{
-					"name" : "leds[16]",
-					"strict" : false
-				},
-				{
-					"name" : "leds[17]",
+					"name" : "leds[6]",
 					"strict" : false
 				},
 				{
 					"name" : "TX",
+					"strict" : false
+				},
+				{
+					"name" : "GPIO0",
+					"strict" : false
+				},
+				{
+					"name" : "GPIO12",
 					"strict" : false
 				},
 				{
@@ -172,7 +164,7 @@
 					"strict" : false
 				},
 				{
-					"name" : "key[0]",
+					"name" : "key[2]",
 					"strict" : false
 				},
 				{
@@ -181,6 +173,14 @@
 				},
 				{
 					"name" : "GPIO1",
+					"strict" : false
+				},
+				{
+					"name" : "key[0]",
+					"strict" : false
+				},
+				{
+					"name" : "GPIO13",
 					"strict" : false
 				}
 			]
