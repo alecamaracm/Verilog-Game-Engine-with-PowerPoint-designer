@@ -1,30 +1,14 @@
-module pipeAnimations(animationCLOCK,PIPEDOWN1X,PIPEDOWN1Y,PIPEDOWN2X,PIPEDOWN2Y,PIPEDOWN3X,PIPEDOWN3Y,pointY,PIPEUP1X,PIPEUP1Y,PIPEUP2X,PIPEUP2Y,PIPEUP3X,PIPEUP3Y,
-	PIPEDOWN1VISIBLE,PIPEDOWN2VISIBLE,PIPEDOWN3VISIBLE,PIPEUP1SKIPY,PIPEUP1VISIBLE,PIPEUP2SKIPY,PIPEUP2VISIBLE,PIPEUP3SKIPY,PIPEUP3VISIBLE,score,
-	mouse1,mouse2,leds,endOfMapPipe);
+module pipeAnimations(animationCLOCK,PIPEDOWN1X,PIPEDOWN1Y,pointY,PIPEUP1X,PIPEUP1Y,PIPEDOWN1VISIBLE,PIPEUP1SKIPY,PIPEUP1VISIBLE,score,mouse1,mouse2,leds,endOfMapPipe);
 
 input animationCLOCK;
 output [9:0]PIPEDOWN1X;
 output [9:0]PIPEDOWN1Y;
-output [9:0]PIPEDOWN2X;
-output [9:0]PIPEDOWN2Y;
-output [9:0]PIPEDOWN3X;
-output [9:0]PIPEDOWN3Y;
 input [9:0]pointY;
 output [9:0]PIPEUP1X;
 output [9:0]PIPEUP1Y;
-output [9:0]PIPEUP2X;
-output [9:0]PIPEUP2Y;
-output [9:0]PIPEUP3X;
-output [9:0]PIPEUP3Y;
 output PIPEDOWN1VISIBLE;
-output PIPEDOWN2VISIBLE;
-output PIPEDOWN3VISIBLE;
 output [9:0]PIPEUP1SKIPY;
 output PIPEUP1VISIBLE;
-output [9:0]PIPEUP2SKIPY;
-output PIPEUP2VISIBLE;
-output [9:0]PIPEUP3SKIPY;
-output PIPEUP3VISIBLE;
 
 output endOfMapPipe;
 reg endOfMapPipe;
@@ -37,14 +21,14 @@ reg [9:0]score1;
 reg [9:0]score2;
 reg [9:0]score3;
 
-localparam [9:0]scoreToPipeSpeed=35;
+localparam [9:0]scoreToPipeSpeed=15;
 localparam [9:0]pipeSpeedMultiplier=1;
 localparam [9:0]doublePipeMinScore=10;
 localparam [9:0]basePipeSpace=175;
 localparam [9:0]minPipeSpace=150;
-localparam [9:0]spaceReductionPerScore=20;
+localparam [9:0]spaceReductionPerScore=10;
 localparam [9:0]pipeUpImageSize=402;
-localparam [9:0]minSpeed=220;
+localparam [9:0]minSpeed=200;
 
 reg pipe1En,pipe2En,pipe3En;
 
@@ -100,27 +84,14 @@ end
 
 assign PIPEDOWN1X=real1posX/100;
 assign PIPEUP1X=real1posX/100;
-assign PIPEDOWN2X=real2posX/100;
-assign PIPEUP2X=real2posX/100;
-assign PIPEDOWN3X=real3posX/100;
-assign PIPEUP3X=real3posX/100;
 
 assign PIPEDOWN1Y=real1posY+(pipeSpace1/2);
-assign PIPEDOWN2Y=real2posY+(pipeSpace1/2);
-assign PIPEDOWN3Y=real3posY+(pipeSpace1/2);
 
 assign PIPEUP1Y=0;
-assign PIPEUP2Y=0;
-assign PIPEUP3Y=0;
 assign PIPEUP1SKIPY=pipeUpImageSize-(real1posY-(pipeSpace1/2));
-assign PIPEUP2SKIPY=pipeUpImageSize-(real2posY-(pipeSpace1/2));
-assign PIPEUP3SKIPY=pipeUpImageSize-(real3posY-(pipeSpace1/2));
 
 assign PIPEDOWN1VISIBLE= (score1>=doublePipeMinScore) ? (pipe1En) :(pipe1En && real1posY<240);
-assign PIPEDOWN2VISIBLE= (score1>=doublePipeMinScore) ? (pipe2En) :(pipe2En && real2posY<240);
-assign PIPEDOWN3VISIBLE= (score1>=doublePipeMinScore) ? (pipe3En) :(pipe3En && real3posY<240);
 assign PIPEUP1VISIBLE= (score1>=doublePipeMinScore) ? (pipe1En) :(pipe1En && real1posY>=240);
-assign PIPEUP2VISIBLE= (score1>=doublePipeMinScore) ? (pipe2En) :(pipe2En && real2posY>=240);
-assign PIPEUP3VISIBLE= (score1>=doublePipeMinScore) ? (pipe3En) :(pipe3En && real3posY>=240);
+
 
 endmodule

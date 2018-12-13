@@ -1,0 +1,83 @@
+
+
+
+module placerUpDown(CLOCK,pointX,pointY,RX,reset,leds);
+
+	output [9:0]pointX;
+	reg [9:0]pointX;
+	output [9:0]pointY;
+	input CLOCK;
+	reg [9:0]pointY;
+	input RX;
+		input reset;
+		
+		output [7:0]leds;
+		reg [7:0]leds;
+	
+	
+	reg [4:0]count;
+	wire dataAvail,u3;
+	wire [7:0]data;
+	
+	wire [7:0]dataSend;
+	
+	reg lastdataAvail;
+	wire RXerror,RXvalid;
+	
+	reg [7:0]firstData;
+	
+	wire TX;
+	
+	UART2 uart(CLOCK,RX,reset,data,dataAvail,dataSend,1'b0);
+	
+	reg [59:0]timeout;
+	
+	//assign leds=data;
+	always @(posedge CLOCK)
+	begin
+		
+		if(timeout>=60'd100000)
+		begin
+			timeout=60'd0;
+			count=0;
+		end
+		else
+		begin
+			timeout=timeout+60'd1;
+		end
+		
+		if(dataAvail!=lastdataAvail)
+		begin
+			timeout=60'd0;
+			
+			
+			case (count)
+		
+			5'd0:
+			begin
+				
+				firstData=data;
+				count=1;
+			end
+			5'd1:
+			begin
+			
+				pointY=(({fristData,data})/16'd2);
+				
+			end
+							
+			endcase
+			
+			leds=data;
+		
+			lastdataAvail=dataAvail;
+		
+		end	
+		
+		
+		
+	end			
+	
+	
+
+endmodule

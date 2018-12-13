@@ -80,7 +80,9 @@ namespace PowerPointVerilogEngineDesigner
                 collideables.Clear();
                 skipY.Clear();
                 skipscale.Clear();
+                resetLocations.Clear();
                 skipX.Clear();
+
                 visibles.Clear();
                 Stopwatch watch = new Stopwatch();
                 watch.Start();
@@ -195,7 +197,7 @@ namespace PowerPointVerilogEngineDesigner
                             if (col.y.EndsWith("X") || col.y.EndsWith("Y")) varNames.Add(col.y);
                         }
                     }
-                    writer.WriteLine("collsMod mod(" + String.Join(",", varNames) + ");");
+             //       writer.WriteLine("collsMod mod(" + String.Join(",", varNames) + ");");
 
                  
 
@@ -252,7 +254,8 @@ namespace PowerPointVerilogEngineDesigner
                             writer2.WriteLine("END;");
                         }
                     }
-
+                    writer.WriteLine();
+                    writeCollision(writer);
 
                     writer.WriteLine(Environment.NewLine + "endmodule");
 
@@ -264,7 +267,7 @@ namespace PowerPointVerilogEngineDesigner
                     watch.Stop();
                     Console.WriteLine("Compilation finished. Took {0}s.",watch.ElapsedMilliseconds/1000.0f);
 
-                    writeCollisionModule(writer);
+                   
                 }
 
 
@@ -542,7 +545,7 @@ namespace PowerPointVerilogEngineDesigner
                 {
                     Collideables collideablesx = new Collideables();
                     collideablesx.width = (int)picturex.Layout.Width.To(LengthUnit.Point)/spriteCount;
-                    collideablesx.height = (int)picturex.Layout.Height.To(LengthUnit.Point)/spriteCount;
+                    collideablesx.height = (int)picturex.Layout.Height.To(LengthUnit.Point);
                     if(properties.ContainsKey("MOVEABLE"))
                     {
                         collideablesx.x = properties["NAME"].Replace(" ", "_") + "X";
@@ -1221,7 +1224,7 @@ namespace PowerPointVerilogEngineDesigner
             watcher.EnableRaisingEvents = true;
         }
 
-        public void writeCollisionModule(StreamWriter writer)
+        public void writeCollision(StreamWriter writer)
         {
             List<string> varNames=new List<string>();
             foreach(KeyValuePair<string,List<Collideables>> var in collideables)
@@ -1233,13 +1236,7 @@ namespace PowerPointVerilogEngineDesigner
                     if (col.y.EndsWith("X") || col.y.EndsWith("Y")) varNames.Add(col.y);
                 }
             }
-            writer.WriteLine("module collsMod(" + String.Join(",",varNames)+");");
-
-            foreach(var a in varNames)
-            {
-                writer.WriteLine("\t"+((a.StartsWith("col"))?"output ": "input [9:0]") + a+";");         
-             
-            }
+         
 
             foreach (KeyValuePair<string, List<Collideables>> var in collideables)
             {
@@ -1248,15 +1245,28 @@ namespace PowerPointVerilogEngineDesigner
 
                 for(int i=0;i< var.Value.Count;i++)
                 {
-                    if(var.Key== "tuberias")
+                    if(var.Key== "tuberias"||var.Key=="power")
                     {
                         if (var.Value[i].x=="birdX")
                         {
                             for (int j = 0; j < var.Value.Count; j++)
                             {
+                                string secName = var.Value[j].x.Replace("X", "");
                                 if (i != j && usedOnes.Contains(i + " " + j) == false && usedOnes.Contains(j + " " + i) == false)
                                 {
-                                    statements.Add("((" + var.Value[i].y + "+" + var.Value[i].height + ">" + var.Value[j].y + ") && " + "(" + var.Value[i].y + "<" + var.Value[j].y + "+" + var.Value[j].height + ") && " + "(" + var.Value[i].x + "+" + var.Value[i].width + ">" + var.Value[j].x + ") && " + "(" + var.Value[i].x + "<" + var.Value[j].x + "+" + var.Value[j].width + "))");
+                                    statements.Add("((" + var.Value[i].y + "+" + var.Value[i].height + ">" + var.Value[j].y + ") && "+secName+ "VISIBLE &&" + "(" + var.Value[i].y + "<" + var.Value[j].y + "+" + var.Value[j].height + "-"+secName+ "SKIPY) && " + "(" + var.Value[i].x + "+" + var.Value[i].width + ">" + var.Value[j].x + ") && " + "(" + var.Value[i].x + "<" + var.Value[j].x + "+" + var.Value[j].width + "))");
+                                    usedOnes.Add(i + " " + j);
+                                }
+                            }
+                        }
+                        if (var.Value[i].x == "fakeX")
+                        {
+                            for (int j = 0; j < var.Value.Count; j++)
+                            {
+                                string secName = var.Value[j].x.Replace("X", "");
+                                if (i != j && usedOnes.Contains(i + " " + j) == false && usedOnes.Contains(j + " " + i) == false)
+                                {
+                                    statements.Add("((" + var.Value[i].y + "+" + var.Value[i].height + ">" + var.Value[j].y + ") && " + "(" + var.Value[i].y + "<" + var.Value[j].y + "+" + var.Value[j].height + "-" + secName + "SKIPY) && " + "(" + var.Value[i].x + "+" + var.Value[i].width + ">" + var.Value[j].x + ") && " + "(" + var.Value[i].x + "<" + var.Value[j].x + "+" + var.Value[j].width + "))");
                                     usedOnes.Add(i + " " + j);
                                 }
                             }
@@ -1282,7 +1292,7 @@ namespace PowerPointVerilogEngineDesigner
             }
 
 
-            writer.WriteLine("endmodule");
+        
         }
 
         private void OnChanged(object sender, FileSystemEventArgs e)

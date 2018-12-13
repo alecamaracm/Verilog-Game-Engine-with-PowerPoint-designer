@@ -64,10 +64,3 @@ s_ps2_receiver.PS2_STATE_1_WAIT_FOR_DATA 0 0 1 1 0
 s_ps2_receiver.PS2_STATE_2_DATA_IN 0 1 0 1 0 
 s_ps2_receiver.PS2_STATE_3_PARITY_IN 1 0 0 1 0 
 s_ps2_receiver.PS2_STATE_4_STOP_IN 0 0 0 1 1 
-
-State Machine - |RealGame|UART2:uart|RXstate
-Name RXstate.RXwait RXstate.RXget RXstate.RXstart RXstate.RXidle 
-RXstate.RXidle 0 0 0 0 
-RXstate.RXstart 0 0 1 1 
-RXstate.RXget 0 1 0 1 
-RXstate.RXwait 1 0 0 1 

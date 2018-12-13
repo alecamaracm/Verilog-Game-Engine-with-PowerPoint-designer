@@ -128,15 +128,39 @@
 					"strict" : false
 				},
 				{
+					"name" : "leds[17]",
+					"strict" : false
+				},
+				{
 					"name" : "TX",
 					"strict" : false
 				},
 				{
-					"name" : "GPIO0",
+					"name" : "GPIO23",
 					"strict" : false
 				},
 				{
-					"name" : "GPIO12",
+					"name" : "GPIO25",
+					"strict" : false
+				},
+				{
+					"name" : "GPIO26",
+					"strict" : false
+				},
+				{
+					"name" : "GPIO27",
+					"strict" : false
+				},
+				{
+					"name" : "GPIO30",
+					"strict" : false
+				},
+				{
+					"name" : "GPIO32",
+					"strict" : false
+				},
+				{
+					"name" : "GPIO33",
 					"strict" : false
 				},
 				{
@@ -156,6 +180,10 @@
 					"strict" : false
 				},
 				{
+					"name" : "GPIO35",
+					"strict" : false
+				},
+				{
 					"name" : "RX",
 					"strict" : false
 				},
@@ -164,15 +192,11 @@
 					"strict" : false
 				},
 				{
-					"name" : "key[2]",
+					"name" : "GPIO31",
 					"strict" : false
 				},
 				{
-					"name" : "key[3]",
-					"strict" : false
-				},
-				{
-					"name" : "GPIO1",
+					"name" : "sw[0]",
 					"strict" : false
 				},
 				{
@@ -180,7 +204,11 @@
 					"strict" : false
 				},
 				{
-					"name" : "GPIO13",
+					"name" : "key[3]",
+					"strict" : false
+				},
+				{
+					"name" : "GPIO22",
 					"strict" : false
 				}
 			]

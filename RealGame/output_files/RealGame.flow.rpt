@@ -1,5 +1,5 @@
 Flow report for RealGame
-Sun Dec 09 19:58:58 2018
+Thu Dec 13 16:42:28 2018
 Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
 
 
@@ -41,20 +41,20 @@ agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Sun Dec 09 19:58:47 2018       ;
+; Flow Status                        ; Successful - Thu Dec 13 16:42:08 2018       ;
 ; Quartus Prime Version              ; 16.1.0 Build 196 10/24/2016 SJ Lite Edition ;
 ; Revision Name                      ; RealGame                                    ;
 ; Top-level Entity Name              ; RealGame                                    ;
 ; Family                             ; Cyclone IV E                                ;
 ; Device                             ; EP4CE115F29C7                               ;
 ; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 5,527 / 114,480 ( 5 % )                     ;
-;     Total combinational functions  ; 5,488 / 114,480 ( 5 % )                     ;
-;     Dedicated logic registers      ; 532 / 114,480 ( < 1 % )                     ;
-; Total registers                    ; 532                                         ;
-; Total pins                         ; 82 / 529 ( 16 % )                           ;
+; Total logic elements               ; 6,098 / 114,480 ( 5 % )                     ;
+;     Total combinational functions  ; 6,048 / 114,480 ( 5 % )                     ;
+;     Dedicated logic registers      ; 617 / 114,480 ( < 1 % )                     ;
+; Total registers                    ; 617                                         ;
+; Total pins                         ; 92 / 529 ( 17 % )                           ;
 ; Total virtual pins                 ; 0                                           ;
-; Total memory bits                  ; 1,966,080 / 3,981,312 ( 49 % )              ;
+; Total memory bits                  ; 2,719,744 / 3,981,312 ( 68 % )              ;
 ; Embedded Multiplier 9-bit elements ; 0 / 532 ( 0 % )                             ;
 ; Total PLLs                         ; 0 / 4 ( 0 % )                               ;
 +------------------------------------+---------------------------------------------+
@@ -65,7 +65,7 @@ agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 12/09/2018 19:57:23 ;
+; Start date & time ; 12/13/2018 16:40:32 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; RealGame            ;
 +-------------------+---------------------+
@@ -76,22 +76,22 @@ agreement for further details.
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id ;
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
-; COMPILER_SIGNATURE_ID               ; 238177198224018.154440344302792        ; --            ; --          ; --         ;
+; COMPILER_SIGNATURE_ID               ; 238177198224018.154473723215036        ; --            ; --          ; --         ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --            ; --          ; --         ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --            ; --          ; --         ;
 ; MISC_FILE                           ; ramPIPEDOWN1_bb.v                      ; --            ; --          ; --         ;
-; MISC_FILE                           ; ramPIPEDOWN2_bb.v                      ; --            ; --          ; --         ;
-; MISC_FILE                           ; ramPIPEDOWN3_bb.v                      ; --            ; --          ; --         ;
 ; MISC_FILE                           ; rampoint_bb.v                          ; --            ; --          ; --         ;
 ; MISC_FILE                           ; ramPIPEUP1_bb.v                        ; --            ; --          ; --         ;
-; MISC_FILE                           ; ramPIPEUP2_bb.v                        ; --            ; --          ; --         ;
-; MISC_FILE                           ; ramPIPEUP3_bb.v                        ; --            ; --          ; --         ;
 ; MISC_FILE                           ; ramBACK1_bb.v                          ; --            ; --          ; --         ;
 ; MISC_FILE                           ; ramBACK2_bb.v                          ; --            ; --          ; --         ;
 ; MISC_FILE                           ; ramcloud1_bb.v                         ; --            ; --          ; --         ;
 ; MISC_FILE                           ; ramcloud2_bb.v                         ; --            ; --          ; --         ;
-; MISC_FILE                           ; ramcloud3_bb.v                         ; --            ; --          ; --         ;
 ; MISC_FILE                           ; rambird_bb.v                           ; --            ; --          ; --         ;
+; MISC_FILE                           ; ramh1_bb.v                             ; --            ; --          ; --         ;
+; MISC_FILE                           ; ramh2_bb.v                             ; --            ; --          ; --         ;
+; MISC_FILE                           ; ramh3_bb.v                             ; --            ; --          ; --         ;
+; MISC_FILE                           ; ramgo1_bb.v                            ; --            ; --          ; --         ;
+; MISC_FILE                           ; ramgo2_bb.v                            ; --            ; --          ; --         ;
 ; NOMINAL_CORE_SUPPLY_VOLTAGE         ; 1.2V                                   ; --            ; --          ; --         ;
 ; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; --          ; Top        ;
 ; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family) ; --            ; --          ; Top        ;
@@ -107,11 +107,11 @@ agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:25     ; 1.0                     ; 4892 MB             ; 00:00:40                           ;
-; Fitter                    ; 00:00:51     ; 1.1                     ; 5883 MB             ; 00:01:42                           ;
-; Assembler                 ; 00:00:04     ; 1.0                     ; 4729 MB             ; 00:00:04                           ;
-; TimeQuest Timing Analyzer ; 00:00:10     ; 1.9                     ; 4967 MB             ; 00:00:10                           ;
-; Total                     ; 00:01:30     ; --                      ; --                  ; 00:02:36                           ;
+; Analysis & Synthesis      ; 00:00:29     ; 1.0                     ; 4905 MB             ; 00:00:43                           ;
+; Fitter                    ; 00:00:57     ; 1.1                     ; 5875 MB             ; 00:02:01                           ;
+; Assembler                 ; 00:00:04     ; 1.0                     ; 4741 MB             ; 00:00:04                           ;
+; TimeQuest Timing Analyzer ; 00:00:19     ; 1.2                     ; 4982 MB             ; 00:00:19                           ;
+; Total                     ; 00:01:49     ; --                      ; --                  ; 00:03:07                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
