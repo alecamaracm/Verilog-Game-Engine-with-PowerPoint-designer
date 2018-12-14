@@ -315,12 +315,28 @@ begin
 	if(yPixel>=(mouseY+24) && yPixel<(mouseY+25) && xPixel>=(mouseX+6) && xPixel<(mouseX+18)) {VGAr,VGAg,VGAb}={8'b00000000,8'b00000000,8'b00000000};
 	if(yPixel>=(mouseY+24) && yPixel<(mouseY+25) && xPixel>=(mouseX+18) && xPixel<(mouseX+19)) {VGAr,VGAg,VGAb}={8'b10100100,8'b10010000,8'b00000110};
 
+	//Drawing Solid shape "test"
+	if(xPixel>=testX && xPixel<=testX+404 && yPixel>=testY && yPixel<=testY+184)
+	begin
+		VGAr = 8'b01011011;
+		VGAg = 8'b10011011;
+		VGAb = 8'b11010101;
+		if(xPixel<testX+1 || xPixel>testX+403 || yPixel<testY+1 || yPixel>testY+183)    //Drawing border
+		begin
+			VGAr = 8'b01000001;
+			VGAg = 8'b01110001;
+			VGAb = 8'b10011100;
+		end
+	end
+
 end
 
 wire [9:0]peterX;
 wire [9:0]peterY;
 wire [9:0]einsteinX;
 wire [9:0]einsteinY;
+wire [9:0]testX;
+wire [9:0]testY;
 wire [9:0]BasictransparencyX;
 wire [9:0]BasictransparencyY;
 wire [9:0]bouncerX;
@@ -328,7 +344,7 @@ wire [9:0]bouncerY;
 wire [9:0]bouncerVISIBLE;
 
 
-animations anim1(animationCLOCK,reset,wasd,arrows,BasictransparencyX,BasictransparencyY,bouncerX,bouncerY,peterX,peterY,einsteinX,einsteinY);
+animations anim1(animationCLOCK,reset,wasd,arrows,BasictransparencyX,BasictransparencyY,bouncerX,bouncerY,peterX,peterY,einsteinX,einsteinY,testX,testY);
 wire [15:0]einsteinq;
 rameinstein einsteinram((((yPixel-einsteinY+einsteinSKIPY)/1)*(139) +(((xPixel-einsteinX)/1))+(einsteinSKIPX/1)+((139)*(einsteinsp))),CLOCK,16'd0,0,einsteinq);
 wire [15:0]peterq;
@@ -340,7 +356,7 @@ rambouncer bouncerram((((yPixel-bouncerY+bouncerSKIPY)/1)*(303) +(((xPixel-bounc
 
 endmodule
 
-module animations(animationCLOCK,reset,wasd,arrows,BasictransparencyX,BasictransparencyY,bouncerX,bouncerY,peterX,peterY,einsteinX,einsteinY);
+module animations(animationCLOCK,reset,wasd,arrows,BasictransparencyX,BasictransparencyY,bouncerX,bouncerY,peterX,peterY,einsteinX,einsteinY,testX,testY);
 
 input reset;
 output [9:0]peterX;
@@ -351,6 +367,10 @@ output [9:0]einsteinX;
 reg [9:0]einsteinX;
 output [9:0]einsteinY;
 reg [9:0]einsteinY;
+output [9:0]testX;
+reg [9:0]testX;
+output [9:0]testY;
+reg [9:0]testY;
 output [9:0]BasictransparencyX;
 reg [9:0]BasictransparencyX;
 reg BasictransparencyXDir;
@@ -377,6 +397,8 @@ initial begin
 	peterY=230;
 	bouncerX=223;
 	bouncerY=34;
+	testX=178;
+	testY=198;
 end
 
 
@@ -387,6 +409,11 @@ begin
 	if (wasd[3] == 1 && einsteinX < 600 - 139) einsteinX = einsteinX + 15;
 	if(wasd[0]==1 && einsteinY>100) einsteinY=einsteinY-15;
 	if(wasd[2]==1 && einsteinY<400-156) einsteinY=einsteinY+15;
+	//Writing WASD movement for testX:
+	if(wasd[1]==1 && testX>0) testX=testX-1;
+	if (wasd[3] == 1 && testX < 640 - 404) testX = testX + 1;
+	if(wasd[0]==1 && testY>0) testY=testY-1;
+	if(wasd[2]==1 && testY<480-184) testY=testY+1;
 
 	//Writing ARROWS movement for peterX:
 	if(arrows[1]==1 && peterX>200) peterX=peterX-5;

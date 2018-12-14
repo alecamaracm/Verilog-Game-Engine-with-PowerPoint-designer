@@ -1,10 +1,10 @@
-Analysis & Synthesis Status : Successful - Thu Dec 13 16:41:02 2018
+Analysis & Synthesis Status : Successful - Fri Dec 14 13:00:36 2018
 Quartus Prime Version : 16.1.0 Build 196 10/24/2016 SJ Lite Edition
 Revision Name : RealGame
 Top-level Entity Name : RealGame
 Family : Cyclone IV E
-Total logic elements : 6,129
-    Total combinational functions : 6,047
+Total logic elements : 6,137
+    Total combinational functions : 6,055
     Dedicated logic registers : 617
 Total registers : 617
 Total pins : 92

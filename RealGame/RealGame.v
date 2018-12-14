@@ -341,6 +341,7 @@ begin
 			begin
 				windRem=(windRand/4)+15;
 				windDir=(windRand+score)%2;
+				if(birdX<150)windDir=1;
 			end
 		end
 		

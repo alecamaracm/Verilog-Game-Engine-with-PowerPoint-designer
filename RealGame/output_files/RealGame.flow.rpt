@@ -1,5 +1,5 @@
 Flow report for RealGame
-Thu Dec 13 16:42:28 2018
+Fri Dec 14 13:01:46 2018
 Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
 
 
@@ -41,15 +41,15 @@ agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Thu Dec 13 16:42:08 2018       ;
+; Flow Status                        ; Successful - Fri Dec 14 13:01:29 2018       ;
 ; Quartus Prime Version              ; 16.1.0 Build 196 10/24/2016 SJ Lite Edition ;
 ; Revision Name                      ; RealGame                                    ;
 ; Top-level Entity Name              ; RealGame                                    ;
 ; Family                             ; Cyclone IV E                                ;
 ; Device                             ; EP4CE115F29C7                               ;
 ; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 6,098 / 114,480 ( 5 % )                     ;
-;     Total combinational functions  ; 6,048 / 114,480 ( 5 % )                     ;
+; Total logic elements               ; 6,102 / 114,480 ( 5 % )                     ;
+;     Total combinational functions  ; 6,056 / 114,480 ( 5 % )                     ;
 ;     Dedicated logic registers      ; 617 / 114,480 ( < 1 % )                     ;
 ; Total registers                    ; 617                                         ;
 ; Total pins                         ; 92 / 529 ( 17 % )                           ;
@@ -65,7 +65,7 @@ agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 12/13/2018 16:40:32 ;
+; Start date & time ; 12/14/2018 13:00:11 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; RealGame            ;
 +-------------------+---------------------+
@@ -76,7 +76,7 @@ agreement for further details.
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id ;
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
-; COMPILER_SIGNATURE_ID               ; 238177198224018.154473723215036        ; --            ; --          ; --         ;
+; COMPILER_SIGNATURE_ID               ; 238177198224018.154481041110972        ; --            ; --          ; --         ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --            ; --          ; --         ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --            ; --          ; --         ;
 ; MISC_FILE                           ; ramPIPEDOWN1_bb.v                      ; --            ; --          ; --         ;
@@ -107,11 +107,11 @@ agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:29     ; 1.0                     ; 4905 MB             ; 00:00:43                           ;
-; Fitter                    ; 00:00:57     ; 1.1                     ; 5875 MB             ; 00:02:01                           ;
-; Assembler                 ; 00:00:04     ; 1.0                     ; 4741 MB             ; 00:00:04                           ;
-; TimeQuest Timing Analyzer ; 00:00:19     ; 1.2                     ; 4982 MB             ; 00:00:19                           ;
-; Total                     ; 00:01:49     ; --                      ; --                  ; 00:03:07                           ;
+; Analysis & Synthesis      ; 00:00:24     ; 1.0                     ; 4906 MB             ; 00:00:37                           ;
+; Fitter                    ; 00:00:45     ; 1.1                     ; 5875 MB             ; 00:01:30                           ;
+; Assembler                 ; 00:00:04     ; 1.0                     ; 4743 MB             ; 00:00:03                           ;
+; TimeQuest Timing Analyzer ; 00:00:16     ; 1.4                     ; 4979 MB             ; 00:00:17                           ;
+; Total                     ; 00:01:29     ; --                      ; --                  ; 00:02:27                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

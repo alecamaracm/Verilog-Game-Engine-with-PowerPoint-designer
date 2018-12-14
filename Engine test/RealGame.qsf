@@ -221,4 +221,5 @@ set_global_assignment -name OPTIMIZATION_MODE BALANCED
 set_global_assignment -name QIP_FILE rameinstein.qip
 set_global_assignment -name QIP_FILE rampeter.qip
 set_global_assignment -name QIP_FILE rambouncer.qip
+set_global_assignment -name CDF_FILE output_files/Chain2.cdf
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
