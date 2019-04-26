@@ -1,5 +1,5 @@
 Analysis & Synthesis report for RealGame
-Fri Dec 14 13:11:10 2018
+Fri Dec 14 13:49:08 2018
 Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
 
 
@@ -80,15 +80,15 @@ agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Fri Dec 14 13:11:10 2018       ;
+; Analysis & Synthesis Status        ; Successful - Fri Dec 14 13:49:07 2018       ;
 ; Quartus Prime Version              ; 16.1.0 Build 196 10/24/2016 SJ Lite Edition ;
 ; Revision Name                      ; RealGame                                    ;
 ; Top-level Entity Name              ; RealGame                                    ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 4,438                                       ;
-;     Total combinational functions  ; 4,384                                       ;
-;     Dedicated logic registers      ; 348                                         ;
-; Total registers                    ; 348                                         ;
+; Total logic elements               ; 4,349                                       ;
+;     Total combinational functions  ; 4,295                                       ;
+;     Dedicated logic registers      ; 327                                         ;
+; Total registers                    ; 327                                         ;
 ; Total pins                         ; 74                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 2,097,152                                   ;
@@ -231,7 +231,7 @@ agreement for further details.
 ; db/decode_f8a.tdf                 ; yes             ; Auto-Generated Megafunction            ; C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/db/decode_f8a.tdf                 ;         ;
 ; db/mux_lob.tdf                    ; yes             ; Auto-Generated Megafunction            ; C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/db/mux_lob.tdf                    ;         ;
 ; db/altsyncram_drj1.tdf            ; yes             ; Auto-Generated Megafunction            ; C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/db/altsyncram_drj1.tdf            ;         ;
-; meminitialization/rampeter.mif    ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/meminitialization/rampeter.mif    ;         ;
+; ./memInitialization/rampeter.mif  ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/memInitialization/rampeter.mif    ;         ;
 ; db/altsyncram_r1k1.tdf            ; yes             ; Auto-Generated Megafunction            ; C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/db/altsyncram_r1k1.tdf            ;         ;
 ; meminitialization/rambouncer.mif  ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/meminitialization/rambouncer.mif  ;         ;
 ; db/decode_rsa.tdf                 ; yes             ; Auto-Generated Megafunction            ; C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/db/decode_rsa.tdf                 ;         ;
@@ -259,6 +259,8 @@ agreement for further details.
 ; db/add_sub_lgh.tdf                ; yes             ; Auto-Generated Megafunction            ; C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/db/add_sub_lgh.tdf                ;         ;
 ; db/add_sub_pgh.tdf                ; yes             ; Auto-Generated Megafunction            ; C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/db/add_sub_pgh.tdf                ;         ;
 ; altshift.tdf                      ; yes             ; Megafunction                           ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/altshift.tdf                               ;         ;
+; db/add_sub_jgh.tdf                ; yes             ; Auto-Generated Megafunction            ; C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/db/add_sub_jgh.tdf                ;         ;
+; db/add_sub_ngh.tdf                ; yes             ; Auto-Generated Megafunction            ; C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/db/add_sub_ngh.tdf                ;         ;
 ; db/add_sub_mgh.tdf                ; yes             ; Auto-Generated Megafunction            ; C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/db/add_sub_mgh.tdf                ;         ;
 ; db/add_sub_qgh.tdf                ; yes             ; Auto-Generated Megafunction            ; C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/db/add_sub_qgh.tdf                ;         ;
 +-----------------------------------+-----------------+----------------------------------------+---------------------------------------------------------------------------------------------------+---------+
@@ -269,20 +271,20 @@ agreement for further details.
 +---------------------------------------------+-------------+
 ; Resource                                    ; Usage       ;
 +---------------------------------------------+-------------+
-; Estimated Total logic elements              ; 4,438       ;
+; Estimated Total logic elements              ; 4,349       ;
 ;                                             ;             ;
-; Total combinational functions               ; 4384        ;
+; Total combinational functions               ; 4295        ;
 ; Logic element usage by number of LUT inputs ;             ;
-;     -- 4 input functions                    ; 1912        ;
-;     -- 3 input functions                    ; 1317        ;
-;     -- <=2 input functions                  ; 1155        ;
+;     -- 4 input functions                    ; 1951        ;
+;     -- 3 input functions                    ; 1256        ;
+;     -- <=2 input functions                  ; 1088        ;
 ;                                             ;             ;
 ; Logic elements by mode                      ;             ;
-;     -- normal mode                          ; 2654        ;
-;     -- arithmetic mode                      ; 1730        ;
+;     -- normal mode                          ; 2704        ;
+;     -- arithmetic mode                      ; 1591        ;
 ;                                             ;             ;
-; Total registers                             ; 348         ;
-;     -- Dedicated logic registers            ; 348         ;
+; Total registers                             ; 327         ;
+;     -- Dedicated logic registers            ; 327         ;
 ;     -- I/O registers                        ; 0           ;
 ;                                             ;             ;
 ; I/O pins                                    ; 74          ;
@@ -292,8 +294,8 @@ agreement for further details.
 ;                                             ;             ;
 ; Maximum fan-out node                        ; CLOCK~input ;
 ; Maximum fan-out                             ; 489         ;
-; Total fan-out                               ; 18925       ;
-; Average fan-out                             ; 3.68        ;
+; Total fan-out                               ; 18737       ;
+; Average fan-out                             ; 3.73        ;
 +---------------------------------------------+-------------+
 
 
@@ -302,9 +304,9 @@ agreement for further details.
 +------------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------+--------------+
 ; Compilation Hierarchy Node                           ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                                                   ; Entity Name                 ; Library Name ;
 +------------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------+--------------+
-; |RealGame                                            ; 4384 (1)            ; 348 (0)                   ; 2097152     ; 0            ; 0       ; 0         ; 74   ; 0            ; |RealGame                                                                                                                                                             ; RealGame                    ; work         ;
-;    |PP2VerilogDrawingController:drawings|            ; 3922 (3354)         ; 116 (0)                   ; 2097152     ; 0            ; 0       ; 0         ; 0    ; 0            ; |RealGame|PP2VerilogDrawingController:drawings                                                                                                                        ; PP2VerilogDrawingController ; work         ;
-;       |animations:anim1|                             ; 277 (277)           ; 102 (102)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RealGame|PP2VerilogDrawingController:drawings|animations:anim1                                                                                                       ; animations                  ; work         ;
+; |RealGame                                            ; 4295 (1)            ; 327 (0)                   ; 2097152     ; 0            ; 0       ; 0         ; 74   ; 0            ; |RealGame                                                                                                                                                             ; RealGame                    ; work         ;
+;    |PP2VerilogDrawingController:drawings|            ; 3831 (3330)         ; 95 (0)                    ; 2097152     ; 0            ; 0       ; 0         ; 0    ; 0            ; |RealGame|PP2VerilogDrawingController:drawings                                                                                                                        ; PP2VerilogDrawingController ; work         ;
+;       |animations:anim1|                             ; 203 (203)           ; 81 (81)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RealGame|PP2VerilogDrawingController:drawings|animations:anim1                                                                                                       ; animations                  ; work         ;
 ;       |lpm_mult:Mult0|                               ; 48 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RealGame|PP2VerilogDrawingController:drawings|lpm_mult:Mult0                                                                                                         ; lpm_mult                    ; work         ;
 ;          |multcore:mult_core|                        ; 48 (27)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RealGame|PP2VerilogDrawingController:drawings|lpm_mult:Mult0|multcore:mult_core                                                                                      ; multcore                    ; work         ;
 ;             |mpar_add:padder|                        ; 21 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RealGame|PP2VerilogDrawingController:drawings|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder                                                                      ; mpar_add                    ; work         ;
@@ -315,16 +317,16 @@ agreement for further details.
 ;                |mpar_add:sub_par_add|                ; 7 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RealGame|PP2VerilogDrawingController:drawings|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder|mpar_add:sub_par_add                                                 ; mpar_add                    ; work         ;
 ;                   |lpm_add_sub:adder[0]|             ; 7 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RealGame|PP2VerilogDrawingController:drawings|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder|mpar_add:sub_par_add|lpm_add_sub:adder[0]                            ; lpm_add_sub                 ; work         ;
 ;                      |add_sub_pgh:auto_generated|    ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RealGame|PP2VerilogDrawingController:drawings|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder|mpar_add:sub_par_add|lpm_add_sub:adder[0]|add_sub_pgh:auto_generated ; add_sub_pgh                 ; work         ;
-;       |lpm_mult:Mult2|                               ; 35 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RealGame|PP2VerilogDrawingController:drawings|lpm_mult:Mult2                                                                                                         ; lpm_mult                    ; work         ;
-;          |multcore:mult_core|                        ; 35 (20)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RealGame|PP2VerilogDrawingController:drawings|lpm_mult:Mult2|multcore:mult_core                                                                                      ; multcore                    ; work         ;
-;             |mpar_add:padder|                        ; 15 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RealGame|PP2VerilogDrawingController:drawings|lpm_mult:Mult2|multcore:mult_core|mpar_add:padder                                                                      ; mpar_add                    ; work         ;
-;                |lpm_add_sub:adder[0]|                ; 9 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RealGame|PP2VerilogDrawingController:drawings|lpm_mult:Mult2|multcore:mult_core|mpar_add:padder|lpm_add_sub:adder[0]                                                 ; lpm_add_sub                 ; work         ;
-;                   |add_sub_lgh:auto_generated|       ; 9 (9)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RealGame|PP2VerilogDrawingController:drawings|lpm_mult:Mult2|multcore:mult_core|mpar_add:padder|lpm_add_sub:adder[0]|add_sub_lgh:auto_generated                      ; add_sub_lgh                 ; work         ;
-;                |lpm_add_sub:adder[1]|                ; 1 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RealGame|PP2VerilogDrawingController:drawings|lpm_mult:Mult2|multcore:mult_core|mpar_add:padder|lpm_add_sub:adder[1]                                                 ; lpm_add_sub                 ; work         ;
-;                   |add_sub_lgh:auto_generated|       ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RealGame|PP2VerilogDrawingController:drawings|lpm_mult:Mult2|multcore:mult_core|mpar_add:padder|lpm_add_sub:adder[1]|add_sub_lgh:auto_generated                      ; add_sub_lgh                 ; work         ;
-;                |mpar_add:sub_par_add|                ; 5 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RealGame|PP2VerilogDrawingController:drawings|lpm_mult:Mult2|multcore:mult_core|mpar_add:padder|mpar_add:sub_par_add                                                 ; mpar_add                    ; work         ;
-;                   |lpm_add_sub:adder[0]|             ; 5 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RealGame|PP2VerilogDrawingController:drawings|lpm_mult:Mult2|multcore:mult_core|mpar_add:padder|mpar_add:sub_par_add|lpm_add_sub:adder[0]                            ; lpm_add_sub                 ; work         ;
-;                      |add_sub_pgh:auto_generated|    ; 5 (5)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RealGame|PP2VerilogDrawingController:drawings|lpm_mult:Mult2|multcore:mult_core|mpar_add:padder|mpar_add:sub_par_add|lpm_add_sub:adder[0]|add_sub_pgh:auto_generated ; add_sub_pgh                 ; work         ;
+;       |lpm_mult:Mult2|                               ; 43 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RealGame|PP2VerilogDrawingController:drawings|lpm_mult:Mult2                                                                                                         ; lpm_mult                    ; work         ;
+;          |multcore:mult_core|                        ; 43 (23)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RealGame|PP2VerilogDrawingController:drawings|lpm_mult:Mult2|multcore:mult_core                                                                                      ; multcore                    ; work         ;
+;             |mpar_add:padder|                        ; 20 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RealGame|PP2VerilogDrawingController:drawings|lpm_mult:Mult2|multcore:mult_core|mpar_add:padder                                                                      ; mpar_add                    ; work         ;
+;                |lpm_add_sub:adder[0]|                ; 10 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RealGame|PP2VerilogDrawingController:drawings|lpm_mult:Mult2|multcore:mult_core|mpar_add:padder|lpm_add_sub:adder[0]                                                 ; lpm_add_sub                 ; work         ;
+;                   |add_sub_jgh:auto_generated|       ; 10 (10)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RealGame|PP2VerilogDrawingController:drawings|lpm_mult:Mult2|multcore:mult_core|mpar_add:padder|lpm_add_sub:adder[0]|add_sub_jgh:auto_generated                      ; add_sub_jgh                 ; work         ;
+;                |lpm_add_sub:adder[1]|                ; 3 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RealGame|PP2VerilogDrawingController:drawings|lpm_mult:Mult2|multcore:mult_core|mpar_add:padder|lpm_add_sub:adder[1]                                                 ; lpm_add_sub                 ; work         ;
+;                   |add_sub_jgh:auto_generated|       ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RealGame|PP2VerilogDrawingController:drawings|lpm_mult:Mult2|multcore:mult_core|mpar_add:padder|lpm_add_sub:adder[1]|add_sub_jgh:auto_generated                      ; add_sub_jgh                 ; work         ;
+;                |mpar_add:sub_par_add|                ; 7 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RealGame|PP2VerilogDrawingController:drawings|lpm_mult:Mult2|multcore:mult_core|mpar_add:padder|mpar_add:sub_par_add                                                 ; mpar_add                    ; work         ;
+;                   |lpm_add_sub:adder[0]|             ; 7 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RealGame|PP2VerilogDrawingController:drawings|lpm_mult:Mult2|multcore:mult_core|mpar_add:padder|mpar_add:sub_par_add|lpm_add_sub:adder[0]                            ; lpm_add_sub                 ; work         ;
+;                      |add_sub_ngh:auto_generated|    ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RealGame|PP2VerilogDrawingController:drawings|lpm_mult:Mult2|multcore:mult_core|mpar_add:padder|mpar_add:sub_par_add|lpm_add_sub:adder[0]|add_sub_ngh:auto_generated ; add_sub_ngh                 ; work         ;
 ;       |lpm_mult:Mult4|                               ; 54 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RealGame|PP2VerilogDrawingController:drawings|lpm_mult:Mult4                                                                                                         ; lpm_mult                    ; work         ;
 ;          |multcore:mult_core|                        ; 54 (30)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RealGame|PP2VerilogDrawingController:drawings|lpm_mult:Mult4|multcore:mult_core                                                                                      ; multcore                    ; work         ;
 ;             |mpar_add:padder|                        ; 24 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RealGame|PP2VerilogDrawingController:drawings|lpm_mult:Mult4|multcore:mult_core|mpar_add:padder                                                                      ; mpar_add                    ; work         ;
@@ -345,15 +347,15 @@ agreement for further details.
 ;             |altsyncram_c5k1:auto_generated|         ; 34 (0)              ; 4 (4)                     ; 524288      ; 0            ; 0       ; 0         ; 0    ; 0            ; |RealGame|PP2VerilogDrawingController:drawings|rameinstein:einsteinram|altsyncram:altsyncram_component|altsyncram_c5k1:auto_generated                                 ; altsyncram_c5k1             ; work         ;
 ;                |decode_f8a:rden_decode|              ; 4 (4)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RealGame|PP2VerilogDrawingController:drawings|rameinstein:einsteinram|altsyncram:altsyncram_component|altsyncram_c5k1:auto_generated|decode_f8a:rden_decode          ; decode_f8a                  ; work         ;
 ;                |mux_lob:mux2|                        ; 30 (30)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RealGame|PP2VerilogDrawingController:drawings|rameinstein:einsteinram|altsyncram:altsyncram_component|altsyncram_c5k1:auto_generated|mux_lob:mux2                    ; mux_lob                     ; work         ;
-;       |rampeter:peterram|                            ; 33 (0)              ; 4 (0)                     ; 524288      ; 0            ; 0       ; 0         ; 0    ; 0            ; |RealGame|PP2VerilogDrawingController:drawings|rampeter:peterram                                                                                                      ; rampeter                    ; work         ;
-;          |altsyncram:altsyncram_component|           ; 33 (0)              ; 4 (0)                     ; 524288      ; 0            ; 0       ; 0         ; 0    ; 0            ; |RealGame|PP2VerilogDrawingController:drawings|rampeter:peterram|altsyncram:altsyncram_component                                                                      ; altsyncram                  ; work         ;
-;             |altsyncram_drj1:auto_generated|         ; 33 (0)              ; 4 (4)                     ; 524288      ; 0            ; 0       ; 0         ; 0    ; 0            ; |RealGame|PP2VerilogDrawingController:drawings|rampeter:peterram|altsyncram:altsyncram_component|altsyncram_drj1:auto_generated                                       ; altsyncram_drj1             ; work         ;
+;       |rampeter:peterram|                            ; 32 (0)              ; 4 (0)                     ; 524288      ; 0            ; 0       ; 0         ; 0    ; 0            ; |RealGame|PP2VerilogDrawingController:drawings|rampeter:peterram                                                                                                      ; rampeter                    ; work         ;
+;          |altsyncram:altsyncram_component|           ; 32 (0)              ; 4 (0)                     ; 524288      ; 0            ; 0       ; 0         ; 0    ; 0            ; |RealGame|PP2VerilogDrawingController:drawings|rampeter:peterram|altsyncram:altsyncram_component                                                                      ; altsyncram                  ; work         ;
+;             |altsyncram_drj1:auto_generated|         ; 32 (0)              ; 4 (4)                     ; 524288      ; 0            ; 0       ; 0         ; 0    ; 0            ; |RealGame|PP2VerilogDrawingController:drawings|rampeter:peterram|altsyncram:altsyncram_component|altsyncram_drj1:auto_generated                                       ; altsyncram_drj1             ; work         ;
 ;                |decode_f8a:rden_decode|              ; 4 (4)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RealGame|PP2VerilogDrawingController:drawings|rampeter:peterram|altsyncram:altsyncram_component|altsyncram_drj1:auto_generated|decode_f8a:rden_decode                ; decode_f8a                  ; work         ;
-;                |mux_lob:mux2|                        ; 29 (29)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RealGame|PP2VerilogDrawingController:drawings|rampeter:peterram|altsyncram:altsyncram_component|altsyncram_drj1:auto_generated|mux_lob:mux2                          ; mux_lob                     ; work         ;
+;                |mux_lob:mux2|                        ; 28 (28)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RealGame|PP2VerilogDrawingController:drawings|rampeter:peterram|altsyncram:altsyncram_component|altsyncram_drj1:auto_generated|mux_lob:mux2                          ; mux_lob                     ; work         ;
 ;    |VGADriver:driver|                                ; 60 (60)             ; 24 (24)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RealGame|VGADriver:driver                                                                                                                                            ; VGADriver                   ; work         ;
-;    |ps2Keyboard:keyboard|                            ; 58 (40)             ; 43 (13)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RealGame|ps2Keyboard:keyboard                                                                                                                                        ; ps2Keyboard                 ; work         ;
-;       |mouse_Inner_controller:innerMouse|            ; 18 (3)              ; 30 (5)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RealGame|ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse                                                                                                      ; mouse_Inner_controller      ; work         ;
-;          |Altera_UP_PS2_Data_In:PS2_Data_In|         ; 15 (15)             ; 25 (25)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RealGame|ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Data_In:PS2_Data_In                                                                    ; Altera_UP_PS2_Data_In       ; work         ;
+;    |ps2Keyboard:keyboard|                            ; 60 (41)             ; 43 (13)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RealGame|ps2Keyboard:keyboard                                                                                                                                        ; ps2Keyboard                 ; work         ;
+;       |mouse_Inner_controller:innerMouse|            ; 19 (3)              ; 30 (5)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RealGame|ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse                                                                                                      ; mouse_Inner_controller      ; work         ;
+;          |Altera_UP_PS2_Data_In:PS2_Data_In|         ; 16 (16)             ; 25 (25)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RealGame|ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Data_In:PS2_Data_In                                                                    ; Altera_UP_PS2_Data_In       ; work         ;
 ;    |ps2Mouse:mouse|                                  ; 343 (174)           ; 165 (68)                  ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RealGame|ps2Mouse:mouse                                                                                                                                              ; ps2Mouse                    ; work         ;
 ;       |mouse_Inner_controller:innerMouse|            ; 147 (9)             ; 97 (6)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RealGame|ps2Mouse:mouse|mouse_Inner_controller:innerMouse                                                                                                            ; mouse_Inner_controller      ; work         ;
 ;          |Altera_UP_PS2_Command_Out:PS2_Command_Out| ; 106 (106)           ; 66 (66)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RealGame|ps2Mouse:mouse|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out                                                                  ; Altera_UP_PS2_Command_Out   ; work         ;
@@ -509,6 +511,7 @@ Encoding Type:  One-Hot
 ; ps2Mouse:mouse|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|ps2_command[4..7]                                          ; Merged with ps2Mouse:mouse|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|ps2_command[2] ;
 ; ps2Mouse:mouse|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|ps2_command[1,3]                                           ; Merged with ps2Mouse:mouse|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|ps2_command[0] ;
 ; ps2Mouse:mouse|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|ps2_command[0]                                             ; Stuck at GND due to stuck port data_in                                                                                ;
+; PP2VerilogDrawingController:drawings|animations:anim1|BasictransparencyYDir                                                                           ; Stuck at GND due to stuck port data_in                                                                                ;
 ; ps2Mouse:mouse|mouseX[0]                                                                                                                              ; Stuck at GND due to stuck port data_in                                                                                ;
 ; ps2Mouse:mouse|mouseY[0]                                                                                                                              ; Stuck at GND due to stuck port data_in                                                                                ;
 ; ps2Mouse:mouse|nonActivity[53..55]                                                                                                                    ; Stuck at GND due to stuck port data_in                                                                                ;
@@ -550,7 +553,7 @@ Encoding Type:  One-Hot
 ; ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|s_ps2_transmitter.PS2_STATE_5_RECEIVE_ACK_BIT        ; Stuck at GND due to stuck port data_in                                                                                ;
 ; ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|transfer_counter[1..17]                              ; Stuck at GND due to stuck port data_in                                                                                ;
 ; ps2Mouse:mouse|nonActivity[18..50]                                                                                                                    ; Stuck at GND due to stuck port data_in                                                                                ;
-; Total Number of Removed Registers = 175                                                                                                               ;                                                                                                                       ;
+; Total Number of Removed Registers = 176                                                                                                               ;                                                                                                                       ;
 +-------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------+
 
 
@@ -645,12 +648,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 348   ;
+; Total registers                              ; 327   ;
 ; Number of registers using Synchronous Clear  ; 95    ;
 ; Number of registers using Synchronous Load   ; 20    ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 200   ;
+; Number of registers using Clock Enable       ; 191   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -660,24 +663,13 @@ Encoding Type:  One-Hot
 +-----------------------------------------------------------------------------+---------+
 ; Inverted Register                                                           ; Fan out ;
 +-----------------------------------------------------------------------------+---------+
-; PP2VerilogDrawingController:drawings|animations:anim1|testX[7]              ; 6       ;
-; PP2VerilogDrawingController:drawings|animations:anim1|testX[5]              ; 6       ;
-; PP2VerilogDrawingController:drawings|animations:anim1|testX[4]              ; 6       ;
-; PP2VerilogDrawingController:drawings|animations:anim1|testX[1]              ; 6       ;
-; PP2VerilogDrawingController:drawings|animations:anim1|testY[7]              ; 6       ;
-; PP2VerilogDrawingController:drawings|animations:anim1|testY[6]              ; 6       ;
-; PP2VerilogDrawingController:drawings|animations:anim1|testY[2]              ; 6       ;
-; PP2VerilogDrawingController:drawings|animations:anim1|testY[1]              ; 6       ;
-; PP2VerilogDrawingController:drawings|animations:anim1|peterY[7]             ; 6       ;
-; PP2VerilogDrawingController:drawings|animations:anim1|peterY[6]             ; 6       ;
+; PP2VerilogDrawingController:drawings|animations:anim1|peterY[8]             ; 6       ;
 ; PP2VerilogDrawingController:drawings|animations:anim1|peterY[5]             ; 6       ;
-; PP2VerilogDrawingController:drawings|animations:anim1|peterY[2]             ; 6       ;
-; PP2VerilogDrawingController:drawings|animations:anim1|peterY[1]             ; 7       ;
-; PP2VerilogDrawingController:drawings|animations:anim1|peterX[7]             ; 6       ;
-; PP2VerilogDrawingController:drawings|animations:anim1|peterX[6]             ; 6       ;
-; PP2VerilogDrawingController:drawings|animations:anim1|peterX[5]             ; 6       ;
+; PP2VerilogDrawingController:drawings|animations:anim1|peterY[1]             ; 6       ;
+; PP2VerilogDrawingController:drawings|animations:anim1|peterX[8]             ; 6       ;
 ; PP2VerilogDrawingController:drawings|animations:anim1|peterX[4]             ; 6       ;
-; PP2VerilogDrawingController:drawings|animations:anim1|peterX[1]             ; 7       ;
+; PP2VerilogDrawingController:drawings|animations:anim1|peterX[3]             ; 6       ;
+; PP2VerilogDrawingController:drawings|animations:anim1|peterX[1]             ; 6       ;
 ; PP2VerilogDrawingController:drawings|animations:anim1|einsteinY[8]          ; 6       ;
 ; PP2VerilogDrawingController:drawings|animations:anim1|einsteinY[5]          ; 6       ;
 ; PP2VerilogDrawingController:drawings|animations:anim1|einsteinY[2]          ; 6       ;
@@ -686,14 +678,11 @@ Encoding Type:  One-Hot
 ; PP2VerilogDrawingController:drawings|animations:anim1|einsteinX[6]          ; 6       ;
 ; PP2VerilogDrawingController:drawings|animations:anim1|einsteinX[4]          ; 6       ;
 ; PP2VerilogDrawingController:drawings|animations:anim1|einsteinX[2]          ; 6       ;
+; PP2VerilogDrawingController:drawings|animations:anim1|BasictransparencyY[5] ; 5       ;
+; PP2VerilogDrawingController:drawings|animations:anim1|BasictransparencyY[3] ; 6       ;
+; PP2VerilogDrawingController:drawings|animations:anim1|BasictransparencyY[4] ; 5       ;
 ; PP2VerilogDrawingController:drawings|animations:anim1|BasictransparencyX[3] ; 7       ;
 ; PP2VerilogDrawingController:drawings|animations:anim1|BasictransparencyX[2] ; 7       ;
-; PP2VerilogDrawingController:drawings|animations:anim1|BasictransparencyY[7] ; 9       ;
-; PP2VerilogDrawingController:drawings|animations:anim1|BasictransparencyY[5] ; 7       ;
-; PP2VerilogDrawingController:drawings|animations:anim1|BasictransparencyY[4] ; 7       ;
-; PP2VerilogDrawingController:drawings|animations:anim1|BasictransparencyY[3] ; 7       ;
-; PP2VerilogDrawingController:drawings|animations:anim1|BasictransparencyY[1] ; 7       ;
-; PP2VerilogDrawingController:drawings|animations:anim1|BasictransparencyY[2] ; 8       ;
 ; PP2VerilogDrawingController:drawings|animations:anim1|bouncerY[5]           ; 6       ;
 ; PP2VerilogDrawingController:drawings|animations:anim1|bouncerY[1]           ; 6       ;
 ; PP2VerilogDrawingController:drawings|animations:anim1|bouncerX[7]           ; 6       ;
@@ -703,46 +692,44 @@ Encoding Type:  One-Hot
 ; PP2VerilogDrawingController:drawings|animations:anim1|bouncerX[2]           ; 6       ;
 ; PP2VerilogDrawingController:drawings|animations:anim1|bouncerX[1]           ; 6       ;
 ; PP2VerilogDrawingController:drawings|animations:anim1|bouncerX[0]           ; 7       ;
-; Total number of inverted registers = 43                                     ;         ;
+; Total number of inverted registers = 29                                     ;         ;
 +-----------------------------------------------------------------------------+---------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                                                                       ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                                                             ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------------------------------------------------------------------------+
-; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |RealGame|ps2Mouse:mouse|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|ps2_command[8]                    ;
-; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |RealGame|VGADriver:driver|yPos[2]                                                                                                     ;
-; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |RealGame|VGADriver:driver|xPos[0]                                                                                                     ;
-; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |RealGame|PP2VerilogDrawingController:drawings|animations:anim1|BasictransparencyX[4]                                                  ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |RealGame|PP2VerilogDrawingController:drawings|animations:anim1|BasictransparencyY[6]                                                  ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |RealGame|PP2VerilogDrawingController:drawings|animations:anim1|bouncerY[7]                                                            ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |RealGame|PP2VerilogDrawingController:drawings|animations:anim1|bouncerX[9]                                                            ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |RealGame|ps2Mouse:mouse|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Data_In:PS2_Data_In|data_shift_reg[3]                         ;
-; 3:1                ; 56 bits   ; 112 LEs       ; 56 LEs               ; 56 LEs                 ; Yes        ; |RealGame|ps2Mouse:mouse|nonActivity[42]                                                                                               ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |RealGame|ps2Mouse:mouse|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Data_In:PS2_Data_In|received_data[5]                          ;
-; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |RealGame|ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|transfer_counter[4]         ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |RealGame|ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Data_In:PS2_Data_In|data_count[3]                       ;
-; 3:1                ; 13 bits   ; 26 LEs        ; 13 LEs               ; 13 LEs                 ; Yes        ; |RealGame|ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|command_initiate_counter[8] ;
-; 3:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |RealGame|ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|waiting_counter[12]         ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |RealGame|ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|cur_bit[1]                  ;
-; 4:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |RealGame|ps2Mouse:mouse|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|transfer_counter[5]               ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |RealGame|ps2Mouse:mouse|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Data_In:PS2_Data_In|data_count[0]                             ;
-; 5:1                ; 10 bits   ; 30 LEs        ; 20 LEs               ; 10 LEs                 ; Yes        ; |RealGame|ps2Mouse:mouse|mouseX[1]                                                                                                     ;
-; 5:1                ; 10 bits   ; 30 LEs        ; 20 LEs               ; 10 LEs                 ; Yes        ; |RealGame|ps2Mouse:mouse|mouseY[7]                                                                                                     ;
-; 4:1                ; 13 bits   ; 26 LEs        ; 13 LEs               ; 13 LEs                 ; Yes        ; |RealGame|ps2Mouse:mouse|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|command_initiate_counter[2]       ;
-; 4:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |RealGame|ps2Mouse:mouse|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|waiting_counter[11]               ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |RealGame|ps2Mouse:mouse|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|cur_bit[3]                        ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |RealGame|PP2VerilogDrawingController:drawings|animations:anim1|BasictransparencyX[3]                                                  ;
-; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |RealGame|PP2VerilogDrawingController:drawings|animations:anim1|BasictransparencyY[1]                                                  ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |RealGame|PP2VerilogDrawingController:drawings|animations:anim1|bouncerY[1]                                                            ;
-; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |RealGame|PP2VerilogDrawingController:drawings|animations:anim1|bouncerX[3]                                                            ;
-; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |RealGame|PP2VerilogDrawingController:drawings|VGAg                                                                                    ;
-; 4:1                ; 15 bits   ; 30 LEs        ; 30 LEs               ; 0 LEs                  ; No         ; |RealGame|PP2VerilogDrawingController:drawings|VGAg                                                                                    ;
-; 251:1              ; 11 bits   ; 1837 LEs      ; 1837 LEs             ; 0 LEs                  ; No         ; |RealGame|PP2VerilogDrawingController:drawings|VGAb[5]                                                                                 ;
-; 251:1              ; 10 bits   ; 1670 LEs      ; 1670 LEs             ; 0 LEs                  ; No         ; |RealGame|PP2VerilogDrawingController:drawings|VGAb[6]                                                                                 ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------------------------------------------------------------------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                                                                        ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                                                              ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------------------------------------------------------------------+
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |RealGame|ps2Mouse:mouse|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|ps2_command[2]                     ;
+; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |RealGame|VGADriver:driver|yPos[6]                                                                                                      ;
+; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |RealGame|VGADriver:driver|xPos[10]                                                                                                     ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |RealGame|PP2VerilogDrawingController:drawings|animations:anim1|BasictransparencyX[7]                                                   ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |RealGame|PP2VerilogDrawingController:drawings|animations:anim1|bouncerY[0]                                                             ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |RealGame|PP2VerilogDrawingController:drawings|animations:anim1|bouncerX[8]                                                             ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |RealGame|ps2Mouse:mouse|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Data_In:PS2_Data_In|data_shift_reg[0]                          ;
+; 3:1                ; 56 bits   ; 112 LEs       ; 56 LEs               ; 56 LEs                 ; Yes        ; |RealGame|ps2Mouse:mouse|nonActivity[12]                                                                                                ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |RealGame|ps2Mouse:mouse|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Data_In:PS2_Data_In|received_data[0]                           ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |RealGame|ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|transfer_counter[17]         ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |RealGame|ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Data_In:PS2_Data_In|data_count[2]                        ;
+; 3:1                ; 13 bits   ; 26 LEs        ; 13 LEs               ; 13 LEs                 ; Yes        ; |RealGame|ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|command_initiate_counter[12] ;
+; 3:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |RealGame|ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|waiting_counter[8]           ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |RealGame|ps2Keyboard:keyboard|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|cur_bit[2]                   ;
+; 4:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |RealGame|ps2Mouse:mouse|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|transfer_counter[6]                ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |RealGame|ps2Mouse:mouse|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Data_In:PS2_Data_In|data_count[0]                              ;
+; 5:1                ; 10 bits   ; 30 LEs        ; 20 LEs               ; 10 LEs                 ; Yes        ; |RealGame|ps2Mouse:mouse|mouseX[5]                                                                                                      ;
+; 5:1                ; 10 bits   ; 30 LEs        ; 20 LEs               ; 10 LEs                 ; Yes        ; |RealGame|ps2Mouse:mouse|mouseY[7]                                                                                                      ;
+; 4:1                ; 13 bits   ; 26 LEs        ; 13 LEs               ; 13 LEs                 ; Yes        ; |RealGame|ps2Mouse:mouse|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|command_initiate_counter[12]       ;
+; 4:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |RealGame|ps2Mouse:mouse|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|waiting_counter[12]                ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |RealGame|ps2Mouse:mouse|mouse_Inner_controller:innerMouse|Altera_UP_PS2_Command_Out:PS2_Command_Out|cur_bit[3]                         ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |RealGame|PP2VerilogDrawingController:drawings|animations:anim1|BasictransparencyX[2]                                                   ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |RealGame|PP2VerilogDrawingController:drawings|animations:anim1|bouncerY[1]                                                             ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |RealGame|PP2VerilogDrawingController:drawings|animations:anim1|bouncerX[7]                                                             ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |RealGame|PP2VerilogDrawingController:drawings|VGAb                                                                                     ;
+; 4:1                ; 15 bits   ; 30 LEs        ; 30 LEs               ; 0 LEs                  ; No         ; |RealGame|PP2VerilogDrawingController:drawings|VGAb                                                                                     ;
+; 249:1              ; 2 bits    ; 332 LEs       ; 2 LEs                ; 330 LEs                ; No         ; |RealGame|PP2VerilogDrawingController:drawings|VGAr[0]                                                                                  ;
+; 250:1              ; 21 bits   ; 3486 LEs      ; 3486 LEs             ; 0 LEs                  ; No         ; |RealGame|PP2VerilogDrawingController:drawings|VGAb[5]                                                                                  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------------------------------------------------------------------+
 
 
 +----------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -1052,9 +1039,9 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; AUTO_CASCADE_CHAINS                            ; ON           ; AUTO_CASCADE                         ;
 ; IGNORE_CASCADE_BUFFERS                         ; OFF          ; IGNORE_CASCADE                       ;
 ; LPM_WIDTHA                                     ; 15           ; Untyped                              ;
-; LPM_WIDTHB                                     ; 8            ; Untyped                              ;
-; LPM_WIDTHP                                     ; 23           ; Untyped                              ;
-; LPM_WIDTHR                                     ; 23           ; Untyped                              ;
+; LPM_WIDTHB                                     ; 6            ; Untyped                              ;
+; LPM_WIDTHP                                     ; 21           ; Untyped                              ;
+; LPM_WIDTHR                                     ; 21           ; Untyped                              ;
 ; LPM_WIDTHS                                     ; 1            ; Untyped                              ;
 ; LPM_REPRESENTATION                             ; UNSIGNED     ; Untyped                              ;
 ; LPM_PIPELINE                                   ; 0            ; Untyped                              ;
@@ -1173,8 +1160,8 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;     -- INPUT_B_FIXED_VALUE            ; Bx                                                  ;
 ; Entity Instance                       ; PP2VerilogDrawingController:drawings|lpm_mult:Mult2 ;
 ;     -- LPM_WIDTHA                     ; 15                                                  ;
-;     -- LPM_WIDTHB                     ; 8                                                   ;
-;     -- LPM_WIDTHP                     ; 23                                                  ;
+;     -- LPM_WIDTHB                     ; 6                                                   ;
+;     -- LPM_WIDTHP                     ; 21                                                  ;
 ;     -- LPM_REPRESENTATION             ; UNSIGNED                                            ;
 ;     -- INPUT_A_IS_CONSTANT            ; NO                                                  ;
 ;     -- INPUT_B_IS_CONSTANT            ; YES                                                 ;
@@ -1322,27 +1309,27 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 74                          ;
-; cycloneiii_ff         ; 348                         ;
-;     ENA               ; 119                         ;
+; cycloneiii_ff         ; 327                         ;
+;     ENA               ; 110                         ;
 ;     ENA SCLR          ; 61                          ;
 ;     ENA SCLR SLD      ; 20                          ;
 ;     SCLR              ; 14                          ;
-;     plain             ; 134                         ;
+;     plain             ; 122                         ;
 ; cycloneiii_io_obuf    ; 4                           ;
-; cycloneiii_lcell_comb ; 4384                        ;
-;     arith             ; 1730                        ;
-;         2 data inputs ; 777                         ;
-;         3 data inputs ; 953                         ;
-;     normal            ; 2654                        ;
-;         0 data inputs ; 80                          ;
-;         1 data inputs ; 65                          ;
-;         2 data inputs ; 233                         ;
-;         3 data inputs ; 364                         ;
-;         4 data inputs ; 1912                        ;
+; cycloneiii_lcell_comb ; 4295                        ;
+;     arith             ; 1591                        ;
+;         2 data inputs ; 730                         ;
+;         3 data inputs ; 861                         ;
+;     normal            ; 2704                        ;
+;         0 data inputs ; 75                          ;
+;         1 data inputs ; 51                          ;
+;         2 data inputs ; 232                         ;
+;         3 data inputs ; 395                         ;
+;         4 data inputs ; 1951                        ;
 ; cycloneiii_ram_block  ; 256                         ;
 ;                       ;                             ;
-; Max LUT depth         ; 26.90                       ;
-; Average LUT depth     ; 14.52                       ;
+; Max LUT depth         ; 27.90                       ;
+; Average LUT depth     ; 14.71                       ;
 +-----------------------+-----------------------------+
 
 
@@ -1351,7 +1338,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:14     ;
+; Top            ; 00:00:12     ;
 +----------------+--------------+
 
 
@@ -1361,7 +1348,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
-    Info: Processing started: Fri Dec 14 13:10:44 2018
+    Info: Processing started: Fri Dec 14 13:48:44 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off RealGame -c RealGame
 Warning (125092): Tcl Script File ramPIPEDOWN2.qip not found
     Info (125063): set_global_assignment -name QIP_FILE ramPIPEDOWN2.qip
@@ -1382,7 +1369,7 @@ Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors
 Warning (10238): Verilog Module Declaration warning at IH8Verilog_main.v(4): ignored anonymous port(s) indicated by duplicate or dangling comma(s) in the port list for module "PP2VerilogDrawingController" File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 4
 Info (12021): Found 2 design units, including 2 entities, in source file ih8verilog_main.v
     Info (12023): Found entity 1: PP2VerilogDrawingController File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 4
-    Info (12023): Found entity 2: animations File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 359
+    Info (12023): Found entity 2: animations File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 343
 Info (12021): Found 3 design units, including 3 entities, in source file ps2_controller.v
     Info (12023): Found entity 1: mouse_Inner_controller File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/PS2_Controller.v Line: 8
     Info (12023): Found entity 2: Altera_UP_PS2_Data_In File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/PS2_Controller.v Line: 152
@@ -1442,15 +1429,15 @@ Info (12021): Found 1 design units, including 1 entities, in source file rampete
     Info (12023): Found entity 1: rampeter File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/rampeter.v Line: 40
 Info (12021): Found 1 design units, including 1 entities, in source file rambouncer.v
     Info (12023): Found entity 1: rambouncer File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/rambouncer.v Line: 40
-Warning (10236): Verilog HDL Implicit Net warning at IH8Verilog_main.v(349): created implicit net for "einsteinSKIPY" File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 349
-Warning (10236): Verilog HDL Implicit Net warning at IH8Verilog_main.v(349): created implicit net for "einsteinSKIPX" File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 349
-Warning (10236): Verilog HDL Implicit Net warning at IH8Verilog_main.v(349): created implicit net for "einsteinsp" File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 349
-Warning (10236): Verilog HDL Implicit Net warning at IH8Verilog_main.v(351): created implicit net for "peterSKIPY" File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 351
-Warning (10236): Verilog HDL Implicit Net warning at IH8Verilog_main.v(351): created implicit net for "peterSKIPX" File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 351
-Warning (10236): Verilog HDL Implicit Net warning at IH8Verilog_main.v(351): created implicit net for "petersp" File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 351
-Warning (10236): Verilog HDL Implicit Net warning at IH8Verilog_main.v(353): created implicit net for "bouncerSKIPY" File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 353
-Warning (10236): Verilog HDL Implicit Net warning at IH8Verilog_main.v(353): created implicit net for "bouncerSKIPX" File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 353
-Warning (10236): Verilog HDL Implicit Net warning at IH8Verilog_main.v(353): created implicit net for "bouncersp" File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 353
+Warning (10236): Verilog HDL Implicit Net warning at IH8Verilog_main.v(333): created implicit net for "einsteinSKIPY" File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 333
+Warning (10236): Verilog HDL Implicit Net warning at IH8Verilog_main.v(333): created implicit net for "einsteinSKIPX" File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 333
+Warning (10236): Verilog HDL Implicit Net warning at IH8Verilog_main.v(333): created implicit net for "einsteinsp" File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 333
+Warning (10236): Verilog HDL Implicit Net warning at IH8Verilog_main.v(335): created implicit net for "peterSKIPY" File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 335
+Warning (10236): Verilog HDL Implicit Net warning at IH8Verilog_main.v(335): created implicit net for "peterSKIPX" File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 335
+Warning (10236): Verilog HDL Implicit Net warning at IH8Verilog_main.v(335): created implicit net for "petersp" File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 335
+Warning (10236): Verilog HDL Implicit Net warning at IH8Verilog_main.v(337): created implicit net for "bouncerSKIPY" File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 337
+Warning (10236): Verilog HDL Implicit Net warning at IH8Verilog_main.v(337): created implicit net for "bouncerSKIPX" File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 337
+Warning (10236): Verilog HDL Implicit Net warning at IH8Verilog_main.v(337): created implicit net for "bouncersp" File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 337
 Warning (10236): Verilog HDL Implicit Net warning at RealGame.v(44): created implicit net for "reset" File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/RealGame.v Line: 44
 Warning (10236): Verilog HDL Implicit Net warning at RealGame.v(44): created implicit net for "colgeniuses" File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/RealGame.v Line: 44
 Critical Warning (10846): Verilog HDL Instantiation warning at mouse.v(185): instance has no name File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/mouse.v Line: 185
@@ -1475,37 +1462,33 @@ Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(58): trunca
 Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(63): truncated value with size 32 to match size of target (8) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 63
 Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(64): truncated value with size 32 to match size of target (8) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 64
 Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(65): truncated value with size 32 to match size of target (8) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 65
-Warning (10030): Net "einsteinSKIPY" at IH8Verilog_main.v(349) has no driver or initial value, using a default initial value '0' File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 349
-Warning (10030): Net "einsteinSKIPX" at IH8Verilog_main.v(349) has no driver or initial value, using a default initial value '0' File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 349
-Warning (10030): Net "einsteinsp" at IH8Verilog_main.v(349) has no driver or initial value, using a default initial value '0' File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 349
-Warning (10030): Net "peterSKIPY" at IH8Verilog_main.v(351) has no driver or initial value, using a default initial value '0' File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 351
-Warning (10030): Net "peterSKIPX" at IH8Verilog_main.v(351) has no driver or initial value, using a default initial value '0' File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 351
-Warning (10030): Net "petersp" at IH8Verilog_main.v(351) has no driver or initial value, using a default initial value '0' File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 351
-Warning (10030): Net "bouncerSKIPY" at IH8Verilog_main.v(353) has no driver or initial value, using a default initial value '0' File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 353
-Warning (10030): Net "bouncerSKIPX" at IH8Verilog_main.v(353) has no driver or initial value, using a default initial value '0' File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 353
-Warning (10030): Net "bouncersp" at IH8Verilog_main.v(353) has no driver or initial value, using a default initial value '0' File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 353
-Info (12128): Elaborating entity "animations" for hierarchy "PP2VerilogDrawingController:drawings|animations:anim1" File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 347
-Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(408): truncated value with size 32 to match size of target (10) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 408
-Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(409): truncated value with size 32 to match size of target (10) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 409
-Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(410): truncated value with size 32 to match size of target (10) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 410
-Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(411): truncated value with size 32 to match size of target (10) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 411
-Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(413): truncated value with size 32 to match size of target (10) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 413
-Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(414): truncated value with size 32 to match size of target (10) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 414
-Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(415): truncated value with size 32 to match size of target (10) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 415
-Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(416): truncated value with size 32 to match size of target (10) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 416
-Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(419): truncated value with size 32 to match size of target (10) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 419
-Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(420): truncated value with size 32 to match size of target (10) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 420
-Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(421): truncated value with size 32 to match size of target (10) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 421
-Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(422): truncated value with size 32 to match size of target (10) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 422
-Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(433): truncated value with size 32 to match size of target (10) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 433
-Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(444): truncated value with size 32 to match size of target (10) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 444
-Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(455): truncated value with size 32 to match size of target (10) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 455
-Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(466): truncated value with size 32 to match size of target (10) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 466
-Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(478): truncated value with size 32 to match size of target (10) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 478
-Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(489): truncated value with size 32 to match size of target (10) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 489
-Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(500): truncated value with size 32 to match size of target (10) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 500
-Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(511): truncated value with size 32 to match size of target (10) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 511
-Info (12128): Elaborating entity "rameinstein" for hierarchy "PP2VerilogDrawingController:drawings|rameinstein:einsteinram" File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 349
+Warning (10030): Net "einsteinSKIPY" at IH8Verilog_main.v(333) has no driver or initial value, using a default initial value '0' File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 333
+Warning (10030): Net "einsteinSKIPX" at IH8Verilog_main.v(333) has no driver or initial value, using a default initial value '0' File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 333
+Warning (10030): Net "einsteinsp" at IH8Verilog_main.v(333) has no driver or initial value, using a default initial value '0' File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 333
+Warning (10030): Net "peterSKIPY" at IH8Verilog_main.v(335) has no driver or initial value, using a default initial value '0' File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 335
+Warning (10030): Net "peterSKIPX" at IH8Verilog_main.v(335) has no driver or initial value, using a default initial value '0' File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 335
+Warning (10030): Net "petersp" at IH8Verilog_main.v(335) has no driver or initial value, using a default initial value '0' File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 335
+Warning (10030): Net "bouncerSKIPY" at IH8Verilog_main.v(337) has no driver or initial value, using a default initial value '0' File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 337
+Warning (10030): Net "bouncerSKIPX" at IH8Verilog_main.v(337) has no driver or initial value, using a default initial value '0' File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 337
+Warning (10030): Net "bouncersp" at IH8Verilog_main.v(337) has no driver or initial value, using a default initial value '0' File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 337
+Info (12128): Elaborating entity "animations" for hierarchy "PP2VerilogDrawingController:drawings|animations:anim1" File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 331
+Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(386): truncated value with size 32 to match size of target (10) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 386
+Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(387): truncated value with size 32 to match size of target (10) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 387
+Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(388): truncated value with size 32 to match size of target (10) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 388
+Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(389): truncated value with size 32 to match size of target (10) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 389
+Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(392): truncated value with size 32 to match size of target (10) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 392
+Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(393): truncated value with size 32 to match size of target (10) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 393
+Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(394): truncated value with size 32 to match size of target (10) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 394
+Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(395): truncated value with size 32 to match size of target (10) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 395
+Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(406): truncated value with size 32 to match size of target (10) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 406
+Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(417): truncated value with size 32 to match size of target (10) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 417
+Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(428): truncated value with size 32 to match size of target (10) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 428
+Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(439): truncated value with size 32 to match size of target (10) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 439
+Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(451): truncated value with size 32 to match size of target (10) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 451
+Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(462): truncated value with size 32 to match size of target (10) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 462
+Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(473): truncated value with size 32 to match size of target (10) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 473
+Warning (10230): Verilog HDL assignment warning at IH8Verilog_main.v(484): truncated value with size 32 to match size of target (10) File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 484
+Info (12128): Elaborating entity "rameinstein" for hierarchy "PP2VerilogDrawingController:drawings|rameinstein:einsteinram" File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 333
 Info (12128): Elaborating entity "altsyncram" for hierarchy "PP2VerilogDrawingController:drawings|rameinstein:einsteinram|altsyncram:altsyncram_component" File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/rameinstein.v Line: 86
 Info (12130): Elaborated megafunction instantiation "PP2VerilogDrawingController:drawings|rameinstein:einsteinram|altsyncram:altsyncram_component" File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/rameinstein.v Line: 86
 Info (12133): Instantiated megafunction "PP2VerilogDrawingController:drawings|rameinstein:einsteinram|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/rameinstein.v Line: 86
@@ -1536,7 +1519,7 @@ Info (12128): Elaborating entity "decode_f8a" for hierarchy "PP2VerilogDrawingCo
 Info (12021): Found 1 design units, including 1 entities, in source file db/mux_lob.tdf
     Info (12023): Found entity 1: mux_lob File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/db/mux_lob.tdf Line: 23
 Info (12128): Elaborating entity "mux_lob" for hierarchy "PP2VerilogDrawingController:drawings|rameinstein:einsteinram|altsyncram:altsyncram_component|altsyncram_c5k1:auto_generated|mux_lob:mux2" File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/db/altsyncram_c5k1.tdf Line: 47
-Info (12128): Elaborating entity "rampeter" for hierarchy "PP2VerilogDrawingController:drawings|rampeter:peterram" File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 351
+Info (12128): Elaborating entity "rampeter" for hierarchy "PP2VerilogDrawingController:drawings|rampeter:peterram" File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 335
 Info (12128): Elaborating entity "altsyncram" for hierarchy "PP2VerilogDrawingController:drawings|rampeter:peterram|altsyncram:altsyncram_component" File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/rampeter.v Line: 86
 Info (12130): Elaborated megafunction instantiation "PP2VerilogDrawingController:drawings|rampeter:peterram|altsyncram:altsyncram_component" File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/rampeter.v Line: 86
 Info (12133): Instantiated megafunction "PP2VerilogDrawingController:drawings|rampeter:peterram|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/rampeter.v Line: 86
@@ -1558,7 +1541,8 @@ Info (12133): Instantiated megafunction "PP2VerilogDrawingController:drawings|ra
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_drj1.tdf
     Info (12023): Found entity 1: altsyncram_drj1 File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/db/altsyncram_drj1.tdf Line: 34
 Info (12128): Elaborating entity "altsyncram_drj1" for hierarchy "PP2VerilogDrawingController:drawings|rampeter:peterram|altsyncram:altsyncram_component|altsyncram_drj1:auto_generated" File: c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
-Info (12128): Elaborating entity "rambouncer" for hierarchy "PP2VerilogDrawingController:drawings|rambouncer:bouncerram" File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 353
+Critical Warning (127005): Memory depth (32768) in the design file differs from memory depth (2601) in the Memory Initialization File "C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/memInitialization/rampeter.mif" -- setting initial value for remaining addresses to 0 File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/rampeter.v Line: 86
+Info (12128): Elaborating entity "rambouncer" for hierarchy "PP2VerilogDrawingController:drawings|rambouncer:bouncerram" File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 337
 Info (12128): Elaborating entity "altsyncram" for hierarchy "PP2VerilogDrawingController:drawings|rambouncer:bouncerram|altsyncram:altsyncram_component" File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/rambouncer.v Line: 86
 Info (12130): Elaborated megafunction instantiation "PP2VerilogDrawingController:drawings|rambouncer:bouncerram|altsyncram:altsyncram_component" File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/rambouncer.v Line: 86
 Info (12133): Instantiated megafunction "PP2VerilogDrawingController:drawings|rambouncer:bouncerram|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/rambouncer.v Line: 86
@@ -1608,11 +1592,11 @@ Info (12128): Elaborating entity "bit8Adder" for hierarchy "ps2Mouse:mouse|twoCo
 Info (12128): Elaborating entity "fullAdder" for hierarchy "ps2Mouse:mouse|twoComp:compX|bit8Adder:comb_11|fullAdder:bit1" File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/mouse.v Line: 219
 Warning (12030): Port "ordered port 8" on the entity instantiation of "PS2_Data_In" is connected to a signal of width 1. The formal width of the signal in the module is 8.  The extra bits will be left dangling without any fan-out logic. File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/PS2_Controller.v Line: 145
 Info (278001): Inferred 3 megafunctions from design logic
-    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "PP2VerilogDrawingController:drawings|Mult0" File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 349
-    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "PP2VerilogDrawingController:drawings|Mult2" File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 351
-    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "PP2VerilogDrawingController:drawings|Mult4" File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 353
-Info (12130): Elaborated megafunction instantiation "PP2VerilogDrawingController:drawings|lpm_mult:Mult0" File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 349
-Info (12133): Instantiated megafunction "PP2VerilogDrawingController:drawings|lpm_mult:Mult0" with the following parameter: File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 349
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "PP2VerilogDrawingController:drawings|Mult0" File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 333
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "PP2VerilogDrawingController:drawings|Mult2" File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 335
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "PP2VerilogDrawingController:drawings|Mult4" File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 337
+Info (12130): Elaborated megafunction instantiation "PP2VerilogDrawingController:drawings|lpm_mult:Mult0" File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 333
+Info (12133): Instantiated megafunction "PP2VerilogDrawingController:drawings|lpm_mult:Mult0" with the following parameter: File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 333
     Info (12134): Parameter "LPM_WIDTHA" = "15"
     Info (12134): Parameter "LPM_WIDTHB" = "8"
     Info (12134): Parameter "LPM_WIDTHP" = "23"
@@ -1632,19 +1616,29 @@ Info (12131): Elaborated megafunction instantiation "PP2VerilogDrawingController
 Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_pgh.tdf
     Info (12023): Found entity 1: add_sub_pgh File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/db/add_sub_pgh.tdf Line: 23
 Info (12131): Elaborated megafunction instantiation "PP2VerilogDrawingController:drawings|lpm_mult:Mult0|altshift:external_latency_ffs", which is child of megafunction instantiation "PP2VerilogDrawingController:drawings|lpm_mult:Mult0" File: c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/lpm_mult.tdf Line: 352
-Info (12130): Elaborated megafunction instantiation "PP2VerilogDrawingController:drawings|lpm_mult:Mult2" File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 351
-Info (12133): Instantiated megafunction "PP2VerilogDrawingController:drawings|lpm_mult:Mult2" with the following parameter: File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 351
+Info (12130): Elaborated megafunction instantiation "PP2VerilogDrawingController:drawings|lpm_mult:Mult2" File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 335
+Info (12133): Instantiated megafunction "PP2VerilogDrawingController:drawings|lpm_mult:Mult2" with the following parameter: File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 335
     Info (12134): Parameter "LPM_WIDTHA" = "15"
-    Info (12134): Parameter "LPM_WIDTHB" = "8"
-    Info (12134): Parameter "LPM_WIDTHP" = "23"
-    Info (12134): Parameter "LPM_WIDTHR" = "23"
+    Info (12134): Parameter "LPM_WIDTHB" = "6"
+    Info (12134): Parameter "LPM_WIDTHP" = "21"
+    Info (12134): Parameter "LPM_WIDTHR" = "21"
     Info (12134): Parameter "LPM_WIDTHS" = "1"
     Info (12134): Parameter "LPM_REPRESENTATION" = "UNSIGNED"
     Info (12134): Parameter "INPUT_A_IS_CONSTANT" = "NO"
     Info (12134): Parameter "INPUT_B_IS_CONSTANT" = "YES"
     Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
-Info (12130): Elaborated megafunction instantiation "PP2VerilogDrawingController:drawings|lpm_mult:Mult4" File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 353
-Info (12133): Instantiated megafunction "PP2VerilogDrawingController:drawings|lpm_mult:Mult4" with the following parameter: File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 353
+Info (12131): Elaborated megafunction instantiation "PP2VerilogDrawingController:drawings|lpm_mult:Mult2|multcore:mult_core", which is child of megafunction instantiation "PP2VerilogDrawingController:drawings|lpm_mult:Mult2" File: c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/lpm_mult.tdf Line: 309
+Info (12131): Elaborated megafunction instantiation "PP2VerilogDrawingController:drawings|lpm_mult:Mult2|multcore:mult_core|mpar_add:padder", which is child of megafunction instantiation "PP2VerilogDrawingController:drawings|lpm_mult:Mult2" File: c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/multcore.tdf Line: 229
+Info (12131): Elaborated megafunction instantiation "PP2VerilogDrawingController:drawings|lpm_mult:Mult2|multcore:mult_core|mpar_add:padder|lpm_add_sub:adder[1]", which is child of megafunction instantiation "PP2VerilogDrawingController:drawings|lpm_mult:Mult2" File: c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/mpar_add.tdf Line: 78
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_jgh.tdf
+    Info (12023): Found entity 1: add_sub_jgh File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/db/add_sub_jgh.tdf Line: 23
+Info (12131): Elaborated megafunction instantiation "PP2VerilogDrawingController:drawings|lpm_mult:Mult2|multcore:mult_core|mpar_add:padder|mpar_add:sub_par_add", which is child of megafunction instantiation "PP2VerilogDrawingController:drawings|lpm_mult:Mult2" File: c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/mpar_add.tdf Line: 138
+Info (12131): Elaborated megafunction instantiation "PP2VerilogDrawingController:drawings|lpm_mult:Mult2|multcore:mult_core|mpar_add:padder|mpar_add:sub_par_add|lpm_add_sub:adder[0]", which is child of megafunction instantiation "PP2VerilogDrawingController:drawings|lpm_mult:Mult2" File: c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/mpar_add.tdf Line: 78
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_ngh.tdf
+    Info (12023): Found entity 1: add_sub_ngh File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/db/add_sub_ngh.tdf Line: 23
+Info (12131): Elaborated megafunction instantiation "PP2VerilogDrawingController:drawings|lpm_mult:Mult2|altshift:external_latency_ffs", which is child of megafunction instantiation "PP2VerilogDrawingController:drawings|lpm_mult:Mult2" File: c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/lpm_mult.tdf Line: 352
+Info (12130): Elaborated megafunction instantiation "PP2VerilogDrawingController:drawings|lpm_mult:Mult4" File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 337
+Info (12133): Instantiated megafunction "PP2VerilogDrawingController:drawings|lpm_mult:Mult4" with the following parameter: File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/IH8Verilog_main.v Line: 337
     Info (12134): Parameter "LPM_WIDTHA" = "16"
     Info (12134): Parameter "LPM_WIDTHB" = "9"
     Info (12134): Parameter "LPM_WIDTHP" = "25"
@@ -1707,17 +1701,17 @@ Warning (21074): Design contains 21 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "key[1]" File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/RealGame.v Line: 12
     Warning (15610): No output dependent on input pin "key[2]" File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/RealGame.v Line: 12
     Warning (15610): No output dependent on input pin "key[3]" File: C:/Users/cabrera/Desktop/FinalProject/ECE287Project/Engine test/RealGame.v Line: 12
-Info (21057): Implemented 4780 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 4691 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 23 input pins
     Info (21059): Implemented 47 output pins
     Info (21060): Implemented 4 bidirectional pins
-    Info (21061): Implemented 4450 logic cells
+    Info (21061): Implemented 4361 logic cells
     Info (21064): Implemented 256 RAM segments
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 116 warnings
-    Info: Peak virtual memory: 4847 megabytes
-    Info: Processing ended: Fri Dec 14 13:11:10 2018
-    Info: Elapsed time: 00:00:26
-    Info: Total CPU time (on all processors): 00:00:38
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 113 warnings
+    Info: Peak virtual memory: 4850 megabytes
+    Info: Processing ended: Fri Dec 14 13:49:08 2018
+    Info: Elapsed time: 00:00:24
+    Info: Total CPU time (on all processors): 00:00:36
 
 
 +------------------------------------------+
